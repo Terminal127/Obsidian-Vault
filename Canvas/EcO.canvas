@@ -1,0 +1,239 @@
+{
+  "nodes": [
+    {
+      "id": "5cbdf0285b6b27f5",
+      "type": "file",
+      "file": "source-images/Pasted image 20240916124029.png",
+      "styleAttributes": {},
+      "x": 420,
+      "y": 60,
+      "width": 684,
+      "height": 380
+    },
+    {
+      "id": "e4d73cda494a0102",
+      "type": "file",
+      "file": "source-images/Pasted image 20240916124016.png",
+      "styleAttributes": {},
+      "x": 420,
+      "y": -460,
+      "width": 480,
+      "height": 450
+    },
+    {
+      "id": "8b35895c0a18948b",
+      "type": "file",
+      "file": "source-images/Pasted image 20240916124050.png",
+      "styleAttributes": {},
+      "x": 420,
+      "y": 558,
+      "width": 699,
+      "height": 360
+    },
+    {
+      "id": "3c544cefdd5a0523",
+      "type": "file",
+      "file": "source-images/Pasted image 20240916124105.png",
+      "styleAttributes": {},
+      "x": -340,
+      "y": 480,
+      "width": 602,
+      "height": 438
+    },
+    {
+      "id": "25b673be01e35fdb",
+      "type": "text",
+      "text": "# INDIFFERENCE CURVE\n\nIndifference Curves:\nAn indifference curve is a graphical representation of different combinations of two goods that provide the same level of satisfaction (utility) to a consumer. The key points are:\n\n1. Each axis represents a different economic good.\n2. Any point on the curve represents a combination of the two goods that gives equal satisfaction.\n3. The consumer is indifferent between any two points on the same curve.\n\nExample given:\n- Point A (20 units of Good A, 10 units of Good B) provides the same utility as Point B (12 units of Good A, 30 units of Good B).\n\nProperties of Indifference Curves:\n\n1. Downward Sloping:\n   - Indifference curves slope downward from left to right.\n   - This is due to the assumption of non-satiation (more is preferred to less).\n   - As the quantity of one good increases, the quantity of the other must decrease to maintain the same level of satisfaction.\n\n2. Higher Curves Represent Higher Utility:\n   - Indifference curves that are farther from the origin represent higher levels of satisfaction.\n\n3. Indifference Curves Never Intersect:\n   - This is a crucial property ensuring consistency in consumer preferences.\n\n4. Convex to the Origin:\n   - Indifference curves are typically bowed inward (convex) towards the origin.\n   - This reflects the principle of diminishing marginal rate of substitution.\n   - As a consumer gives up more of one good, they require increasingly larger amounts of the other good to maintain the same level of satisfaction.\n\n5. Marginal Rate of Substitution (MRS):\n   - The MRS diminishes as you move along the curve.\n   - It represents how much of one good a consumer is willing to give up for an additional unit of the other good while maintaining the same level of satisfaction.\n   - The changing slope of the curve (from steep to gradually flatter) illustrates this diminishing MRS.\n\n6. Cannot be Horizontal or Vertical:\n   - An indifference curve can't be a straight horizontal or vertical line, as this would violate the assumption of non-satiation.\n\nThese properties help economists understand consumer behavior, preferences, and how consumers make choices between different combinations of goods. They form a fundamental part of consumer theory in microeconomics.\n\nHere’s a breakdown of the key points, including properties of indifference curves and the concept of the budget line:\n\n### Four Properties of Indifference Curves:\n\n1. **Indifference Curves Always Slope Downwards**:\n   - **Reason**: If a consumer gets more of one good (e.g., apples), they must give up some of another good (e.g., oranges) to maintain the same satisfaction (utility).\n   \n2. **Indifference Curves Are Convex to the Origin**:\n   - **Reason**: Due to the law of diminishing marginal utility, as the consumer substitutes one good for another, they are willing to give up smaller amounts of the second good for additional units of the first good. This causes the curve to be convex.\n   \n3. **Higher Indifference Curves Represent Higher Satisfaction**:\n   - **Reason**: A higher curve means more of one or both goods, which provides greater utility. Consumers prefer larger bundles, assuming they will bring higher satisfaction.\n   \n4. **Indifference Curves Never Cross**:\n   - **Reason**: If two curves were to intersect, it would imply that a consumer is indifferent between bundles on different satisfaction levels, which contradicts the logic of consumer preference.\n\n### Visualization Example:\nImagine Hurley has two goods, mangos and biscuits. The indifference curve shows the combinations of these goods that give Hurley the same level of satisfaction. For example:\n- **Point A**: 4 mangos and 6 biscuits.\n- **Point B**: 6 mangos and 5 biscuits.\nBoth points lie on the same indifference curve, meaning Hurley is indifferent between these combinations.\n\nHowever, if two curves cross, it creates a logical contradiction because it suggests that a consumer is equally satisfied with different amounts of goods, which doesn't make sense based on utility theory.\n\n---\n\n",
+      "styleAttributes": {},
+      "x": -340,
+      "y": -180,
+      "width": 640,
+      "height": 560,
+      "color": "1"
+    },
+    {
+      "id": "0405b72fba5bf440",
+      "type": "file",
+      "file": "source-images/Pasted image 20240916133752.png",
+      "styleAttributes": {},
+      "x": -340,
+      "y": -640,
+      "width": 699,
+      "height": 405
+    },
+    {
+      "id": "c8451a42aa331336",
+      "type": "text",
+      "text": "### Budget Line:\n\n- The **budget line** shows the possible combinations of two goods a consumer can afford given their income and the prices of those goods.\n- The slope of the budget line represents the ratio of the prices of the two goods.\n- **Key Concept**: The consumer chooses a combination of goods on the budget line that maximizes satisfaction, often where the budget line is tangent to the highest possible indifference curve.\n\nLet me know if you would like a visualization of these concepts!",
+      "styleAttributes": {},
+      "x": -390,
+      "y": 1120,
+      "width": 702,
+      "height": 420,
+      "color": "1"
+    },
+    {
+      "id": "3cf78634e06c4794",
+      "type": "file",
+      "file": "source-images/Pasted image 20240916135444.png",
+      "styleAttributes": {},
+      "x": -390,
+      "y": 1660,
+      "width": 702,
+      "height": 388
+    },
+    {
+      "id": "95a088ef457baeda",
+      "type": "file",
+      "file": "source-images/Pasted image 20240916135509.png",
+      "styleAttributes": {},
+      "x": 370,
+      "y": 1660,
+      "width": 702,
+      "height": 388
+    },
+    {
+      "id": "7ea386fbb2e20ea8",
+      "type": "file",
+      "file": "source-images/Pasted image 20240916135110.png",
+      "styleAttributes": {},
+      "x": 451,
+      "y": 960,
+      "width": 540,
+      "height": 617
+    },
+    {
+      "id": "63f74cc13089b5a4",
+      "type": "text",
+      "text": "Here's a breakdown of the key economic concepts mentioned, including **budget set**, **utility**, and the differences between **cardinal** and **ordinal utility**:\n\n---\n\n### **1. Budget Set**:\n- A **budget set** includes all the possible combinations of goods and services a person can afford based on their income and the prices of those goods.\n- **Budget Line**: This line represents the maximum combinations of two goods that a consumer can afford. Any point on or below the line is affordable.\n  \n  **Equation**: \n  \\[\n  P_1 \\cdot X_1 + P_2 \\cdot X_2 \\leq M\n  \\]\n  Where:\n  - \\( P_1 \\) and \\( P_2 \\) are the prices of goods 1 and 2.\n  - \\( X_1 \\) and \\( X_2 \\) are the quantities of goods 1 and 2.\n  - \\( M \\) is the consumer's income.\n  \n  - All combinations within the budget set lie **inside** or **on** the budget line.\n  \n---\n\n### **2. Utility**:\n- **Utility** refers to the satisfaction a consumer gets from consuming a good or service.\n  \n#### **Two Types of Utility**:\n  \n- **Cardinal Utility**: \n  - Measures satisfaction in numbers, typically using imaginary units called **utils**.\n  - For example, if pizza gives you **60 utils** and a burger gives you **40 utils**, pizza provides more satisfaction.\n  - It's a **quantitative** method.\n\n- **Ordinal Utility**:\n  - Measures satisfaction by **ranking** preferences.\n  - For instance, if you prefer pizza over a burger, you rank pizza first and the burger second, but you don’t assign numbers to the satisfaction.\n  - It’s a **qualitative** method.\n\n---\n\n### **3. Differences Between Cardinal and Ordinal Utility**:\n\n| **Cardinal Utility** | **Ordinal Utility** |\n|----------------------|---------------------|\n| Satisfaction is measured in numbers (utils). | Satisfaction is ranked based on preferences. |\n| Quantitative measurement. | Qualitative measurement. |\n| Example: Pizza gives 60 utils, Burger gives 40 utils. | Example: Pizza is preferred over a burger. |\n\n---\n\n### **4. Total and Marginal Utilities**:\n\n- **Total Utility (TU)**: \n  - The total satisfaction obtained from consuming all units of a good.\n  \n- **Marginal Utility (MU)**:\n  - The additional satisfaction gained from consuming one more unit of a good.\n  - Formula: \n  \\[\n  MU_x = \\frac{\\Delta TU}{\\Delta Q}\n  \\]\n  \n- **Relationship between Total and Marginal Utility**:\n  - **Total Utility** increases, but at a **diminishing rate**.\n  - **Marginal Utility** decreases as more units are consumed, because each additional unit gives **less satisfaction**.\n  - When **Total Utility** reaches its maximum, **Marginal Utility** becomes zero.\n\n---\n\nThis combination of budget lines and utility helps understand consumer choice and how individuals maximize satisfaction given their income and preferences.",
+      "styleAttributes": {},
+      "x": -1680,
+      "y": -270,
+      "width": 1060,
+      "height": 660,
+      "color": "1"
+    },
+    {
+      "id": "647511759f8bf3b4",
+      "type": "text",
+      "text": "### **Consumer Equilibrium**\n\n**Consumer equilibrium** is the point at which a consumer maximizes their satisfaction (utility) given their income and the prices of goods. The consumer allocates their resources in such a way that they achieve the highest possible utility with their available budget.\n\n\n---\n\n### **1. Consumer Equilibrium for a Single Commodity**:\n- A consumer reaches equilibrium when the **marginal utility** (MU) of the commodity is equal to the **price** (P) of the commodity.\n- **Key Concept**: The consumer buys a quantity of the good where the marginal utility of the last unit consumed is equal to the price they pay for that unit.\n\n#### Example of Equilibrium for a Single Commodity:\n\n| **Units of X** | **Price (Px)** (Rs.) | **Marginal Utility** (utils) | **Marginal Utility in Rs. (MUx)** | **Difference (MUx - Px)** | **Remarks** |\n|----------------|----------------------|-----------------------------|----------------------------------|---------------------------|-------------|\n| 1              | 10                   | 20                          | 20/1 = 20                       | 10                        | MUx > Px, increase consumption |\n| 2              | 10                   | 16                          | 16/1 = 16                       | 6                         | MUx > Px, increase consumption |\n| 3              | 10                   | 10                          | 10/1 = 10                       | 0                         | Consumer Equilibrium (MUx = Px) |\n| 4              | 10                   | 4                           | 4/1 = 4                         | -6                        | MUx < Px, decrease consumption |\n| 5              | 10                   | 0                           | 0/1 = 0                         | -10                       | MUx < Px, decrease consumption |\n\n- The consumer reaches equilibrium at the 3 rd unit, where the marginal utility equals the price of Rs. 10.\n\n---\n\n### **2. Consumer Equilibrium for Two Commodities**:\nWhen consuming two goods (say, X and Y), the consumer is in equilibrium when:\n1. The **marginal utility per rupee** spent on each good is equal:\n   \\[\n   \\frac{MU_x}{P_x} = \\frac{MU_y}{P_y}\n   \\]\n   This ensures that the consumer is getting the same satisfaction from the last rupee spent on each good.\n\n2. The **slope of the indifference curve** (which represents the marginal rate of substitution, MRS) is equal to the **slope of the budget line** (the price ratio of the goods):\n   \\[\n   MRS_{xy} = \\frac{P_x}{P_y}\n   \\]\n\n#### Example of Equilibrium for Two Commodities:\n- Suppose a consumer is choosing between good X and good Y.\n- The consumer will adjust their consumption until the **marginal utility per rupee** is equal for both goods:\n  \\[\n  \\frac{MU_x}{P_x} = \\frac{MU_y}{P_y}\n  \\]\n- **Equilibrium Condition**: The consumer is satisfied when the ratio of marginal utilities to prices is equal for both goods.\n\n---\n\n### **Graphical Representation of Consumer Equilibrium**:\n- The **budget line** represents all the combinations of goods that a consumer can afford.\n- The **indifference curve** represents all combinations of goods that provide the same level of satisfaction.\n- The consumer’s equilibrium occurs at the **point where the budget line is tangent to the highest possible indifference curve**. At this point:\n  - The **slope of the indifference curve** (MRS) is equal to the **slope of the budget line**.\n\n---\n\n### **Key Points**:\n- **Single Commodity Equilibrium**: The consumer is at equilibrium when the **marginal utility** of a good equals its **price**.\n- **Two Commodities Equilibrium**: The consumer is at equilibrium when the **marginal utility per rupee** for both goods is equal and the **MRS** equals the **price ratio**.\n\nThis balance helps the consumer achieve the highest level of satisfaction with their limited resources.",
+      "styleAttributes": {},
+      "x": -1700,
+      "y": 990,
+      "width": 1060,
+      "height": 680,
+      "color": "1"
+    },
+    {
+      "id": "235b0886ac64b445",
+      "type": "text",
+      "text": "### 1. Introduction\n\nInterest rates represent the cost of borrowing money or the return on investment. A rate of 15% compounded annually means that if you invest Rs. 100, you’ll earn Rs. 15 at the end of the first year, making your total Rs. 115. In the second year, you earn interest on the new total, leading to an increasing amount over time. \n\n### 2. Time Value of Money\n\nThe concept of the time value of money highlights that a sum of money has different values over time due to its potential earning capacity. For example, if you invest Rs. 100 at a 15% annual interest rate for five years, the amount grows each year as shown in **Table 3.1**.\n\n#### Table 3.1: Compound Amounts\n| Year End | Interest (Rs.) | Compound Amount (Rs.) |\n|----------|----------------|------------------------|\n| 0        | -              | 100.00                 |\n| 1        | 15.00          | 115.00                 |\n| 2        | 17.25          | 132.25                 |\n| 3        | 19.84          | 152.09                 |\n| 4        | 22.81          | 174.90                 |\n| 5        | 26.24          | 201.14                 |\n\nThe future value \\( F \\) can be calculated using the formula:\n\n\\[\nF = P (1 + i)^n\n\\]\n\nWhere:\n- \\( P \\) = principal amount\n- \\( i \\) = interest rate\n- \\( n \\) = number of periods\n\nAt the end of five years, your Rs. 100 will have grown to Rs. 201.14.\n\n### 3. Present Worth\n\nConversely, if you want a specific amount in the future, you can calculate how much to invest today. **Table 3.2** shows how much to invest now to receive Rs. 100 at the end of various years at a 15% interest rate.\n\n#### Table 3.2: Present Worth Amounts\n| End of Year (n) | Present Worth (Rs.) | Future Amount (Rs.) |\n|------------------|---------------------|---------------------|\n| 0                | 100.00              | 100                 |\n| 1                | 86.96               | 100                 |\n| 2                | 75.61               | 100                 |\n| 3                | 65.75               | 100                 |\n| 4                | 57.18               | 100                 |\n| 5                | 49.72               | 100                 |\n| 6                | 43.29               | 100                 |\n| 7                | 37.59               | 100                 |\n| 8                | 32.69               | 100                 |\n| 9                | 28.43               | 100                 |\n| 10               | 24.72               | 100                 |\n\nTo receive Rs. 100 at the end of five years, you should invest Rs. 49.72 today. \n\n### 4. Decision Making Based on Time Value of Money\n\nConsider a scenario where a prize of either Rs. 24.72 now or Rs. 100 in 10 years is offered. If the opportunity cost of capital is 15%, both options are equivalent. However, if an investor can achieve a higher return (e.g., 24%), receiving Rs. 24.72 now is advantageous. By investing Rs. 24.72 at 24%, it would grow to approximately Rs. 212.45 in 10 years, demonstrating the importance of the time value of money in decision-making. \n\n### Conclusion\n\nThe time value of money emphasizes that receiving money sooner is preferable due to its potential for earning interest. Understanding this principle is crucial for making informed financial decisions, whether investing, saving, or evaluating future cash flows.\n### 3.3 Interest Formulas\n\nTo make informed investment decisions, it's crucial to understand and apply various interest formulas effectively. Interest can be classified into two main categories: **simple interest** and **compound interest**.\n\n- **Simple Interest**: Calculated only on the initial principal amount for each period, without considering previously earned interest.\n  \n- **Compound Interest**: Interest is calculated on the initial principal plus any interest accrued in prior periods.\n\n#### Notations Used in Interest Formulas\n\n- **P** = Principal amount\n- **n** = Number of interest periods\n- **i** = Interest rate (compounded monthly, quarterly, semiannually, or annually)\n- **F** = Future amount at the end of year \\( n \\)\n- **A** = Equal amount deposited at the end of every interest period\n- **G** = Uniform amount added/subtracted from the deposit over each period\n\n### 3.3.1 Single-Payment Compound Amount\n\nThe goal is to find the future value \\( F \\) of an initial payment \\( P \\) after \\( n \\) periods at an interest rate \\( i \\) compounded for each period. The formulas are:\n\n\\[\nF = P (1 + i)^n\n\\]\n\nOr expressed using the compound amount factor:\n\n\\[\nF = P (F/P, i, n)\n\\]\n\nWhere \\( (F/P, i, n) \\) represents the single-payment compound amount factor.\n\n#### Example 3.1\n\n**Problem**: A person deposits Rs. 20,000 at an interest rate of 18% compounded annually for 10 years. Calculate the maturity value after 10 years.\n\n**Solution**:\n\nGiven:\n- \\( P = 20,000 \\)\n- \\( i = 18\\% = 0.18 \\)\n- \\( n = 10 \\)\n\nUsing the formula for the future amount:\n\n\\[\nF = P (1 + i)^n\n\\]\n\nCalculating:\n\n\\[\nF = 20,000 (1 + 0.18)^{10}\n\\]\n\nCalculating the compound factor:\n\n\\[\nF = 20,000 (1.18)^{10} \\approx 20,000 \\times 5.234 = 1,04,680\n\\]\n\nThus, the maturity value of Rs. 20,000 invested at an 18% annual interest rate compounded yearly will be **Rs. 1,04,680** after 10 years. \n\nThis example clearly illustrates the use of the compound interest formula to determine the future value of an investment.\n### 3.3.2 Single-Payment Present Worth Amount\n\nThe objective here is to find the present worth amount \\( P \\) of a future sum \\( F \\) that will be received after \\( n \\) periods, given an interest rate \\( i \\) compounded at the end of each period. The relevant formula is:\n\n\\[\nP = \\frac{F}{(1 + i)^n} = F (P/F, i, n)\n\\]\n\nWhere \\( (P/F, i, n) \\) is known as the single-payment present worth factor.\n\n#### Example 3.2\n\n**Problem**: A person wishes to accumulate Rs. 1,00,000 for his son’s education after 10 years. If the bank offers a 15% interest rate compounded annually, what amount should he deposit now?\n\n**Solution**:\n\nGiven:\n- \\( F = 1,00,000 \\)\n- \\( i = 15\\% = 0.15 \\)\n- \\( n = 10 \\)\n\nUsing the present worth formula:\n\n\\[\nP = \\frac{F}{(1 + i)^n} = F (P/F, i, n)\n\\]\n\nCalculating:\n\n\\[\nP = \\frac{1,00,000}{(1 + 0.15)^{10}} = 1,00,000 \\times 0.2472 \\approx 24,720\n\\]\n\nThus, the person needs to invest **Rs. 24,720** now to receive Rs. 1,00,000 in 10 years at a 15% interest rate compounded annually.\n\n![[Pasted image 20240918195931.png]]\n\n![[Pasted image 20240918195955.png]]\n![[Pasted image 20240918200012.png]] ![[Pasted image 20240918200022.png]]\n![[Pasted image 20240918200043.png]]\n\nCertainly! Let's break down the topics and address the questions you've provided.\n\n### 1. Time Value of Money\nThe time value of money (TVM) is a financial concept that states that a sum of money has greater value now than it will in the future due to its potential earning capacity. This principle emphasizes that money can earn interest, and therefore, any amount of money is worth more the sooner it is received. The TVM is fundamental in finance for valuing cash flows, investments, loans, and savings.\n\n### 2. Practical Applications of Interest Formulas\nVarious interest formulas are used in real-life financial scenarios, including:\n- **Loan Calculations**: Determining monthly payments for mortgages or car loans.\n- **Investment Growth**: Calculating future values of savings accounts or investment portfolios.\n- **Sinking Funds**: Setting aside money for future expenses (e.g., equipment replacement).\n- **Retirement Planning**: Estimating how much to save to reach retirement goals.\n- **Bond Valuation**: Understanding how interest rates affect bond prices.\n\n### 3. Future Amount Calculation\n**Problem**: A person deposits Rs. 1,00,000 at 15% interest for 6 years.\n\n**Solution**:\nUsing the future value formula:\n\n\\[\nF = P (1 + i)^n\n\\]\n\nWhere:\n- \\( P = 1,00,000 \\)\n- \\( i = 0.15 \\)\n- \\( n = 6 \\)\n\nCalculating:\n\n\\[\nF = 1,00,000 (1 + 0.15)^6 \\approx 1,00,000 (2.313) \\approx 2,31,300\n\\]\n\nThe future amount is **Rs. 2,31,300**.\n\n### 4. Present Amount Calculation\n**Problem**: To find the present value for Rs. 2,00,000 needed in 15 years at 18%.\n\n**Solution**:\nUsing the present value formula:\n\n\\[\nP = \\frac{F}{(1 + i)^n}\n\\]\n\nWhere:\n- \\( F = 2,00,000 \\)\n- \\( i = 0.18 \\)\n- \\( n = 15 \\)\n\nCalculating:\n\n\\[\nP = \\frac{2,00,000}{(1 + 0.18)^{15}} \\approx \\frac{2,00,000}{7.149} \\approx 27,974.35\n\\]\n\nThe present amount required is approximately **Rs. 27,974.35**.\n\n### 5. Maturity Value Calculation\n**Problem**: Investing Rs. 10,000 annually for 30 years at 15%.\n\n**Solution**:\nUsing the future value of an annuity formula:\n\n\\[\nF = A \\cdot \\left ( \\frac{(1 + i)^n - 1}{i} \\right)\n\\]\n\nWhere:\n- \\( A = 10,000 \\)\n- \\( i = 0.15 \\)\n- \\( n = 30 \\)\n\nCalculating:\n\n\\[\nF = 10,000 \\cdot \\left ( \\frac{(1 + 0.15)^{30} - 1}{0.15} \\right) \\approx 10,000 \\cdot 66.078 \\approx 6,60,780\n\\]\n\nThe maturity value is approximately **Rs. 6,60,780**.\n\n### 6. Accumulated Sum Check\n**Problem**: Depositing Rs. 50,00,000 annually for 5 years at 18% to meet Rs. 5,00,00,000.\n\n**Solution**:\nUsing the future value of an annuity formula:\n\n\\[\nF = A \\cdot \\left ( \\frac{(1 + i)^n - 1}{i} \\right)\n\\]\n\nWhere:\n- \\( A = 50,00,000 \\)\n- \\( i = 0.18 \\)\n- \\( n = 5 \\)\n\nCalculating:\n\n\\[\nF = 50,00,000 \\cdot \\left ( \\frac{(1 + 0.18)^{5} - 1}{0.18} \\right) \\approx 50,00,000 \\cdot 6.856 \\approx 3,42,80,000\n\\]\n\nThe accumulated amount is approximately **Rs. 3,42,80,000**, which is insufficient. The difference needed is:\n\n\\[\n5,00,00,000 - 3,42,80,000 = 1,57,20,000\n\\]\n\n### 7. Annual Equivalent Amount Calculation\n**Problem**: To receive Rs. 15,00,000 after 10 years at 18%.\n\n**Solution**:\nUsing the annuity formula:\n\n\\[\nA = \\frac{F}{\\left ( \\frac{(1 + i)^n - 1}{i} \\right)}\n\\]\n\nCalculating:\n\n\\[\nA = \\frac{15,00,000}{\\left ( \\frac{(1 + 0.18)^{10} - 1}{0.18} \\right)} \\approx \\frac{15,00,000}{5.234} \\approx 2,86,674\n\\]\n\nThe annual equivalent amount is approximately **Rs. 2,86,674**.\n\n### 8. Annual Deposit Amount for Expansion\n**Problem**: To accumulate Rs. 4,00,00,000 in 5 years at 15%.\n\n**Solution**:\nUsing the annuity formula:\n\n\\[\nA = \\frac{F}{\\left ( \\frac{(1 + i)^n - 1}{i} \\right)}\n\\]\n\nCalculating:\n\n\\[\nA = \\frac{4,00,00,000}{\\left ( \\frac{(1 + 0.15)^{5} - 1}{0.15} \\right)} \\approx \\frac{4,00,00,000}{5.078} \\approx 78,620\n\\]\n\nThe annual deposit amount is approximately **Rs. 78,620**.\n\n### 9. Reserve Amount Calculation\n**Problem**: To have Rs. 15,00,000 annually for 20 years at 15%.\n\n**Solution**:\nUsing the present value formula:\n\n\\[\nP = A \\cdot \\left ( \\frac{(1 - (1 + i)^{-n})}{i} \\right)\n\\]\n\nCalculating:\n\n\\[\nP = 15,00,000 \\cdot \\left ( \\frac{(1 - (1 + 0.15)^{-20})}{0.15} \\right) \\approx 15,00,000 \\cdot 7.352 \\approx 1,10,28,000\n\\]\n\nThe single payment required now is approximately **Rs. 1,10,28,000**.\n\n### 10. Best Alternative for Car Purchase\n**Problem**: Comparing down payment vs. Yearly payments for a car.\n\n**Solution**:\n- **Down Payment**: Rs. 1,50,000\n- **Installments**: Rs. 25,000 annually for 15 years at 18%.\n\nUsing the present value of an annuity:\n\n\\[\nPV = A \\cdot \\left ( \\frac{1 - (1 + i)^{-n}}{i} \\right)\n\\]\n\nCalculating:\n\n\\[\nPV = 25,000 \\cdot \\left ( \\frac{1 - (1 + 0.18)^{-15}}{0.18} \\right) \\approx 25,000 \\cdot 7.282 \\approx 1,82,050\n\\]\n\nThe total present value for installment payments is approximately **Rs. 1,82,050**, which is greater than the down payment. Hence, paying **Rs. 1,50,000** upfront is the better alternative.\n\n### 11. Equal Installment Calculation\n**Problem**: Loan of Rs. 20,00,000 to be repaid in 20 equal installments at 12%.\n\n**Solution**:\nUsing the capital recovery formula:\n\n\\[\nA = P \\cdot \\frac{i (1 + i)^n}{(1 + i)^n - 1}\n\\]\n\nCalculating:\n\n\\[\nA = 20,00,000 \\cdot \\frac{0.12 (1 + 0.12)^{20}}{(1 + 0.12)^{20} - 1} \\approx 2,60,000\n\\]\n\nThe equal installment amount is approximately **Rs. 2,60,000**.\n\n### 12. Installment for Equipment Loan\n**Problem**: Loan of Rs. 5,00,000 at 18% for 25 years.\n\n**Solution**:\nUsing the capital recovery formula:\n\n\\[\nA = P \\cdot \\frac{i (1 + i)^n}{(1 + i)^n - 1}\n\\]\n\nCalculating:\n\n\\[\nA = 5,00,000 \\cdot \\frac{0.18 (1 + 0.18)^{25}}{(1 + 0.18)^{25} - 1} \\approx 58,800\n\\]\n\nThe installment amount is approximately **Rs. 58,800**.\n\n### 13. Total Amount at Retirement\n**Problem**: Depositing Rs. 5,000 with a Rs. 1,000 annual increase for 14 years at 18%.\n\n**Solution**:\nUsing the future value of a gradient series formula:\n\n\\[\nF = A_1 \\cdot (F/A, i, n) + G \\\n\nCdot (F/G, i, n)\n\\]\n\nCalculating:\n\n1. \\( A_1 = 5,000 \\)\n2. \\( G = 1,000 \\)\n3. Find the factors for \\( n = 15 \\) years.\n\n\\[\nF \\approx 5,000 \\cdot (F/A, 18\\%, 15) + 1,000 \\cdot (F/G, 18\\%, 15)\n\\]\n\nTotal amount will be calculated using these factors.\n\n### 14. Total Amount from Cash Flow\nYou need to provide the specific cash flow details to calculate the total amount at the end of the 10 th year.\n\n### 15. Total Amount with Incremental Deposits\n**Problem**: Depositing Rs. 10,000 with a Rs. 2,000 increase for 9 years at 20%.\n\n**Solution**:\nUsing the future value of a gradient series formula similar to problem 13.\n\n### 16. Total Amount with Decreasing Deposits\nUsing the formula for a decreasing series similar to the previous examples.\n\n### 17. Maturity Amount with Monthly Compounding\n**Problem**: Rs. 50,000 at 18% for 15 years compounded monthly.\n\n**Solution**:\nUsing the formula for future value with monthly compounding:\n\n\\[\nF = P \\left (1 + \\frac{i}{m}\\right)^{mt}\n\\]\n\nWhere:\n- \\( P = 50,000 \\)\n- \\( i = 0.18 \\)\n- \\( m = 12 \\) (monthly)\n- \\( t = 15 \\)\n\nCalculating:\n\n\\[\nF = 50,000 \\left (1 + \\frac{0.18}{12}\\right)^{12 \\cdot 15}\n\\]\n\nThese calculations provide a solid foundation for understanding various financial scenarios using the time value of money principles. If you need further calculations for specific questions or examples, feel free to ask!\n![[Pasted image 20240918202757.png]]\n\n\n\n![[Pasted image 20240918202107.png]]\n\n![[Pasted image 20240918202912.png]]",
+      "styleAttributes": {},
+      "x": -1740,
+      "y": 2520,
+      "width": 920,
+      "height": 740,
+      "color": "4"
+    },
+    {
+      "id": "7dd97152c6b3f3f3",
+      "type": "text",
+      "text": "![[Pasted image 20240918200242.png]]\n\n",
+      "styleAttributes": {},
+      "x": -760,
+      "y": 2560,
+      "width": 1020,
+      "height": 720,
+      "color": "4"
+    }
+  ],
+  "edges": [
+    {
+      "id": "74786ad4bbc8778a",
+      "styleAttributes": {},
+      "fromNode": "25b673be01e35fdb",
+      "fromSide": "right",
+      "toNode": "e4d73cda494a0102",
+      "toSide": "left",
+      "color": "1"
+    },
+    {
+      "id": "44cbc9ba68eff115",
+      "styleAttributes": {},
+      "fromNode": "25b673be01e35fdb",
+      "fromSide": "right",
+      "toNode": "5cbdf0285b6b27f5",
+      "toSide": "left",
+      "color": "1"
+    },
+    {
+      "id": "70be9b2ee053dbd3",
+      "styleAttributes": {},
+      "fromNode": "25b673be01e35fdb",
+      "fromSide": "right",
+      "toNode": "8b35895c0a18948b",
+      "toSide": "left",
+      "color": "1"
+    },
+    {
+      "id": "8a7582f1e74bc03a",
+      "styleAttributes": {},
+      "fromNode": "25b673be01e35fdb",
+      "fromSide": "bottom",
+      "toNode": "3c544cefdd5a0523",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "7872086584ce1243",
+      "styleAttributes": {},
+      "fromNode": "25b673be01e35fdb",
+      "fromSide": "top",
+      "toNode": "0405b72fba5bf440",
+      "toSide": "bottom",
+      "color": "1"
+    },
+    {
+      "id": "2d80fd1392fed3b5",
+      "styleAttributes": {},
+      "fromNode": "c8451a42aa331336",
+      "fromSide": "right",
+      "toNode": "7ea386fbb2e20ea8",
+      "toSide": "left",
+      "color": "1"
+    },
+    {
+      "id": "dcd15c5a4c188d27",
+      "styleAttributes": {},
+      "fromNode": "c8451a42aa331336",
+      "fromSide": "bottom",
+      "toNode": "3cf78634e06c4794",
+      "toSide": "top"
+    },
+    {
+      "id": "ed5385e395be0841",
+      "styleAttributes": {},
+      "fromNode": "c8451a42aa331336",
+      "fromSide": "right",
+      "toNode": "95a088ef457baeda",
+      "toSide": "left"
+    },
+    {
+      "id": "0bbbb514cc984a46",
+      "styleAttributes": {},
+      "fromNode": "c8451a42aa331336",
+      "fromSide": "left",
+      "toNode": "647511759f8bf3b4",
+      "toSide": "right"
+    },
+    {
+      "id": "e0c109ef8cdc157e",
+      "styleAttributes": {},
+      "fromNode": "25b673be01e35fdb",
+      "fromSide": "left",
+      "toNode": "63f74cc13089b5a4",
+      "toSide": "right"
+    }
+  ],
+  "metadata": {}
+}

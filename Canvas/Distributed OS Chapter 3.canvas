@@ -1,0 +1,856 @@
+{
+  "nodes": [
+    {
+      "id": "4d186bb30571bb8a",
+      "type": "text",
+      "text": "## Challenges of Synchronization in Distributed Systems\n\nIn single CPU systems, synchronization problems such as mutual exclusion and critical region protection are typically addressed using semaphores, monitors, and other shared memory-based mechanisms. However, these techniques are unsuitable for distributed systems due to the lack of shared memory. In a distributed environment, processes running on different machines cannot directly share semaphores or other synchronization primitives stored in a single kernel.\n\nFor example, in a single CPU system, two processes can synchronize using a semaphore because both can access the semaphore through system calls to a shared kernel memory. In contrast, in a distributed system, this approach is unfeasible since processes on different machines cannot directly share or access a common memory space. This necessitates the development of alternative synchronization techniques that account for the decentralized nature of distributed systems.",
+      "styleAttributes": {},
+      "x": -560,
+      "y": -280,
+      "width": 700,
+      "height": 440,
+      "color": "1"
+    },
+    {
+      "id": "fc18b6b8304def72",
+      "type": "text",
+      "text": "## Clock Synchronization in Distributed Systems\n\nIn distributed systems, synchronization is more complex than in centralized systems because the former rely on distributed algorithms. Unlike centralized systems, where a single process can gather all necessary information and make decisions, distributed systems must operate under different constraints. These constraints include scattered information, local decision-making, avoidance of single points of failure, and the absence of a common, precise global time source.\n\n### Challenges in Distributed Systems\n\n1. **Scattered Information**: In distributed systems, relevant information is dispersed across multiple machines, making it impractical to centralize data for decision-making.\n  \n2. **Local Decision-Making**: Processes in a distributed system must often make decisions based on local information, without the benefit of a global view of the system.\n  \n3. **Avoidance of Single Points of Failure**: A system must be designed to avoid reliance on a single process or machine, as this could make the entire system vulnerable to failures.\n\n4. **Lack of a Common Clock**: Distributed systems do not have a shared clock or a precise global time source, which introduces challenges in achieving synchronization.\n\n### The Impact of Clock Desynchronization\n\nThe lack of a global clock in distributed systems can have significant implications. For example, in a UNIX-like environment where the `make` program is used to manage the compilation of source code, time synchronization is crucial. The `make` program relies on the timestamps of source and object files to determine which files need recompilation. If the system’s clocks are not synchronized, this process can fail.\n\nImagine a scenario where two computers in a distributed system have slightly desynchronized clocks. If a source file, `output.c`, is modified after an object file, `output.o`, is created, but the modification is assigned an earlier timestamp due to a slow clock, `make` might incorrectly determine that no recompilation is needed. This would result in an executable program containing a mix of outdated and updated code, leading to errors that are difficult to diagnose.\n\n### The Necessity of Clock Synchronization\n\nGiven how fundamental time is to both human reasoning and the operation of software systems, the consequences of unsynchronized clocks can be dramatic. As illustrated, even small discrepancies in time can cause significant issues, such as incorrect program compilation. Therefore, it is crucial to explore whether it is possible to synchronize clocks across a distributed system to avoid such problems.\n\nThe study of synchronization in distributed systems naturally begins with the question: **Is it possible to synchronize all clocks in a distributed system?** This question addresses the fundamental challenge of ensuring that all processes in a distributed system have a consistent view of time, which is essential for correct and reliable operation.",
+      "styleAttributes": {},
+      "x": 300,
+      "y": -290,
+      "width": 780,
+      "height": 460,
+      "color": "6"
+    },
+    {
+      "id": "3e5491347a6a77b5",
+      "type": "file",
+      "file": "source-images/Pasted image 20240905230727.png",
+      "styleAttributes": {},
+      "x": 2076,
+      "y": -540,
+      "width": 978,
+      "height": 501
+    },
+    {
+      "id": "3b941f8a0b3454ab",
+      "type": "text",
+      "text": "### 3.1.3. Clock Synchronization Algorithms\n\nWhen dealing with distributed systems, synchronizing clocks across different machines is a significant challenge. This synchronization is crucial for maintaining consistent timekeeping, which impacts event ordering, coordination, and overall system integrity. If one machine has access to an external time reference, such as a WWV receiver, the goal is to synchronize all other machines to this time source. However, if no machine has such access, each machine must rely on its own internal clock, and the objective becomes keeping all machines in sync with each other as accurately as possible.\n\n#### Underlying System Model\n\nThe model used for clock synchronization assumes that each machine in the system has a timer that interrupts at a regular rate, say \\( H \\) times per second. Each time the timer interrupts, an interrupt handler adds one tick to a software clock. This clock keeps track of the number of ticks since a specified time in the past. Let's denote the clock value on machine \\( p \\) at time \\( t \\) as \\( C_p(t) \\). Ideally, in a perfectly synchronized system, \\( C_p(t) = t \\) for all machines \\( p \\) and for all times \\( t \\). In simpler terms, the rate of change of the clock \\( \\frac{dC_p}{dt} \\) should be 1.\n\nHowever, real timers are not perfect. The number of ticks generated by a timer per second may vary slightly from the intended rate \\( H \\). For example, a timer designed to generate 216,000 ticks per hour (assuming \\( H = 60 \\)) may, in reality, generate anywhere from 215,998 to 216,002 ticks per hour. This variability is captured by the maximum drift rate, denoted as \\( \\rho \\), which is a constant provided by the timer's manufacturer. The drift rate indicates how much a timer can deviate from the ideal tick rate.\n\nMathematically, if the drift rate of a clock is bounded by \\( \\rho \\), then the clock's time rate can be expressed as:\n\n\\[\n(1 - \\rho) \\leq \\frac{dC_p}{dt} \\leq (1 + \\rho)\n\\]\n\nThis means that the clock's time may be either slower or faster than the actual time by a factor of \\( \\rho \\).\n\n#### Synchronization Requirement\n\nWhen two clocks drift in opposite directions (one running faster and the other slower), their time difference can increase over time. After a time interval \\( \\Delta t \\) since synchronization, the two clocks may differ by up to \\( 2\\rho \\Delta t \\). To ensure that the clocks never differ by more than a specified threshold \\( \\delta \\), they must be resynchronized at least every \\( \\frac{\\delta}{2\\rho} \\) seconds.\n\n#### Algorithmic Variations\n\nVarious clock synchronization algorithms exist, differing primarily in how the resynchronization is achieved. Some prominent algorithms include:\n\n1. **Cristian's Algorithm (1989):** This algorithm uses a time server that provides the current time to other machines. Machines periodically request the time from the server and adjust their clocks accordingly.\n\n2. **Berkeley Algorithm:** In this algorithm, a central coordinator periodically polls all machines, calculates the average time, and instructs each machine to adjust its clock by a specific amount.\n\n3. **Network Time Protocol (NTP):** NTP is a widely used protocol that synchronizes clocks using a hierarchical system of time servers. Machines exchange time information with multiple servers and use algorithms to adjust for network latency and clock drift.\n\nThese algorithms take into account network delays, clock drift, and other factors to ensure that all machines in the distributed system remain synchronized within acceptable limits.",
+      "styleAttributes": {},
+      "x": 120,
+      "y": 680,
+      "width": 1029,
+      "height": 723,
+      "color": "2"
+    },
+    {
+      "id": "44d324f556d2ee56",
+      "type": "file",
+      "file": "source-images/Pasted image 20240905233216.png",
+      "styleAttributes": {},
+      "x": 96,
+      "y": 1560,
+      "width": 1053,
+      "height": 544
+    },
+    {
+      "id": "a148b48b60c90d00",
+      "type": "text",
+      "text": "### Cristian’s Algorithm\n\nCristian's Algorithm is designed for systems where one machine, known as the time server, has access to an accurate time source, such as a WWV receiver. The goal is to synchronize all other machines in the system with this time server. The algorithm is simple and effective, particularly in environments where only one machine has access to an external time reference.\n\n#### Basic Operation\n\n1. **Request Time:** Periodically, every machine in the system sends a request to the time server asking for the current time. This must be done at intervals no longer than \\( \\delta / 2\\rho \\) seconds, where \\( \\delta \\) is the maximum allowable difference between clocks, and \\( \\rho \\) is the maximum clock drift rate.\n\n2. **Server Response:** The time server responds as quickly as possible with its current time, \\( C_{UTC} \\).\n\n3. **Update Clock:** Upon receiving the server's time, the machine sets its clock to this value. However, this straightforward approach has some challenges that need to be addressed.\n\n#### Challenges and Solutions\n\n1. **Time Cannot Run Backward:**\n   - **Problem:** If the machine's clock is ahead of the time server's time, setting the clock backward could cause issues, such as file timestamps being incorrect.\n   - **Solution:** Instead of directly setting the clock backward, the adjustment is made gradually. For example, if the timer generates 100 interrupts per second (each normally adding 10 milliseconds), the adjustment can be made by adding only 9 milliseconds (to slow down) or 11 milliseconds (to speed up) until the correction is complete.\n\n2. **Propagation Delay:**\n   - **Problem:** The time taken for the server's response to travel back to the machine can cause the received time to be inaccurate, especially if the network is congested.\n   - **Solution:** The sender records the time interval between sending the request and receiving the response. This interval, denoted as \\( T_1 - T_0 \\), can be used to estimate the one-way propagation time as \\( (T_1 - T_0) / 2 \\). The server's time can then be adjusted by this amount to provide a more accurate estimate.\n\n3. **Improving Accuracy:**\n   - **Interrupt Handling Time:** If the time it takes for the server to handle the interrupt and process the request is known, this time (denoted as \\( I \\)) can be subtracted from the interval to improve the estimate. The propagation time is then \\( (T_1 - T_0 - I) / 2 \\).\n   - **Multiple Measurements:** To further improve accuracy, multiple measurements can be taken. Any measurements with unusually high intervals (suggesting network congestion) are discarded. The remaining measurements can be averaged, or the fastest response time can be used, as it likely represents the pure propagation time with the least network delay.\n\nCristian’s Algorithm is particularly well-suited for systems where accurate timekeeping is critical, and it provides a simple yet effective method for synchronizing clocks with minimal error. By accounting for propagation delays and gradually adjusting clocks, the algorithm ensures that time discrepancies are minimized without causing system issues.",
+      "styleAttributes": {},
+      "x": 1320,
+      "y": 575,
+      "width": 1124,
+      "height": 467,
+      "color": "3"
+    },
+    {
+      "id": "d371f70a926874d1",
+      "type": "file",
+      "file": "source-images/Pasted image 20240905233946.png",
+      "styleAttributes": {},
+      "x": 2720,
+      "y": 520,
+      "width": 1074,
+      "height": 522
+    },
+    {
+      "id": "823bded11e7f19dd",
+      "type": "text",
+      "text": "The **Berkeley Algorithm** for clock synchronization operates differently from Cristian's algorithm by making the time server (or time daemon) active rather than passive. Here's a breakdown of how the algorithm works:\n\n### 1. **Polling by the Time Daemon:**\n   - In the Berkeley Algorithm, the time daemon actively initiates the synchronization process. It periodically polls all the machines in the network, asking them for their current clock times. This polling is done by sending out a message to each machine requesting their time.\n\n### 2. **Responses from Machines:**\n   - Once the machines receive the polling request, they respond with their current clock values. The time daemon collects all these responses to understand how much each machine's clock differs from its own.\n\n### 3. **Time Adjustment Calculation:**\n   - After gathering all the clock values from the machines, the time daemon computes the average time based on the differences between its clock and the clocks of the other machines. The goal is to find a consensus time that all machines can adjust to.\n\n### 4. **Instructing Machines to Adjust Clocks:**\n   - The time daemon then sends messages to each machine, instructing them on how to adjust their clocks. This adjustment could involve advancing or slowing down their clocks gradually until the desired time synchronization is achieved.\n\n### Example (Based on Fig. 3-7):\n- **(a)** At 3:00, the time daemon asks all machines for their clock times.\n- **(b)** The machines respond with their times, showing how far ahead or behind they are compared to the time daemon.\n- **(c)** The time daemon calculates the necessary adjustments and instructs each machine to adjust its clock accordingly.\n\n### Key Characteristics:\n- **Active Time Daemon:** Unlike in Cristian's algorithm, where the time server only responds to requests, the Berkeley Algorithm involves a proactive time daemon that initiates communication with other machines.\n- **No WWV Receiver Required:** This method is ideal for systems without access to an external time reference, such as a WWV receiver.\n- **Manual Adjustment of Time Daemon:** The time daemon's clock may need to be set manually by an operator periodically, as there is no external time reference.\n\nThis algorithm is particularly useful in environments where no single machine has an authoritative clock, and it allows for synchronization across a distributed system by computing a consensus time.",
+      "styleAttributes": {},
+      "x": 1320,
+      "y": 1200,
+      "width": 1124,
+      "height": 480,
+      "color": "3"
+    },
+    {
+      "id": "23ff6030bfbda072",
+      "type": "file",
+      "file": "source-images/Pasted image 20240905234348.png",
+      "styleAttributes": {},
+      "x": 2720,
+      "y": 1200,
+      "width": 1185,
+      "height": 480
+    },
+    {
+      "id": "1d230b3a863ed9cf",
+      "type": "text",
+      "text": "## AVERAGING METHOD \n\nDecentralized clock synchronization algorithms aim to reduce reliance on a central time server and instead allow all participating machines to contribute to the synchronization process. Here’s an overview of how decentralized averaging algorithms work:\n\n### **1. Fixed-Length Resynchronization Intervals:**\n- **Interval Definition:** Time is divided into fixed-length intervals. Each interval starts at \\( T_g + iR \\) and ends at \\( T_g + (i+1)R \\), where \\( T_g \\) is a reference time in the past, and \\( R \\) is a system parameter that defines the length of each interval.\n- **Broadcasting Time:** At the beginning of each interval, every machine broadcasts its current time according to its local clock.\n\n### **2. Collection of Time Broadcasts:**\n- **Local Timer:** After broadcasting its time, a machine starts a local timer to collect all other broadcast times that arrive within a specified interval \\( S \\). \n- **Synchronization Window:** The local timer ensures that the machine gathers all time broadcasts from other machines during this window to create a comprehensive view of the network’s time.\n\n### **3. Computing a New Time:**\n- **Averaging Values:** The simplest method involves averaging the collected time values from all machines. This provides a consensus time that each machine can adjust to.\n- **Handling Outliers:** To improve accuracy and robustness, a variation involves discarding the \\( m \\) highest and \\( m \\) lowest values from the collected times before averaging. This helps mitigate the impact of faulty or outlier clocks.\n\n### **4. Correcting for Propagation Time:**\n- **Propagation Time Estimates:** Another variation involves adjusting each received time value by adding an estimate of the propagation time from the source to the receiver. This estimate can be based on network topology or measured probe messages.\n- **Accurate Synchronization:** Correcting for propagation delays helps improve the accuracy of the synchronized time across the network.\n\n### **Additional Variations and Considerations:**\n- **Network Topology:** The accuracy of synchronization can be affected by the network’s topology and how propagation times are estimated. Some algorithms use pre-determined network characteristics to make these corrections.\n- **Fault Tolerance:** By discarding extreme values, decentralized algorithms can tolerate a certain number of faulty or malfunctioning clocks, making them more resilient to errors.\n\n### **References:**\n- **Lundelius-Welch and Lynch (1988):** Discusses decentralized algorithms and their properties.\n- **Ramanathan et al. (1990a):** Provides a survey of synchronization algorithms.\n- **Srikanth and Toueg (1987):** Presents additional techniques and variations in decentralized clock synchronization.\n\nDecentralized averaging algorithms are useful in distributed systems where a central time server is impractical or undesirable. They enable systems to achieve synchronization through peer interactions and collective computation, making them more flexible and fault-tolerant.",
+      "styleAttributes": {},
+      "x": 1320,
+      "y": 1800,
+      "width": 1040,
+      "height": 600,
+      "color": "3"
+    },
+    {
+      "id": "9f163aca3de8973e",
+      "type": "text",
+      "text": "### 3.2.1. A Centralized Algorithm\n\nIn distributed systems, mutual exclusion can be managed by simulating the approach used in single-processor systems. This involves designating one process as the coordinator. The coordinator handles all requests for critical regions, ensuring that only one process enters a critical region at a time.\n\n**Process Request and Permission**\n\nWhen a process wants to enter a critical region, it sends a request message to the coordinator, indicating which critical region it wants to access. If no other process is currently using that critical region, the coordinator grants permission by sending a reply message. The requesting process can then enter the critical region upon receiving this reply.\n\n**Handling Multiple Requests**\n\nIf another process makes a request while a critical region is already occupied, the coordinator must decide how to handle this situation. In one approach, the coordinator simply does not reply to the second request, leaving the requesting process blocked. Alternatively, the coordinator might send a “permission denied” message. Regardless of the method, the coordinator maintains a queue of pending requests.\n\n**Exiting the Critical Region**\n\nWhen the process in the critical region finishes its task, it sends a release message to the coordinator. The coordinator then processes the next request in the queue by granting permission to the next waiting process. If a request had been previously denied, the process would need to wait for a subsequent grant message to enter the critical region.\n\n**Advantages and Disadvantages**\n\nThis centralized algorithm ensures mutual exclusion and fairness, as requests are handled in the order they are received. However, it has notable drawbacks. The coordinator represents a single point of failure: if it crashes, the entire system might be disrupted. Additionally, the coordinator can become a performance bottleneck in systems with a large number of processes.\n",
+      "styleAttributes": {},
+      "x": 80,
+      "y": 3029,
+      "width": 1060,
+      "height": 391,
+      "color": "3"
+    },
+    {
+      "id": "96eeefd2d5b21888",
+      "type": "text",
+      "text": "### 3.2.2. A Distributed Algorithm\n\nThe distributed algorithm addresses the shortcomings of the centralized approach by removing the single point of failure. This method, initially presented by Lamport and later refined by Ricart and Agrawala, involves achieving mutual exclusion without relying on a central coordinator.\n\n**Request and Permission Process**\n\nWhen a process wants to enter a critical region, it sends a request message to all other processes, including its own timestamp and the critical region it wants to access. Each process then evaluates this request based on its own state and the timestamps of other requests.\n\n**Handling Requests**\n\n- **Not Interested**: If a process is neither in the critical region nor interested in entering it, it responds with an OK message.\n- **In Critical Region**: If the process is currently in the critical region, it queues the request and does not reply.\n- **Wants to Enter**: If the process wants to enter the critical region but has not yet done so, it compares timestamps. If the incoming request has a lower timestamp, it sends an OK message. Otherwise, it queues the request.\n\n**Entering and Exiting the Critical Region**\n\nA process waits until it receives OK messages from all other processes before entering the critical region. Upon completion, it sends OK messages to all processes in its queue, allowing them to enter the critical region.\n\n**Algorithm Correctness**\n\nThis algorithm guarantees mutual exclusion by ensuring that only one process can enter the critical region at a time. It avoids deadlock and starvation by granting access based on the order of request timestamps. However, it introduces the issue of multiple points of failure: if any process crashes, it may incorrectly block requests. To mitigate this, processes should resend requests and handle timeouts.\n\n**Challenges**\n\nWhile the distributed algorithm removes the single point of failure, it requires complex group communication and coordination. Handling process crashes and maintaining the group membership list adds to its complexity. Furthermore, the number of messages required is higher compared to the centralized algorithm, which can impact performance.\n",
+      "styleAttributes": {},
+      "x": 80,
+      "y": 3534,
+      "width": 1080,
+      "height": 408,
+      "color": "3"
+    },
+    {
+      "id": "75f5eea731f63d63",
+      "type": "text",
+      "text": "### 3.2.3. A Token Ring Algorithm\n\nThe token ring algorithm offers a different approach to mutual exclusion by using a logical ring structure in a network. This method involves passing a token among processes to manage access to critical regions.\n\n**Initialization and Token Passing**\n\nIn this algorithm, processes are arranged in a logical ring. Initially, one process holds the token, which circulates around the ring. When a process acquires the token, it checks if it needs to enter a critical region. If so, it does so and then passes the token to the next process in the ring.\n\n**Handling the Token**\n\nIf a process receives the token but does not need to enter a critical region, it simply passes the token to the next process. When no processes require the critical region, the token circulates continuously without any special action.\n\n**Correctness and Challenges**\n\nThe token ring algorithm ensures mutual exclusion because only the process holding the token can enter a critical region. The well-defined order of token passing prevents starvation. However, challenges arise if the token is lost or if a process crashes. Detecting a lost token can be difficult, and recovering from process crashes requires additional mechanisms to reassign the token and update the ring configuration.",
+      "styleAttributes": {},
+      "x": 80,
+      "y": 4140,
+      "width": 1080,
+      "height": 420,
+      "color": "3"
+    },
+    {
+      "id": "b452a9b0fbc7aff7",
+      "type": "file",
+      "file": "source-images/Pasted image 20240906000916.png",
+      "styleAttributes": {},
+      "x": 80,
+      "y": 2620,
+      "width": 1138,
+      "height": 320
+    },
+    {
+      "id": "5d67905c15900e39",
+      "type": "text",
+      "text": "### 3.2.4. A Comparison of the Three Algorithms\n\nComparing the centralized, distributed, and token ring algorithms reveals key differences in their operation, message requirements, and associated problems.\n\n**Number of Messages**\n\n- **Centralized Algorithm**: Requires three messages per critical region entry and exit (request, grant, release).\n- **Distributed Algorithm**: Requires 2(n - 1) messages per entry (one request message to each other process and one grant message from each).\n- **Token Ring Algorithm**: Requires a variable number of messages. Each token pass involves a single message if critical regions are frequently used, but the number of messages can become unbounded if the token circulates without being used.\n\n**Delay Before Entry**\n\n- **Centralized Algorithm**: Takes two message times to enter a critical region.\n- **Distributed Algorithm**: Takes 2(n - 1) message times, assuming one message at a time.\n- **Token Ring Algorithm**: The delay varies from 0 (if the token has just arrived) to n - 1 (if the token has just departed).\n\n**Problems**\n\n- **Centralized Algorithm**: Susceptible to coordinator crashes and performance bottlenecks.\n- **Distributed Algorithm**: Affected by crashes of any process, leading to potential blocking of critical regions. Requires maintaining group membership and handling message reliability.\n- **Token Ring Algorithm**: Issues include token loss and process crashes, with recovery mechanisms needed to maintain the ring configuration.\n\nEach algorithm has its own strengths and weaknesses, making them suitable for different scenarios based on system requirements and constraints.",
+      "styleAttributes": {},
+      "x": 1507,
+      "y": 3960,
+      "width": 840,
+      "height": 490,
+      "color": "4"
+    },
+    {
+      "id": "fe6f6aba579816c5",
+      "type": "file",
+      "file": "source-images/Pasted image 20240906001011.png",
+      "styleAttributes": {},
+      "x": 80,
+      "y": 4740,
+      "width": 1140,
+      "height": 660
+    },
+    {
+      "id": "8c06387878d4d2a2",
+      "type": "file",
+      "file": "source-images/Pasted image 20240906003249.png",
+      "styleAttributes": {},
+      "x": 160,
+      "y": 5560,
+      "width": 1222,
+      "height": 743
+    },
+    {
+      "id": "656665bc5860cbc9",
+      "type": "file",
+      "file": "source-images/Pasted image 20240906003309.png",
+      "styleAttributes": {},
+      "x": 160,
+      "y": 6440,
+      "width": 1154,
+      "height": 649
+    },
+    {
+      "id": "0a438b09626a3565",
+      "type": "text",
+      "text": "### Election Algorithms in Distributed Systems\n\nElection algorithms are used in distributed systems to select a coordinator or leader among processes when needed. The choice of coordinator is crucial for tasks such as resource management, scheduling, and coordination. There are several algorithms for achieving this, each with its own approach and characteristics. In this section, we will discuss two prominent election algorithms: the Bully Algorithm and the Ring Algorithm.\n\n---\n\n#### 3.3.1 The Bully Algorithm\n\n**Overview**:\nThe Bully Algorithm, introduced by Garcia-Molina (1982), is designed to elect a new coordinator in a distributed system. It assumes that each process has a unique identifier (usually its network address) and that processes are aware of each other's identifiers. The algorithm operates as follows:\n\n**Process Execution**:\n1. **Initiation of Election**:\n   - When a process (let's call it `P`) detects that the current coordinator has failed (i.e., it is no longer responding), it initiates an election to find a new coordinator.\n   - `P` sends an `ELECTION` message to all processes with higher identifiers (those with a number greater than `P`).\n\n2. **Response Handling**:\n   - If a process with a higher identifier receives the `ELECTION` message, it sends an `OK` message back to `P` to indicate that it is alive and will take over the election.\n   - The higher-numbered process then takes over the election process and starts sending `ELECTION` messages to processes with even higher numbers.\n\n3. **Election Outcome**:\n   - If no process with a higher identifier responds (i.e., there are no processes with higher numbers or all such processes are down), `P` wins the election and becomes the new coordinator.\n   - If a higher-numbered process responds, `P` terminates its election process, knowing that the new coordinator will be one of the higher-numbered processes.\n\n4. **Announcement**:\n   - Once a process becomes the new coordinator, it sends a `COORDINATOR` message to all processes, informing them of the new coordinator's identity.\n\n5. **Re-election**:\n   - If a process that was previously down comes back online, it will initiate a new election if it has the highest identifier among all active processes.\n\n**Example**:\n- Suppose processes 0 to 7 are involved, and process 7 was the coordinator but crashes.\n- Process 4 detects the crash and sends `ELECTION` messages to processes 5, 6, and 7.\n- Processes 5 and 6 respond with `OK`, indicating they are alive. Process 4 stops its election process, and processes 5 and 6 continue.\n- Process 6 eventually wins and sends out a `COORDINATOR` message to all processes, including 4.\n\n**Advantages**:\n- **Simple Implementation**: The algorithm is straightforward to implement.\n- **Clearly Defined Leader**: Ensures that the highest-numbered process becomes the coordinator.\n\n**Disadvantages**:\n- **Single Point of Failure**: If the process initiating the election fails, it can impact the election process.\n- **High Message Complexity**: The number of messages increases with the number of processes, especially in large systems.\n- **Potential for Inefficiency**: Multiple processes may initiate elections simultaneously, leading to increased message overhead.\n\n---\n\n#### 3.3.2 The Ring Algorithm\n\n**Overview**:\nThe Ring Algorithm organizes processes in a logical ring structure. Each process knows its successor in the ring. The algorithm is designed to elect a coordinator by circulating election messages around the ring.\n\n**Process Execution**:\n1. **Initiation of Election**:\n   - When a process detects that the coordinator has failed, it creates an `ELECTION` message containing its own identifier and sends it to its successor in the ring.\n   - If the successor is down, the sender skips over it and continues to the next active process.\n\n2. **Message Circulation**:\n   - The `ELECTION` message circulates around the ring, with each process appending its own identifier to the message. \n   - The message eventually returns to the initiating process.\n\n3. **Election Completion**:\n   - When the initiating process receives the message containing its own identifier, it means the message has completed a full cycle of the ring. The process now knows the highest identifier in the message is the new coordinator.\n   - The initiating process converts the message type to `COORDINATOR` and circulates it again to inform all processes of the new coordinator.\n\n4. **Ring Update**:\n   - The `COORDINATOR` message circulates once around the ring. When all processes receive this message, they update their view of the ring to reflect the new coordinator.\n\n**Example**:\n- Suppose processes 2 and 5 both detect that the coordinator (process 7) has failed.\n- Each of them starts an `ELECTION` message and sends it around the ring.\n- Both messages will eventually complete their circuit around the ring. Both will be converted into `COORDINATOR` messages by the initiating processes.\n- The `COORDINATOR` messages will have the same content (list of processes and highest identifier) and will be circulated around the ring again to update all processes.\n\n**Advantages**:\n- **No Single Point of Failure**: The algorithm does not rely on a central process.\n- **Fairness**: Ensures that all processes have a chance to participate in the election.\n\n**Disadvantages**:\n- **Message Overhead**: Requires the circulation of messages around the ring, which can be time-consuming in large systems.\n- **Complexity in Handling Simultaneous Elections**: If multiple processes detect a failure simultaneously, extra messages might circulate, potentially causing redundancy.\n\n---\n\n### Summary\n\nElection algorithms are crucial for maintaining coordination in distributed systems. The Bully Algorithm is straightforward but can be inefficient with many processes. The Ring Algorithm offers a more decentralized approach, avoiding single points of failure but may suffer from message overhead and complexity in large systems. Both algorithms have their strengths and weaknesses, and the choice of algorithm depends on the specific requirements and constraints of the distributed system.",
+      "styleAttributes": {},
+      "x": -1320,
+      "y": 6040,
+      "width": 1200,
+      "height": 480,
+      "color": "1"
+    },
+    {
+      "id": "94502f93bcd50cc8",
+      "type": "text",
+      "text": "**Stable Storage**\n\nStable storage is a type of data storage designed to withstand most failures, ensuring data persistence even in the face of system crashes or hardware issues. It contrasts with more volatile storage forms like RAM, which loses data when power is cut, and typical disk storage, which, while more durable, can still fail in scenarios like disk head crashes. Stable storage's primary goal is to provide a reliable medium for critical data that must survive beyond typical hardware and software failures, making it an essential component in systems requiring high fault tolerance, such as those utilizing atomic transactions.\n\nThe implementation of stable storage typically involves using two disks that mirror each other. When data is written, it is first updated on the primary disk (Drive 1) and verified. Once confirmed, the same data is written to the secondary disk (Drive 2). This redundancy ensures that even if the system crashes during the write process—say, after updating Drive 1 but before updating Drive 2—the system can recover by comparing the disks upon reboot. If discrepancies are found between the two drives, the data from the correctly updated drive (Drive 1) is copied to the other, ensuring data integrity and consistency across both disks.\n\nIn addition to crash recovery, stable storage can also handle issues like spontaneous data decay, which might occur due to factors like dust or wear on the disks. If a block on one drive becomes corrupted, the system can regenerate the correct data from the corresponding block on the other drive. This ability to recover from both crashes and data corruption makes stable storage a robust solution for maintaining data integrity in environments where data loss is not an option.",
+      "styleAttributes": {},
+      "x": 160,
+      "y": 7200,
+      "width": 880,
+      "height": 560,
+      "color": "5"
+    },
+    {
+      "id": "2f7da3829e0779d6",
+      "type": "text",
+      "text": "### 3.4. Atomic Transactions\n\n#### Introduction to Atomic Transactions\n\nAtomic transactions are a high-level abstraction used to simplify the management of critical operations in distributed systems. Unlike lower-level synchronization techniques, such as semaphores, atomic transactions allow programmers to focus on the core algorithms and processes without worrying about mutual exclusion, deadlock, or crash recovery.\n\n**Conceptual Example:**\n- Consider a business negotiation where two companies discuss a deal. They can freely negotiate terms and either party can back out at any point without consequences. However, once a contract is signed, both are legally obligated to fulfill the agreement. Similarly, in a computer system, a transaction involves processes negotiating and performing operations. If they all agree to commit, the changes become permanent. If any process disagrees or fails, everything reverts to the state before the transaction began, ensuring an all-or-nothing outcome.\n\n**Historical Context:**\n- The idea of atomic transactions dates back to the 1960 s, when files were stored on magnetic tapes. For instance, in an automated supermarket inventory system, if a daily update run failed, the tapes could be rewound and the process restarted with no harm done. This primitive system had the all-or-nothing property of atomic transactions.\n\n**Modern Example:**\n- In modern banking, consider an operation to transfer money between accounts:\n  1. Withdraw from account A.\n  2. Deposit into account B.\n  \n  If a failure occurs after the withdrawal but before the deposit, the money could disappear. Grouping these steps into an atomic transaction ensures that either both steps succeed or neither does, preventing such errors.\n\n#### The Transaction Model\n\nThe system is composed of multiple independent processes that can fail unpredictably. Communication between them might be unreliable, but protocols like timeouts and retransmissions ensure message delivery. Atomic transactions provide a robust way to manage these processes by ensuring that a series of operations either all succeed or none do, maintaining system consistency.",
+      "styleAttributes": {},
+      "x": -1840,
+      "y": 7760,
+      "width": 1160,
+      "height": 671,
+      "color": "1"
+    },
+    {
+      "id": "5e0666c2b0177579",
+      "type": "text",
+      "text": "**Transaction Primitives**\n\nIn transaction-based programming, special primitives are essential to manage the execution of transactions. These primitives are typically provided by the operating system or the language runtime system. Some common transaction primitives include `BEGIN_TRANSACTION` to mark the start of a transaction, `END_TRANSACTION` to attempt to commit the transaction, and `ABORT_TRANSACTION` to abort the transaction and revert to the previous state. Additionally, `READ` and `WRITE` primitives allow reading from and writing to files or other objects within the transaction.\n\nThese primitives help define the scope and behavior of a transaction. For example, in an airline reservation system, a transaction might involve reserving multiple flights. If the system cannot reserve all required flights, the transaction is aborted, and all previous reservations are undone. This ensures that either all operations within the transaction succeed, or none do, maintaining consistency.\n\n**Properties of Transactions (ACID)**\n\nTransactions possess four key properties, collectively known as ACID: Atomicity, Consistency, Isolation, and Durability. \n\n- **Atomicity** ensures that a transaction is indivisible, meaning it either fully completes or does not occur at all. Intermediate states within a transaction are not visible to other processes.\n  \n- **Consistency** guarantees that system invariants remain intact before and after a transaction. For instance, in a banking system, the total amount of money should remain consistent after a transfer, even if temporarily violated during the transaction.\n\n- **Isolation** ensures that concurrent transactions do not interfere with each other. This means the final outcome appears as if transactions were executed sequentially, even if they were interleaved.\n\n- **Durability** ensures that once a transaction is committed, its results are permanent and cannot be undone by subsequent failures.\n\nThese properties are critical for ensuring the reliability and predictability of transactions, especially in distributed or concurrent systems.",
+      "styleAttributes": {},
+      "x": 160,
+      "y": 7840,
+      "width": 900,
+      "height": 840,
+      "color": "5"
+    },
+    {
+      "id": "507414c1f4ffa62d",
+      "type": "text",
+      "text": "**Nested Transactions**\n\nNested transactions allow for hierarchical transactions, where a top-level transaction can include multiple subtransactions or child transactions. Each child transaction can run in parallel and may have its own subtransactions. This setup can enhance performance and simplify complex operations. However, managing nested transactions involves ensuring that changes made by subtransactions are properly handled if the top-level transaction fails.\n\nWhen a top-level transaction aborts, any changes made by its subtransactions must also be undone, even if some subtransactions had already committed. The concept is that while a transaction or subtransaction is active, it operates in a private workspace, and only commits its changes to the parent’s workspace if successful. If it fails, its changes are discarded as if they never happened.\n\n**Implementation of Transactions**\n\nImplementing transactions effectively requires special techniques to ensure atomicity, consistency, isolation, and durability. One common method is the use of a private workspace.\n\nWhen a transaction starts, it is given a private workspace where all read and write operations occur. Initially, this workspace may only include pointers to the parent’s workspace. If files are read without modification, they are accessed from the parent’s workspace. For writing, files are copied into the private workspace, but to optimize performance, only the file index is copied initially. Actual file data is copied only when modifications are made.\n\nFor instance, when a file block is modified during a transaction, only the changed block is copied and updated in the private workspace. This technique avoids copying the entire file, making the process more efficient. Upon committing, the changes in the private workspace are merged into the parent’s workspace. If the transaction is aborted, the private workspace and its modifications are discarded, restoring the system to its previous state.",
+      "styleAttributes": {},
+      "x": 160,
+      "y": 8800,
+      "width": 900,
+      "height": 740,
+      "color": "5"
+    },
+    {
+      "id": "a69a3688c4cb55c6",
+      "type": "text",
+      "text": "**Write-Ahead Log**\n\nThe write-ahead log is a technique used to ensure the atomicity and durability of transactions. Before any changes are made to a file or data block, a record is written to a log on stable storage. This log includes details about the transaction, such as which file and block is being changed, and what the old and new values are. Only after the log record is safely stored is the actual modification made to the file.\n\nFor instance, if a transaction involves updating variables, the log records each operation before it is executed. If the transaction commits successfully, a commit record is added to the log, and the updates to the file are considered permanent. If the transaction aborts, the log is used to undo the changes. The system reads the log entries from the end to the beginning, reversing each change to restore the original state.\n\nThe write-ahead log also helps with recovery after a crash. If a crash occurs before a file update is completed, the log can be checked to determine the last recorded state and make the necessary corrections. This method allows the system to either complete the transaction or roll back changes based on the log's records.\n\n**Two-Phase Commit Protocol**\n\nThe two-phase commit protocol is used to ensure that transactions are committed atomically in distributed systems involving multiple processes or machines. The protocol involves two main phases:\n\n1. **Phase 1: Preparation** - The coordinator process starts by sending a prepare message to all participating processes (subordinates) and writes this action to the log. Each subordinate checks if it can commit the transaction, makes a log entry, and sends a readiness response back to the coordinator.\n\n2. **Phase 2: Commitment** - Once the coordinator has received responses from all subordinates, it decides whether to commit or abort the transaction. If all subordinates are ready to commit, the coordinator sends a commit message to each process and logs this decision. If any subordinate cannot commit or fails to respond, the coordinator sends an abort message and logs this decision instead.\n\nThe use of a stable log ensures that the two-phase commit protocol can handle crashes effectively. If the coordinator crashes, it can recover by checking the log and resuming the protocol. Similarly, if subordinates crash, they can use the log to determine their state and act accordingly upon recovery.",
+      "styleAttributes": {},
+      "x": 160,
+      "y": 9640,
+      "width": 900,
+      "height": 940,
+      "color": "5"
+    },
+    {
+      "id": "92c4c690d79868d8",
+      "type": "file",
+      "file": "source-images/Pasted image 20240915121550.png",
+      "styleAttributes": {},
+      "x": 3257,
+      "y": -540,
+      "width": 703,
+      "height": 880
+    },
+    {
+      "id": "2f692c90e9c466a6",
+      "type": "text",
+      "text": "Consider the behavior of two machines in a distributed system. Both have clocks that are supposed to tick 1000 times per millisecond. One of them actually does, but the other ticks only 990 times per millisecond. If UTC updates come in once a minute, what is the maximum clock skew that will occur?",
+      "styleAttributes": {},
+      "x": 3257,
+      "y": -720,
+      "width": 703,
+      "height": 140,
+      "color": "1"
+    },
+    {
+      "id": "1bb7d5eb0428005a",
+      "type": "text",
+      "text": "Name at least three sources of delay that can be introduced between WWV broadcasting the time and the processors in a distributed system setting their internal clocks.",
+      "styleAttributes": {},
+      "x": 4020,
+      "y": -720,
+      "width": 620,
+      "height": 140,
+      "color": "1"
+    },
+    {
+      "id": "af652fef75a9636e",
+      "type": "text",
+      "text": "Here's a table summarizing **Cristian's Algorithm** and the **Berkeley Algorithm** for clock synchronization:\n\n| **Feature**               | **Cristian’s Algorithm**                         | **Berkeley Algorithm**                       |\n|---------------------------|--------------------------------------------------|----------------------------------------------|\n| **Time Server Role**       | Passive - responds to time requests              | Active - polls machines to get their time    |\n| **Clock Source**           | Time server has an accurate external source (WWV) | No external source, relies on time daemon    |\n| **Synchronization Method** | Machines request time from the server            | Time daemon averages clocks and adjusts them |\n| **Handling Time Delay**    | Estimates message delay, adjusts time accordingly | No explicit handling of message delays       |\n| **Time Adjustment**        | Gradual adjustment to prevent backward jumps     | Adjusts clocks based on the average time     |\n| **Suitable For**           | Systems with one accurate time source            | Systems without an external time source      |\n| **Network Load Sensitivity**| Discards outliers if response times are too high | Relies on all machines reporting their time  |\n| **Fault Tolerance**        | Handles unreliable network conditions            | Depends on the reliability of the daemon     |\n\nThis table highlights the key differences and approaches used in the two algorithms.",
+      "styleAttributes": {},
+      "x": 2720,
+      "y": 1860,
+      "width": 920,
+      "height": 560,
+      "color": "1"
+    },
+    {
+      "id": "28fa0e3c454bd659",
+      "type": "text",
+      "text": "### Answer to the question:\n\n**4. Is it essential that the clocks are synchronized in the lease-based cache consistency approach?**\n\nTo answer this question, let's carefully analyze the lease-based approach to cache consistency and consider what role clock synchronization plays:\n\n1. Purpose of leases:\n   - Leases provide a time-limited permission for a client to cache a file.\n   - They allow the server to control how long a client can use a cached copy without checking for updates.\n\n2. Key aspects of the lease mechanism:\n   - The server grants a lease with an expiration time.\n   - Clients can use the cached copy until the lease expires.\n   - After expiration, clients must revalidate or fetch a new copy.\n\n3. Role of clocks:\n   - Clients use their local clocks to determine when a lease has expired.\n   - The server uses its clock to set lease expiration times.\n\nNow, let's consider if strict clock synchronization is essential:\n\n1. Client perspective:\n   - Clients only need to know when their lease has expired relative to when they received it.\n   - They can use their local clock to measure the duration of the lease.\n\n2. Server perspective:\n   - The server needs to know when leases it has granted will expire.\n   - It can use its local clock to track this.\n\n3. Interaction between client and server:\n   - The absolute time is not crucial; what matters is the agreed-upon duration of the lease.\n\nConclusion:\nStrict clock synchronization is not essential for this lease-based cache consistency approach to work. What is required is:\n\n1. Relative time consistency: Clients and servers need to measure time intervals consistently, but they don't need to agree on the absolute current time.\n\n2. Bounded clock drift: While clocks don't need to be perfectly synchronized, their drift should be limited to ensure that lease durations are reasonably accurate.\n\n3. Lease duration >> clock discrepancies: The lease durations should be significantly longer than any potential clock discrepancies between clients and servers.\n\nWhat's truly essential is that both the client and server agree on the duration of the lease, and that they can measure this duration with reasonable accuracy. This can be achieved without perfect clock synchronization.\n\nIn practice, some level of clock synchronization (e.g., using NTP) is often implemented in distributed systems to address various issues, including but not limited to cache consistency. However, for this specific mechanism, perfect synchronization is not a strict requirement as long as the relative timing and lease durations are managed consistently.\n\n-------------------------------------------------------------------\n### Answer to the question:\n\n**4. Is it essential that the clocks are synchronized in the lease-based cache consistency approach?**\n\nNo, it is not strictly essential that clocks are synchronized, but **what is required is that the server and clients have a common understanding of time intervals** (i.e., the duration of the lease). The lease mechanism works based on timeouts, and the main requirement is that both the server and clients agree on how long the lease lasts, even if their clocks are not exactly synchronized. \n\nHowever, having synchronized clocks can help in ensuring better coordination, especially for scenarios like:\n- Efficient expiration of leases without confusion over timing.\n- Easier validation of whether a file is still up-to-date using timestamps.\n\n**In summary**, while absolute clock synchronization isn’t mandatory, a consistent time interval (or lease duration) between the server and clients is critical for the lease-based approach to work effectively.",
+      "styleAttributes": {},
+      "x": -1140,
+      "y": 2200,
+      "width": 1140,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "33f0ee075cc59e91",
+      "type": "text",
+      "text": "Here are the answers to the two questions you asked:\n\n### 1. Alternative Algorithm for the Coordinator\nInstead of granting permission to the first process on the queue when a critical region is released, the coordinator could implement a **priority-based system**. In this algorithm, the coordinator assigns priority levels to each process, and when a critical region is released, it grants permission to the process with the **highest priority** (instead of the first process). This approach could be useful in scenarios where certain processes have higher importance or urgency than others. The priority can be based on predefined rules, dynamic conditions, or even factors like resource usage or time spent waiting.\n\n### 2. Does a Coordinator Crash Always Bring the System Down?\nA coordinator crash **does not always bring the system down**, but it can cause significant issues, such as halting progress on mutual exclusion. Specifically, if a process is waiting for permission and the coordinator crashes, no further messages will be processed until the coordinator is recovered or replaced. \n\nHowever, there are mechanisms to **tolerate coordinator crashes**:\n- **Coordinator Election Algorithm**: When the coordinator crashes, the remaining processes can initiate a coordinator election algorithm, such as the Bully or Ring election algorithm. These algorithms help choose a new coordinator so the system can continue functioning.\n- **Backup Coordinator**: A secondary or backup coordinator can be designated. If the primary coordinator crashes, the backup can take over without needing to run a full election.\n\nThus, a crash does not necessarily mean the system goes down if it has built-in failover mechanisms like coordinator election or backup coordinators.",
+      "styleAttributes": {},
+      "x": -2040,
+      "y": 2720,
+      "width": 860,
+      "height": 760,
+      "color": "6"
+    },
+    {
+      "id": "06326a4135a43fb8",
+      "type": "text",
+      "text": "Here is the answer to your question:\n\n### Are there any circumstances where even answering all requests immediately is insufficient in Ricart and Agrawala’s algorithm?\n\nYes, even if all requests are answered immediately, there are circumstances where this method may still be insufficient:\n\n1. **Network Partitioning**: In a distributed system, if a network partition occurs, some processes might become isolated and unable to communicate with others. This can cause those processes to neither receive requests nor send responses. Even though the requesting processes are expecting immediate responses, the partitioned processes will not reply, leading to a deadlock-like situation where the requesting processes wait indefinitely for a reply.\n\n2. **Delayed Messages**: In some cases, even though all requests are answered immediately, network delays can cause messages (including responses) to arrive late. This delay might be interpreted as a failure or denial of permission, leading to processes blocking unnecessarily or retrying requests needlessly.\n\n3. **Crash After Sending Reply**: If a process crashes immediately after sending an \"OK\" message but before entering the critical region, other processes might proceed based on the assumption that the crashed process is still functioning normally. This can result in inconsistent states, especially if the crashed process never actually executed its critical section or released resources properly.\n\nIn these cases, even immediate responses do not fully prevent the system from entering an indeterminate state, especially in the presence of network or process failures. Therefore, additional failure detection and recovery mechanisms (e.g., timeouts, failure detectors, or consensus algorithms) are needed to handle such situations.",
+      "styleAttributes": {},
+      "x": -2120,
+      "y": 3780,
+      "width": 940,
+      "height": 670,
+      "color": "5"
+    },
+    {
+      "id": "12a9736679632246",
+      "type": "text",
+      "text": "### Introduction to Mutual Exclusion\n\nIn distributed systems involving multiple processes, managing access to shared resources or data structures is crucial. This is done through the concept of critical regions, where processes must ensure mutual exclusion. Mutual exclusion guarantees that only one process accesses the critical section (shared resource) at a time, preventing conflicts and ensuring data consistency. In single-processor systems, mechanisms such as semaphores and monitors protect these critical regions. In distributed systems, implementing mutual exclusion becomes more complex, requiring different algorithms and techniques.\n\n",
+      "styleAttributes": {},
+      "x": -1040,
+      "y": 3460,
+      "width": 760,
+      "height": 278,
+      "color": "1"
+    },
+    {
+      "id": "e11cff5baae32fc5",
+      "type": "text",
+      "text": "Here’s the answer to your question:\n\n### Can Ricart and Agrawala’s algorithm lead to deadlocks if process 0 wants to enter critical region A and process 1 wants to enter critical region B?\n\nNo, Ricart and Agrawala’s algorithm **does not lead to deadlocks** in this scenario. The reason is that the algorithm ensures mutual exclusion for **each critical region independently**. \n\nIn this case, process 0 wants to enter critical region A, and process 1 wants to enter critical region B. Since these are two **different** critical regions, there is no conflict between their requests. Ricart and Agrawala’s algorithm uses timestamps to resolve conflicts, but in this situation, each process is only interested in its own critical region (A for process 0 and B for process 1), so they won’t block each other.\n\nDeadlocks typically occur when two or more processes are waiting on resources held by each other. However, in this case, because the requests are for **independent critical regions**, the processes do not have to wait for each other, and thus deadlock cannot happen. Each process can proceed to obtain permission for its respective critical region without interference.",
+      "styleAttributes": {},
+      "x": -1040,
+      "y": 3814,
+      "width": 665,
+      "height": 603,
+      "color": "5"
+    },
+    {
+      "id": "4684964c46782f7a",
+      "type": "text",
+      "text": "Here’s the answer to your question:\n\n### What happens if two processes detect the demise of the coordinator simultaneously and both decide to hold an election using the bully algorithm?\n\nIf two processes detect the coordinator's failure at the same time and both initiate the bully algorithm, the following sequence of events occurs:\n\n1. **Both processes send ELECTION messages** to all processes with higher numbers. For example, if process 3 and process 4 detect the failure, they will send election messages to processes with numbers higher than theirs (e.g., processes 5, 6, and 7).\n\n2. **Responses from higher-numbered processes**: If a higher-numbered process (say process 5) responds to both election requests, it sends an \"OK\" message to both process 3 and process 4. Upon receiving the first \"OK\" message, both process 3 and process 4 will know that their election attempt is over because a higher-numbered process will take over.\n\n3. **Higher process takes over**: Now, process 5, having responded, takes over and starts its own election. It sends ELECTION messages to any processes with numbers higher than 5. If no higher processes are alive, process 5 wins the election and announces itself as the new coordinator.\n\n4. **Duplicate elections resolve themselves**: Although both process 3 and process 4 initiated elections simultaneously, the election process is hierarchical. The higher-numbered process wins in the end, and both lower-numbered processes stop their election attempts once they receive an \"OK\" message from a higher process. This prevents deadlock or confusion.\n\n### Conclusion:\nIn this case, both processes will initially start elections, but the algorithm ensures that only one of them (the one with the higher number or the one whose higher-numbered processes respond) will win, while the others step back. The bully algorithm naturally resolves simultaneous election attempts.",
+      "styleAttributes": {},
+      "x": -2780,
+      "y": 6020,
+      "width": 1020,
+      "height": 740,
+      "color": "3"
+    },
+    {
+      "id": "76497143a03f5711",
+      "type": "text",
+      "text": "# In Fig. 3-13 we have two ELECTION messages circulating simultaneously. While it does no harm to have two of them, it would be more elegant if one could be killed off. Devise an algorithm for doing this without affecting the operation of the basic election algorithm.\n\nTo devise an algorithm that kills off one of the two circulating ELECTION messages without affecting the basic ring election algorithm, here's a possible solution:\n\n### Modified Algorithm to Kill Off Duplicate ELECTION Messages:\n\n1. **Add a unique identifier (UID) to each ELECTION message**: When a process initiates an election, it includes a unique identifier in the ELECTION message. This UID could be based on the process number and a timestamp. For example, process 2’s UID could be `2-T1` (where T 1 is the timestamp) and process 5’s UID could be `5-T2`.\n\n2. **Track the highest UID**: Each process maintains a record of the highest UID it has seen while forwarding ELECTION messages. \n\n3. **Forward only the highest UID ELECTION message**: When a process receives an ELECTION message, it compares the UID in the message with the highest UID it has seen:\n   - If the new message has a **higher UID**, the process forwards this new message to its successor, overwriting the old one.\n   - If the new message has a **lower UID**, the process ignores it and does not forward it.\n\n4. **Kill off the lower UID ELECTION message**: As the ring processes the ELECTION messages, only the message with the highest UID will continue circulating. The message with the lower UID will be \"killed off\" because it will no longer be forwarded by any process.\n\n5. **Process completion**: Once the ELECTION message with the highest UID completes its cycle and returns to the process that initiated it, the election proceeds as normal, with the process holding the highest number becoming the coordinator.\n\n### Why this works:\n- By comparing UIDs, the system ensures that only one ELECTION message (the one with the highest UID) completes the election process.\n- This modification does not affect the original ring algorithm. It simply ensures that only one ELECTION message circulates, making the election more efficient and elegant.",
+      "styleAttributes": {},
+      "x": -2780,
+      "y": 6840,
+      "width": 1020,
+      "height": 800,
+      "color": "3"
+    },
+    {
+      "id": "74ba490995c39a24",
+      "type": "text",
+      "text": "# For some ultrasensitive applications it is conceivable that stable storage implemented with two disks is not reliable enough. Can the idea be extended to three disks? If so, how would it work? If not, why not?\n\nYes, the idea of stable storage can be extended to three disks, and doing so would enhance reliability further. Here's how it would work:\n\n### Three-Disk Stable Storage Implementation\n\n1. **Triple Redundancy**: Instead of using two disks, you use **three disks**, and each block of data is written to all three disks. This provides an additional layer of redundancy in case of failure.\n\n2. **Write Process**: When updating a block:\n   - First, update the block on **disk 1**.\n   - Then, update the block on **disk 2**.\n   - Finally, update the block on **disk 3**.\n   After each update, the block is verified for correctness (e.g., using checksums or other methods).\n\n3. **Recovery Process after Crash**: \n   - If a system crash occurs, all three disks are compared block by block during recovery.\n   - **Majority voting** is used to decide which block is correct. For each block, the system checks the corresponding blocks on all three disks:\n     - If **two blocks** are identical but the third one is different, the majority (the two matching blocks) is assumed to be correct, and the differing block is updated to match the others.\n   - This prevents errors if one disk's block was updated but the others were not.\n\n4. **Handling Spontaneous Errors**: \n   - If a checksum error is detected on one block due to decay or disk wear, the other two disks can be used to regenerate the correct block.\n   - Again, **majority voting** ensures that a block error in one disk can be corrected by copying the block from the other two disks.\n\n### Benefits of Using Three Disks:\n- **Higher Fault Tolerance**: With two disks, a single disk failure can be corrected, but with three disks, you can handle the failure of one disk and still ensure data correctness.\n- **Protection Against Multiple Failures**: If one disk has a bad block or suffers a failure, you can still recover using the other two disks.\n- **Reduced Risk of Data Loss**: Even if two disks experience issues in different blocks, the third disk can provide the correct data.\n\n### Drawbacks:\n- **Increased Cost**: Using three disks requires more hardware and storage space.\n- **Slightly Longer Recovery Time**: The process of comparing three disks during recovery might take longer than with two disks.\n\nThus, extending stable storage to three disks enhances the system's reliability and fault tolerance while using majority voting to resolve discrepancies.",
+      "styleAttributes": {},
+      "x": 1240,
+      "y": 7200,
+      "width": 860,
+      "height": 560,
+      "color": "6"
+    },
+    {
+      "id": "30a7f28b09995da4",
+      "type": "text",
+      "text": "# When a private workspace is used to implement transactions, it may happen that a large number of file indices must be copied back to the parent’s workspace. How can this be done without introducing race conditions?\n\n\nTo avoid race conditions when copying a large number of file indices from the private workspace back to the parent’s workspace during transaction commit, a mechanism must be used to ensure that the operation is **atomic**. This means that the entire process of moving the file indices and updating the file system should either complete entirely or not at all. Here’s how this can be done:\n\n### 1. **Locking the Parent Workspace (Global Locking)**\n   - When the transaction is ready to commit, the system **locks the parent workspace** (the \"real\" file system) to prevent other transactions or processes from modifying the same files during the commit process. This ensures exclusive access to the files being updated.\n   - While the lock is held, the private indices from the transaction are copied to the parent workspace atomically, updating the real file system without interference.\n   - Once the commit is finished and all indices are copied, the lock is released, allowing other processes to access the file system.\n\n### 2. **Two-Phase Locking Protocol**\n   - In a **two-phase locking protocol**, the system follows two phases:\n     - **Phase 1: Growing Phase**: As the transaction proceeds, it gradually acquires locks on the files and indices it will modify.\n     - **Phase 2: Shrinking Phase**: Once the commit starts, no more locks are acquired, and the system copies the private indices into the parent workspace. After copying, it releases all locks simultaneously.\n   - This approach ensures that the transaction holds all necessary locks before any data modification begins, preventing other processes from introducing race conditions.\n\n### 3. **Write-Ahead Logging (WAL)**\n   - Before the private workspace is committed to the parent’s workspace, the system can use a **write-ahead log (WAL)**. In this approach:\n     - All the changes (file indices and modified blocks) are first written to a log.\n     - Only after the log has been safely written to stable storage, the actual file indices are copied to the parent workspace.\n     - If a crash occurs during the commit, the system can use the log to roll back or complete the operation during recovery, thus ensuring consistency and preventing race conditions.\n\n### 4. **Shadow Paging**\n   - Instead of directly modifying the file indices in the parent workspace, **shadow paging** can be used. Here’s how it works:\n     - A new set of file indices (shadow indices) is created, pointing to both old and new data blocks.\n     - Once all new indices are correctly set up in a private location, the system atomically switches the parent workspace’s root to point to the shadow indices.\n     - This atomic switch prevents race conditions because the system always has either the old or the new set of indices, but never a partially updated set.\n\n### 5. **Versioning and Reference Counting**\n   - During the commit, the system can create **new versions** of the files by incrementally copying indices. Once the commit is complete, the old versions are marked for deletion, and the new versions are visible to all processes.\n   - To ensure no race conditions during the transition, **reference counting** can be used to keep track of whether a file is still being accessed by other processes. Only when no other process is using the old version can it be safely deleted.\n\n### Conclusion\nTo avoid race conditions during the process of copying file indices back to the parent’s workspace, the system can use a combination of locking (global or two-phase), write-ahead logging, shadow paging, or versioning techniques. These methods ensure that the commit process is atomic and that no other process interferes with the transaction until it is fully completed.",
+      "styleAttributes": {},
+      "x": 1120,
+      "y": 8760,
+      "width": 1200,
+      "height": 780
+    },
+    {
+      "id": "e285f54d4d0edfeb",
+      "type": "text",
+      "text": "# In the writeahead log, both the old and new values are stored in the log entries. Is it not adequate just to store the new value? What good is the old one?\n\nIn a write-ahead log (WAL), storing both the **old value** and the **new value** of a data block is necessary for two main reasons: **rollback** and **crash recovery**. Here’s why storing the old value is important:\n\n### 1. **Rollback in Case of Transaction Aborts**\n\n- If a transaction is aborted before it completes, the system must undo any changes made by that transaction. The old values in the log allow the system to **restore the data to its original state** by going through the log entries and reverting any changes made by the transaction.\n- Without the old values, there would be no way to know what the previous state of the data was before the changes were made, which is essential for ensuring the consistency of the system after an aborted transaction.\n\n**Example**:\n\n- If the transaction updates a value from `x = 1` to `x = 4` and then aborts, the system needs to revert `x` back to `1`. The old value (`x = 1`) in the log allows this rollback to happen.\n\n### 2. **Crash Recovery**\n\n- In case of a system crash during a transaction, the log is used to **replay or undo** the changes depending on the state of the system at the time of the crash. By reading the old values, the system can determine what the data was before the crash and restore it if necessary.\n- If the transaction was in progress but not committed at the time of the crash, the system must undo the partial changes. The old values make it possible to roll back the partially applied changes.\n\n**Example**:\n\n- Suppose the system crashes after writing a log entry but before updating the actual value on disk. During recovery, the log allows the system to verify whether the changes were fully applied and, if not, either complete or roll them back using the old values.\n\n### 3. **Ensuring Atomicity**\n\n- The goal of WAL is to ensure **atomicity** of transactions, meaning that the transaction is either fully applied or not applied at all. To achieve this, it must be possible to undo any incomplete or aborted transaction by restoring the data to its state before the transaction started. The old values provide the necessary information for this.\n\n### 4. **Consistency and Data Integrity**\n\n- Storing both old and new values ensures the integrity of the data in the event of failures. By having both, the system can perform **forward recovery** (applying the changes if they were not applied) or **backward recovery** (reverting the changes if they should not have been applied) depending on the situation.\n\n### Conclusion\n\nWhile the new value is necessary to apply changes, the **old value is equally important** for ensuring rollback in case of aborted transactions and for correctly handling crash recovery. Without the old value, the system would lose the ability to undo changes, which could lead to inconsistencies in the data.",
+      "styleAttributes": {},
+      "x": 1120,
+      "y": 9640,
+      "width": 1520,
+      "height": 940
+    },
+    {
+      "id": "9fbc0787490ac3e7",
+      "type": "text",
+      "text": "**Question: At what instant is the point-of-no-return reached in the Two-Phase Commit Protocol?**\n\n**Answer:** The point-of-no-return in the Two-Phase Commit Protocol is reached after the coordinator has received \"Ready\" responses from all subordinates (Phase 1) and has written the log record indicating the decision to commit or abort. At this point, the coordinator sends a \"Commit\" or \"Abort\" message to all subordinates (Phase 2), and the decision is committed or aborted based on the responses. The protocol ensures that the transaction is atomically committed or aborted by making this decision irreversible once it has been recorded in the log.",
+      "styleAttributes": {},
+      "x": 140,
+      "y": 10660,
+      "width": 1120,
+      "height": 260,
+      "color": "2"
+    },
+    {
+      "id": "6ba56694098359f3",
+      "type": "file",
+      "file": "source-images/Pasted image 20240915195414.png",
+      "styleAttributes": {},
+      "x": -860,
+      "y": 9640,
+      "width": 996,
+      "height": 500
+    },
+    {
+      "id": "078608e6056e2770",
+      "type": "text",
+      "text": "# Concurrency control in atomic transactions",
+      "styleAttributes": {},
+      "x": -1800,
+      "y": 11080,
+      "width": 640,
+      "height": 160,
+      "color": "1"
+    },
+    {
+      "id": "62d7d80145491790",
+      "type": "text",
+      "text": "Locking is the most traditional and widely used concurrency control mechanism in database systems. It works by ensuring that when a process needs to read or write a file or other object as part of a transaction, it must first lock that object. Locking can be managed through a centralized lock manager or through local lock managers on each machine, which track the status of locks and prevent access to locked files by other processes.\n\nIn a basic locking scheme, a file or object is either locked for reading or writing. Read locks are less restrictive because they allow multiple transactions to read the file simultaneously without conflict. The read lock ensures that the file cannot be modified while it is being read. Write locks, on the other hand, are exclusive, meaning that no other locks (either read or write) are allowed while a write lock is held. This exclusivity prevents any other transactions from accessing the file, thus ensuring no conflicts during write operations.\n\nThe granularity of locking refers to the size or scope of the locked item, which can range from an entire file to a single record or even a page. Fine-grained locking (locking smaller items) offers more precise control and better parallelism, as different transactions can access different parts of the same file concurrently. However, it requires managing more locks, which increases complexity and the risk of deadlocks. Coarse-grained locking (locking larger items) simplifies management but can reduce parallelism and lead to more contention among transactions.\n\nTo address the challenges of lock management, two-phase locking is commonly used. In this protocol, a process first acquires all the necessary locks during the \"growing phase\" and then releases them during the \"shrinking phase.\" This approach helps avoid inconsistencies and deadlocks by ensuring that a transaction will either acquire all required locks or none at all, reducing the risk of conflicts. Strict two-phase locking, a variant of this protocol, delays the release of locks until the transaction has either committed or aborted. This ensures that a transaction reads values only from committed transactions and prevents issues such as cascaded aborts, where a transaction might need to undo changes due to reading uncommitted data.\n\nDespite these strategies, locking can still lead to deadlocks. Deadlocks occur when two or more processes hold locks and each process is waiting for the other to release additional locks, causing a standstill. Techniques to prevent deadlocks include acquiring locks in a consistent order, detecting cycles in a lock graph, and implementing timeout mechanisms to handle situations where locks are held for too long. These measures help manage and resolve deadlocks, ensuring smoother operation in concurrent environments.",
+      "styleAttributes": {},
+      "x": -620,
+      "y": 10980,
+      "width": 1060,
+      "height": 620,
+      "color": "2"
+    },
+    {
+      "id": "5838ffc66e662a7e",
+      "type": "text",
+      "text": "### Optimistic Concurrency Control\n\n**Optimistic Concurrency Control (OCC)** is a technique used to manage concurrent transactions in database systems. The core idea is to allow transactions to proceed without immediate interference from other transactions, assuming conflicts are rare. Here's a breakdown of how it works:\n\n1. **Initial Phase**: Transactions operate freely, reading and writing to their local copies of data without locking. This allows maximum parallelism and avoids the overhead associated with locking mechanisms.\n\n2. **Validation Phase**: When a transaction reaches the point of committing its changes, it must validate its operations. The system checks if any of the files or data the transaction has accessed were altered by other transactions during its execution.\n\n   - **If no conflicts are detected** (i.e., the data remains unchanged since the transaction started), the transaction is committed.\n   - **If conflicts are detected** (i.e., another transaction has modified the data), the transaction is aborted and must be restarted.\n\n**Advantages of OCC**:\n- **Deadlock-Free**: Because transactions do not lock resources, deadlocks (where two or more transactions are waiting on each other to release locks) cannot occur.\n- **High Parallelism**: Transactions can proceed simultaneously without waiting for locks, which can improve system throughput.\n\n**Disadvantages of OCC**:\n- **Retry Overhead**: If conflicts occur, transactions may need to be restarted, which can lead to increased computation and resource usage, especially under heavy load conditions.\n- **Performance under Load**: The probability of transaction failures increases with higher transaction loads, potentially reducing the overall efficiency of the system.\n\n### Timestamps\n\n**Timestamp-Based Concurrency Control** is another technique that involves assigning timestamps to transactions to manage their order and access to data. Here’s how it works:\n\n1. **Timestamp Assignment**: When a transaction begins, it is assigned a unique timestamp. This timestamp is used to track the transaction’s order relative to others.\n\n2. **Read and Write Timestamps**: Each data item (or file) maintains two timestamps:\n   - **Read Timestamp (Trp)**: The timestamp of the last transaction that read the data.\n   - **Write Timestamp (Twr)**: The timestamp of the last transaction that wrote to the data.\n\n3. **Transaction Validation**:\n   - **For Write Operations**: When a transaction attempts to write to a data item, it checks the timestamps of the data item. If the write timestamp or read timestamp is greater than the transaction's timestamp, it indicates that another transaction (with a later timestamp) has modified the data. In this case, the current transaction is aborted, as it is too late to make changes.\n   - **For Read Operations**: When a transaction attempts to read data, it checks if the data’s write timestamp is greater than its own timestamp. If it is, the transaction must wait until the other transaction commits before it can read the updated data.\n\n**Advantages of Timestamping**:\n- **Deadlock-Free**: Since no locks are involved, there is no risk of deadlock.\n- **Conflict Detection**: By using timestamps, the system can easily detect conflicts and enforce a consistent order of transactions.\n\n**Disadvantages of Timestamping**:\n- **Aborts Due to Timestamps**: Transactions might frequently abort if they encounter newer timestamps, leading to possible inefficiencies and retries.\n- **Complex Implementation**: Managing timestamps and ensuring correctness in the presence of many concurrent transactions can be complex.\n\nIn summary, both **Optimistic Concurrency Control** and **Timestamp-Based Concurrency Control** aim to manage concurrent transactions but do so with different approaches. OCC relies on validating transactions at commit time to handle conflicts, while timestamp-based methods use ordering based on transaction timestamps to prevent conflicts and maintain consistency.",
+      "styleAttributes": {},
+      "x": -620,
+      "y": 11700,
+      "width": 1060,
+      "height": 980,
+      "color": "2"
+    },
+    {
+      "id": "87d806c805452f7c",
+      "type": "text",
+      "text": "### 1. **Is optimistic concurrency control more or less restrictive than using timestamps? Why?**\n\n**Optimistic Concurrency Control (OCC)** is generally **less restrictive** compared to timestamp-based concurrency control. Here’s why:\n\n- **Freedom During Execution**: In OCC, transactions proceed with minimal restrictions. They read and write data freely, without concern for the actions of other concurrent transactions. This allows for high parallelism and no immediate contention for resources.\n\n- **Conflict Detection Later**: Conflicts are only detected during the commit phase. Transactions operate independently and only need to check for conflicts when they are about to commit, which can lead to more efficient execution if conflicts are rare.\n\n- **No Immediate Abort**: OCC does not abort transactions during their execution due to resource contention. Aborts occur only if a conflict is detected at commit time, which means transactions have more flexibility during their operation.\n\n**Timestamp-Based Concurrency Control** is **more restrictive** because:\n\n- **Ordering Constraints**: Transactions are restricted by their timestamps. A transaction must adhere to a specific order relative to other transactions. It can only access data if it follows the correct order as dictated by the timestamps.\n\n- **Abort on Timestamp Conflict**: If a transaction’s timestamp is not properly ordered with respect to the data's timestamps, it must abort. This restriction can lead to frequent aborts and retries, especially if many transactions overlap in their access to data.\n\n- **Immediate Conflict Detection**: Timestamping imposes constraints at every access (read or write), which can limit the parallelism and flexibility of transactions compared to OCC.\n\nIn summary, OCC provides greater flexibility and less immediate restriction during transaction execution, while timestamp-based concurrency control enforces stricter ordering and access constraints.\n\n### 2. **Does using timestamping for concurrency control ensure serializability? Discuss.**\n\nYes, using timestamping for concurrency control **does ensure serializability**. Here’s a discussion on why this is the case:\n\n- **Order Preservation**: Timestamp-based concurrency control maintains the order of transactions based on their timestamps. Each transaction operates under the assumption that transactions with earlier timestamps (older transactions) have been processed before transactions with later timestamps (newer transactions). This order is crucial for ensuring that the results of transactions are consistent with some serial ordering.\n\n- **Conflict Detection**: By comparing timestamps, the system can detect and prevent conflicts that would otherwise violate serializability. For instance, if a transaction tries to read or write data that has been modified by a later transaction (one with a higher timestamp), it must either wait for that transaction to complete or abort itself. This prevents scenarios where the outcome of transactions would not be serializable.\n\n- **Serializable Schedules**: In the timestamp-based model, a schedule (sequence of transactions) is considered serializable if it can be transformed into a serial schedule (where transactions are executed one after another) without changing the final result. Timestamping naturally enforces this by ensuring that the operations of earlier transactions are fully processed before those of later transactions, thereby preserving the serializability of the schedule.\n\nIn conclusion, timestamp-based concurrency control enforces an ordering of transactions that ensures serializability by preventing conflicts that could arise from out-of-order execution.",
+      "styleAttributes": {},
+      "x": -1920,
+      "y": 11820,
+      "width": 1000,
+      "height": 900,
+      "color": "6"
+    },
+    {
+      "id": "23c7d5ea541daf1a",
+      "type": "text",
+      "text": "This section delves into the concept of **physical clocks** and their synchronization, particularly in systems where precise timing is crucial. While Lamport's algorithm provides a logical order of events, it may not align with real-world timings, necessitating the use of physical clocks in certain systems.\n\n### Astronomical Timekeeping:\nHistorically, time was measured astronomically, with the solar day (the interval between two consecutive solar transits) serving as a key unit. A solar second was defined as 1/86,400th of a solar day. However, the Earth's rotation isn't constant, leading to fluctuations in the length of a day over time. Long-term factors, such as tidal friction, and short-term variations, like turbulence in the Earth's core, further complicate this calculation.\n\n### Atomic Timekeeping:\nThe invention of atomic clocks in 1948 revolutionized timekeeping by using the cesium 133 atom's transitions for measurement. The second was redefined as the time it takes for the cesium 133 atom to undergo exactly 9,192,631,770 transitions. This marked the shift from astronomical to atomic timekeeping, with the **International Atomic Time (TAI)** being established as the standard.\n\nHowever, TAI presented a problem: while stable, it deviated from the solar day due to Earth's slowing rotation. This discrepancy, if left uncorrected, would cause significant shifts in time over the years, potentially causing confusion similar to the calendar reform in 1582.\n\n### UTC and Leap Seconds:\nTo address this, **Universal Coordinated Time (UTC)** was introduced. UTC combines the stability of TAI with periodic adjustments, known as **leap seconds**, to stay in sync with solar time. These leap seconds ensure that UTC remains aligned with the Earth's rotation, preventing any significant drift from the solar day.\n\n### Time Distribution:\nUTC is distributed through various means, including radio stations like WWV in the U.S. and MSF in the U.K., as well as satellites. While these methods offer high accuracy, factors like signal propagation delay can introduce slight inaccuracies, requiring compensation. Despite this, UTC remains the foundation of modern civil timekeeping.\n\nThis section underscores the complexity of measuring and synchronizing time in distributed systems, highlighting the evolution from astronomical to atomic timekeeping and the ongoing need for synchronization methods like UTC.",
+      "styleAttributes": {},
+      "x": 1226,
+      "y": 78,
+      "width": 780,
+      "height": 440,
+      "color": "2"
+    },
+    {
+      "id": "fd1ea8043e64880e",
+      "type": "text",
+      "text": "Synchronized clocks have significant implications for distributed systems, enabling more efficient and reliable operation. The use of synchronized clocks helps address various challenges in these systems. Two notable examples of their application are in at-most-once message delivery and cache consistency. Here’s a detailed overview of how synchronized clocks enhance these areas:\n\n### **1. At-Most-Once Message Delivery**\n\n**Problem:** Ensuring that each message is processed at most once by a server, even in the face of crashes, can be challenging. Traditional methods involve storing message identifiers to detect duplicates, but this can be problematic if a server crashes and loses its state.\n\n**Solution with Synchronized Clocks:**\n- **Timestamp-Based Approach:** Each message includes a connection identifier and a timestamp. The server maintains a record of the most recent timestamp it has seen for each connection.\n- **Duplicate Detection:** If an incoming message's timestamp is earlier than the stored timestamp for that connection, it is rejected as a duplicate.\n- **Global Variable \\( G \\):** Servers keep a global variable \\( G \\), defined as \\( G = \\text{CurrentTime} - \\text{MaxLifetime} - \\text{MaxClockSkew} \\). This variable helps manage timestamps by determining which timestamps can be safely removed. Any message with a timestamp older than \\( G \\) is considered to be outdated and hence rejected.\n- ![[Pasted image 20240915125818.png]]\n- \n- **Recovery from Crashes:** Upon reboot, the server reloads \\( G \\) from disk and increments it by the update period \\( \\Delta T \\). This ensures that any message that might have been accepted before the crash is now rejected, maintaining the at-most-once property. Some new messages might be incorrectly rejected, but this method upholds the desired message delivery semantics.\n\n### **2. Clock-Based Cache Consistency**\n\n**Problem:** Caching files locally can lead to inconsistencies if multiple clients modify the same file. Traditional methods involve invalidating cached copies, which can be inefficient.\n\n**Solution with Synchronized Clocks:**\n- **Lease Mechanism:** Clients receive a lease for a cached file that specifies how long the file remains valid. When the lease expires, the cached copy is considered outdated.\n- **Lease Expiry Handling:** Once a lease expires, the client can simply let the cache time out without explicitly notifying the server. If a client needs to use a file with an expired lease, it can check with the server to see if the cached copy is still valid.\n- **Handling Concurrent Access:** If a client with a cached file needs to write to it, the server can request that other clients (who may be reading the file) terminate their leases. If a client has crashed, the server can wait for the lease to timeout, avoiding the need to directly handle unresponsive clients.\n\n### **Additional Uses of Synchronized Clocks:**\n- **Distributed System Authentication:** Synchronized clocks can be used to time out authentication tickets, ensuring that tickets do not remain valid indefinitely and thus improving security.\n- **Atomic Transactions:** Accurate timing is crucial for managing commitments in atomic transactions, ensuring that operations are completed in a consistent and reliable manner.\n\n### **Implications and Future Applications:**\nAs synchronization technology improves, new applications for synchronized clocks will likely emerge. The enhanced precision and reliability provided by synchronized clocks open up possibilities for more advanced algorithms and systems in distributed computing.\n\nOverall, synchronized clocks provide a robust framework for addressing various issues in distributed systems, enhancing reliability, efficiency, and consistency in operations.",
+      "styleAttributes": {},
+      "x": 1316,
+      "y": 2460,
+      "width": 1060,
+      "height": 739,
+      "color": "3"
+    },
+    {
+      "id": "954495a3bd551077",
+      "type": "file",
+      "file": "source-images/Pasted image 20240906000943.png",
+      "styleAttributes": {},
+      "x": 1434,
+      "y": 3284,
+      "width": 1169,
+      "height": 500
+    },
+    {
+      "id": "ca345f8a58e64315",
+      "type": "text",
+      "text": "Here are three sources of delay that can be introduced between the WWV broadcasting the time and the processors in a distributed system setting their internal clocks:\n\n1. **Propagation Delay**: The time it takes for the signal to travel from the WWV station to the receiver is influenced by the distance and the medium (air, space, etc.). Atmospheric fluctuations, like changes in the ionosphere, can also alter the length of the signal path, leading to variability in the delay.\n\n2. **Processing Delay**: Once the signal is received, the hardware and software in the system take some time to process the information and adjust the internal clocks. This includes time spent decoding the signal and applying any necessary corrections for leap seconds or other adjustments.\n\n3. **Synchronization and Communication Delays**: In a distributed system, once one processor receives the time, it may need to communicate it to other processors to synchronize their clocks. The delay in sending these synchronization messages can vary depending on the network load, distance between processors, and communication protocols used.\n\nThese delays can introduce inaccuracies when synchronizing clocks in a distributed system.",
+      "styleAttributes": {},
+      "x": 4009,
+      "y": -551,
+      "width": 620,
+      "height": 720,
+      "color": "2"
+    },
+    {
+      "id": "2eab45c690587784",
+      "type": "text",
+      "text": "### Introduction to Logical Clocks\n\nComputers commonly use circuits to keep track of time, often referred to as \"clocks.\" However, these devices are not clocks in the traditional sense. A more appropriate term might be \"timers.\" These timers are typically quartz crystals that oscillate at a specific frequency, depending on their design. Each crystal is paired with two registers: a counter and a holding register. The crystal's oscillations decrement the counter, and when the counter reaches zero, it triggers an interrupt and reloads from the holding register. This setup allows a timer to generate interrupts at a desired frequency, such as 60 times per second. Each interrupt is referred to as a clock tick.\n\nWhen a computer system boots, the operator usually inputs the date and time, which the system converts into the number of clock ticks from a known starting point and stores in memory. The clock tick interrupts then update this stored time, ensuring the software clock remains current.\n\n### The Problem of Clock Skew in Distributed Systems\n\nIn a single computer system, minor inaccuracies in the clock are not problematic because all processes rely on the same clock, maintaining internal consistency. For example, if a file's timestamps are slightly off, the system can still determine whether a file needs recompilation based on relative times rather than absolute accuracy.\n\nHowever, issues arise when multiple computers, each with its own clock, are involved. While each computer's clock may run at a stable frequency, the crystals in different machines may not oscillate at exactly the same rate. This discrepancy leads to a phenomenon called **clock skew**, where the clocks of different computers gradually fall out of sync. This can cause problems for programs that expect consistent timestamps across machines, such as in distributed systems.\n\n### The Need for Clock Synchronization\n\nThe central question is whether it is possible to synchronize clocks across different computers to produce a consistent, unified time standard. In his seminal work, Lamport (1978) demonstrated that clock synchronization is indeed possible and proposed an algorithm to achieve it. His work was further extended in 1990.\n\nLamport emphasized that clock synchronization does not need to be absolute. If two processes do not interact, their clocks do not need to be synchronized since the lack of synchronization would be unnoticeable and irrelevant. More importantly, what often matters in distributed systems is not the exact time but the order in which events occur. For instance, in the file compilation example, the critical factor is whether one file is older or newer than another, not their precise creation times.\n\n### Logical Clocks vs. Physical Clocks\n\nFor many distributed algorithms, it suffices for all machines to agree on the same time, even if that time does not match real-world time precisely. This concept leads to the idea of **logical clocks**, where the internal consistency of the clocks is more important than their accuracy relative to real-world time.\n\nHowever, in cases where clocks must not only be consistent but also accurate relative to real-world time, **physical clocks** are required. In this section, we will focus on Lamport's algorithm, which synchronizes logical clocks. In subsequent sections, we will explore physical time and how physical clocks can be synchronized.\n\n### Lamport's Happens-Before Relation\n\nTo synchronize logical clocks, Lamport introduced the **happens-before** relation, denoted as `a → b`. This expression means that event `a` happens before event `b`, and all processes agree on this order. The happens-before relation is directly observable in two scenarios:\n\n1. **Within a Single Process**: If events `a` and `b` occur within the same process and `a` happens before `b`, then `a → b` is true.\n\n2. **Message Passing Between Processes**: If `a` is the event of a message being sent by one process and `b` is the event of that message being received by another process, then `a → b` must be true because a message cannot be received before it is sent.\n\nThis relation is transitive, meaning that if `a → b` and `b → c`, then `a → c`. However, if two events, `x` and `y`, occur in different processes that do not exchange messages, neither `x → y` nor `y → x` can be true. These events are considered **concurrent**, meaning their order is not determined and does not need to be.\n\n### Assigning Time Values to Events\n\nThe goal is to assign a time value `C(a)` to each event `a` such that all processes agree on these time values. The time values must satisfy the condition that if `a → b`, then `C(a) < C(b)`. In other words, if event `a` happens before event `b`, then the time assigned to `a` must be less than the time assigned to `b`.\n\nFor events within the same process, if `a` happens before `b`, then `C(a) < C(b)`. Similarly, if `a` is the sending of a message and `b` is its reception, then `C(a)` and `C(b)` must be assigned so that `C(a) < C(b)`. Additionally, the clock time `C` must always move forward (increase) and never backward (decrease). Any adjustments to the time must be made by adding a positive value, not subtracting one.\n\n### Lamport's Algorithm for Synchronizing Logical Clocks\n\nLamport proposed an algorithm for assigning times to events in a distributed system. Consider three processes, each running on a different machine with its own clock, as shown in the figure. Each clock runs at a constant rate, but the rates differ due to variations in the crystals.\n\nAt time 6, process 0 sends a message (A) to process 1. The message arrives when process 1's clock reads 16. If the message carries its sending time (6), process 1 will conclude that the message took 10 ticks to travel, which is plausible. Similarly, message B from process 1 to process 2 takes 16 ticks.\n\nHowever, problems arise with messages C and D. Message C leaves process 2 at time 60 and arrives at process 1 at time 56, which is impossible. Similarly, message D leaves process 1 at 64 and arrives at process 0 at 54. These contradictions must be resolved.\n\n### Lamport's Solution to Clock Synchronization\n\nLamport's solution is based on the happens-before relation. Since message C leaves at time 60, it must arrive at time 61 or later. To enforce this, each message carries its sending time, and if the receiving clock shows a time earlier than the sending time, the receiver fast-forwards its clock to be one tick later than the sending time. In this way, message C arrives at 61, and message D arrives at 70.\n\n### Ensuring Total Ordering of Events\n\nWith one additional rule, Lamport's algorithm satisfies the requirements for global time synchronization. The rule is that between any two events, the clock must tick at least once. If a process sends or receives two messages in quick succession, it must advance its clock by at least one tick between them.\n\nIn some cases, it is desirable to ensure that no two events occur at exactly the same time. This can be achieved by attaching the process number to the low-order end of the time, separated by a decimal point. For example, if two events occur in processes 1 and 2 at time 40, they can be recorded as 40.1 and 40.2, respectively.\n\n### Conclusion\n\nLamport's algorithm provides a way to assign time values to events in a distributed system, ensuring that the order of events is preserved. The algorithm guarantees that if one event happens before another, its time value is smaller, and it avoids ambiguities that could arise from clock skew in distributed systems. This method of logical clock synchronization is widely used in distributed computing to maintain consistency and avoid errors.",
+      "styleAttributes": {},
+      "x": 1226,
+      "y": -480,
+      "width": 757,
+      "height": 441,
+      "color": "2"
+    }
+  ],
+  "edges": [
+    {
+      "id": "b3fffafedabfa198",
+      "styleAttributes": {},
+      "fromNode": "4d186bb30571bb8a",
+      "fromSide": "right",
+      "toNode": "fc18b6b8304def72",
+      "toSide": "left",
+      "color": "1"
+    },
+    {
+      "id": "1b5748fef6f02d11",
+      "styleAttributes": {},
+      "fromNode": "fc18b6b8304def72",
+      "fromSide": "right",
+      "toNode": "2eab45c690587784",
+      "toSide": "left",
+      "color": "6"
+    },
+    {
+      "id": "69060fd879935090",
+      "styleAttributes": {},
+      "fromNode": "2eab45c690587784",
+      "fromSide": "right",
+      "toNode": "3e5491347a6a77b5",
+      "toSide": "left",
+      "color": "2"
+    },
+    {
+      "id": "5a87572f6396e95c",
+      "styleAttributes": {},
+      "fromNode": "fc18b6b8304def72",
+      "fromSide": "right",
+      "toNode": "23c7d5ea541daf1a",
+      "toSide": "left",
+      "color": "6"
+    },
+    {
+      "id": "0d744f883962d8e5",
+      "styleAttributes": {},
+      "fromNode": "3b941f8a0b3454ab",
+      "fromSide": "bottom",
+      "toNode": "44d324f556d2ee56",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "b7911cec5bc0aa60",
+      "styleAttributes": {},
+      "fromNode": "3b941f8a0b3454ab",
+      "fromSide": "right",
+      "toNode": "a148b48b60c90d00",
+      "toSide": "left",
+      "color": "2"
+    },
+    {
+      "id": "d5de0c9f56261d73",
+      "styleAttributes": {},
+      "fromNode": "a148b48b60c90d00",
+      "fromSide": "right",
+      "toNode": "d371f70a926874d1",
+      "toSide": "left",
+      "color": "3"
+    },
+    {
+      "id": "7f71e58dca4d1ebc",
+      "styleAttributes": {},
+      "fromNode": "823bded11e7f19dd",
+      "fromSide": "right",
+      "toNode": "23ff6030bfbda072",
+      "toSide": "left",
+      "color": "3"
+    },
+    {
+      "id": "d14af5710302b542",
+      "styleAttributes": {},
+      "fromNode": "3b941f8a0b3454ab",
+      "fromSide": "right",
+      "toNode": "823bded11e7f19dd",
+      "toSide": "left",
+      "color": "2"
+    },
+    {
+      "id": "21ea95b47fa6d0b0",
+      "styleAttributes": {},
+      "fromNode": "3b941f8a0b3454ab",
+      "fromSide": "right",
+      "toNode": "1d230b3a863ed9cf",
+      "toSide": "left",
+      "color": "2"
+    },
+    {
+      "id": "e2873341a899c8e0",
+      "styleAttributes": {},
+      "fromNode": "9f163aca3de8973e",
+      "fromSide": "right",
+      "toNode": "5d67905c15900e39",
+      "toSide": "left",
+      "color": "3"
+    },
+    {
+      "id": "5b681fdfd9ce3c92",
+      "styleAttributes": {},
+      "fromNode": "96eeefd2d5b21888",
+      "fromSide": "right",
+      "toNode": "5d67905c15900e39",
+      "toSide": "left",
+      "color": "3"
+    },
+    {
+      "id": "6e1445f66dbfee1c",
+      "styleAttributes": {},
+      "fromNode": "75f5eea731f63d63",
+      "fromSide": "right",
+      "toNode": "5d67905c15900e39",
+      "toSide": "left",
+      "color": "3"
+    },
+    {
+      "id": "1262a92da5c3c680",
+      "styleAttributes": {},
+      "fromNode": "12a9736679632246",
+      "fromSide": "right",
+      "toNode": "9f163aca3de8973e",
+      "toSide": "left",
+      "color": "1"
+    },
+    {
+      "id": "034ea3be5fa716eb",
+      "styleAttributes": {},
+      "fromNode": "12a9736679632246",
+      "fromSide": "right",
+      "toNode": "96eeefd2d5b21888",
+      "toSide": "left",
+      "color": "1"
+    },
+    {
+      "id": "4adafec2e7c3804d",
+      "styleAttributes": {},
+      "fromNode": "12a9736679632246",
+      "fromSide": "right",
+      "toNode": "75f5eea731f63d63",
+      "toSide": "left",
+      "color": "1"
+    },
+    {
+      "id": "c51dc06b9a78bac8",
+      "styleAttributes": {},
+      "fromNode": "9f163aca3de8973e",
+      "fromSide": "top",
+      "toNode": "b452a9b0fbc7aff7",
+      "toSide": "bottom",
+      "color": "3"
+    },
+    {
+      "id": "0e3fa4775fb38b37",
+      "styleAttributes": {},
+      "fromNode": "96eeefd2d5b21888",
+      "fromSide": "right",
+      "toNode": "954495a3bd551077",
+      "toSide": "left",
+      "color": "3"
+    },
+    {
+      "id": "af477ef77bd32c57",
+      "styleAttributes": {},
+      "fromNode": "75f5eea731f63d63",
+      "fromSide": "bottom",
+      "toNode": "fe6f6aba579816c5",
+      "toSide": "top"
+    },
+    {
+      "id": "c2c5be4963d3576c",
+      "styleAttributes": {},
+      "fromNode": "0a438b09626a3565",
+      "fromSide": "right",
+      "toNode": "8c06387878d4d2a2",
+      "toSide": "left",
+      "color": "1"
+    },
+    {
+      "id": "1578fe7ff0567f7b",
+      "styleAttributes": {},
+      "fromNode": "0a438b09626a3565",
+      "fromSide": "right",
+      "toNode": "656665bc5860cbc9",
+      "toSide": "left",
+      "color": "1"
+    },
+    {
+      "id": "605d2395e43d7c72",
+      "styleAttributes": {},
+      "fromNode": "2f7da3829e0779d6",
+      "fromSide": "right",
+      "toNode": "94502f93bcd50cc8",
+      "toSide": "left",
+      "color": "1"
+    },
+    {
+      "id": "14df48efa219599c",
+      "styleAttributes": {},
+      "fromNode": "2f7da3829e0779d6",
+      "fromSide": "right",
+      "toNode": "5e0666c2b0177579",
+      "toSide": "left",
+      "color": "1"
+    },
+    {
+      "id": "1b6f53755b8b0d70",
+      "styleAttributes": {},
+      "fromNode": "2f7da3829e0779d6",
+      "fromSide": "right",
+      "toNode": "507414c1f4ffa62d",
+      "toSide": "left",
+      "color": "1"
+    },
+    {
+      "id": "78c9c1adf0724b5b",
+      "styleAttributes": {},
+      "fromNode": "1bb7d5eb0428005a",
+      "fromSide": "bottom",
+      "toNode": "ca345f8a58e64315",
+      "toSide": "top"
+    },
+    {
+      "id": "86cbb398b8664f7f",
+      "styleAttributes": {},
+      "fromNode": "2f692c90e9c466a6",
+      "fromSide": "bottom",
+      "toNode": "92c4c690d79868d8",
+      "toSide": "top"
+    },
+    {
+      "id": "05d40754d45798cd",
+      "styleAttributes": {},
+      "fromNode": "fd1ea8043e64880e",
+      "fromSide": "left",
+      "toNode": "28fa0e3c454bd659",
+      "toSide": "right",
+      "color": "3"
+    },
+    {
+      "id": "55b7cbe410c2fc52",
+      "styleAttributes": {},
+      "fromNode": "9f163aca3de8973e",
+      "fromSide": "left",
+      "toNode": "33f0ee075cc59e91",
+      "toSide": "right",
+      "color": "3"
+    },
+    {
+      "id": "97cabdde93b50ada",
+      "styleAttributes": {},
+      "fromNode": "96eeefd2d5b21888",
+      "fromSide": "left",
+      "toNode": "06326a4135a43fb8",
+      "toSide": "right",
+      "color": "3"
+    },
+    {
+      "id": "93a5882e9cb53179",
+      "styleAttributes": {},
+      "fromNode": "96eeefd2d5b21888",
+      "fromSide": "left",
+      "toNode": "e11cff5baae32fc5",
+      "toSide": "right",
+      "color": "3"
+    },
+    {
+      "id": "aa106cdfeaecb7cb",
+      "styleAttributes": {},
+      "fromNode": "0a438b09626a3565",
+      "fromSide": "left",
+      "toNode": "4684964c46782f7a",
+      "toSide": "right"
+    },
+    {
+      "id": "6b85cca344e3d323",
+      "styleAttributes": {},
+      "fromNode": "94502f93bcd50cc8",
+      "fromSide": "right",
+      "toNode": "74ba490995c39a24",
+      "toSide": "left"
+    },
+    {
+      "id": "e0ec82c9fcd37b15",
+      "styleAttributes": {},
+      "fromNode": "a69a3688c4cb55c6",
+      "fromSide": "bottom",
+      "toNode": "9fbc0787490ac3e7",
+      "toSide": "top"
+    },
+    {
+      "id": "8a7eeebf08d9430b",
+      "styleAttributes": {},
+      "fromNode": "078608e6056e2770",
+      "fromSide": "right",
+      "toNode": "62d7d80145491790",
+      "toSide": "left"
+    },
+    {
+      "id": "a7fdbfa8848eeb3e",
+      "styleAttributes": {},
+      "fromNode": "078608e6056e2770",
+      "fromSide": "right",
+      "toNode": "5838ffc66e662a7e",
+      "toSide": "left"
+    },
+    {
+      "id": "b69c1b2606111854",
+      "styleAttributes": {},
+      "fromNode": "62d7d80145491790",
+      "fromSide": "left",
+      "toNode": "87d806c805452f7c",
+      "toSide": "right"
+    },
+    {
+      "id": "0da84a2663a104b4",
+      "styleAttributes": {},
+      "fromNode": "5838ffc66e662a7e",
+      "fromSide": "left",
+      "toNode": "87d806c805452f7c",
+      "toSide": "right"
+    }
+  ],
+  "metadata": {}
+}

@@ -1,0 +1,16 @@
+{
+  "nodes": [
+    {
+      "id": "5beed9322a38e52a",
+      "type": "text",
+      "text": "```mermaid\n\ngraph TD\n    A[Start] --> B[Data Collection]\n    B --> C{Data Source}\n    C -->|Public Databases| D[Environmental Data]\n    C -->|Public Databases| E[Socioeconomic Data]\n    C -->|User Input| F[Personal Health Data]\n    C -->|IoT Devices| G[Real-time Health Metrics]\n    C -->|Google Maps API| H[Location-based Data]\n    \n    D & E & F & G & H --> I[Data Preprocessing]\n    I --> J[Feature Engineering]\n    J --> K[Machine Learning Pipeline]\n    \n    K --> L[Risk Assessment Model]\n    L --> M[Predictive Analytics]\n    M --> N{High Risk?}\n    \n    N -->|Yes| O[Generate Intervention Plan]\n    N -->|No| P[Generate Preventive Measures]\n    \n    O & P --> Q[Blockchain Integration]\n    Q --> R[Smart Contract Creation]\n    R --> S[Tokenization of Health Actions]\n    \n    S --> T[User Dashboard]\n    T --> U[Display Risk Assessment]\n    T --> V[Show Intervention/Prevention Plan]\n    T --> W[Token Balance & Rewards]\n    \n    U & V & W --> X[User Takes Action]\n    X --> Y[Action Verification]\n    Y --> Z[Update Blockchain]\n    \n    Z --> AA[Recalculate Risk]\n    AA --> BB[Update Smart Contracts]\n    \n    BB --> CC[Community Health Analytics]\n    CC --> DD[Resource Allocation Optimization]\n    DD --> EE[Google Cloud AI for Trend Analysis]\n    \n    EE --> FF[Update Risk Models]\n    FF --> GG[Continuous Learning Loop]\n    \n    GG --> HH[End]\n    \n    subgraph \"Technologies Used\"\n        ML[TensorFlow/PyTorch for ML]\n        BC[Ethereum for Blockchain]\n        IPFS[IPFS for Decentralized Storage]\n        GCP[Google Cloud Platform]\n        GAPI[Google APIs Suite]\n        DB[MongoDB for Data Storage]\n        KUB[Kubernetes for Deployment]\n    end",
+      "styleAttributes": {},
+      "x": -418,
+      "y": 282,
+      "width": 3036,
+      "height": 2723
+    }
+  ],
+  "edges": [],
+  "metadata": {}
+}

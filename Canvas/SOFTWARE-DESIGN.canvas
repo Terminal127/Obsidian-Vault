@@ -1,0 +1,1107 @@
+{
+  "nodes": [
+    {
+      "id": "1790b00f13de4052",
+      "type": "group",
+      "styleAttributes": {},
+      "x": 3460,
+      "y": 760,
+      "width": 1088,
+      "height": 178,
+      "color": "5",
+      "label": "DEFINATION"
+    },
+    {
+      "id": "90cd9d6d52d7f229",
+      "type": "group",
+      "styleAttributes": {},
+      "x": 720,
+      "y": 2880,
+      "width": 795,
+      "height": 116,
+      "color": "5",
+      "label": "DESIGNS"
+    },
+    {
+      "id": "76fad527f3437ed2",
+      "type": "text",
+      "text": "# OBJECT ORIENTED",
+      "styleAttributes": {},
+      "x": -2320,
+      "y": 1267,
+      "width": 379,
+      "height": 93,
+      "color": "3"
+    },
+    {
+      "id": "37bafcd25c9f4b2f",
+      "type": "text",
+      "text": "The design process in software development can vary greatly depending on the design methodology being used. There are many different design methodologies, but they can generally be classified into two main types:\n\n### 1. **Procedural Design Approach**\n   - This method focuses on designing software by breaking it down into a series of procedures or functions. It’s more about organizing the tasks the software needs to perform.\n\n### 2. **Object-Oriented Design Approach**\n   - This method organizes the design around objects, which combine both data and the operations that can be performed on that data. It’s more about modeling real-world entities.\n\n### Do Design Techniques Lead to Only One Solution?\n   - Even if two designers use the same design methodology, they can come up with very different solutions. This is because designing software involves making many decisions and compromises, and different designers may approach these decisions differently. \n   - Therefore, a good design is often the result of trying out multiple solutions and choosing the best one.\n\n### Analysis vs. Design\n   - **Analysis**: This phase is about understanding and describing what the system needs to do, without worrying about how it will be implemented. It’s a more abstract view and is often represented using diagrams (like Data Flow Diagrams for procedural design or UML for object-oriented design).\n   - **Design**: This phase is about deciding how the system will actually work. It takes the abstract ideas from the analysis phase and transforms them into a plan that can be implemented in a programming language. The design model is more concrete and includes decisions about data structures, algorithms, and specific implementation details.\n\nIn summary, analysis focuses on understanding the problem, while design focuses on figuring out how to solve it. Both procedural and object-oriented approaches can be used, but the methods and outcomes will vary.",
+      "styleAttributes": {},
+      "x": -1600,
+      "y": 1475,
+      "width": 1207,
+      "height": 520,
+      "color": "1"
+    },
+    {
+      "id": "fed9219b605d0409",
+      "type": "text",
+      "text": "### Requirements Analysis (in Simple Terms)\n\nAfter collecting all the information about what the customer wants (requirements gathering), the next step is to carefully look at that information to make sure everything is clear and correct. This step is called **requirements analysis**. \n\nWhy do we need this step? Well, different people (stakeholders) often have different ideas or parts of the big picture. So, the information you get can be confusing, incomplete, or even contradictory. The goal of this step is to clear up any confusion and make sure we fully understand what needs to be built.\n\n### Key Questions for Understanding\n\nBefore analyzing, the person doing the analysis (analyst) needs to understand some basic things:\n\n1. **What’s the problem?** - What exactly are we trying to solve?\n2. **Why is it important?** - Why does this problem need fixing?\n3. **What are the inputs and outputs?** - What information will the system take in and what will it produce?\n4. **What steps are needed?** - What are the actions or steps to solve the problem?\n5. **What challenges might come up?** - Are there any tricky parts we need to watch out for?\n6. **Does it need to connect to other systems?** - If the software needs to work with other systems, how will they talk to each other?\n\n### Finding and Fixing Problems\n\nThere are three main types of problems to look out for during this stage:\n\n1. **Ambiguities (Confusion):**\n   - Sometimes, requirements can be unclear or vague, leading to confusion.\n   - For example, if someone says, *\"Turn off the heater when the temperature is high,\"* we need to know exactly what \"high\" means. Otherwise, different people might have different ideas of what \"high\" is.\n\n2. **Inconsistencies (Contradictions):**\n   - This happens when two requirements contradict each other.\n   - For instance, if one requirement says, *\"Turn off the furnace when the temperature goes above 500°C,\"* but another says, *\"Keep the furnace on and turn on the water shower at 500°C,\"* these are clearly conflicting.\n\n3. **Incompleteness (Missing Parts):**\n   - Sometimes, important details might be missing.\n   - For example, if a requirement says to email a student’s parents if their grades are low, but there’s no system in place to store the parents’ email addresses, then something important is missing.\n\n### Can We Catch All Problems?\n\nWhile we can catch most issues through careful review, some problems might be subtle and tricky to spot. In some cases, using more formal, detailed methods can help identify these hidden problems, especially in critical systems. However, these methods are typically used only for safety-critical parts of the software.\n\n### Summary\n\nRequirements analysis is all about making sure we fully understand what the customer wants, clearing up any confusion, and fixing any inconsistencies or missing parts. By doing this, we ensure that the software we build will meet the customer’s needs and work correctly.",
+      "styleAttributes": {},
+      "x": -2320,
+      "y": -960,
+      "width": 920,
+      "height": 460,
+      "color": "1"
+    },
+    {
+      "id": "f28959d565998af4",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240907232027.png",
+      "styleAttributes": {},
+      "x": -1002,
+      "y": -980,
+      "width": 623,
+      "height": 460
+    },
+    {
+      "id": "f5e18aaa8c4768c2",
+      "type": "text",
+      "text": "# CONSISTENT NAMING",
+      "styleAttributes": {},
+      "x": -103,
+      "y": 2449,
+      "width": 285,
+      "height": 129
+    },
+    {
+      "id": "f10157b05e5a9fe6",
+      "type": "text",
+      "text": "# HOW TO CHARACTERISE A GOOD SOFTWARE DESIGN?",
+      "styleAttributes": {},
+      "x": -96,
+      "y": 1762,
+      "width": 588,
+      "height": 116,
+      "color": "1"
+    },
+    {
+      "id": "9b7e0808ff4e58cb",
+      "type": "text",
+      "text": "# Understandability of a Design: A Major Concern",
+      "styleAttributes": {},
+      "x": -35,
+      "y": 1998,
+      "width": 466,
+      "height": 120,
+      "color": "1"
+    },
+    {
+      "id": "c240ef3102818950",
+      "type": "text",
+      "text": "# Characteristics of an Understandable Design",
+      "styleAttributes": {},
+      "x": 26,
+      "y": 2278,
+      "width": 404,
+      "height": 80
+    },
+    {
+      "id": "881ce153d87c1185",
+      "type": "text",
+      "text": "# USE OF ABSTRACTIONA AND DECOMPOSITION",
+      "styleAttributes": {},
+      "x": 293,
+      "y": 2580,
+      "width": 445,
+      "height": 138
+    },
+    {
+      "id": "6eef4e8f94e29d7e",
+      "type": "text",
+      "text": "### Characteristics of an Understandable Design\n\n1. **Consistent Naming**: The parts of the design should have names that clearly reflect what they do. This makes it easier to figure out what each part of the design is responsible for.\n    \n2. **Use of Abstraction and Decomposition**: These principles help simplify the design. Abstraction means focusing on the important details and ignoring the irrelevant ones. Decomposition means breaking the problem down into smaller, manageable pieces.",
+      "styleAttributes": {},
+      "x": -44,
+      "y": 2918,
+      "width": 564,
+      "height": 294
+    },
+    {
+      "id": "e60472b14790e9bb",
+      "type": "text",
+      "text": "# PROCEDURAL",
+      "styleAttributes": {},
+      "x": -2710,
+      "y": 1282,
+      "width": 284,
+      "height": 78,
+      "color": "3"
+    },
+    {
+      "id": "6af7065754caa796",
+      "type": "text",
+      "text": "# Classification of Design Methodologies",
+      "styleAttributes": {},
+      "x": -2640,
+      "y": 940,
+      "width": 427,
+      "height": 104,
+      "color": "6"
+    },
+    {
+      "id": "73074ff215804565",
+      "type": "text",
+      "text": "# OVERVIEW OF THE DESIGN PROCESS",
+      "styleAttributes": {},
+      "x": -4090,
+      "y": 940,
+      "width": 560,
+      "height": 100,
+      "color": "6"
+    },
+    {
+      "id": "cd768d275b3859c5",
+      "type": "text",
+      "text": "# Classification of Design Activities",
+      "styleAttributes": {},
+      "x": -3280,
+      "y": 940,
+      "width": 460,
+      "height": 100,
+      "color": "6"
+    },
+    {
+      "id": "0f99c7216e36f032",
+      "type": "text",
+      "text": "## DESIGN PROCESS",
+      "styleAttributes": {
+        "shape": "pill",
+        "textAlign": "center"
+      },
+      "x": -3610,
+      "y": 720,
+      "width": 300,
+      "height": 120,
+      "color": "3"
+    },
+    {
+      "id": "de164deb0b1c0966",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240907232115.png",
+      "styleAttributes": {},
+      "x": -1002,
+      "y": -1520,
+      "width": 623,
+      "height": 460
+    },
+    {
+      "id": "6e2e6ffeffc34974",
+      "type": "text",
+      "text": "# OUTCOMES OF DESIGN PROCESS",
+      "styleAttributes": {},
+      "x": -3795,
+      "y": 1800,
+      "width": 380,
+      "height": 100,
+      "color": "3"
+    },
+    {
+      "id": "e8610e6cdca7870f",
+      "type": "text",
+      "text": "\n## DETAILED DESIGN",
+      "styleAttributes": {},
+      "x": -3415,
+      "y": 2040,
+      "width": 305,
+      "height": 98,
+      "color": "2"
+    },
+    {
+      "id": "0c63e670124a5095",
+      "type": "text",
+      "text": "## HIGH LEVEL DESIGN ",
+      "styleAttributes": {},
+      "x": -3050,
+      "y": 2040,
+      "width": 340,
+      "height": 98,
+      "color": "2"
+    },
+    {
+      "id": "e79c5cd1df319ca2",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240909002438.png",
+      "styleAttributes": {},
+      "x": -1487,
+      "y": 2058,
+      "width": 981,
+      "height": 720
+    },
+    {
+      "id": "838af3abc59586e2",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240909002834.png",
+      "styleAttributes": {},
+      "x": -6680,
+      "y": 2240,
+      "width": 681,
+      "height": 500
+    },
+    {
+      "id": "95a1e2d890aafb1e",
+      "type": "text",
+      "text": "In the software design process, creating a good design is not done in one step. Instead, it involves multiple steps or activities. These design activities can be classified into two main stages:\n\n### 1. **Preliminary (High-Level) Design**\n   - **Purpose**: This stage focuses on breaking down the overall problem into smaller, manageable parts. The goal is to create a structure or architecture for the software.\n   - **Outcome**: The result is a program structure or software architecture. At this stage, the software is divided into functionally independent modules that work together but are separate enough to handle their own tasks.\n   - **Key Features**:\n     - **Cohesion**: Each module should focus on a single task or responsibility.\n     - **Low Coupling**: Modules should be loosely connected, meaning they don’t rely too much on each other.\n     - **Hierarchy**: The modules are organized in a structured way, often in a hierarchy.\n   - **Notations Used**:\n     - **Structure Charts**: A tree-like diagram representing the hierarchy and control relationships among modules, commonly used in procedural development.\n     - **UML (Unified Modeling Language)**: A set of diagrams used to document object-oriented design. UML diagrams help visualize the design of the system.\n\n",
+      "styleAttributes": {},
+      "x": -5880,
+      "y": 2665,
+      "width": 1060,
+      "height": 560,
+      "color": "1"
+    },
+    {
+      "id": "c1b1aed7018b7f42",
+      "type": "text",
+      "text": "During the design phase of software development, the goal is to transform the Software Requirements Specification (SRS) into a detailed design document. This involves outlining the structure and functionality of the software. Here's a simplified explanation of the key outcomes of the design process:\n\n1. **Different Modules**: The software is divided into smaller parts called modules. Each module handles a specific task within the overall system. For example, in a student registration system, one module might focus on managing the student registration process.\n\n2. **Control Relationships**: This refers to how different modules interact with each other, usually through function calls. For example, one module might call a function in another module to complete a task.\n\n3. **Interfaces Between Modules**: The interface defines what information (data) is passed between modules when they interact. This ensures that the modules can work together smoothly.\n\n4. **Data Structures**: Each module may need to store and manage some data. The design phase involves deciding how this data will be organized and stored.\n\n5. **Algorithms**: Algorithms are step-by-step procedures that describe how tasks within the modules are accomplished. During design, these algorithms are planned and documented, keeping in mind efficiency and accuracy.\n\nThe design process is iterative, meaning it's refined through multiple steps, and the resulting design documents are reviewed by the development team to ensure they meet the software requirements.",
+      "styleAttributes": {},
+      "x": -5240,
+      "y": 1890,
+      "width": 838,
+      "height": 467,
+      "color": "1"
+    },
+    {
+      "id": "5644cb585b36e604",
+      "type": "text",
+      "text": "### 2. **Detailed Design**\n   - **Purpose**: Once the high-level design is done, this stage dives deeper into each module.\n   - **Outcome**: The detailed design stage produces a document called the **Module Specification (MSPEC)**. This document describes the specific data structures and algorithms each module will use.\n   - **Key Features**:\n     - **MSPEC Document**: It provides the detailed information that programmers need to start coding, including the specific implementation details for each module.\n",
+      "styleAttributes": {},
+      "x": -5240,
+      "y": 3320,
+      "width": 1020,
+      "height": 300,
+      "color": "1"
+    },
+    {
+      "id": "ac5d3617143485e0",
+      "type": "text",
+      "text": "### Layered Arrangement of Modules in Software Design\n\nIn software design, the concept of layering modules refers to how different parts of a program are organized and how they interact with each other. Imagine you have a stack of layers, with each layer containing certain modules (or pieces of code) that perform specific tasks. The idea is to structure the program so that higher layers only interact with layers directly below them. This organization makes the program easier to understand and maintain.\n\nHere's a breakdown of the key concepts:\n\n#### 1. **Layered Design**\n- **What it is:** In a layered design, modules are organized into layers based on their relationships. A module at a higher layer can only call (or use) the modules at the layer right below it. It cannot call modules that are in the same layer or any layers above it.\n- **Why it's good:** This structure makes it easier to track down and fix errors because you only need to look at the modules in the lower layers when something goes wrong. Additionally, it simplifies understanding the program since you can focus on one layer at a time.\n\n#### 2. **Superordinate and Subordinate Modules**\n- **Superordinate Module:** A module that controls or calls another module.\n- **Subordinate Module:** A module that is controlled or called by another module.\n\nIn a layered design, the superordinate module is always in a higher layer, and the subordinate module is in a lower layer.\n\n#### 3. **Visibility**\n- **What it means:** A module is said to be \"visible\" to another module if it can be directly called by it. In a layered design, a module can only see (or call) the modules in the layer directly below it.\n\n#### 4. **Control Abstraction**\n- **What it is:** This principle means that higher-level modules should only interact with the layer right below them and should not be concerned with the details of the layers below that. This abstraction helps simplify the design and makes the program easier to manage.\n\n#### 5. **Depth and Width**\n- **Depth:** This refers to the number of layers in the control hierarchy. For example, if there are three layers in a design, the depth is 3.\n- **Width:** This refers to the number of modules within a layer. A wider layer has more modules.\n\n\n### Example of Good vs. Poor Design\n- **Good Design:** In a well-layered design, modules at higher levels control lower-level modules in a structured manner. Errors are easier to locate, and each module has a clear responsibility.\n  \n- **Poor Design:** In a design that is not layered, modules call each other randomly without any clear structure. This makes it hard to trace errors because any module could be the problem.\n\nIn summary, a **layered design** helps create a more organized, understandable, and maintainable software system. It allows developers to focus on smaller sections of the program, reduces the impact of errors, and promotes code reuse.",
+      "styleAttributes": {},
+      "x": 8296,
+      "y": 710,
+      "width": 840,
+      "height": 432
+    },
+    {
+      "id": "bf40a91fc6f8c4f4",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240909015357.png",
+      "styleAttributes": {},
+      "x": 8316,
+      "y": 1247,
+      "width": 819,
+      "height": 393
+    },
+    {
+      "id": "d0b3bcf8dc548a3d",
+      "type": "text",
+      "text": "#### 1. **Function-Oriented Design**\n- **Top-Down Decomposition:** In this approach, you start with a high-level function and break it down into smaller, more detailed functions. For example, in a library system, the function \"create-new-library-member\" can be broken down into:\n  - Assigning a membership number\n  - Creating a member record\n  - Printing a bill\n\n  Each of these smaller functions can be further divided into even more detailed tasks.\n\n- **Centralized System State:** In function-oriented design, the system's state (e.g., whether a book is borrowed or available) is often stored in global data that can be accessed and updated by multiple functions. For example, functions like \"create-new-member\" and \"update-member-record\" may all share the same data.\n\n#### 2. **Examples of Function-Oriented Design Approaches:**\n- **Structured Design (Constantine and Yourdon, 1979):** A popular method for organizing and decomposing functions.\n- **Jackson's Structured Design (1975):** Another method focused on structured programming.\n- **Warnier-Orr Methodology (1977, 1981):** A function-oriented approach with emphasis on data organization.\n- **Step-wise Refinement (Wirth, 1971):** Breaking down problems into smaller, manageable steps.\n- **Hatley and Pirbhai’s Methodology (1987):** A method that combines structured design with real-time system considerations.\n\nIn summary, function-oriented design is about breaking down a system into smaller functions and managing shared data centrally. It's a mature and widely-used approach in software engineering.",
+      "styleAttributes": {},
+      "x": 9240,
+      "y": 1040,
+      "width": 480,
+      "height": 574
+    },
+    {
+      "id": "55bc714fea3c59af",
+      "type": "text",
+      "text": "1. **Function-Oriented Design**",
+      "styleAttributes": {},
+      "x": 9631,
+      "y": 849,
+      "width": 449,
+      "height": 77
+    },
+    {
+      "id": "3f1477019cb6a5d3",
+      "type": "text",
+      "text": "# APPROACHES TO SOFTWARE DESIGN",
+      "styleAttributes": {},
+      "x": 9838,
+      "y": 608,
+      "width": 602,
+      "height": 102,
+      "color": "1"
+    },
+    {
+      "id": "4b920382f555b3df",
+      "type": "text",
+      "text": "#### 4. **Comparison with Function-Oriented Design**\n\n- **Focus:** OOD focuses on real-world entities (like members or books) and their interactions, while function-oriented design focuses on the functions or services provided (like issue-book or update-record).\n- **State Information:** In OOD, data is distributed among objects. In function-oriented design, data is centralized and shared among functions.\n- **Grouping:** OOD groups functions based on the data they operate on, whereas function-oriented design groups functions based on their purpose.\n\n#### **Example: Fire-Alarms System**\n\nIn an automated fire-alarm system:\n\n- **Function-Oriented Design:** Might focus on functions like detecting smoke, sounding alarms, and notifying the fire department.\n- **Object-Oriented Design:** Would involve objects like sensors, alarms, and notifications, each with their own data and methods.",
+      "styleAttributes": {},
+      "x": 9960,
+      "y": 1130,
+      "width": 564,
+      "height": 484
+    },
+    {
+      "id": "6ba1c679c6bdcecc",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240909011704.png",
+      "styleAttributes": {},
+      "x": 4400,
+      "y": 1573,
+      "width": 1192,
+      "height": 225
+    },
+    {
+      "id": "9703d3f74428ef85",
+      "type": "text",
+      "text": "# CLASSIFICATION OF COUPLING (DS 3 C)",
+      "styleAttributes": {},
+      "x": 4220,
+      "y": 1160,
+      "width": 776,
+      "height": 122
+    },
+    {
+      "id": "1275d75f6f7be0e5",
+      "type": "text",
+      "text": "#### 6. **Fan-out**\n- **What it is:** Fan-out is the number of modules that a single module directly controls. A high fan-out number means the module controls many others, which can indicate that the module is doing too much work and may lack focus (low cohesion).\n- **Why it's a problem:** If a module has too many connections (high fan-out), it might become too complex and difficult to manage. Good design usually keeps fan-out low.",
+      "styleAttributes": {},
+      "x": 7000,
+      "y": 1255,
+      "width": 540,
+      "height": 305
+    },
+    {
+      "id": "316234d36f511c3b",
+      "type": "text",
+      "text": "## FAN-OUT",
+      "styleAttributes": {},
+      "x": 7173,
+      "y": 1049,
+      "width": 260,
+      "height": 60
+    },
+    {
+      "id": "b84743a3009febf6",
+      "type": "text",
+      "text": "# LAYERED ARRANGEMENT OF MODULES",
+      "styleAttributes": {},
+      "x": 7422,
+      "y": 785,
+      "width": 474,
+      "height": 105,
+      "color": "1"
+    },
+    {
+      "id": "a248131b29127c96",
+      "type": "text",
+      "text": "## FAN-IN",
+      "styleAttributes": {},
+      "x": 7706,
+      "y": 1048,
+      "width": 260,
+      "height": 60
+    },
+    {
+      "id": "0f22d8a4a17f8edc",
+      "type": "text",
+      "text": "#### 7. **Fan-in**\n- **What it is:** Fan-in is the number of modules that directly use (or call) a particular module. \n- **Why it's good:** A high fan-in number usually indicates that the module is being reused by many other modules, which is a sign of good design.",
+      "styleAttributes": {},
+      "x": 7660,
+      "y": 1267,
+      "width": 493,
+      "height": 253
+    },
+    {
+      "id": "d7be3c7e78295f74",
+      "type": "text",
+      "text": "# Comparison",
+      "styleAttributes": {},
+      "x": 10080,
+      "y": 1010,
+      "width": 260,
+      "height": 60
+    },
+    {
+      "id": "cce42f675c236552",
+      "type": "text",
+      "text": "2. **Object-Oriented Design**",
+      "styleAttributes": {},
+      "x": 10324,
+      "y": 846,
+      "width": 356,
+      "height": 80
+    },
+    {
+      "id": "d420683d61628fea",
+      "type": "text",
+      "text": "In **Object-Oriented Design (OOD)**, a system is made up of objects, which are entities with their own data and functions. Here’s a simplified breakdown of key concepts:\n\n#### 1. **Objects and Methods**\n\n- **Objects:** Each object contains its own data and has methods (functions) to operate on that data. For example, in a library system, each library member is an object with its own data (like membership number) and methods (like borrowing a book).\n- **Encapsulation:** Objects manage their own data and hide this data from other objects. Other objects can only interact with the data through the object's methods.\n\n#### 2. **Key Concepts**\n\n- **Data Abstraction:** How data is stored and organized inside an object is hidden from the outside. For instance, a stack object might use an array or a linked list internally, but users only interact with it through operations like push and pop.\n- **Data Structure:** This refers to the organization of primitive data items (like integers or characters) into a more complex structure (like arrays or linked lists).\n- **Data Type:** This is a programming concept that defines the type of data a variable can hold. In OOD, classes represent user-defined data types.\n\n#### 3. **Advantages of OOD**\n\n- **Encapsulation:** Keeps data safe from unauthorized access and helps in debugging since errors can be traced back to specific methods.\n- **Modularity:** Objects have high cohesion (they perform a single function) and low coupling (they interact minimally with other objects), which makes the design more modular and easier to maintain.\n- **Abstraction:** Simplifies complex systems by allowing you to focus on high-level interactions and not on detailed data handling.",
+      "styleAttributes": {},
+      "x": 11020,
+      "y": 888,
+      "width": 578,
+      "height": 1046
+    },
+    {
+      "id": "0b30b7a60a0cb5a8",
+      "type": "text",
+      "text": "# Why are Cohesion and Coupling Important?",
+      "styleAttributes": {},
+      "x": 4155,
+      "y": 786,
+      "width": 373,
+      "height": 132
+    },
+    {
+      "id": "d318e0b8bff1e228",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240909011031.png",
+      "styleAttributes": {},
+      "x": 2578,
+      "y": 1418,
+      "width": 1642,
+      "height": 310
+    },
+    {
+      "id": "18faafdd045a9a75",
+      "type": "text",
+      "text": "### Understanding Cohesion and Coupling in Software Design\n\n**Cohesion** and **coupling** are two important concepts in software design that help in creating well-structured and maintainable code. Let’s break down these concepts in simpler terms:\n\n#### **Coupling**:\n\n- **Coupling** refers to how much two modules (or parts) of a program depend on each other.\n- **High coupling** means that two modules are very dependent on each other. For example, if one module needs to pass a lot of data to another module, or if they share the same data, they are considered to be tightly coupled. This is not ideal because changes in one module can easily break the other module.\n- **Low coupling** is when modules interact very little with each other, only passing a small amount of simple data (like numbers or text). This is preferred because it makes the program easier to modify, test, and debug. If one module changes, it’s less likely to affect others.\n\n#### **Cohesion**:\n\n- **Cohesion** measures how focused and related the tasks of a single module are.\n- A **highly cohesive** module does one specific thing, and all its functions work together toward that goal. For example, if a module is responsible for handling user input, all the functions inside that module should relate to processing user input.\n- **Low cohesion** happens when a module does many unrelated tasks. For instance, if a module handles both user input and file storage, it’s not very cohesive. This is not ideal because it makes the module harder to understand and maintain.",
+      "styleAttributes": {},
+      "x": 2700,
+      "y": 660,
+      "width": 699,
+      "height": 670
+    },
+    {
+      "id": "6f1564d84749e6eb",
+      "type": "text",
+      "text": "# CLASSIFICATION OF COHESIVENESS (CLTPCLF))",
+      "styleAttributes": {},
+      "x": 3480,
+      "y": 1185,
+      "width": 608,
+      "height": 97
+    },
+    {
+      "id": "9807871744420c99",
+      "type": "text",
+      "text": "# Understanding Cohesion and Coupling in Software Design",
+      "styleAttributes": {},
+      "x": 3480,
+      "y": 780,
+      "width": 440,
+      "height": 138
+    },
+    {
+      "id": "3662addf4d1ae27d",
+      "type": "text",
+      "text": "### Why are Cohesion and Coupling Important?\n\n1. **Functional Independence**:\n    - A module is considered functionally independent when it performs a single task (high cohesion) and interacts very little with other modules (low coupling).\n    - **Advantages of functional independence**:\n        - **Error Isolation**: If a bug occurs, it's easier to find and fix because the module doesn't depend heavily on others.\n        - **Reusability**: Independent modules can be reused in different programs without much modification.\n        - **Understandability**: When modules are independent, you can focus on understanding one module at a time without worrying about others.",
+      "styleAttributes": {},
+      "x": 4700,
+      "y": 674,
+      "width": 720,
+      "height": 386
+    },
+    {
+      "id": "ac3518a16474351e",
+      "type": "text",
+      "text": "### Understanding Different Types of Coupling in Software Design\n\nCoupling measures how much one module depends on another in a software system. In simpler terms, it tells us how tightly connected two modules are. The more data and information two modules share, the higher the coupling between them. Ideally, you want low coupling between modules, so changes in one module do not heavily impact others. Let's look at different types of coupling, from the least severe (best) to the most severe (worst):\n\n#### 1. **Data Coupling (Least Severe)**\n- **What it means:** Two modules are data coupled if they communicate by passing simple data types like integers, floats, or characters as parameters. \n- **Example:** Imagine a function that takes an integer as input and returns a result. This is a simple and low-level connection.\n- **Why it's good:** Since only basic data is shared, the modules remain independent, making them easier to understand and modify.\n\n#### 2. **Stamp Coupling**\n- **What it means:** Stamp coupling occurs when two modules communicate by passing a composite data structure, like a record or structure (e.g., a `struct` in C or a record in PASCAL).\n- **Example:** If one module sends a structure containing employee details to another module for processing, this is stamp coupling.\n- **Why it’s okay:** This type of coupling is more complex than data coupling but still acceptable, as long as the data structure is well-defined and not overly complicated.\n\n#### 3. **Control Coupling**\n- **What it means:** Control coupling exists when one module controls the behavior of another by passing control information, such as a flag or condition.\n- **Example:** If one module sets a flag and another module uses that flag to decide what action to take, this is control coupling.\n- **Why it’s problematic:** This type of coupling can be risky because the behavior of one module depends on specific instructions from another, making it harder to manage and debug.\n\n#### 4. **Common Coupling**\n- **What it means:** Common coupling happens when two or more modules share the same global data.\n- **Example:** If multiple modules access and modify the same global variable, this is common coupling.\n- **Why it’s bad:** Changes to the global data by one module can unintentionally affect other modules, making the system harder to maintain and understand. Debugging issues in this setup can be very challenging.\n\n#### 5. **Content Coupling (Most Severe)**\n- **What it means:** Content coupling exists when one module directly accesses or modifies the internal code of another module. \n- **Example:** This could involve one module jumping into the code of another module or sharing code sections. This is rarely allowed in modern programming languages.\n- **Why it’s the worst:** This type of coupling is very dangerous because it tightly binds the modules together. Changes in one module almost always break the other, making the system very fragile and difficult to maintain.\n\n### Conclusion\n\nIn software design, **low coupling** is desirable because it means that modules are more independent and easier to maintain. **High coupling** makes the system more complex and harder to manage. The different types of coupling—from data coupling (least severe) to content coupling (most severe)—help us understand how interconnected modules are, and ideally, we aim to minimize this connection wherever possible.",
+      "styleAttributes": {},
+      "x": 5700,
+      "y": 1520,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "id": "68f633d6e0f545c1",
+      "type": "text",
+      "text": "# SOFTWARE DESIGN\n",
+      "styleAttributes": {
+        "textAlign": "center",
+        "shape": "diamond"
+      },
+      "x": 840,
+      "y": -520,
+      "width": 1320,
+      "height": 960,
+      "color": "1"
+    },
+    {
+      "id": "0615b64aec1af11a",
+      "type": "text",
+      "text": "### Understanding Different Types of Cohesion in Software Design\n\nCohesion measures how closely related and focused the tasks within a single module (or part) of a program are. In simpler terms, it tells us how well the functions within a module work together to achieve a single goal. There are different types of cohesion, ranging from the worst (coincidental cohesion) to the best (functional cohesion). Let's go through them one by one in easy terms:\n\n#### 1. **Coincidental Cohesion (Worst Type)**\n- This is the weakest type of cohesion. \n- In this type, the functions inside a module are not related to each other. It's like putting random things together without any thought. For example, a module that handles library books, creates member records, and manages the librarian's leave requests all in one. These tasks are unrelated, and the module seems to be a collection of random functions. \n\n#### 2. **Logical Cohesion**\n- In logical cohesion, the functions are somewhat related but still not very focused. \n- All the functions perform similar types of tasks, but not for the same purpose. For example, a module that handles different types of print tasks (like printing grade sheets, salary slips, and reports) has logical cohesion. All functions are related to printing but serve different purposes.\n\n#### 3. **Temporal Cohesion**\n- In temporal cohesion, the functions are grouped together because they are executed around the same time.\n- For example, when a computer starts, several tasks happen in sequence like initializing memory, loading the operating system, etc. These tasks are related because they happen during the startup process, but they don’t necessarily contribute to the same goal.\n\n#### 4. **Procedural Cohesion**\n- In procedural cohesion, the functions in a module are executed in a specific order, but they perform different tasks.\n- For example, in a trading system, functions like login, place order, print bill, and logout are executed one after the other, but they don't directly contribute to the same task. They are just steps in a process.\n\n#### 5. **Communicational Cohesion**\n- In communicational cohesion, the functions work on the same data.\n- For example, a module that manages student records where functions like admitStudent, enterMarks, and printGradeSheet all operate on the same student data. The functions are related because they work with the same data, but they may still perform different tasks.\n\n#### 6. **Sequential Cohesion**\n- In sequential cohesion, the functions are ordered in a sequence where the output of one function is used as input for the next.\n- For example, in an online store, after creating an order, the next step might be checking item availability, followed by placing the order with a vendor. These functions are related because they form a chain of steps where one depends on the previous one.\n\n#### 7. **Functional Cohesion (Best Type)**\n- This is the strongest and best type of cohesion.\n- In functional cohesion, all functions in a module work together to achieve a single task. For example, a module that handles payroll might include functions like computeOvertime, computeWorkHours, and computeDeductions, all working together to generate pay slips for employees. This type of module is highly focused and does one specific job.\n\n### How to Identify Cohesion\n\nTo identify how cohesive a module is, you can try to describe its purpose in one simple sentence:\n- If you need a complicated sentence or have to describe multiple tasks, the module has low cohesion (like sequential or communicational).\n- If you can describe the module’s function in a single, straightforward sentence, it has high cohesion (like functional cohesion).\n\nIn summary, **higher cohesion** in a module means it’s more focused and easier to manage, while **lower cohesion** means the module might be doing too many unrelated things, making it harder to understand and maintain.",
+      "styleAttributes": {},
+      "x": 1480,
+      "y": 786,
+      "width": 1114,
+      "height": 544
+    },
+    {
+      "id": "f766a0cccadc463b",
+      "type": "text",
+      "text": "### What Makes a Good Software Design?\n\nDesigning good software is complex because what counts as \"good\" can change depending on the type of application you're working on. For example, if you're designing software for embedded systems (like those in small devices), saving memory might be more important than making the design easy to understand. However, despite these differences, most software engineers agree that a good software design should have certain qualities, like:\n\n1. **Correctness**: The design should do exactly what it’s supposed to do, meeting all the system's requirements.\n    \n2. **Understandability**: The design should be easy for developers to understand, so they can implement and maintain it easily.\n    \n3. **Efficiency**: The design should make good use of resources, like time and memory, and shouldn't be wasteful.\n    \n4. **Maintainability**: The design should be easy to change, as software often needs updates after it's released.",
+      "styleAttributes": {},
+      "x": 672,
+      "y": 1398,
+      "width": 758,
+      "height": 452
+    },
+    {
+      "id": "86c2a4b3898550ac",
+      "type": "text",
+      "text": "# COHESION AND COUPLING",
+      "styleAttributes": {},
+      "x": 3743,
+      "y": 557,
+      "width": 377,
+      "height": 103
+    },
+    {
+      "id": "3bb8913961b9f26b",
+      "type": "text",
+      "text": "### Understandability: The Key Concern\n\nWhen you have several design solutions, one of the most important things to consider is how easy they are to understand. A design that’s hard to understand can lead to more bugs and higher costs because it’s harder to implement, test, and maintain. On the other hand, a simple, clear design makes development smoother and reduces long-term costs.\n\n### Characteristics of an Understandable Design\n\n1. **Consistent Naming**: The parts of the design should have names that clearly reflect what they do. This makes it easier to figure out what each part of the design is responsible for.\n    \n2. **Use of Abstraction and Decomposition**: These principles help simplify the design. Abstraction means focusing on the important details and ignoring the irrelevant ones. Decomposition means breaking the problem down into smaller, manageable pieces.",
+      "styleAttributes": {},
+      "x": 798,
+      "y": 1967,
+      "width": 632,
+      "height": 482
+    },
+    {
+      "id": "9f7390f211b2d115",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240909010251.png",
+      "styleAttributes": {},
+      "x": 1495,
+      "y": 2327,
+      "width": 965,
+      "height": 506
+    },
+    {
+      "id": "5514928d882982e0",
+      "type": "text",
+      "text": "### Modularity: Breaking Down the Problem\n\nA **modular design** splits a problem into separate parts (modules) that interact as little as possible with each other. This makes each module easier to understand and work on independently. It's like breaking a big task into smaller tasks, so you can focus on one piece at a time.\n\n- **High Cohesion**: Modules should focus on doing one specific thing. This is called high cohesion, and it makes each module easier to understand and use.\n- **Low Coupling**: Modules should depend on each other as little as possible. This is called low coupling, and it makes the design more flexible and easier to change.",
+      "styleAttributes": {},
+      "x": 706,
+      "y": 3098,
+      "width": 634,
+      "height": 342
+    },
+    {
+      "id": "3ffddf975d277e8c",
+      "type": "text",
+      "text": "# MODULARITY",
+      "styleAttributes": {},
+      "x": 740,
+      "y": 2908,
+      "width": 260,
+      "height": 60
+    },
+    {
+      "id": "acb073550a243a7f",
+      "type": "text",
+      "text": "# LAYERED DESIGN",
+      "styleAttributes": {},
+      "x": 1135,
+      "y": 2900,
+      "width": 360,
+      "height": 76
+    },
+    {
+      "id": "2e5e870c2b4c986e",
+      "type": "text",
+      "text": "### Layered Design: Organizing the Modules\n\nIn a **layered design**, modules are organized in layers, where higher layers rely on lower layers to do specific tasks. This creates a clear structure that helps with debugging and maintenance. If something goes wrong in a module, you can focus on checking the lower layers to find the problem.\n\n- **Clear Hierarchy**: In a layered design, each module only interacts with the module directly below it, creating a clear, tree-like structure.",
+      "styleAttributes": {},
+      "x": 1539,
+      "y": 3028,
+      "width": 881,
+      "height": 232
+    }
+  ],
+  "edges": [
+    {
+      "id": "792e54cd373ae099",
+      "styleAttributes": {},
+      "fromNode": "fed9219b605d0409",
+      "fromSide": "right",
+      "toNode": "f28959d565998af4",
+      "toSide": "left",
+      "color": "1"
+    },
+    {
+      "id": "247ac25539c40026",
+      "styleAttributes": {},
+      "fromNode": "fed9219b605d0409",
+      "fromSide": "right",
+      "toNode": "de164deb0b1c0966",
+      "toSide": "left",
+      "color": "1"
+    },
+    {
+      "id": "e798593681691e9f",
+      "styleAttributes": {},
+      "fromNode": "68f633d6e0f545c1",
+      "fromSide": "bottom",
+      "toNode": "0f99c7216e36f032",
+      "toSide": "top",
+      "color": "1",
+      "label": "The activities carried out\nduring the design phase (called\nas design process) transform the\nSRS document into the design\ndocument."
+    },
+    {
+      "id": "2c4b13aec283ba0f",
+      "styleAttributes": {},
+      "fromNode": "73074ff215804565",
+      "fromSide": "bottom",
+      "toNode": "6e2e6ffeffc34974",
+      "toSide": "top",
+      "color": "6"
+    },
+    {
+      "id": "a559a0f17b55d751",
+      "styleAttributes": {},
+      "fromNode": "6e2e6ffeffc34974",
+      "fromSide": "right",
+      "toNode": "e79c5cd1df319ca2",
+      "toSide": "left",
+      "color": "3",
+      "label": "MODULE STRCCUTURE"
+    },
+    {
+      "id": "901e992708415d7b",
+      "styleAttributes": {},
+      "fromNode": "95a1e2d890aafb1e",
+      "fromSide": "left",
+      "toNode": "838af3abc59586e2",
+      "toSide": "right"
+    },
+    {
+      "id": "f7e8a9c0cd68297e",
+      "styleAttributes": {},
+      "fromNode": "95a1e2d890aafb1e",
+      "fromSide": "bottom",
+      "toNode": "5644cb585b36e604",
+      "toSide": "top"
+    },
+    {
+      "id": "f6747f1fbb9db631",
+      "styleAttributes": {},
+      "fromNode": "cd768d275b3859c5",
+      "fromSide": "bottom",
+      "toNode": "0c63e670124a5095",
+      "toSide": "top",
+      "color": "6"
+    },
+    {
+      "id": "a823b722fce5ed89",
+      "styleAttributes": {},
+      "fromNode": "cd768d275b3859c5",
+      "fromSide": "bottom",
+      "toNode": "e8610e6cdca7870f",
+      "toSide": "top",
+      "color": "6"
+    },
+    {
+      "id": "45b8ccbc1c6b03eb",
+      "styleAttributes": {},
+      "fromNode": "0c63e670124a5095",
+      "fromSide": "bottom",
+      "toNode": "95a1e2d890aafb1e",
+      "toSide": "right",
+      "color": "2"
+    },
+    {
+      "id": "696b9df713c4f451",
+      "styleAttributes": {},
+      "fromNode": "e8610e6cdca7870f",
+      "fromSide": "bottom",
+      "toNode": "5644cb585b36e604",
+      "toSide": "right",
+      "color": "2"
+    },
+    {
+      "id": "7ccbc62556caf0f6",
+      "styleAttributes": {},
+      "fromNode": "0f99c7216e36f032",
+      "fromSide": "bottom",
+      "toNode": "73074ff215804565",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "20c1fa4476291491",
+      "styleAttributes": {},
+      "fromNode": "6e2e6ffeffc34974",
+      "fromSide": "left",
+      "toNode": "c1b1aed7018b7f42",
+      "toSide": "right",
+      "color": "3",
+      "label": "OUTCOME OF THE DESIGN PROCESS"
+    },
+    {
+      "id": "a0d64c34b86cd8ed",
+      "styleAttributes": {},
+      "fromNode": "0f99c7216e36f032",
+      "fromSide": "bottom",
+      "toNode": "cd768d275b3859c5",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "0e1c7dd2e5544624",
+      "styleAttributes": {},
+      "fromNode": "0f99c7216e36f032",
+      "fromSide": "bottom",
+      "toNode": "6af7065754caa796",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "a3f036c28895ee31",
+      "styleAttributes": {},
+      "fromNode": "6af7065754caa796",
+      "fromSide": "bottom",
+      "toNode": "e60472b14790e9bb",
+      "toSide": "top",
+      "color": "6"
+    },
+    {
+      "id": "f1fd7814f896af9d",
+      "styleAttributes": {},
+      "fromNode": "6af7065754caa796",
+      "fromSide": "bottom",
+      "toNode": "76fad527f3437ed2",
+      "toSide": "top",
+      "color": "6"
+    },
+    {
+      "id": "3e52ec9f0f30d9c1",
+      "styleAttributes": {},
+      "fromNode": "76fad527f3437ed2",
+      "fromSide": "right",
+      "toNode": "37bafcd25c9f4b2f",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "af9664b5be9c2058",
+      "styleAttributes": {},
+      "fromNode": "e60472b14790e9bb",
+      "fromSide": "bottom",
+      "toNode": "37bafcd25c9f4b2f",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "0da27ed131a5faca",
+      "styleAttributes": {},
+      "fromNode": "68f633d6e0f545c1",
+      "fromSide": "bottom",
+      "toNode": "f10157b05e5a9fe6",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "6b842c6a1087aa1b",
+      "styleAttributes": {},
+      "fromNode": "f10157b05e5a9fe6",
+      "fromSide": "right",
+      "toNode": "f766a0cccadc463b",
+      "toSide": "left",
+      "color": "1"
+    },
+    {
+      "id": "c9b719ff3e84f110",
+      "styleAttributes": {},
+      "fromNode": "f10157b05e5a9fe6",
+      "fromSide": "bottom",
+      "toNode": "9b7e0808ff4e58cb",
+      "toSide": "top"
+    },
+    {
+      "id": "155899fa914dff95",
+      "styleAttributes": {},
+      "fromNode": "9b7e0808ff4e58cb",
+      "fromSide": "right",
+      "toNode": "3bb8913961b9f26b",
+      "toSide": "left",
+      "color": "1"
+    },
+    {
+      "id": "ca069044fffcffef",
+      "styleAttributes": {},
+      "fromNode": "9b7e0808ff4e58cb",
+      "fromSide": "bottom",
+      "toNode": "c240ef3102818950",
+      "toSide": "top"
+    },
+    {
+      "id": "e767babb64410ad4",
+      "styleAttributes": {},
+      "fromNode": "c240ef3102818950",
+      "fromSide": "bottom",
+      "toNode": "f5e18aaa8c4768c2",
+      "toSide": "top"
+    },
+    {
+      "id": "3867e3a8ccac8a26",
+      "styleAttributes": {},
+      "fromNode": "c240ef3102818950",
+      "fromSide": "bottom",
+      "toNode": "881ce153d87c1185",
+      "toSide": "top"
+    },
+    {
+      "id": "4e0ffa44483a8613",
+      "styleAttributes": {},
+      "fromNode": "881ce153d87c1185",
+      "fromSide": "bottom",
+      "toNode": "6eef4e8f94e29d7e",
+      "toSide": "bottom"
+    },
+    {
+      "id": "1beb6afe2f6ad40f",
+      "styleAttributes": {},
+      "fromNode": "f5e18aaa8c4768c2",
+      "fromSide": "bottom",
+      "toNode": "6eef4e8f94e29d7e",
+      "toSide": "bottom"
+    },
+    {
+      "id": "e010c4e35b7bcbeb",
+      "styleAttributes": {},
+      "fromNode": "881ce153d87c1185",
+      "fromSide": "bottom",
+      "toNode": "3ffddf975d277e8c",
+      "toSide": "top"
+    },
+    {
+      "id": "9354089e0dc813c0",
+      "styleAttributes": {},
+      "fromNode": "3ffddf975d277e8c",
+      "fromSide": "bottom",
+      "toNode": "5514928d882982e0",
+      "toSide": "top"
+    },
+    {
+      "id": "ae2f68feeae01863",
+      "styleAttributes": {},
+      "fromNode": "acb073550a243a7f",
+      "fromSide": "bottom",
+      "toNode": "2e5e870c2b4c986e",
+      "toSide": "left"
+    },
+    {
+      "id": "43a58a939c6912cb",
+      "styleAttributes": {},
+      "fromNode": "881ce153d87c1185",
+      "fromSide": "bottom",
+      "toNode": "acb073550a243a7f",
+      "toSide": "top"
+    },
+    {
+      "id": "3067c0c4a21d28ea",
+      "styleAttributes": {},
+      "fromNode": "90cd9d6d52d7f229",
+      "fromSide": "right",
+      "toNode": "9f7390f211b2d115",
+      "toSide": "bottom"
+    },
+    {
+      "id": "c59fcd8579070f94",
+      "styleAttributes": {},
+      "fromNode": "68f633d6e0f545c1",
+      "fromSide": "bottom",
+      "toNode": "86c2a4b3898550ac",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "8a1ceaee56ccd908",
+      "styleAttributes": {},
+      "fromNode": "86c2a4b3898550ac",
+      "fromSide": "bottom",
+      "toNode": "9807871744420c99",
+      "toSide": "top"
+    },
+    {
+      "id": "00c2ee477c97e354",
+      "styleAttributes": {},
+      "fromNode": "86c2a4b3898550ac",
+      "fromSide": "bottom",
+      "toNode": "0b30b7a60a0cb5a8",
+      "toSide": "top"
+    },
+    {
+      "id": "61a29dd87660c02f",
+      "styleAttributes": {},
+      "fromNode": "9807871744420c99",
+      "fromSide": "left",
+      "toNode": "18faafdd045a9a75",
+      "toSide": "right"
+    },
+    {
+      "id": "91f19d4098fbf9e0",
+      "styleAttributes": {},
+      "fromNode": "0b30b7a60a0cb5a8",
+      "fromSide": "right",
+      "toNode": "3662addf4d1ae27d",
+      "toSide": "left"
+    },
+    {
+      "id": "4943d6ebabf04333",
+      "styleAttributes": {},
+      "fromNode": "1790b00f13de4052",
+      "fromSide": "bottom",
+      "toNode": "6f1564d84749e6eb",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "35659b5f4dd1194e",
+      "styleAttributes": {},
+      "fromNode": "6f1564d84749e6eb",
+      "fromSide": "bottom",
+      "toNode": "d318e0b8bff1e228",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "b608fd0e486c8f36",
+      "styleAttributes": {},
+      "fromNode": "9703d3f74428ef85",
+      "fromSide": "bottom",
+      "toNode": "6ba1c679c6bdcecc",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "85e4eb8540b4f4dd",
+      "styleAttributes": {},
+      "fromNode": "1790b00f13de4052",
+      "fromSide": "bottom",
+      "toNode": "9703d3f74428ef85",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "2ecbb82034239f4a",
+      "styleAttributes": {},
+      "fromNode": "6ba1c679c6bdcecc",
+      "fromSide": "right",
+      "toNode": "ac3518a16474351e",
+      "toSide": "left"
+    },
+    {
+      "id": "b2e67cffc8a071e4",
+      "styleAttributes": {},
+      "fromNode": "d318e0b8bff1e228",
+      "fromSide": "left",
+      "toNode": "0615b64aec1af11a",
+      "toSide": "bottom"
+    },
+    {
+      "id": "4bb24673e1d1144a",
+      "styleAttributes": {},
+      "fromNode": "68f633d6e0f545c1",
+      "fromSide": "bottom",
+      "toNode": "b84743a3009febf6",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "75346c01cac90e8c",
+      "styleAttributes": {},
+      "fromNode": "b84743a3009febf6",
+      "fromSide": "right",
+      "toNode": "ac5d3617143485e0",
+      "toSide": "left"
+    },
+    {
+      "id": "2b37d5ab13949bc6",
+      "styleAttributes": {},
+      "fromNode": "b84743a3009febf6",
+      "fromSide": "bottom",
+      "toNode": "316234d36f511c3b",
+      "toSide": "top"
+    },
+    {
+      "id": "d573060bff4ba9d8",
+      "styleAttributes": {},
+      "fromNode": "b84743a3009febf6",
+      "fromSide": "bottom",
+      "toNode": "a248131b29127c96",
+      "toSide": "top"
+    },
+    {
+      "id": "a5ecb85ac2308fc9",
+      "styleAttributes": {},
+      "fromNode": "316234d36f511c3b",
+      "fromSide": "bottom",
+      "toNode": "1275d75f6f7be0e5",
+      "toSide": "top"
+    },
+    {
+      "id": "afa6e58a03ae5e21",
+      "styleAttributes": {},
+      "fromNode": "a248131b29127c96",
+      "fromSide": "bottom",
+      "toNode": "0f22d8a4a17f8edc",
+      "toSide": "top"
+    },
+    {
+      "id": "572855159805ed38",
+      "styleAttributes": {},
+      "fromNode": "68f633d6e0f545c1",
+      "fromSide": "bottom",
+      "toNode": "3f1477019cb6a5d3",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "39e0d03033af7f3b",
+      "styleAttributes": {},
+      "fromNode": "3f1477019cb6a5d3",
+      "fromSide": "bottom",
+      "toNode": "55bc714fea3c59af",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "e15d0fc987328ad9",
+      "styleAttributes": {},
+      "fromNode": "55bc714fea3c59af",
+      "fromSide": "bottom",
+      "toNode": "d0b3bcf8dc548a3d",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "dda247b0b97dda0b",
+      "styleAttributes": {},
+      "fromNode": "3f1477019cb6a5d3",
+      "fromSide": "bottom",
+      "toNode": "cce42f675c236552",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "0b404732323f2363",
+      "styleAttributes": {},
+      "fromNode": "cce42f675c236552",
+      "fromSide": "bottom",
+      "toNode": "d420683d61628fea",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "156db31d25bf4ec8",
+      "styleAttributes": {},
+      "fromNode": "d7be3c7e78295f74",
+      "fromSide": "bottom",
+      "toNode": "4b920382f555b3df",
+      "toSide": "top",
+      "color": "1"
+    }
+  ],
+  "metadata": {}
+}

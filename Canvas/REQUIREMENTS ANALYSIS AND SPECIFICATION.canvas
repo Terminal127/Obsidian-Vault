@@ -1,0 +1,729 @@
+{
+  "nodes": [
+    {
+      "id": "f625d49edd5503ed",
+      "type": "group",
+      "styleAttributes": {},
+      "x": 2500,
+      "y": 780,
+      "width": 1800,
+      "height": 2140,
+      "color": "5",
+      "label": "FUNCTIONAL-NONFUNCTIONAL"
+    },
+    {
+      "id": "3af702360c90ca58",
+      "type": "group",
+      "styleAttributes": {},
+      "x": 540,
+      "y": 780,
+      "width": 960,
+      "height": 1902,
+      "color": "5",
+      "label": "OVERVIEW"
+    },
+    {
+      "id": "e1dd43ce0dde9ea2",
+      "type": "group",
+      "styleAttributes": {},
+      "x": -560,
+      "y": 760,
+      "width": 940,
+      "height": 1344,
+      "color": "5",
+      "label": "requirement-analysis"
+    },
+    {
+      "id": "cea13f1417909c77",
+      "type": "group",
+      "styleAttributes": {},
+      "x": -1600,
+      "y": 720,
+      "width": 900,
+      "height": 942,
+      "color": "5",
+      "label": "requirement-gathering"
+    },
+    {
+      "id": "592cb254cac463df",
+      "type": "group",
+      "styleAttributes": {},
+      "x": -2109,
+      "y": -520,
+      "width": 959,
+      "height": 679,
+      "color": "5",
+      "label": "Untitled group"
+    },
+    {
+      "id": "437d9bdf9c6b0a07",
+      "type": "text",
+      "text": "### Software Requirements Specification (SRS)\n\n**Purpose**: To systematically organize and document the requirements of a software system.\n\n**Importance**: The SRS document is crucial because it serves multiple purposes and audiences, making it one of the toughest documents to write.\n\n**Users of the SRS Document**:\n1. **Users, Customers, and Marketing Personnel**:\n   - **Need**: To ensure that the software meets their needs and to understand the product’s features.\n\n2. **Software Developers**:\n   - **Need**: To understand exactly what is required to build the software.\n\n3. **Test Engineers**:\n   - **Need**: To create test cases that validate the software against its requirements.\n\n4. **User Documentation Writers**:\n   - **Need**: To write user manuals that accurately describe the software’s features.\n\n5. **Project Managers**:\n   - **Need**: To estimate project costs and plan development based on the SRS.\n\n6. **Maintenance Engineers**:\n   - **Need**: To understand existing functionalities for future modifications and maintenance.\n\n**Role of the SRS Document**:\n- **Reference Document**: Used throughout the software development lifecycle.\n- **Contract Documentation**: Acts as a formal agreement between the development team and the customer.\n- **Legal Document**: Can be used to resolve disputes or settle legal matters if disagreements arise.\n\nOnce the SRS is agreed upon by the customer, the development team uses it as the basis for building the software, ensuring alignment with documented requirements.",
+      "styleAttributes": {},
+      "x": 560,
+      "y": 800,
+      "width": 920,
+      "height": 778
+    },
+    {
+      "id": "82af7cef52e1a684",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911092919.png",
+      "styleAttributes": {},
+      "x": 560,
+      "y": 1638,
+      "width": 400,
+      "height": 295
+    },
+    {
+      "id": "add23d0329cd2253",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911094024.png",
+      "styleAttributes": {},
+      "x": 560,
+      "y": 1998,
+      "width": 400,
+      "height": 294
+    },
+    {
+      "id": "47181f7a03785f2b",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911094012.png",
+      "styleAttributes": {},
+      "x": 1000,
+      "y": 1630,
+      "width": 400,
+      "height": 311
+    },
+    {
+      "id": "8722d4a395c8dde6",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911094042.png",
+      "styleAttributes": {},
+      "x": 1000,
+      "y": 1998,
+      "width": 400,
+      "height": 305
+    },
+    {
+      "id": "873da89cc76bdc5d",
+      "type": "text",
+      "text": "### Why Develop an SRS Document?\n\n**Key Uses**:\n1. **Agreement Formation**: Aligns expectations between customers and developers.\n2. **Reduces Rework**: Identifies and resolves issues early, minimizing redesign and retesting.\n3. **Cost and Schedule Estimation**: Helps project managers estimate development efforts and costs.\n4. **Baseline for Validation**: Serves as a reference for verifying and validating the developed software.\n5. **Facilitates Future Extensions**: Provides a basis for planning enhancements.\n\n### Characteristics of a Good SRS Document\n\n1. **Concise**: Clear and to the point, avoiding unnecessary details.\n2. **Implementation-Independent**: Focuses on \"what\" the system should do, not \"how\" it should be done.\n3. **Traceable**: Allows tracking of requirements through design, code, and tests.\n4. **Modifiable**: Easily updated to accommodate changes.\n5. **Identification of Undesired Events**: Describes responses to exceptional conditions.\n6. **Verifiable**: Requirements should be testable to ensure they are met.\n\n### Attributes of Bad SRS Documents\n\n1. **Over-Specification**: Includes unnecessary \"how-to\" details that restrict design freedom.\n2. **Forward References**: Refers to sections that are discussed later, reducing readability.\n3. **Wishful Thinking**: Contains unrealistic or difficult-to-implement requirements.\n4. **Noise**: Includes irrelevant information that clutters the document.\n\nUnderstanding these characteristics and pitfalls helps in crafting a clear, effective SRS document.",
+      "styleAttributes": {},
+      "x": 1560,
+      "y": 800,
+      "width": 820,
+      "height": 918
+    },
+    {
+      "id": "4ae54ba93c4fe567",
+      "type": "text",
+      "text": "# Why Spend Time and Resource to Develop an SRS Document?",
+      "styleAttributes": {},
+      "x": 1720,
+      "y": 380,
+      "width": 440,
+      "height": 150,
+      "color": "1"
+    },
+    {
+      "id": "fcb25a2ae3833359",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911094604.png",
+      "styleAttributes": {},
+      "x": 1570,
+      "y": 1779,
+      "width": 400,
+      "height": 308
+    },
+    {
+      "id": "1f0dca8c19989f6b",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911094616.png",
+      "styleAttributes": {},
+      "x": 1980,
+      "y": 1779,
+      "width": 399,
+      "height": 303
+    },
+    {
+      "id": "f25a2ecb3681868c",
+      "type": "text",
+      "text": "#  SOFTWARE REQUIREMENTS SPECIFICATION (SRS)",
+      "styleAttributes": {},
+      "x": 1020,
+      "y": 80,
+      "width": 492,
+      "height": 155,
+      "color": "1"
+    },
+    {
+      "id": "e6a0ee494e23866a",
+      "type": "text",
+      "text": "# USERS OF SRS DOCUMENT",
+      "styleAttributes": {},
+      "x": 830,
+      "y": 390,
+      "width": 380,
+      "height": 140,
+      "color": "1"
+    },
+    {
+      "id": "1a35af74e1bd727f",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911094108.png",
+      "styleAttributes": {},
+      "x": 560,
+      "y": 2378,
+      "width": 399,
+      "height": 284
+    },
+    {
+      "id": "9e79c079b07fc266",
+      "type": "text",
+      "text": "Here’s a simplified summary of the requirements analysis and specification phase in software development:\n\n1. **Importance of Requirements**: Before development starts, it's crucial to understand and document what the customer needs. This prevents costly changes later and avoids disputes.\n\n2. **Role of the Requirements Document**: A well-prepared requirements document (SRS - Software Requirements Specification) guides the entire development process. It ensures everyone understands what needs to be built and serves as a basis for later phases.\n\n3. **Who Does It?**: Experienced team members, often called system analysts, handle this phase. They gather and analyze customer requirements, then create and refine the SRS document.\n\n4. **Validation**: The SRS document is reviewed internally by the project team and then by the customer. It must be accurate, clear, and complete before it is used for development and serves as a contract.\n\n5. **Main Activities**:\n   - **Requirements Gathering and Analysis**: Collect and analyze what the customer needs.\n   - **Requirements Specification**: Document these needs clearly and accurately.\n\nThis phase is critical for ensuring the project's success and involves careful planning and documentation.",
+      "styleAttributes": {},
+      "x": 440,
+      "y": -1040,
+      "width": 740,
+      "height": 620
+    },
+    {
+      "id": "7d5a528a377b626c",
+      "type": "text",
+      "text": "# REQUIREMENTS ANALYSIS AND SPECIFICATION",
+      "styleAttributes": {
+        "shape": "diamond",
+        "textAlign": "center"
+      },
+      "x": -180,
+      "y": -280,
+      "width": 340,
+      "height": 300,
+      "color": "1"
+    },
+    {
+      "id": "c349bbd6bd36cbac",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911091153.png",
+      "styleAttributes": {},
+      "x": -540,
+      "y": 1426,
+      "width": 400,
+      "height": 296
+    },
+    {
+      "id": "d5cbaff092006908",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911092105.png",
+      "styleAttributes": {},
+      "x": -540,
+      "y": 1800,
+      "width": 400,
+      "height": 244
+    },
+    {
+      "id": "fac50ecbee6b3033",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911092051.png",
+      "styleAttributes": {},
+      "x": -90,
+      "y": 1426,
+      "width": 400,
+      "height": 310
+    },
+    {
+      "id": "5e50babb58682a59",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911092121.png",
+      "styleAttributes": {},
+      "x": -90,
+      "y": 1800,
+      "width": 400,
+      "height": 284
+    },
+    {
+      "id": "dca04e6c988a85f1",
+      "type": "text",
+      "text": "# REQUIREMENT GATHERING AND ANALYSIS",
+      "styleAttributes": {},
+      "x": -880,
+      "y": 80,
+      "width": 520,
+      "height": 100,
+      "color": "1"
+    },
+    {
+      "id": "849ea2889f560cff",
+      "type": "text",
+      "text": "# REQUIREMENT ANALYSIS",
+      "styleAttributes": {},
+      "x": -397,
+      "y": 373,
+      "width": 387,
+      "height": 87,
+      "color": "1"
+    },
+    {
+      "id": "ce1a47e6e9e63ef9",
+      "type": "text",
+      "text": "### Requirements Analysis\n\n**Purpose**: To resolve ambiguities, inconsistencies, and incompleteness in gathered requirements and ensure a clear understanding of what needs to be developed.\n\n**Key Questions for Effective Analysis**:\n1. What is the problem being solved?\n2. Why is solving this problem important?\n3. What are the data inputs and outputs?\n4. What procedures are needed to solve the problem?\n5. What potential complexities might arise?\n6. What data interchange formats are needed for external systems?\n\n**Types of Problems in Requirements**:\n\n1. **Anomaly**:\n   - **Definition**: Ambiguity in a requirement that can be interpreted in multiple ways.\n   - **Examples**:\n     - \"High\" temperature without specifying a threshold.\n     - \"Sufficiently low\" grade without a clear criterion.\n\n2. **Inconsistency**:\n   - **Definition**: Conflicting requirements from different stakeholders.\n   - **Examples**:\n     - One requirement says to switch off a furnace at 500°C, another says to switch on a water shower and keep the furnace on.\n     - Different policies on student grade management (e.g., repeating courses vs. Taking extra subjects).\n\n3. **Incompleteness**:\n   - **Definition**: Missing requirements that are not initially identified but become apparent later.\n   - **Examples**:\n     - Missing feature to enter contact details for notifying parents.\n     - No provision for resetting an alarm after a temperature drop.\n\n**Detection of Problems**:\n- **Common Issues**: Many problems are detectable through careful analysis and stakeholder feedback.\n- **Subtle Issues**: Some problems are subtle and may require formal specification methods for detection. Formal methods can systematically analyze and remove problems from the requirements.\n\nFormal specification, while not universally adopted, is often used for safety-critical parts of a system to ensure accuracy and completeness.",
+      "styleAttributes": {},
+      "x": -540,
+      "y": 780,
+      "width": 900,
+      "height": 600
+    },
+    {
+      "id": "111dd4e5e214309b",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911090213.png",
+      "styleAttributes": {},
+      "x": -1580,
+      "y": 1340,
+      "width": 399,
+      "height": 302
+    },
+    {
+      "id": "8376b0f6e06fb2a5",
+      "type": "text",
+      "text": "### Requirements Gathering and Analysis\n\n**1. Requirements Gathering**\n\n- **Objective**: Collect requirements from various stakeholders.\n- **Challenges**: Gathering all necessary information from multiple sources and stakeholders can be difficult, especially if there’s no working model of the system.\n\n**Methods:**\n\n1. **Studying Existing Documentation**:\n   - **Purpose**: Review available documents to understand the system’s context, purpose, and features.\n   - **Example**: Analyze documents like the Statement of Purpose (SoP) that describe the software’s objectives and stakeholders.\n\n2. **Interviews**:\n   - **Purpose**: Identify different user categories and their specific needs.\n   - **Example**: In a library system, users include members, librarians, and accountants, each with different requirements.\n   - **Technique**: Use the Delphi technique to refine requirements through iterative feedback from various user categories.\n\n3. **Task Analysis**:\n   - **Purpose**: Understand the tasks the software needs to perform and the steps required for each task.\n   - **Example**: For a book-issuing task, steps might include user authentication and checking book availability.\n\n4. **Scenario Analysis**:\n   - **Purpose**: Determine how tasks behave under different scenarios.\n   - **Example**: Scenarios for issuing a book might include successful issuance, reservation conflicts, or reaching the maximum book limit.\n\n5. **Form Analysis**:\n   - **Purpose**: Analyze forms and notifications from a manual system to understand input and output data.\n   - **Example**: For automating a manual system, review forms used for student registrations and store management.\n\n**2. Requirements Analysis**\n\n- **Objective**: Analyze gathered requirements to identify and resolve inconsistencies, anomalies, and incompleteness.\n- **Goal**: Organize and refine requirements into a clear and complete Software Requirements Specification (SRS) document.\n\n**Case Study: Office Automation at CSE Department**\n\n- **Context**: The CSE department wants to automate manual processes involving student and faculty information.\n- **Process**:\n  - The analyst met with department staff and collected details on tasks, scenarios, and forms used.\n  - The analyst reviewed existing forms and documents, and interviewed staff and students to understand current procedures and data flow.\n\nThis process ensures that all necessary requirements are collected, analyzed, and documented accurately for successful software development.",
+      "styleAttributes": {},
+      "x": -1580,
+      "y": 740,
+      "width": 860,
+      "height": 560
+    },
+    {
+      "id": "7c28a37ee9efe001",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911090225.png",
+      "styleAttributes": {},
+      "x": -1120,
+      "y": 1343,
+      "width": 400,
+      "height": 299
+    },
+    {
+      "id": "d488dd33958bc418",
+      "type": "text",
+      "text": "# Requirements Gathering",
+      "styleAttributes": {},
+      "x": -1320,
+      "y": 360,
+      "width": 500,
+      "height": 100,
+      "color": "1"
+    },
+    {
+      "id": "58d89bd46d71c3b8",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911085349.png",
+      "styleAttributes": {},
+      "x": -2089,
+      "y": -500,
+      "width": 400,
+      "height": 304
+    },
+    {
+      "id": "41d50a9f2fedd321",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911090623.png",
+      "styleAttributes": {},
+      "x": -1569,
+      "y": -489,
+      "width": 399,
+      "height": 293
+    },
+    {
+      "id": "ef1aa18b344aa30f",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911085526.png",
+      "styleAttributes": {},
+      "x": -2089,
+      "y": -150,
+      "width": 400,
+      "height": 289
+    },
+    {
+      "id": "e44878b1680e3c74",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911100641.png",
+      "styleAttributes": {},
+      "x": 4420,
+      "y": 1967,
+      "width": 399,
+      "height": 297
+    },
+    {
+      "id": "7d5c3631fb9123ce",
+      "type": "text",
+      "text": "# TECHNIQUES FOR COMPLEX LOGIC",
+      "styleAttributes": {},
+      "x": 4400,
+      "y": 380,
+      "width": 440,
+      "height": 75,
+      "color": "1"
+    },
+    {
+      "id": "898a748b8a58c1f5",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911100848.png",
+      "styleAttributes": {},
+      "x": 4420,
+      "y": 2344,
+      "width": 400,
+      "height": 302
+    },
+    {
+      "id": "7d50ab36a8ca394e",
+      "type": "text",
+      "text": "# FORMAL SPECIFICATIONS",
+      "styleAttributes": {},
+      "x": 5699,
+      "y": 450,
+      "width": 360,
+      "height": 160
+    },
+    {
+      "id": "99d5ed2e0a5ee6ab",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911100906.png",
+      "styleAttributes": {},
+      "x": 4920,
+      "y": 1967,
+      "width": 400,
+      "height": 289
+    },
+    {
+      "id": "4b5b415c8c18e65a",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911100941.png",
+      "styleAttributes": {},
+      "x": 4920,
+      "y": 2349,
+      "width": 400,
+      "height": 297
+    },
+    {
+      "id": "4f0336c5b7ce72eb",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911095712.png",
+      "styleAttributes": {},
+      "x": 2524,
+      "y": 2200,
+      "width": 400,
+      "height": 295
+    },
+    {
+      "id": "0eccc3219ba42316",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911095725.png",
+      "styleAttributes": {},
+      "x": 2949,
+      "y": 2203,
+      "width": 400,
+      "height": 292
+    },
+    {
+      "id": "dbaa46c90ab5da10",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911095747.png",
+      "styleAttributes": {},
+      "x": 2524,
+      "y": 2520,
+      "width": 400,
+      "height": 299
+    },
+    {
+      "id": "fc7b5d7bbe2fad2c",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911095822.png",
+      "styleAttributes": {},
+      "x": 2949,
+      "y": 2525,
+      "width": 400,
+      "height": 290
+    },
+    {
+      "id": "fa967918f8ba80ec",
+      "type": "text",
+      "text": "### Categories of Requirements in an SRS Document\n\n1. **Functional Requirements**:\n   - **Description**: Define what the system should do, including the functions and operations.\n   - **Example**: Transforming input data into output data, like processing a user request or performing calculations.\n   \n2. **Non-Functional Requirements**:\n   - **Description**: Specify the quality attributes and constraints of the system, not related to specific functions.\n   - **Types**:\n     - **Design and Implementation Constraints**: Limitations such as hardware, software, and regulatory policies.\n       - **Example**: Use Oracle DBMS for integration with existing systems.\n     - **External Interfaces**: Details on how the system will interact with hardware, software, or users.\n       - **Example**: User interface design standards or data format requirements.\n     - **Other Non-Functional Requirements**: Include performance, reliability, accuracy, and security.\n       - **Example**: The system must handle 100 transactions per second.\n\n3. **Goals of Implementation**:\n   - **Description**: General suggestions for the system that are not strictly required but beneficial.\n   - **Example**: Future-proofing for new devices or enhancing system reusability.\n\n### Classification of Requirements\n\n- **Functional Requirements**: Expressed as transformations of input to output.\n- **Non-Functional Requirements**: Verify compliance through system inspection.\n- **Goals of Implementation**: Suggestions, not necessarily tested for compliance.\n\nNon-functional requirements are critical for acceptance but are tested, while goals of implementation are beneficial but not mandatory.",
+      "styleAttributes": {},
+      "x": 2520,
+      "y": 800,
+      "width": 840,
+      "height": 1020,
+      "color": "2"
+    },
+    {
+      "id": "7a628ef8688a1e9d",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911095617.png",
+      "styleAttributes": {},
+      "x": 2524,
+      "y": 1866,
+      "width": 400,
+      "height": 309
+    },
+    {
+      "id": "e4454d91fd636647",
+      "type": "text",
+      "text": "### Techniques for Representing Complex Logic\n\nWhen dealing with complex decision-making in software requirements, it's important to represent the logic clearly. Two effective techniques are decision trees and decision tables.\n\n#### Decision Tree\n- **What It Is**: A graphical representation of decision-making logic.\n- **Structure**:\n  - **Nodes**: Represent conditions.\n  - **Edges**: Represent outcomes of conditions.\n  - **Leaf Nodes**: Represent actions to be taken.\n- **Use**: Useful for visualizing the order of conditions and actions.\n- **Example**: In a library membership system, a decision tree can show how to handle new membership, renewals, and cancellations based on user inputs.\n\n#### Decision Table\n- **What It Is**: A tabular representation of decision-making logic.\n- **Structure**:\n  - **Rows**: Represent conditions and actions.\n  - **Columns**: Represent rules where each rule corresponds to a combination of conditions.\n- **Use**: Useful for handling many conditions and actions. Helps in automatically generating test cases.\n- **Example**: A decision table for the library membership system shows conditions like selection type (new, renewal, cancellation) and corresponding actions (e.g., ask for details, update records).\n\n#### Comparison\n\n- **Readability**: \n  - **Decision Tree**: Easier to read with fewer conditions.\n  - **Decision Table**: Better for managing many conditions but requires examining all combinations.\n\n- **Order of Decision Making**:\n  - **Decision Tree**: Clearly represents the sequence of decisions.\n  - **Decision Table**: Abstracts the order but good for straightforward decision-making.\n\n- **Complexity**:\n  - **Decision Tree**: Can become complex with many conditions.\n  - **Decision Table**: Preferred for many conditions and actions; easier to manage large sets of rules.\n\nIn summary, use decision trees for hierarchical, multi-level decision processes and decision tables for managing numerous combinations of conditions and actions.",
+      "styleAttributes": {},
+      "x": 4360,
+      "y": 800,
+      "width": 920,
+      "height": 1066
+    },
+    {
+      "id": "73be3bed124f0029",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911100656.png",
+      "styleAttributes": {},
+      "x": 4400,
+      "y": 530,
+      "width": 400,
+      "height": 166
+    },
+    {
+      "id": "a3c963c73a3b932e",
+      "type": "text",
+      "text": "### Formal Specification Technique: Simplified Overview\n\n**Purpose:**\n- **Accurate Specification**: Define system requirements precisely.\n- **Verification**: Ensure implementation meets the specification.\n- **Proof**: Prove properties about the specification.\n\n**Advantages:**\n- **Clear Semantics**: Eliminates ambiguity.\n- **Automated Checks**: Tools can verify properties.\n- **Executable**: Specifications can be run to test systems.\n\n**Disadvantages:**\n- **Learning Curve**: Complex to learn and use.\n- **Complex Systems**: Struggles with very complex systems.\n\n**Mathematical Methods:**\n- **Logic-Based**: Uses formal logic to specify systems.\n- **Set Theoretic**: Uses set theory for definitions.\n- **Algebraic**: Employs algebraic structures.\n- **Finite State Machines**: Models system states and transitions.",
+      "styleAttributes": {},
+      "x": 5619,
+      "y": 850,
+      "width": 640,
+      "height": 640
+    },
+    {
+      "id": "014c03a198b56d76",
+      "type": "text",
+      "text": "# Important Categories of Customer Requirements",
+      "styleAttributes": {},
+      "x": 2600,
+      "y": 380,
+      "width": 440,
+      "height": 150,
+      "color": "1"
+    },
+    {
+      "id": "efc634eb23e95f1f",
+      "type": "text",
+      "text": "### Functional Requirements\n\n**1. High-Level Functions**:\n   - **Definition**: Major activities or operations the system performs, each involving user interaction.\n   - **Example**: Withdrawing money from an ATM involves several steps, such as inputting the amount and account type, and receiving the cash and receipt.\n\n**2. Sub-Requirements**:\n   - **Definition**: Detailed tasks or steps within a high-level function.\n   - **Example**: For withdrawing money, sub-requirements might include entering the amount, verifying account details, and dispensing cash.\n\n**3. Interaction Sequences**:\n   - **Definition**: Series of user inputs and system responses for a high-level function.\n   - **Example**: In the ATM scenario, the sequence includes the user inputting the amount, the system checking account balance, and then dispensing the cash.\n\n**4. Precision of Input and Output Data**:\n   - **Challenge**: It can be difficult to specify exact data inputs and outputs without a working model.\n   - **Approach**: Use high-level descriptions for complex inputs and outputs and break them down into more detailed sub-requirements.\n\nIn essence, functional requirements outline what the system should do through high-level functions and their sub-requirements, focusing on interactions between the user and the system.",
+      "styleAttributes": {},
+      "x": 3399,
+      "y": 800,
+      "width": 855,
+      "height": 680,
+      "color": "2"
+    },
+    {
+      "id": "19423e41af4c1336",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911095631.png",
+      "styleAttributes": {},
+      "x": 2937,
+      "y": 1866,
+      "width": 423,
+      "height": 309
+    },
+    {
+      "id": "26a827eda6696836",
+      "type": "text",
+      "text": "### Identifying and Documenting Functional Requirements\n\n**1. Identifying Functional Requirements**:\n   - **Sources**: Gather from informal documents or conceptual understanding.\n   - **Types of Users**: Identify different user types and their needs.\n   - **High-Level vs. Sub-Requirements**: Decide if a function should be high-level or part of another function. For example, whether \"entering book details\" is a high-level function or part of the \"issue-book\" function.\n\n**2. Documenting Functional Requirements**:\n   - **Describe High-Level Function**: Explain the main function and its purpose.\n   - **Sub-Requirements**: Break down into detailed steps or interactions.\n   - **Example Format**:\n     - **Function**: Describe the main functionality.\n     - **Input**: Data or actions required from the user.\n     - **Output**: Expected results or system responses.\n     - **Processing**: How the system processes the input to produce the output.\n\n**3. Examples**:\n\n   - **ATM Withdraw Cash**:\n     - **Function**: Withdraw cash.\n     - **Sub-Requirements**:\n       - **Select Withdraw Amount**:\n         - **Input**: Selection of “Withdraw amount.”\n         - **Output**: Prompt for account type.\n       - **Select Account Type**:\n         - **Input**: Savings/checking/deposit.\n         - **Output**: Prompt for amount.\n       - **Get Required Amount**:\n         - **Input**: Amount to withdraw.\n         - **Output**: Cash and transaction receipt.\n         - **Processing**: Check balance, dispense cash, or show error message.\n\n   - **Library Book Search**:\n     - **Function**: Search for a book.\n     - **Sub-Requirements**:\n       - **Select Search Option**:\n         - **Input**: “Search” option.\n         - **Output**: Prompt for keywords.\n       - **Search and Display**:\n         - **Input**: Keywords.\n         - **Output**: Book details matching keywords.\n\n**4. Organizational Tips**:\n   - **Large Number of Requirements**: Group into related sections (e.g., customer management, account management).\n   - **Detail Level**: Balance detail to avoid unnecessary constraints while ensuring clarity.\n\n**5. Key Points**:\n   - Use common sense and visualize scenarios.\n   - Avoid excessive detail that may constrain development.\n   - Ensure enough detail to avoid ambiguity.\n\nThis approach helps in systematically capturing and communicating the functionalities of the system.",
+      "styleAttributes": {},
+      "x": 3400,
+      "y": 1560,
+      "width": 855,
+      "height": 1177,
+      "color": "2"
+    },
+    {
+      "id": "9cd846106dc3a5ca",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911101009.png",
+      "styleAttributes": {},
+      "x": 4920,
+      "y": 3080,
+      "width": 400,
+      "height": 306
+    },
+    {
+      "id": "e810706551036d6c",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911100955.png",
+      "styleAttributes": {},
+      "x": 4920,
+      "y": 2737,
+      "width": 400,
+      "height": 268
+    }
+  ],
+  "edges": [
+    {
+      "id": "414412c2d307ab2d",
+      "styleAttributes": {},
+      "fromNode": "7d5a528a377b626c",
+      "fromSide": "right",
+      "toNode": "9e79c079b07fc266",
+      "toSide": "left",
+      "color": "1"
+    },
+    {
+      "id": "fd0e005bbc07f9f1",
+      "styleAttributes": {},
+      "fromNode": "d488dd33958bc418",
+      "fromSide": "bottom",
+      "toNode": "cea13f1417909c77",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "2c9261a86454da23",
+      "styleAttributes": {},
+      "fromNode": "7d5a528a377b626c",
+      "fromSide": "bottom",
+      "toNode": "dca04e6c988a85f1",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "62adcb16a1d772ec",
+      "styleAttributes": {},
+      "fromNode": "dca04e6c988a85f1",
+      "fromSide": "bottom",
+      "toNode": "d488dd33958bc418",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "9f7610a8887282d6",
+      "styleAttributes": {},
+      "fromNode": "dca04e6c988a85f1",
+      "fromSide": "bottom",
+      "toNode": "849ea2889f560cff",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "b89b7a9bd33dfd19",
+      "styleAttributes": {},
+      "fromNode": "849ea2889f560cff",
+      "fromSide": "bottom",
+      "toNode": "e1dd43ce0dde9ea2",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "a3248fe68883f289",
+      "styleAttributes": {},
+      "fromNode": "7d5a528a377b626c",
+      "fromSide": "bottom",
+      "toNode": "f25a2ecb3681868c",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "e2f84866cefe2929",
+      "styleAttributes": {},
+      "fromNode": "e6a0ee494e23866a",
+      "fromSide": "bottom",
+      "toNode": "437d9bdf9c6b0a07",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "b492421d5c523698",
+      "styleAttributes": {},
+      "fromNode": "4ae54ba93c4fe567",
+      "fromSide": "bottom",
+      "toNode": "873da89cc76bdc5d",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "d850ab552871958c",
+      "styleAttributes": {},
+      "fromNode": "014c03a198b56d76",
+      "fromSide": "bottom",
+      "toNode": "f625d49edd5503ed",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "4a957fd515e36ad0",
+      "styleAttributes": {},
+      "fromNode": "f25a2ecb3681868c",
+      "fromSide": "bottom",
+      "toNode": "e6a0ee494e23866a",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "4c3d0c1748e3542b",
+      "styleAttributes": {},
+      "fromNode": "f25a2ecb3681868c",
+      "fromSide": "bottom",
+      "toNode": "4ae54ba93c4fe567",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "0919ef1f2c5689fb",
+      "styleAttributes": {},
+      "fromNode": "7d5c3631fb9123ce",
+      "fromSide": "bottom",
+      "toNode": "73be3bed124f0029",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "a77aa2332dc611f7",
+      "styleAttributes": {},
+      "fromNode": "dca04e6c988a85f1",
+      "fromSide": "top",
+      "toNode": "592cb254cac463df",
+      "toSide": "right",
+      "color": "1"
+    },
+    {
+      "id": "ab3a8144584deaa5",
+      "styleAttributes": {},
+      "fromNode": "f25a2ecb3681868c",
+      "fromSide": "bottom",
+      "toNode": "014c03a198b56d76",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "c800e54567a88be9",
+      "styleAttributes": {},
+      "fromNode": "f25a2ecb3681868c",
+      "fromSide": "bottom",
+      "toNode": "7d5c3631fb9123ce",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "44a72478c7b9c854",
+      "styleAttributes": {},
+      "fromNode": "7d50ab36a8ca394e",
+      "fromSide": "bottom",
+      "toNode": "a3c963c73a3b932e",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "c09d2a86c43b9d0e",
+      "styleAttributes": {},
+      "fromNode": "73be3bed124f0029",
+      "fromSide": "bottom",
+      "toNode": "e4454d91fd636647",
+      "toSide": "top",
+      "color": "1"
+    }
+  ],
+  "metadata": {}
+}

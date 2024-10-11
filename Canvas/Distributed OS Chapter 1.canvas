@@ -1,0 +1,422 @@
+{
+  "nodes": [
+    {
+      "id": "ab6562191d14f6ef",
+      "type": "group",
+      "styleAttributes": {},
+      "x": 700,
+      "y": -140,
+      "width": 1024,
+      "height": 1560,
+      "color": "5",
+      "label": "GOALS"
+    },
+    {
+      "id": "3f397f3da9c04497",
+      "type": "text",
+      "text": "From 1945 to 1985, computers were large, expensive, and mostly operated independently due to a lack of connectivity. However, the situation changed in the mid-1980 s with two key technological advances:\n\n1. **Microprocessors**: Initially starting with 8-bit processors, microprocessors rapidly evolved into 16-, 32-, and 64-bit machines, offering the computing power of large mainframes at a fraction of the cost.\n\n2. **High-Speed Networks**: The development of local area networks (LANs) and wide area networks (WANs) enabled computers to connect and communicate quickly, paving the way for distributed systems—networks of interconnected CPUs working together.\n\nWhile hardware has advanced significantly, software development for distributed systems still lags, requiring new operating systems to manage these complex systems. This book will explore these emerging concepts and implementations.",
+      "styleAttributes": {},
+      "x": -460,
+      "y": -120,
+      "width": 560,
+      "height": 500,
+      "color": "1"
+    },
+    {
+      "id": "df029b48cf41c53e",
+      "type": "text",
+      "text": "# RISE OF DISTRIBUTED SYSTEM",
+      "styleAttributes": {},
+      "x": -390,
+      "y": -280,
+      "width": 420,
+      "height": 80
+    },
+    {
+      "id": "b12a90a9670cd40c",
+      "type": "text",
+      "text": "# WHAT IS A DISTRIBUTED SYSTEM?",
+      "styleAttributes": {},
+      "x": 180,
+      "y": -300,
+      "width": 360,
+      "height": 120
+    },
+    {
+      "id": "3a2a2fa896f93404",
+      "type": "text",
+      "text": "A distributed system is a collection of independent computers that appears to its users as a single, unified system. The computers in a distributed system are autonomous in terms of hardware but work together to give the illusion of being a single machine from the user's perspective. This definition has two key aspects:\n\n1. **Hardware**: The computers in the system are autonomous and not necessarily located in the same physical location.\n2. **Software**: The users perceive the system as a single entity, meaning they interact with it as though it's a single computer, regardless of where computations occur.\n\n**Examples of Distributed Systems**:\n1. **University or Company Network**: A network of workstations where users have access to shared resources like files and processing power. Commands are executed on the best available machine, making the system act like a single entity.\n\n2. **Factory with Robots**: Robots in a factory work together, communicating and sharing tasks. The system is programmed as if the robots are all part of the same central computer.\n\n3. **Banking Network**: A bank with branch offices around the world, where local computers manage transactions but can also interact seamlessly with other branches and a central system. The system functions as if it were a single mainframe.",
+      "styleAttributes": {},
+      "x": 140,
+      "y": -120,
+      "width": 520,
+      "height": 680,
+      "color": "1"
+    },
+    {
+      "id": "6b417f705d4aa1d2",
+      "type": "text",
+      "text": "# GOALS",
+      "styleAttributes": {},
+      "x": 720,
+      "y": -270,
+      "width": 260,
+      "height": 60
+    },
+    {
+      "id": "69e6bd7a02b409b2",
+      "type": "text",
+      "text": "## Goals of Distributed Systems\n\n### Advantages of Distributed Systems over Centralized Systems\n\n1. **Economics (Better Price/Performance Ratio)**:\n   Distributed systems are often more cost-effective than centralized systems. With modern microprocessors, it's cheaper to combine several inexpensive CPUs rather than investing in a single, more powerful centralized system. This leads to better performance for the price, providing \"more bang for the buck.\"\n\n2. **Speed (Higher Performance)**:\n   A distributed system with multiple CPUs can achieve a level of computing power that would be impossible for a single centralized system. For example, a system with 10,000 modern CPUs can reach performance levels that a single processor could never match, even theoretically due to physical and practical limitations (like heat generation and the speed of light).\n\n3. **Inherent Distribution**:\n   Some applications naturally require distributed systems. For example, in a supermarket chain, each store can manage its inventory locally while still allowing corporate headquarters to retrieve global data when needed. Such systems benefit from having decentralized, location-specific computing.\n\n4. **Reliability**:\n   Distributed systems tend to be more reliable because the workload is spread across multiple machines. If one machine fails, the rest can continue operating with minimal performance degradation. This makes distributed systems attractive for critical applications like controlling nuclear reactors or aircraft, where high reliability is essential.\n\n5. **Incremental Growth**:\n   Distributed systems allow for gradual expansion. In a centralized system, when the workload exceeds the capacity of the mainframe, it requires a disruptive and costly upgrade. In contrast, a distributed system can be scaled up by simply adding more processors, allowing for smooth and flexible growth.\n\n### Summary of Advantages:\n| Item               | Description                                                         |\n|--------------------|---------------------------------------------------------------------|\n| **Economics**       | Microprocessors offer a better price/performance ratio than mainframes.|\n| **Speed**           | A distributed system may provide more total computing power than a mainframe.|\n| **Inherent Distribution** | Some applications involve spatially separated machines that need decentralized management.|\n| **Reliability**      | If one machine crashes, the system can still survive with only a small loss in performance.|\n| **Incremental Growth** | Computing power can be added gradually, avoiding large disruptive upgrades.|\n\nIn summary, distributed systems provide economic advantages, superior performance potential, higher reliability, and the ability to scale incrementally, making them a more flexible and robust solution compared to traditional centralized systems.\n\n### 1.2.2. Advantages of Distributed Systems over Independent PCs\n\nAlthough microprocessors offer a cost-effective way of computing, simply providing each user with an independent PC may not be ideal for several reasons:\n\n1. **Data Sharing**: Many applications, such as airline reservation systems, require shared access to a central database. If each user worked on an independent PC with their own copy of the data, this would lead to inconsistencies. Distributed systems allow multiple users to access and modify shared data in real time, maintaining consistency.\n\n2. **Device Sharing**: Expensive resources like laser printers or large storage devices can be shared in a distributed system, as opposed to giving each user their own device, reducing costs and increasing efficiency.\n\n3. **Enhanced Communication**: Distributed systems enable improved communication between users. Electronic mail, for instance, is more efficient than traditional mail or phone calls, as it allows asynchronous communication that can be stored, edited, and managed digitally.\n\n4. **Flexibility**: A distributed system offers greater flexibility. Instead of requiring each user to perform all tasks on their PC, tasks can be distributed across different machines depending on the workload. This allows for better resource management and system resiliency. For example, if one machine fails, tasks can be shifted to other machines.\n\nThese advantages are summarized in Fig. 1-2:\n\n| Item           | Description                                      |\n|----------------|--------------------------------------------------|\n| Data sharing   | Allows multiple users to access a common database |\n| Device sharing | Allows users to share expensive peripherals       |\n| Communication  | Facilitates human-to-human communication          |\n| Flexibility    | Distributes workload across machines effectively  |\n\n---\n\n### 1.2.3. Disadvantages of Distributed Systems\n\nDespite the advantages, distributed systems also present some challenges:\n\n1. **Software**: There is limited experience and maturity in developing software for distributed systems. Deciding on the appropriate operating systems, programming languages, and application models remains a challenge. The lack of standardized approaches leads to varied implementations, and experts often disagree on the best methods.\n\n2. **Networking Issues**: The network that connects the system can lose messages or become overloaded, especially in high-demand situations. Rewiring, adding a new network, or upgrading existing infrastructure can be expensive and disruptive. A congested network can negate many of the advantages that distributed systems provide.\n\n3. **Security Concerns**: While data sharing is an advantage, it also introduces security risks. The ease of accessing data across the system means users may inadvertently (or intentionally) access sensitive or confidential information. For highly sensitive data, it might be safer to isolate it on a standalone machine with no network connection.\n\nThese disadvantages are summarized in Fig. 1-3:\n\n| Item       | Description                                      |\n|------------|--------------------------------------------------|\n| Software   | Limited software support for distributed systems |\n| Networking | Networks can cause delays and saturations        |\n| Security   | Shared access can lead to unauthorized access    |\n\nIn conclusion, while distributed systems offer numerous benefits in terms of scalability, flexibility, and efficiency, they also introduce challenges related to software development, network reliability, and security. Despite these challenges, it is expected that distributed systems will continue to grow in importance as organizations seek better and more efficient ways to handle computing tasks.",
+      "styleAttributes": {},
+      "x": 720,
+      "y": -120,
+      "width": 984,
+      "height": 900,
+      "color": "1"
+    },
+    {
+      "id": "c668300e9d79a03d",
+      "type": "text",
+      "text": "### 1.3. Hardware Concepts\n\nDistributed systems, while all comprising multiple CPUs, can vary significantly in how these CPUs are interconnected and communicate. Understanding these differences is crucial to grasping the various hardware architectures that support distributed systems.\n\n#### Flynn’s Taxonomy\nOne of the most widely recognized classification schemes for CPU architectures is Flynn’s taxonomy (1972). Flynn’s model focuses on two key characteristics:\n\n- **Instruction streams**: How many streams of instructions are being executed?\n- **Data streams**: How many streams of data are being processed?\n\nBased on these factors, Flynn proposed four main categories:\n\n1. **SISD (Single Instruction Stream, Single Data Stream)**: Traditional single-CPU systems, including personal computers and large mainframes, fall into this category.\n   \n2. **SIMD (Single Instruction Stream, Multiple Data Stream)**: This architecture uses a single instruction stream to control multiple data units, executing the same operation on many different data streams simultaneously. This is useful for tasks like vector processing (e.g., adding multiple vectors simultaneously).\n   \n3. **MISD (Multiple Instruction Stream, Single Data Stream)**: This category theoretically allows multiple instruction streams to operate on the same data stream. However, no practical implementation of this architecture exists.\n\n4. **MIMD (Multiple Instruction Stream, Multiple Data Stream)**: This is the most flexible architecture, allowing each CPU to run its own instructions on its own data. Distributed systems fall under this category.\n\n#### MIMD Architectures\nFlynn's MIMD category can be further subdivided based on how the CPUs communicate and share resources. MIMD architectures can be divided into two main types:\n\n1. **Multiprocessors** (Shared Memory Systems): In these systems, all CPUs share a common memory space. This means that if one CPU writes a value to a specific memory address, other CPUs reading from the same address will see the updated value. Multiprocessors can be tightly or loosely coupled depending on how fast the communication is between CPUs. Typical examples include systems like Sequent or Ultracomputer.\n\n2. **Multicomputers** (Private Memory Systems): In contrast, multicomputers feature independent memory for each CPU. If one CPU writes a value to its memory, other CPUs have no access to that memory and cannot see the updated value. Examples of multicomputers include collections of workstations connected over a LAN or transputer-based systems.\n\n#### Interconnection Networks\nMIMD systems, whether multiprocessors or multicomputers, can be connected through different network architectures:\n\n- **Bus-based systems**: These systems connect multiple CPUs through a shared communication medium, such as a bus or cable. Cable television systems, for example, follow a bus architecture where multiple devices are connected to the same medium.\n\n- **Switched systems**: Unlike bus-based systems, switched architectures do not have a single shared medium. Instead, individual devices are connected by dedicated links, and messages are routed through switches. This architecture is similar to the global telephone network.\n\n#### Coupling and Communication\nAnother important distinction in distributed systems is whether they are tightly or loosely coupled:\n\n- **Tightly coupled systems**: These systems feature fast communication between CPUs with low latency and high data rates. Tightly coupled systems are often used for parallel computing, where multiple processors work together on the same problem.\n\n- **Loosely coupled systems**: In loosely coupled systems, communication between CPUs is slower, with higher latency and lower data rates. These systems are more commonly used for distributed computing, where each processor handles independent tasks.\n\nMultiprocessors are typically more tightly coupled than multicomputers, as they often exchange data at the speed of memory. However, advanced multicomputer systems using high-speed interconnects like fiber optics can approach memory-level communication speeds.\n\n### 1.3.1. Bus-Based Multiprocessors\n\nBus-based multiprocessors consist of multiple CPUs connected to a common bus, along with a memory module. These systems typically use a high-speed backplane or motherboard, with CPU and memory cards inserted. Buses operate with address lines, data lines, and control lines, all working in parallel. When a CPU needs data, it places the memory address on the bus, and the memory sends the requested word back via the data lines. \n\nA **coherent memory** means if CPU A writes a word to memory, and CPU B reads it shortly after, B will see the updated value. However, with multiple CPUs, the bus can become overloaded, decreasing performance. To mitigate this, **cache memories** are introduced between each CPU and the bus, reducing the number of bus requests. \n\nA **cache** stores recently accessed data, increasing the probability (hit rate) that the required word is already in the cache. Common cache sizes range from 64 KB to 1 MB, often achieving a hit rate of 90% or more, thus significantly reducing bus traffic.\n\nHowever, caches introduce coherence problems. If two CPUs load the same memory word into their respective caches, and one CPU modifies it, the other still holds the old value, leading to **memory incoherence**. A solution to this is **write-through caches**, where writes update both the cache and memory simultaneously. Additionally, **snoopy caches** monitor the bus to update their cache entries when other CPUs write to memory, ensuring coherence.\n\nUsing snoopy write-through caches, bus-based multiprocessors can scale to about 32 or 64 CPUs before bus limitations become an issue.\n\n### 1.3.2. Switched Multiprocessors\n\nTo scale beyond 64 CPUs, a different architecture is needed, such as dividing memory into modules and connecting them to CPUs using a **crossbar switch**. This allows multiple CPUs to access different memory modules simultaneously. However, with \\( n \\) CPUs and \\( n \\) memories, \\( n^2 \\) switches are required, which can be expensive for large systems.\n\nAn alternative is the **omega network**, which uses fewer switches by structuring the connection in stages. For example, with 1024 CPUs, the omega network requires 10 switching stages. However, this introduces delays, as the CPU's memory request must pass through multiple stages, which may impact performance.\n\nTo reduce costs and delays, some systems adopt a **NUMA (NonUniform Memory Access)** architecture, where each CPU has its own local memory, allowing fast access to local data but slower access to other CPUs' memory. While NUMA improves average access times, it introduces the complexity of ensuring that programs and data are efficiently placed in local memory.\n\n### 1.3.3. Bus-Based Multicomputers\n\nIn **bus-based multicomputers**, each CPU has its own private memory, unlike bus-based multiprocessors where CPUs share memory. This makes multicomputers easier to build, as no complex shared memory protocols are required. However, CPUs still need to communicate with each other, which requires an **interconnection network**. Since this network is only for CPU-to-CPU communication (not CPU-to-memory traffic), the traffic volume is lower. \n\nA typical design of a bus-based multicomputer is shown in Fig. 1-7. The network connecting the CPUs can be much slower than the high-speed buses used in multiprocessors, often resembling a **local area network (LAN)** rather than a high-speed backplane bus. In practice, this might look like a collection of workstations connected via a LAN, rather than CPU cards inserted into a single bus.\n\n### 1.3.4. Switched Multicomputers\n\n**Switched multicomputers** offer another architecture where each CPU has exclusive access to its own private memory, similar to bus-based multicomputers. However, the CPUs in this design are interconnected using **switches** rather than a bus. Several interconnection topologies have been proposed for switched multicomputers, each designed for different use cases and scales.\n\nTwo popular topologies are the **grid** and the **hypercube**:\n\n1. **Grid Topology** (Fig. 1-8 (a)): CPUs are arranged in a two-dimensional grid, where each CPU is connected to its neighboring CPUs. This layout is easy to understand and physically implement, making it suitable for problems with a natural two-dimensional structure, such as certain graph algorithms or image processing tasks.\n\n2. **Hypercube Topology** (Fig. 1-8 (b)): In a hypercube, CPUs are arranged as vertices in an n-dimensional cube. Each CPU has connections to other CPUs corresponding to the edges of the cube. A 4-dimensional hypercube, for example, is composed of two 3-dimensional cubes with corresponding vertices connected. The structure expands in dimensions, so an n-dimensional hypercube connects each CPU to **n** other CPUs. \n\nThe advantage of the hypercube is that its wiring complexity increases **logarithmically** with the number of CPUs, allowing it to scale efficiently. While messages may need to hop through multiple CPUs to reach their destination, the number of hops grows logarithmically with system size. This makes hypercubes more efficient than grids for very large systems. Commercial hypercubes with 1024 CPUs have existed for several years, and systems with up to 16,384 CPUs are becoming available.\n\n",
+      "styleAttributes": {},
+      "x": 700,
+      "y": 1505,
+      "width": 1004,
+      "height": 681,
+      "color": "2"
+    },
+    {
+      "id": "a05384878ba68ff3",
+      "type": "text",
+      "text": "## Differences between Centralized, Decentralized and Distributed Systems\n\n| Aspect                  | Centralized Systems                                             | Decentralized Systems                                                | Distributed Systems                                                |\n| ----------------------- | --------------------------------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------ |\n| Definition              | Single central server controls and manages all operations.      | Multiple nodes with independent control, no central authority.       | Multiple interconnected nodes working together as a single system. |\n| Control                 | Centralized control with a single point of management.          | Distributed control, each node operates independently.               | Shared control, nodes collaborate to achieve common goals.         |\n| Single Point of Failure | High risk; if the central server fails, the whole system fails. | Reduced risk; failure of one node does not impact the entire system. | Reduced risk; designed for fault tolerance and redundancy.         |\n| Scalability             | Limited scalability, can become a bottleneck.                   | More scalable, can add nodes independently.                          | Highly scalable, can add more nodes to distribute the load.        |\n| Resource Utilization    | Central server resources are heavily utilized.                  | Resources are spread across multiple nodes.                          | Efficient resource sharing across nodes.                           |\n| Performance             | Can be high initially but may degrade with increased load.      | Generally good, performance improves with more nodes.                | High performance due to parallel processing and resource sharing.  |\n| Management              | Easier to manage centrally.                                     | More complex, requires managing multiple nodes.                      | Complex, requires coordination and management of many nodes.       |\n| Latency                 | Lower latency, as operations are managed centrally.             | Can vary, depends on the distance between nodes.                     | Potentially higher latency due to network communication.           |",
+      "styleAttributes": {},
+      "x": -1557,
+      "y": -120,
+      "width": 990,
+      "height": 602,
+      "color": "5"
+    },
+    {
+      "id": "71baf908baae4707",
+      "type": "text",
+      "text": "## Difference Between Multicomputer and Multiprocessor\n\n  \n| Features                    | Multiprocessor                                                                                           | Multicomputer                                                                                                                            |\n| --------------------------- | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |\n| ****System Architecture**** | Architecture is based upon multiple processor having shared memory are connected for working together    | In this multiple computers having processor and there own memory are connected by a interconnected to share data and have communication. |\n| ****Memory Access****       | All the systems share single common memory and they all performs operations in it.                       | All have there own set of memory for storing data and then the data is shared.                                                           |\n| ****Communication Model**** | It uses implicit communication model because all the data structures and variables are in common memory. | It uses explicit message sharing model, which involves sending and receiving messages.                                                   |\n| ****Construction****        | It is easy and lesser expensive since single memory is used.                                             | It is comparitively more expensive and complex as they have multiple memories and all share data.                                        |\n| ****Network type****        | Its a dynamic network where data is read and write by all systems during runtime                         | Its a static network.                                                                                                                    |\n| ****Speed****               | its execution speed is fast                                                                              | It is comparitively slower                                                                                                               |\n| ****Scalibility****         | It have limited scalibility since single memory is used. A large network will create problems            | It have higher scalibility and adding more nodes of processors is possible.                                                              |\n| ****Fault Tolerance****     | If there is fault on memory it will affect all processors.                                               | Faults can be handled individually by each node, it won’t spoil the whole network.                                                       |\n| ****Examples****            | Symmetric Multiprocessing (SMP) systems, where the whole system processes common tasks                   | Cluster computing, distributed computing, grid computing, cloud computing, parallel servers are some examples for Multicomputer          |\n| ****Programming****         | Easier programming as each utilizing parallel programming.                                               | It requires distributed computing                                                                                                        |",
+      "styleAttributes": {},
+      "x": -1557,
+      "y": 520,
+      "width": 995,
+      "height": 734,
+      "color": "5"
+    },
+    {
+      "id": "1af8fb451ea9f992",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911060045.png",
+      "styleAttributes": {},
+      "x": 720,
+      "y": 840,
+      "width": 984,
+      "height": 560
+    },
+    {
+      "id": "271f9d669eececdb",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911061340.png",
+      "styleAttributes": {},
+      "x": 1780,
+      "y": -74,
+      "width": 1075,
+      "height": 589
+    },
+    {
+      "id": "20fa56fb61a5a201",
+      "type": "text",
+      "text": "# HARDWARE CONCEPTS",
+      "styleAttributes": {},
+      "x": 2200,
+      "y": -270,
+      "width": 440,
+      "height": 100
+    },
+    {
+      "id": "50cb798eaf437c84",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911061530.png",
+      "styleAttributes": {},
+      "x": 1780,
+      "y": 580,
+      "width": 1091,
+      "height": 632
+    },
+    {
+      "id": "c6d2fa7a1983440b",
+      "type": "text",
+      "text": "# SOFTWARE CONCEPTS",
+      "styleAttributes": {},
+      "x": 4200,
+      "y": -240,
+      "width": 420,
+      "height": 120
+    },
+    {
+      "id": "66cd72af8e3ba547",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911061502.png",
+      "styleAttributes": {},
+      "x": 2940,
+      "y": -74,
+      "width": 1103,
+      "height": 589
+    },
+    {
+      "id": "0af1e47764cf50eb",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911061600.png",
+      "styleAttributes": {},
+      "x": 2980,
+      "y": 611,
+      "width": 1051,
+      "height": 601
+    },
+    {
+      "id": "a3e6192e32b9c032",
+      "type": "file",
+      "file": "source-images/Pasted image 20240922184911.png",
+      "styleAttributes": {},
+      "x": -1557,
+      "y": 1400,
+      "width": 1038,
+      "height": 417
+    },
+    {
+      "id": "5ced718a75e86184",
+      "type": "text",
+      "text": "To answer whether semaphores will work on a bus-based multiprocessor with snoopy caches, let's break this down:\n\n1. Memory coherence: The snoopy cache system ensures memory coherence. When any CPU writes to a memory location, all other caches that contain that location are either updated or invalidated. This means all CPUs see a consistent view of memory.\n\n2. Atomic operations: Semaphores require atomic operations (like test-and-set) to work correctly. The bus architecture allows for atomic operations because:\n   - The bus can be locked for the duration of a read-modify-write operation.\n   - Only one CPU can access the bus at a time, preventing race conditions during critical operations.\n\n3. Visibility of updates: When a CPU modifies a semaphore value, the write-through cache ensures that:\n   - The change is immediately written to main memory.\n   - Other caches snoop this change and update or invalidate their copies.\n\n4. Consistency: The snoopy cache protocol maintains cache coherence, ensuring that all CPUs see the most recent value of the semaphore, preventing issues like the \"lost update\" problem.\n\nGiven these characteristics, we can conclude that semaphores will indeed work correctly on this machine. The bus-based multiprocessor with snoopy caches provides the necessary hardware support for:\n\n1. Atomic operations\n2. Memory coherence\n3. Immediate visibility of updates\n\nThese are the key requirements for implementing semaphores and other synchronization primitives correctly in a multiprocessor environment.\n",
+      "styleAttributes": {},
+      "x": -1660,
+      "y": 1920,
+      "width": 1110,
+      "height": 595,
+      "color": "5"
+    },
+    {
+      "id": "70f7fca0e84c5988",
+      "type": "text",
+      "text": "Crossbar switches offer excellent performance by allowing multiple CPUs to access different memory modules simultaneously, which significantly enhances memory bandwidth and system throughput. However, despite these benefits, crossbar switches are rarely used in practice due to several key reasons:\n\n### 1. **Scalability and Cost**:\n   - **Exponential Growth of Switches**: As the number of CPUs and memory modules increases, the number of switches required grows exponentially. Specifically, for a system with \\( n \\) CPUs and \\( n \\) memory modules, a crossbar switch requires \\( n^2 \\) crosspoints. This quickly becomes prohibitive as \\( n \\) increases.\n   - **High Cost**: Large crossbar switches are extremely expensive to produce due to the sheer number of switches and the complexity involved in manufacturing them. For example, a system with 1024 CPUs and 1024 memory modules would need over a million switches, making the cost impractical for large-scale systems.\n\n### 2. **Complexity and Power Consumption**:\n   - **Power and Space Requirements**: Crossbar switches consume a lot of power due to the number of switches that need to be active simultaneously. Additionally, they require a significant amount of physical space, making them impractical for systems where efficiency and compact design are important.\n   - **Control Complexity**: Managing and coordinating such a large number of switches also introduces significant complexity. Each switch must be controlled to ensure that memory accesses do not conflict, and resolving contention when multiple CPUs try to access the same memory adds overhead.\n\n### 3. **Alternative Switching Networks**:\n   - **More Efficient Alternatives**: Networks like the **omega network** offer a more scalable alternative by reducing the number of switches needed. Although they introduce some delay due to multiple switching stages, they significantly lower the hardware cost compared to crossbar switches.\n   - **NUMA (Non-Uniform Memory Access) Architecture**: In NUMA systems, each CPU has fast access to its local memory and slower access to remote memory. While this adds complexity in terms of data placement and access patterns, it provides a more cost-effective and scalable solution compared to crossbar switches.\n\n### 4. **Latency Issues**:\n   - As the number of CPUs grows, the time it takes for memory requests to traverse the crossbar switches can introduce significant latency. While modern processors operate at extremely high speeds, the delay incurred by passing through a large crossbar switch can negatively impact performance.\n\n### Conclusion:\nCrossbar switches offer excellent parallel access to memory, but their high cost, complexity, and power consumption, along with the availability of more scalable alternatives like omega networks and NUMA architectures, limit their practical use in large multiprocessor systems.",
+      "styleAttributes": {},
+      "x": -1660,
+      "y": 2568,
+      "width": 1110,
+      "height": 697,
+      "color": "5"
+    },
+    {
+      "id": "5ff2fd3ecc71d9e1",
+      "type": "file",
+      "file": "source-images/Pasted image 20240922185932.png",
+      "styleAttributes": {},
+      "x": -1660,
+      "y": 3365,
+      "width": 1110,
+      "height": 710
+    },
+    {
+      "id": "13868aab95a9325b",
+      "type": "text",
+      "text": "Let's approach this problem step-by-step:\n\n1. First, let's identify the key information:\n   - Number of CPUs: 4096\n   - CPU speed: 50 MIPS (Million Instructions Per Second)\n   - Network type: Omega network\n\n2. Calculate the instruction time:\n   - 50 MIPS means 50 million instructions per second\n   - Instruction time = 1 / (50 * 10^6) = 20 nanoseconds (ns)\n\n3. Determine the number of switching stages in the omega network:\n   - For n CPUs, an omega network has log₂(n) stages each way\n   - Number of stages = log₂(4096) = 12\n   - Total stages (round trip) = 12 * 2 = 24 stages\n\n4. Calculate the time available per switch:\n   - Total time available = 20 ns (one instruction time)\n   - Time per switch = 20 ns / 24 stages = 0.833 ns\n\nTherefore, each switch in the omega network needs to operate in 0.833 nanoseconds (or about 833 picoseconds) to allow a request to go to memory and back in one instruction time.\n\nThis is a very demanding speed requirement, which aligns with the text's discussion about the challenges of building large, tightly-coupled, shared memory multiprocessors. The text mentioned that for a 1024-CPU system with 100 MIPS processors, switches would need to operate in 500 picoseconds. Our calculation for a larger, slightly slower system yields a similar order of magnitude result, demonstrating the significant engineering challenges involved in building such systems.",
+      "styleAttributes": {},
+      "x": -1660,
+      "y": 4461,
+      "width": 1086,
+      "height": 387,
+      "color": "5"
+    },
+    {
+      "id": "56592d8e2acc0899",
+      "type": "file",
+      "file": "source-images/Pasted image 20240922202911.png",
+      "styleAttributes": {},
+      "x": -3919,
+      "y": 1920,
+      "width": 2214,
+      "height": 1733
+    },
+    {
+      "id": "053ce21121db467c",
+      "type": "file",
+      "file": "source-images/Pasted image 20240922202846.png",
+      "styleAttributes": {},
+      "x": -3919,
+      "y": -226,
+      "width": 2214,
+      "height": 2146
+    },
+    {
+      "id": "149923d199e3ea38",
+      "type": "text",
+      "text": "The term **single-system image** refers to the concept in distributed systems where users perceive the entire network of computers as a single coherent system, rather than as a collection of individual machines. Here are some key aspects of what this entails:\n\n### 1. **Transparency**:\n   - **Location Transparency**: Users do not need to know where resources (like files or processes) are physically located. They can access resources seamlessly, regardless of the underlying hardware.\n   - **Access Transparency**: The way resources are accessed should be uniform across the system, so that local and remote resources are accessed using the same methods.\n\n### 2. **Uniformity**:\n   - **Consistent Interface**: All machines in the system provide the same set of system calls and services, allowing users to interact with the system in a consistent manner, irrespective of which machine they are using.\n   - **Global Naming**: File systems and resources should have a consistent naming scheme, so that files can be identified and accessed the same way everywhere in the system.\n\n### 3. **Global Resource Management**:\n   - **Process Management**: Processes can be created, managed, and communicated with in the same way across all machines, providing a unified experience in terms of process lifecycle.\n   - **File System Management**: A global file system should allow users to access files from any machine as if they were on their local machine, with access controlled by uniform security and protection mechanisms.\n\n### 4. **Cooperation Among Kernels**:\n   - **Identical Kernels**: To facilitate coordination, it is often beneficial for all machines to run the same operating system kernel. This consistency allows for easier resource allocation and process management across the network.\n   - **Local Resource Control**: While kernels manage local resources independently (like memory and scheduling), they cooperate to support global functionalities, such as process migration and load balancing.\n\n### 5. **User Experience**:\n   - Users interact with the distributed system as if it were a single timesharing system. They should not need to consider the underlying complexity of multiple CPUs and machines; instead, their experience should be smooth and intuitive.\n\n### Conclusion:\nThe single-system image is a fundamental goal of distributed operating systems, enhancing user experience by providing a seamless, cohesive interface to a network of distributed resources. Achieving this requires careful design in terms of communication protocols, resource management, and system interfaces.",
+      "styleAttributes": {},
+      "x": -1660,
+      "y": 4890,
+      "width": 1110,
+      "height": 821
+    },
+    {
+      "id": "eb0a91cce263e154",
+      "type": "text",
+      "text": "The main difference between a **distributed operating system (DOS)** and a **network operating system (NOS)** lies in their architecture, user experience, and management of resources:\n\n### 1. **Architecture and Coordination**:\n- **Distributed Operating System (DOS)**: \n  - Operates as a cohesive system, presenting multiple machines as a single unified entity. Users interact with the entire network as if it were one machine.\n  - There is tight integration and coordination among the machines, allowing them to share resources and processes seamlessly.\n  - It typically features global interprocess communication mechanisms, enabling any process to communicate with any other process, regardless of where they are located.\n\n- **Network Operating System (NOS)**:\n  - Comprises loosely-coupled machines that operate independently. Each machine can run its own operating system and manage its own resources.\n  - The focus is on providing basic services like file sharing and remote logins without significant coordination. Users must explicitly manage which machine they are using and how to access resources.\n  - Communication and resource sharing often require user intervention, such as logging into remote machines or manually transferring files.\n\n### 2. **User Experience**:\n- **DOS**: \n  - Aims to create the illusion of a single system (often referred to as a \"single-system image\") to users, who do not need to be aware of the underlying multiple machines.\n  - Users can access resources and run processes without needing to know the specific location of those resources.\n\n- **NOS**:\n  - Users are often aware of the distinct machines and their individual operating systems. Commands are typically executed on local workstations or require remote connections.\n  - The user experience is more fragmented, with different systems potentially presenting different views of resources.\n\n### 3. **Resource Management**:\n- **DOS**: \n  - Uses a single set of system calls and a uniform file system across all machines, facilitating consistent resource management and access.\n  - Process management is unified, with the system handling process creation and scheduling across the network.\n\n- **NOS**:\n  - Each machine can operate autonomously, which may lead to inconsistencies in system calls and resource management. For instance, different machines may have different file systems and access controls.\n  - Resource management is decentralized, and users must understand the specifics of each machine's configuration and access methods.\n\n### Conclusion:\nIn summary, a distributed operating system provides a more integrated and seamless user experience by presenting a unified system, while a network operating system offers a more independent approach, requiring users to navigate between separate machines and systems.",
+      "styleAttributes": {},
+      "x": -1660,
+      "y": 5740,
+      "width": 1143,
+      "height": 823
+    },
+    {
+      "id": "06cc3ac143d03c6c",
+      "type": "text",
+      "text": "### Primary Tasks of a Microkernel\nA microkernel typically focuses on providing a minimal set of core services, which include:\n\n1. **Interprocess Communication (IPC)**: Facilitating communication between different processes or services.\n2. **Memory Management**: Managing memory allocation and deallocation.\n3. **Low-Level Process Management**: Handling process scheduling and context switching.\n4. **Low-Level Input/Output (I/O)**: Managing basic input and output operations.\n\n### Advantages of a Microkernel Over a Monolithic Kernel\n1. **Modularity**: Microkernels are highly modular, allowing services to be added, removed, or modified without affecting the core kernel. This leads to easier maintenance and updates.\n2. **Flexibility**: Because many services run in user space as separate processes, users can choose or implement their own services, adapting the system to specific needs without altering the kernel.\n\n### Concurrency Transparency in Centralized Systems\nCentralized systems do not automatically possess concurrency transparency. In a centralized system, if multiple users access a shared resource simultaneously, the system may need to implement specific mechanisms (like locking or queuing) to manage access. Without these mechanisms, users could face conflicts or inconsistencies, revealing the presence of concurrent operations.\n\n### Concept of Parallelism Transparency\nParallelism transparency means that users can execute tasks in a distributed system without needing to know about the underlying parallel processing capabilities. The system manages the distribution of tasks across multiple processors seamlessly, allowing users to write programs as if they are running on a single processor. This transparency aims to optimize resource usage without imposing additional complexity on the programmer, enabling more efficient execution of applications without requiring explicit parallel programming techniques.",
+      "styleAttributes": {},
+      "x": -1660,
+      "y": 6600,
+      "width": 1143,
+      "height": 807
+    },
+    {
+      "id": "2a2e35f8aa3c04d1",
+      "type": "text",
+      "text": "### Reliability in Distributed Systems\n\n1. **Availability**: Refers to the fraction of time the system is operational. High availability can be achieved by designing systems that don't rely on all critical components being operational simultaneously. Redundancy (replicating key components) is a common strategy to enhance availability.\n\n2. **Data Integrity**: Ensuring that data is not lost or corrupted, and that copies of data stored across multiple servers remain consistent, is crucial. This can be challenging, especially with frequent updates, as increased redundancy can lead to greater inconsistency risks.\n\n3. **Security**: Protecting resources from unauthorized access is more complex in distributed systems. Unlike single-processor systems, where user authentication is straightforward, distributed systems need robust methods to verify identities and secure communications.\n\n4. **Fault Tolerance**: Designing systems to handle component failures gracefully is vital. If a server crashes, users should not experience significant disruptions. Systems can be designed to mask failures and allow other servers to take over seamlessly.\n\n### Performance Considerations\n\n- **Response Time and Throughput**: These metrics measure how quickly tasks are completed and how many tasks can be processed in a given timeframe, respectively. Performance must be balanced with reliability features like fault tolerance.\n\n- **Communication Overhead**: Communication in distributed systems introduces delays not present in single-processor systems. Minimizing the number of messages can help optimize performance, but this may conflict with parallel processing goals, as more parallel tasks typically require more inter-process communication.\n\n- **Grain Size of Computations**: The size of tasks sent over the network is important. Small, frequent tasks can be inefficient due to communication overhead, while larger tasks may justify the overhead and improve performance.\n\n### Scalability Challenges\n\n- **Avoiding Centralization**: As distributed systems grow, avoiding centralized components (e.g., a single mail server for millions of users) is crucial for fault tolerance and performance. Centralized databases and algorithms can become bottlenecks and are less resilient to failures.\n\n- **Decentralized Algorithms**: In large distributed systems, decentralized algorithms should be employed, allowing machines to make decisions based on local information. This approach enhances robustness and flexibility, ensuring that the failure of one machine doesn't disrupt the entire system.\n\n- **Clock Synchronization Issues**: Algorithms must account for the lack of precise clock synchronization across machines, which becomes more challenging as the system scales.\n\nIn summary, the design of reliable and efficient distributed systems involves balancing availability, data integrity, security, fault tolerance, and performance, while also ensuring scalability through decentralization.",
+      "styleAttributes": {},
+      "x": -1660,
+      "y": 7440,
+      "width": 1143,
+      "height": 934
+    },
+    {
+      "id": "e152ca748306be14",
+      "type": "file",
+      "file": "source-images/Pasted image 20240922191205.png",
+      "styleAttributes": {},
+      "x": -1660,
+      "y": 8504,
+      "width": 1143,
+      "height": 1274
+    },
+    {
+      "id": "0bc3955a1b7759f6",
+      "type": "text",
+      "text": "### Factors Affecting Speedup in Compilation\n\nWhen compiling mmm files on nnn processors (where n≫mn \\gg mn≫m), the expected speedup is an mmm-fold increase over a single processor. However, several factors can reduce this speedup:\n\n1. **Dependency Between Files**: If there are dependencies between files (e.g., one file needs to be compiled before another), this can limit parallelism and require serial execution for certain tasks.\n    \n2. **Overhead of Managing Parallel Tasks**: Coordinating the compilation process across multiple processors incurs overhead. This includes task scheduling, communication between processors, and combining results.\n    \n3. **Load Balancing**: If the compilation tasks are not evenly distributed among processors, some may finish early while others are still working, leading to inefficiencies.\n    \n4. **Resource Contention**: Multiple processors might compete for limited resources (e.g., memory bandwidth, I/O operations), leading to bottlenecks that slow down overall performance.\n    \n5. **Compiler Limitations**: Some compilers are not optimized for parallel execution and may not effectively utilize multiple processors, leading to suboptimal speedup.\n    \n6. **System Architecture**: The underlying hardware architecture (e.g., cache sizes, memory access patterns) can affect how well the system performs when executing parallel tasks.\n    \n7. **Compilation Strategy**: Certain compilation strategies may inherently limit parallelism. For example, using a single pass for all files rather than breaking them into independent compilable units can reduce the potential speedup.\n    \n\nThese factors can significantly influence the actual speedup achieved during compilation on a multi-processor system.",
+      "styleAttributes": {},
+      "x": -1660,
+      "y": 9880,
+      "width": 1096,
+      "height": 577
+    },
+    {
+      "id": "ec60f680ae716522",
+      "type": "text",
+      "text": "To determine the worst-case delay in hops for a 256-CPU hypercube, we need to consider its dimensions and structure.\n\nA hypercube with 256 CPUs is an 8-dimensional hypercube, because 2^8 = 256.\n\nIn a hypercube, the worst-case delay occurs when a message needs to travel between two nodes that differ in all dimensions. In this case, the message would need to traverse each dimension once.\n\nSince our hypercube has 8 dimensions, the worst-case delay would be 8 hops.\n\nThis logarithmic growth of worst-case delay (log 2 (number of CPUs)) is one of the advantages of the hypercube topology, as mentioned in the text. It scales better than topologies like grids for large numbers of CPUs.",
+      "styleAttributes": {},
+      "x": -1660,
+      "y": 4100,
+      "width": 1110,
+      "height": 328
+    },
+    {
+      "id": "54ee6625e97468c6",
+      "type": "text",
+      "text": "Here are the answers to your questions:\n\n1. **Example of Large Gain**: Consider the field of data storage. If the price/performance ratio improved similarly to computers, we could envision a situation where a terabyte of high-speed solid-state storage could be purchased for just a few dollars, making massive, high-speed data storage accessible to consumers and small businesses.\n\n2. **Advantages and Disadvantages of Distributed Systems**:\n   - **Advantages**:\n     1. **Scalability**: Distributed systems can easily scale by adding more nodes.\n     2. **Fault Tolerance**: If one node fails, the system can continue to operate with the remaining nodes.\n   - **Disadvantages**:\n     1. **Complexity**: Designing and managing a distributed system can be significantly more complex than centralized systems.\n     2. **Latency**: Communication between distributed nodes can introduce latency compared to local communication in a centralized system.\n\n3. **Multiprocessor vs. Multicomputer**:\n   - **Multiprocessor**: Multiple CPUs share the same memory space and are tightly integrated, usually with shared memory.\n   - **Multicomputer**: Consists of independent computers (nodes) that do not share memory and communicate over a network.\n\n4. **Loosely-Coupled vs. Tightly-Coupled Systems**:\n   - **Loosely-Coupled System**: Nodes operate independently and communicate through message passing. They can fail independently.\n   - **Tightly-Coupled System**: Nodes are more interdependent, often sharing memory, and their failure can affect the entire system.\n\n5. **MIMD vs. SIMD**:\n   - **MIMD (Multiple Instruction, Multiple Data)**: Each processor can execute different instructions on different data streams simultaneously.\n   - **SIMD (Single Instruction, Multiple Data)**: All processors execute the same instruction on multiple data streams simultaneously.\n\n6. **Semaphores on a Bus-Based Multiprocessor**: Yes, semaphores can work on a bus-based multiprocessor with snoopy caches. The coherence protocols ensure that memory reads/writes are consistent, allowing semaphores to function properly.\n\n7. **Crossbar Switches**: They are rarely used in practice primarily due to their high cost and complexity in implementation. Additionally, as the number of connections increases, the switch becomes less practical and more challenging to manage.\n\n8. **Worst-case Delay in 16 x 16 Grid**: The worst-case delay (in hops) for a message in a 16 x 16 grid is 30 hops. This occurs when sending a message from one corner of the grid to the opposite corner, moving through either rows or columns.\n\n9. **Worst-case Delay in 256-CPU Hypercube**: The worst-case delay in a hypercube is 8 hops. Each dimension of the hypercube can be traversed independently, leading to a logarithmic scaling of hops based on the number of nodes.\n\n10. **Switch Speed for Omega Network**: For an omega network with 4096 50-MIPS CPUs, the switches need to be fast enough to handle requests in 20 nanoseconds (since 50 MIPS means one instruction takes 20 nanoseconds). Thus, switches must process requests and return data within this timeframe to avoid delays.\n\n11. **Single-System Image**: This term refers to a distributed system that appears to users as a single coherent system, despite being made up of multiple components or nodes.\n\n12. **Distributed OS vs. Network OS**: A distributed operating system manages resources across multiple nodes as a unified system, while a network operating system provides services over a network but does not unify the resources in the same way.\n\n13. **Primary Tasks of a Microkernel**: The main tasks include managing inter-process communication, basic scheduling, and handling minimal hardware abstraction to allow other services to run in user space.\n\n14. **Advantages of Microkernel**:\n   1. **Modularity**: Easier to manage and update individual components without affecting the entire system.\n   2. **Reliability**: Failures in user-space services do not crash the entire system, improving overall stability.\n\n15. **Concurrency Transparency in Centralized Systems**: No, centralized systems do not automatically provide concurrency transparency, as they often do not have built-in mechanisms for managing concurrent access by multiple users or processes.\n\n16. **Parallelism Transparency**: This concept refers to the ability of a system to allow users to run processes in parallel without needing to be aware of the parallel execution; the system manages the complexity behind the scenes.\n\n17. **Replication for Availability**: To achieve at least 99% availability with a server that is down 25% of the time, you would need to replicate the server multiple times. The formula to calculate the minimum number of replicas needed is \\( n \\geq \\frac{\\log (0.01)}{\\log (0.75)} \\), leading to about 5 replicas.\n\n18. **Factors Affecting Speedup in Compilation**:\n   - **I/O Overhead**: Reading/writing files can bottleneck the compilation process.\n   - **Dependency Management**: Some files may depend on others, limiting parallelism.\n   - **Compiler Overhead**: The time taken by the compiler itself may not scale linearly with the number of processors.\n\nLet me know if you need further explanations or examples!",
+      "styleAttributes": {},
+      "x": 6171,
+      "y": 1102,
+      "width": 1036,
+      "height": 883
+    },
+    {
+      "id": "0ccd3f23ad9d11be",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911063502.png",
+      "styleAttributes": {},
+      "x": 5140,
+      "y": -74,
+      "width": 917,
+      "height": 1040
+    },
+    {
+      "id": "d6c96cb8759ca920",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911063532.png",
+      "styleAttributes": {},
+      "x": 4160,
+      "y": 1013,
+      "width": 940,
+      "height": 934
+    },
+    {
+      "id": "ce9ea646602751f4",
+      "type": "text",
+      "text": "It looks like you're working with a detailed text on the design issues related to distributed systems. Here’s a summary of the key points covered in the sections on transparency, flexibility, reliability, performance, and scalability:\n\n### 1.5. DESIGN ISSUES\n\n#### 1.5.1. Transparency\n- **Single-System Image**: The goal is to make a distributed system appear as a single timesharing system.\n- **Types of Transparency**:\n  - **Location Transparency**: Users shouldn't know the locations of resources.\n  - **Migration Transparency**: Resources can move without changing their names.\n  - **Replication Transparency**: Users can't tell how many copies of a resource exist.\n  - **Concurrency Transparency**: Multiple users can share resources without interference.\n  - **Parallelism Transparency**: Users are unaware of the parallel execution of processes.\n\nAchieving transparency is crucial, yet it can lead to complexities when users prefer control over their specific resources.\n\n#### 1.5.2. Flexibility\n- **Design Choices**: There are two main models for distributed systems: monolithic kernels and microkernels.\n  - **Monolithic Kernel**: Traditional approach, offering high performance but less flexibility.\n  - **Microkernel**: More modular and flexible, allowing services to be implemented at user-level, which facilitates easier modifications and updates.\n\nFlexibility is essential due to the evolving nature of distributed systems.\n\n#### 1.5.3. Reliability\n- **System Reliability**: Distributed systems aim for higher reliability by having multiple components that can take over if one fails.\n- **Key Concepts**:\n  - **Availability**: The time the system is operational.\n  - **Redundancy**: Replicating components to enhance reliability.\n  - **Consistency**: Ensuring that data remains accurate across multiple copies.\n  - **Security**: Protecting resources from unauthorized access, which is more complex in distributed environments.\n  - **Fault Tolerance**: Systems should be designed to mask failures from users.\n\n#### 1.5.4. Performance\n- **Performance Metrics**: Includes response time, throughput, and network utilization.\n- **Communication Overhead**: Slow communication can hinder performance, necessitating strategies to minimize message exchanges.\n- **Grain Size of Computations**: Fine-grained tasks may not be efficient due to high communication costs, while coarse-grained tasks can benefit from distributed processing.\n\nBalancing performance with reliability and transparency is a continuous challenge.\n\n#### 1.5.5. Scalability\n- **Scalability**: The ability to handle growth, both in terms of the number of users and resources. Effective distributed systems should scale efficiently without significant drops in performance.\n\nThis section highlights the complexities and trade-offs involved in designing effective distributed operating systems. If you need more specific information or a deeper dive into any of these topics, let me know!",
+      "styleAttributes": {},
+      "x": 6171,
+      "y": -80,
+      "width": 1116,
+      "height": 1046,
+      "color": "1"
+    },
+    {
+      "id": "c299733ccc96cf61",
+      "type": "text",
+      "text": "This excerpt addresses key design issues in distributed operating systems, focusing on transparency and flexibility. Here’s a summary:\n\n### 1.5.1 Transparency\nTransparency is crucial for achieving a single-system image, making users perceive a distributed system as a traditional timesharing system. It can be achieved at two levels:\n\n- **User Level**: Users are unaware of the distribution. For instance, in a UNIX environment, multiple compilations may occur on different machines without users realizing it.\n- **Program Level**: System calls do not expose the existence of multiple processors. This level of transparency is more challenging to implement.\n\n**Types of Transparency**:\n- **Location Transparency**: Users cannot determine the location of resources.\n- **Migration Transparency**: Resources can move without changing their names.\n- **Replication Transparency**: Users are unaware of how many copies of resources exist.\n- **Concurrency Transparency**: Users can share resources simultaneously without noticing.\n- **Parallelism Transparency**: Users experience operations as if they occur on a uniprocessor, even if they utilize multiple CPUs.\n\nAchieving transparency enhances user experience but can complicate situations where users prefer control, like choosing a local printer.\n\n### 1.5.2 Flexibility\nFlexibility is vital for adapting to evolving needs in distributed systems design. Two models illustrate flexibility:\n\n- **Monolithic Kernel**: Traditional approach where most services are handled by the kernel. This model is familiar but less adaptable.\n- **Microkernel**: A more modern and flexible design that provides minimal core services, relying on user-level servers for additional functionalities. This modularity allows easier updates and modifications.\n\nWhile the monolithic kernel may offer performance advantages, studies suggest that microkernels often perform just as well in practice. The trend is towards microkernels dominating distributed systems due to their flexibility and modularity.\n\nOverall, the design of distributed systems must balance transparency and flexibility to address user needs while accommodating ongoing developments in technology.",
+      "styleAttributes": {},
+      "x": 7335,
+      "y": -80,
+      "width": 1024,
+      "height": 1046
+    },
+    {
+      "id": "1251efb11d651bbc",
+      "type": "text",
+      "text": "### 1.4. SOFTWARE CONCEPTS\n\nWhile hardware is crucial, **software** plays an even more significant role in shaping the user’s experience of a system. The way users perceive and interact with a system is largely determined by the **operating system (OS)**, which manages how the hardware is used. In this section, we explore the relationship between different types of operating systems and the hardware architectures discussed earlier.\n\nOperating systems for **multiple CPU systems** can be broadly categorized into two types:\n\n1. **Loosely Coupled Systems**\n2. **Tightly Coupled Systems**\n\nThis classification of software mirrors the corresponding hardware configurations, where systems are either loosely or tightly coupled.\n\n#### **Loosely Coupled Software**\nLoosely coupled software refers to operating systems that allow machines in a **distributed system** to operate independently but still provide limited interaction when necessary. An example is a group of personal computers connected via a **local area network (LAN)**. Each computer has its own CPU, memory, hard disk, and operating system, but they may share resources like printers or databases over the network.\n\nIf the network goes down, each computer can continue functioning to a significant extent, although shared resources, like printers, may become inaccessible. This type of setup provides a clear distinction between machines, each handling its own tasks. The system is loosely coupled because individual components can still operate even if the connection between them is lost.\n\nHowever, the concept of loosely coupled systems can be challenging to define precisely. For instance, if the computers aren't connected to a network, but users carry files on **floppy disks** to another computer with a printer, is this still considered a distributed system? The difference between using a LAN and physically transporting data (via disks) is mainly one of **delay** and **data rate**, but conceptually, the systems are quite similar.\n\n#### **Tightly Coupled Software**\nOn the other end of the spectrum, tightly coupled software operates in systems where CPUs work closely together on a **shared task**. A good example is a **multiprocessor system** dedicated to running a single application, such as a chess program. Each CPU might be assigned a specific task, like evaluating a chessboard configuration, and then reporting back its results before receiving a new task. In this case, the application and operating system software must manage a highly coordinated effort among the CPUs, making the system tightly coupled.\n\n#### **Combinations of Hardware and Software**\nConsidering the four types of distributed hardware (bus-based multiprocessors, bus-based multicomputers, switched multiprocessors, and switched multicomputers) and two kinds of distributed software (loosely and tightly coupled), one might expect eight potential combinations. However, in practice, only **four combinations** are typically distinguished because the underlying hardware (such as buses or networks) is often invisible to the user. To users, whether a multiprocessor uses a bus or an advanced network architecture often makes little difference.\n\nThe most relevant combinations of hardware and software will be discussed in the following sections.\n\n\n### 1.4.1. Network Operating Systems\n\nIn a **loosely coupled** hardware and software environment, the most common configuration is a **network of workstations** connected by a local area network (**LAN**). Each workstation typically operates independently, running its own operating system and handling user commands locally. However, networked systems enable certain types of communication and resource sharing between the workstations.\n\n#### **Basic Network Operations**\nOne way users interact with other workstations is by logging into remote machines using a command like:\n```bash\nrlogin machine\n```\nThis command allows the user's terminal to act as if it's directly connected to the remote machine. However, the process is manual and requires logging out of one machine before logging into another. Only one machine can be used at a time, making this approach cumbersome.\n\nSimilarly, copying files between machines can be done using commands such as:\n```bash\nrcp machine1:file1 machine2:file2\n```\nThis explicitly moves files between workstations, but requires the user to know the exact locations of the files and machines involved. This method of communication and file transfer is limited and inefficient for larger distributed systems, prompting system designers to seek more advanced solutions.\n\n#### **Shared File Systems**\nOne improvement is the introduction of a **shared, global file system**, accessible by all workstations via one or more **file servers**. These file servers store the shared file systems and manage requests from client workstations (Figure 1-9). When a client sends a request to read or write a file, the file server processes the request and sends the results back to the client.\n\nIn this setup, file servers typically manage **hierarchical file systems** that include directories and subdirectories. Clients can mount these file systems to make them part of their local directory structures. For example, in **Figure 1-10**, two file servers store different directories: one has a directory called `/games`, and the other has a directory called `/work`. Clients can mount these directories into their own file systems. \n\n- **Client 1** mounts the `/games` and `/work` directories directly into its root directory, allowing access as `/games` and `/work`.\n- **Client 2** mounts the `/games` directory directly but mounts `/work` under `/games/work`, giving it access to the `/work/news` file as `/games/work/news`.\n\nThis flexibility in mounting file systems allows clients to have **different views** of the global file system, meaning the name of a file may vary depending on which client accesses it and where it has been mounted.\n\n#### **Communication and Autonomy**\nThe operating system in this environment must manage the communication between workstations and file servers. Although the machines might run the same operating system, it isn't necessary. However, all machines must agree on the **message formats** and the meaning of the messages exchanged to ensure proper communication.\n\nIn a system where each machine retains a high degree of autonomy and where there are few overarching system-wide requirements, such systems are referred to as **network operating systems**. This contrasts with other systems where machines are more tightly integrated.\n\n\n### 1.4.2. True Distributed Systems\n\nIn contrast to **network operating systems**, which are loosely coupled both in software and hardware, a **true distributed system** aims to present a seamless experience, making the entire network of computers appear as a **single system** to its users. This concept is often referred to as a **single-system image** or, alternatively, as a system that acts like a **virtual uniprocessor**. The idea is to obscure the fact that the system consists of multiple CPUs, thereby creating an illusion that users are working on a unified, cohesive system.\n\n#### Characteristics of a Distributed System\n\nA **distributed system** must possess several essential characteristics to achieve the single-system image:\n\n1. **Global Interprocess Communication Mechanism**:\n   - There should be a single, universal way for processes to communicate, regardless of whether they reside on the same machine or different machines. This uniformity is crucial to ensure that communication feels seamless across the system.\n   - Having different communication mechanisms for local and remote processes or across different machines would break the illusion of a single system.\n\n2. **Global Protection Scheme**:\n   - Security mechanisms must be consistent across the system. For example, it is unacceptable to mix access control methods like UNIX-style protection bits, access control lists, or capabilities on different machines, as it would confuse users and lead to inconsistent behavior.\n\n3. **Uniform Process Management**:\n   - The rules for **process creation, destruction, starting, and stopping** must be identical across all machines in the system. If each machine follows different rules for managing processes, it would not feel like a single system.\n\n4. **Uniform File System**:\n   - The file system must behave consistently throughout the system. File naming conventions, access restrictions, and visibility of files should not vary depending on which machine the user is accessing.\n   - For instance, allowing filenames to be restricted to 11 characters on one machine while allowing longer names on another would be problematic.\n\n5. **Identical Kernels**:\n   - All machines in the system should run **identical kernels** to ensure that system-wide activities, such as process management and file system operations, can be coordinated globally.\n   - This uniformity helps in tasks such as process scheduling and resource allocation. When a process needs to be started, the kernels work together to decide which machine is the best fit for executing it.\n\n6. **Local Resource Management**:\n   - Despite the need for a global system, each machine should retain some control over its **local resources**, such as memory management. For example, each machine’s kernel should handle **paging** or **swapping** independently.\n   - Similarly, if multiple processes are running on a CPU, the local kernel should handle the scheduling without needing to consult a centralized system.\n\n#### Benefits of True Distributed Systems\n\nTrue distributed systems combine the advantages of **tightly coupled software** on **loosely coupled hardware** by providing a consistent user experience across all machines in the system. Users do not need to be aware of where processes are running or where files are stored—they can interact with the system as if it were a single, powerful computer. This level of abstraction simplifies the user experience and enhances overall system efficiency.\n\nThough no system has completely achieved the true distributed system ideal, many are evolving toward this goal, and considerable knowledge exists on how to design and implement such systems. The details of distributed system design will be further explored later in the book (in **Sec. 1.5**).\n\n### 1.4.3. **Multiprocessor Timesharing Systems**\n\nMultiprocessor timesharing systems involve tightly-coupled software on tightly-coupled hardware. In these systems, a single operating system manages multiple CPUs, creating the illusion that the system operates as a single, powerful CPU. The common examples are multiprocessors running a **UNIX timesharing system** but with multiple CPUs rather than just one.\n\n#### **Key Characteristics:**\n1. **Single Run Queue:**\n   - These systems maintain a single run queue located in **shared memory**. This queue contains all processes ready to run, regardless of the CPU they may eventually execute on. The operating system ensures mutual exclusion while accessing this run queue, preventing multiple CPUs from selecting the same process to execute.\n   \n   - In a setup with multiple CPUs, such as in the diagram with three CPUs and five processes, each CPU can execute a process from the shared memory. The processes not currently running wait in the run queue for their turn.\n\n2. **Process Switching and Scheduling:**\n   - When a process completes or is blocked, the CPU running it suspends the process, saves its state, and looks for another process to run from the shared run queue. The operating system uses standard synchronization techniques (like **monitors** or **semaphores**) to ensure that no two CPUs select the same process at once.\n   \n   - After selecting a new process from the queue, the CPU gradually caches the relevant parts of the process into its local cache, speeding up execution as it proceeds.\n\n3. **Shared Memory Architecture:**\n   - Because the system's memory is shared, it doesn't matter which CPU runs a process. However, there is a slight performance benefit if the CPU previously cached parts of the process in its local cache.\n   \n   - If a process blocks on I/O, the operating system can decide between **busy waiting** (if the I/O will complete quickly) or switching to another process (if the wait time is longer than the time required for a context switch).\n\n4. **File System Organization:**\n   - The file system on a multiprocessor system functions similarly to that on a single-processor system. A **unified block cache** is used, and system calls, such as `WRITE`, are managed by locking the shared memory's critical sections to ensure consistency across CPUs.\n\n   - In some systems, a dedicated CPU manages the operating system tasks, but this can create a bottleneck, making it less desirable.\n\n#### **Limitations Compared to Distributed Systems:**\n   - The methods used to make a multiprocessor look like a single virtual uniprocessor rely on **shared memory** and **low-latency communication** between CPUs. These techniques are impractical for distributed systems, where communication is slower, and memory is not shared.\n\n#### **Comparison with Other Systems:**\n   - Figure 1-12 illustrates the differences between network operating systems, distributed operating systems, and multiprocessor operating systems:\n     - **Network operating systems** do not provide the illusion of a single uniprocessor and may run different operating systems on different machines.\n     - **Distributed systems** provide the illusion of a uniprocessor but require agreed-upon protocols and distributed system calls across multiple machines.\n     - **Multiprocessor systems**, on the other hand, achieve the single-system image by leveraging shared memory, a single run queue, and shared file systems.",
+      "styleAttributes": {},
+      "x": 4130,
+      "y": -27,
+      "width": 940,
+      "height": 1040,
+      "color": "1"
+    }
+  ],
+  "edges": [
+    {
+      "id": "4525cd7e6732ba8e",
+      "styleAttributes": {},
+      "fromNode": "df029b48cf41c53e",
+      "fromSide": "bottom",
+      "toNode": "3f397f3da9c04497",
+      "toSide": "top"
+    },
+    {
+      "id": "9bdb364e4997f5f8",
+      "styleAttributes": {},
+      "fromNode": "b12a90a9670cd40c",
+      "fromSide": "bottom",
+      "toNode": "3a2a2fa896f93404",
+      "toSide": "top"
+    },
+    {
+      "id": "92d01976de83fcf6",
+      "styleAttributes": {},
+      "fromNode": "6b417f705d4aa1d2",
+      "fromSide": "bottom",
+      "toNode": "69e6bd7a02b409b2",
+      "toSide": "top"
+    },
+    {
+      "id": "d5f815cfdbfb1931",
+      "styleAttributes": {},
+      "fromNode": "ce9ea646602751f4",
+      "fromSide": "left",
+      "toNode": "0ccd3f23ad9d11be",
+      "toSide": "right",
+      "color": "1"
+    }
+  ],
+  "metadata": {}
+}

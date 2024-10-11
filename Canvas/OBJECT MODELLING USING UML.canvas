@@ -1,0 +1,753 @@
+{
+  "nodes": [
+    {
+      "id": "972e0ef683e51610",
+      "type": "group",
+      "styleAttributes": {},
+      "x": 1165,
+      "y": 1030,
+      "width": 1635,
+      "height": 1870,
+      "color": "5",
+      "label": "AGGREGATION-COMPOSITION"
+    },
+    {
+      "id": "b69ab52e068169f4",
+      "type": "group",
+      "styleAttributes": {},
+      "x": -3160,
+      "y": 900,
+      "width": 1720,
+      "height": 1480,
+      "color": "5",
+      "label": "DEFINATIONS"
+    },
+    {
+      "id": "6101ee22652cd623",
+      "type": "group",
+      "styleAttributes": {},
+      "x": -1020,
+      "y": 1060,
+      "width": 1227,
+      "height": 1460,
+      "color": "5",
+      "label": "INHERITENCE"
+    },
+    {
+      "id": "4036890006caf495",
+      "type": "group",
+      "styleAttributes": {},
+      "x": 260,
+      "y": 1060,
+      "width": 862,
+      "height": 1840,
+      "color": "5",
+      "label": "ASSOCIATION"
+    },
+    {
+      "id": "97246f63deb93386",
+      "type": "group",
+      "styleAttributes": {},
+      "x": 3521,
+      "y": 1170,
+      "width": 545,
+      "height": 950,
+      "color": "5",
+      "label": "abstraction"
+    },
+    {
+      "id": "f736dd0f9f0b6c27",
+      "type": "group",
+      "styleAttributes": {},
+      "x": -200,
+      "y": -240,
+      "width": 840,
+      "height": 600,
+      "color": "5",
+      "label": "Structure"
+    },
+    {
+      "id": "92bf1e6ed02017da",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240909033952.png",
+      "styleAttributes": {},
+      "x": 280,
+      "y": 1855,
+      "width": 799,
+      "height": 400
+    },
+    {
+      "id": "8ecd384f3dfcd604",
+      "type": "text",
+      "text": "### Association and Link Simplified\n\nEnables objects to communicate with each other:\nThus one object must “know” the address of the corresponding object in the association.\nUsually binary:\nBut in general can be n-ary.\n**Association** represents a relationship between two or more classes in a design, allowing objects from these classes to interact. Here’s a breakdown:\n\n#### Types of Associations\n\n1. **Binary Association**:\n   - Involves two classes.\n   - Example: A `Student` can register for an `ElectiveSubject`. Both `Student` and `ElectiveSubject` know about each other, allowing them to interact.\n\n2. **Unidirectional Association**:\n   - One class knows about the other but not vice versa.\n   - Example: If a `LibraryMember` borrows a `Book`, the `Book` knows about the `LibraryMember`, but the `LibraryMember` does not necessarily know about the `Book`.\n\n3. **Bidirectional Association**:\n   - Both classes know about each other.\n   - Example: In a `LibraryMember` borrows a `Book`, both classes know about each other. A `Book` can identify its borrower, and a `LibraryMember` can know which books they’ve borrowed.\n\n4. **Ternary Association**:\n   - Involves three classes.\n   - Example: A `Person` books a `Ticket` for a `Show`. Here, `Person`, `Ticket`, and `Show` are all involved in the association.\n\n5. **Unary Association (Recursive Association)**:\n   - A class is associated with itself.\n   - Example: `Student` class where students can be friends with other students.\n\n#### Key Concepts\n\n- **Link**:\n  - Represents a specific instance of an association between objects.\n  - Example: The link between `Ram` and `Infosys` indicates that Ram works for Infosys.\n\n- **Dynamic Nature of Links**:\n  - Links can change over time. For instance, if Ram leaves Infosys for a new job, the link between Ram and Infosys is removed, and a new link with the new company is created.\n\n- **Static Nature of Associations**:\n  - The association relationship between classes remains constant, defining the potential relationships between any objects of those classes.\n\n#### Examples\n\n1. **Binary Association**: \n   - **Classes**: `Student` and `ElectiveSubject`\n   - **Link**: A specific student (e.g., `John`) is registered for a specific subject (e.g., `Math101`).\n\n2. **Ternary Association**:\n   - **Classes**: `Person`, `Ticket`, `Show`\n   - **Link**: A particular person (e.g., `Alice`) has booked a specific ticket (e.g., `Ticket123`) for a particular show (e.g., `Concert`).\n\n3. **Unary Association**:\n   - **Class**: `Student`\n   - **Link**: Two students (e.g., `Tom` and `Jerry`) are friends.\n\nIn essence, associations link classes and enable interactions between their objects, while links are specific instances of these associations.",
+      "styleAttributes": {},
+      "x": 280,
+      "y": 1080,
+      "width": 680,
+      "height": 680
+    },
+    {
+      "id": "9f03581b7e0185a4",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240909034010.png",
+      "styleAttributes": {},
+      "x": 280,
+      "y": 2290,
+      "width": 822,
+      "height": 590
+    },
+    {
+      "id": "f191477e538d040b",
+      "type": "text",
+      "text": "#### Methods\n\nMethods are functions defined within a class that operate on the data contained in objects. They implement the class's responsibilities.\n\n**Key Points:**\n\n- **Operation vs. Method:** An operation is a class responsibility, while a method is the implementation of that operation.\n- **Method Overloading:** Multiple methods can share the same name but differ in parameters. This allows for different implementations of the same operation.\n\n**Example of Method Overloading:** For a class `Circle`, you might have:\n\n- `create()`\n- `create(int radius)`\n- `create(float x, float y, int radius)`\n\n**Message vs. Method:**\n\n- **Message:** In some object-oriented languages like Smalltalk, objects communicate by sending messages to each other.\n- **Method Invocation:** In languages like C++ and Java, objects communicate via method calls, which are similar to function calls in procedural programming.",
+      "styleAttributes": {},
+      "x": -2020,
+      "y": 1020,
+      "width": 480,
+      "height": 880,
+      "color": "3"
+    },
+    {
+      "id": "b860ae4a1dc4c13a",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240909032707.png",
+      "styleAttributes": {},
+      "x": -2681,
+      "y": 1800,
+      "width": 661,
+      "height": 500
+    },
+    {
+      "id": "befbc9a72bb2e4c1",
+      "type": "text",
+      "text": "Every class is an ADT, but not\nall ADTs are classes.",
+      "styleAttributes": {},
+      "x": -2540,
+      "y": 1660,
+      "width": 439,
+      "height": 93
+    },
+    {
+      "id": "d993d01faf555679",
+      "type": "text",
+      "text": "#### Objects\n\nIn object-oriented programming (OOP), systems are modeled as a collection of interacting objects. These objects represent real-world entities or conceptual components. For instance, in a library automation system, objects might include `Book`, `LibraryMember`, and `IssueRegister`. Each object encapsulates data (attributes) and functions (methods) that operate on that data.\n\n**Key Characteristics:**\n\n- **Encapsulation:** Each object hides its internal state and only exposes methods to interact with its data. This promotes high cohesion and low coupling.\n- **Data Hiding:** Objects protect their internal data from outside access, only allowing interaction through methods. This ensures that data can only be modified or accessed in controlled ways.\n\n**Example:** For a `LibraryMember` object, the attributes might include:\n\n- Name\n- Membership number\n- Address\n- Phone number\n- Email address\n- Membership dates\n- Outstanding books\n\nThe methods could be:\n\n- `issueBook()`\n- `findOutstandingBooks()`\n- `returnBook()`\n- `findMembershipDetails()`",
+      "styleAttributes": {},
+      "x": -3140,
+      "y": 920,
+      "width": 460,
+      "height": 1040,
+      "color": "3"
+    },
+    {
+      "id": "3518f37873d6443c",
+      "type": "text",
+      "text": "#### Class\n\nA class is a blueprint for creating objects. It defines a set of attributes and methods that the objects of this class will share. For instance, `LibraryMember` is a class, and each individual member of the library is an instance of this class.\n\n**Abstract Data Types (ADT):**\n\n- **Abstract Data:** Data is hidden from other objects and accessed only through methods.\n- **Data Type:** A class defines a type with a set of possible values and operations. This makes it a data type in programming terminology.\n\nA class can be seen as an ADT because it abstracts the internal data and provides a controlled way to interact with it. Not all ADTs are classes, but classes are a specific type of ADT that support object-oriented features like inheritance.",
+      "styleAttributes": {},
+      "x": -2541,
+      "y": 1020,
+      "width": 440,
+      "height": 600,
+      "color": "3"
+    },
+    {
+      "id": "c27069dca970eb8f",
+      "type": "text",
+      "text": "# OBJECT",
+      "styleAttributes": {},
+      "x": -1120,
+      "y": 680,
+      "width": 260,
+      "height": 60,
+      "color": "2"
+    },
+    {
+      "id": "4f792906d1a1d74e",
+      "type": "text",
+      "text": "# Basic Concepts of Object-Oriented Programming",
+      "styleAttributes": {},
+      "x": -840,
+      "y": 480,
+      "width": 620,
+      "height": 80,
+      "color": "1"
+    },
+    {
+      "id": "35f3b73987bc56e7",
+      "type": "text",
+      "text": "# CLASS",
+      "styleAttributes": {},
+      "x": -670,
+      "y": 680,
+      "width": 260,
+      "height": 60,
+      "color": "2"
+    },
+    {
+      "id": "7af111cd586d5d6b",
+      "type": "text",
+      "text": "# METHODS",
+      "styleAttributes": {},
+      "x": -220,
+      "y": 680,
+      "width": 260,
+      "height": 60,
+      "color": "2"
+    },
+    {
+      "id": "12f6245dd8a024ef",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240909033513.png",
+      "styleAttributes": {},
+      "x": -1000,
+      "y": 1520,
+      "width": 839,
+      "height": 420
+    },
+    {
+      "id": "44cd3252db57223f",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240909033550.png",
+      "styleAttributes": {},
+      "x": -1000,
+      "y": 2000,
+      "width": 839,
+      "height": 420
+    },
+    {
+      "id": "69a80b8989fcb3ff",
+      "type": "text",
+      "text": "**Allows to define a new class (derived class) by extending or modifying existing class (base class).**\n**Represents generalization-specialization relationship.**\n**Allows redefinition of the existing methods (method overriding).**\n\n**Each derived class can be considered as a specialisation of its base class because it modifies or extends the basic properties of the base class in certain ways. Therefore, the inheritance relationship can be viewed as a generalisationspecialisation relationship**",
+      "styleAttributes": {},
+      "x": -915,
+      "y": 1080,
+      "width": 462,
+      "height": 360
+    },
+    {
+      "id": "f16361783088c85b",
+      "type": "text",
+      "text": "Multiple inheritance is a mechanism by which a subclass can inherit attributes and methods from more than one base class.",
+      "styleAttributes": {},
+      "x": -93,
+      "y": 2080,
+      "width": 280,
+      "height": 190,
+      "color": "2"
+    },
+    {
+      "id": "d25516bb339e090a",
+      "type": "text",
+      "text": "# BASIC OBJECT-ORIENTATION CONCEPTS",
+      "styleAttributes": {},
+      "x": -180,
+      "y": -220,
+      "width": 800,
+      "height": 140,
+      "color": "1"
+    },
+    {
+      "id": "ce937735d72551e6",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240909031448.png",
+      "styleAttributes": {},
+      "x": -180,
+      "y": -20,
+      "width": 764,
+      "height": 360
+    },
+    {
+      "id": "4f63726f82fa2982",
+      "type": "text",
+      "text": "# Class Relationships",
+      "styleAttributes": {},
+      "x": 730,
+      "y": 469,
+      "width": 455,
+      "height": 102,
+      "color": "1"
+    },
+    {
+      "id": "30bdc77f2f296912",
+      "type": "text",
+      "text": "# ASSICIATION",
+      "styleAttributes": {},
+      "x": 600,
+      "y": 740,
+      "width": 260,
+      "height": 60
+    },
+    {
+      "id": "335cea5eb71d7ff4",
+      "type": "text",
+      "text": "# INHERITENCE",
+      "styleAttributes": {},
+      "x": 202,
+      "y": 740,
+      "width": 260,
+      "height": 60
+    },
+    {
+      "id": "431385c4b1b2e73c",
+      "type": "text",
+      "text": "#### Abstract Classes\n\n- **Definition**: Classes that cannot be instantiated directly and are used to define common behavior and methods for other classes.\n- **Purpose**:\n    - **Code Reuse**: Abstract classes allow for common methods to be defined once and shared among multiple derived classes.\n    - **Standardization**: They provide a template for derived classes to follow, ensuring consistency in method names and parameters.\n- **Example**:\n    - **Abstract Class**: `Issuable` (cannot be instantiated).\n    - **Concrete Classes**: `Book`, `Journal`, and `CD` (can be instantiated and must provide specific implementations for methods defined in `Issuable`).\n- **Types of abstraction:**\n\t- Data abstraction\n\t- Behaviour abstraction\n",
+      "styleAttributes": {},
+      "x": 3541,
+      "y": 1190,
+      "width": 479,
+      "height": 670
+    },
+    {
+      "id": "91603b71d0ad14e9",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240909035326.png",
+      "styleAttributes": {},
+      "x": 3541,
+      "y": 1880,
+      "width": 505,
+      "height": 220
+    },
+    {
+      "id": "8fd2cc57d3c06418",
+      "type": "text",
+      "text": "#### Dependency\n\n- **Definition**: When one class relies on another, such that changes in the second class necessitate changes in the first class.\n- **Causes**:\n    - **Method Arguments**: If a method in one class uses an object of another class, the first class depends on the second class.\n    - **Interface Implementation**: If a class implements an interface, it depends on that interface. Changes to the interface may require changes in the implementing class.\n    - **Local Variables**: If a class has an object of another class as a local variable, it depends on that class.",
+      "styleAttributes": {},
+      "x": 2960,
+      "y": 1211,
+      "width": 441,
+      "height": 519
+    },
+    {
+      "id": "2be545e5d9b56226",
+      "type": "text",
+      "text": "# DEPENDENCY",
+      "styleAttributes": {},
+      "x": 3051,
+      "y": 975,
+      "width": 260,
+      "height": 60
+    },
+    {
+      "id": "969dd545388ad43b",
+      "type": "text",
+      "text": "# ABSTRACT CLASS",
+      "styleAttributes": {},
+      "x": 3641,
+      "y": 975,
+      "width": 360,
+      "height": 105
+    },
+    {
+      "id": "f2fd4863f18b3df6",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240909034539.png",
+      "styleAttributes": {},
+      "x": 1185,
+      "y": 1520,
+      "width": 585,
+      "height": 420
+    },
+    {
+      "id": "675aeb83b8012f04",
+      "type": "text",
+      "text": "#### Aggregation\n\n- **Definition**: A weaker form of composition where the part can exist independently of the whole. The whole can be destroyed without affecting the existence of the parts.\n- **Example**: A `Library` has `Books`. If a `Library` is closed, the `Books` can still exist independently.\n- **Characteristics**:\n    - **Weak Ownership**: The whole (Library) does not have strong control over its parts (Books).\n    - **Lifecycle**: The parts (Books) can exist without the whole (Library).",
+      "styleAttributes": {},
+      "x": 1185,
+      "y": 1050,
+      "width": 475,
+      "height": 390
+    },
+    {
+      "id": "1e5ba2bc4f8812de",
+      "type": "text",
+      "text": "#### Composition\n\n- **Definition**: A strong form of aggregation where the lifetime of the part is strictly tied to the lifetime of the whole. When the whole is destroyed, its parts are also destroyed.\n- **Example**: A `Book` has `Chapters`. If a `Book` object is deleted, its `Chapters` are also deleted.\n- **Characteristics**:\n    - **Strong Ownership**: The whole (Book) strongly owns its parts (Chapters).\n    - **Lifecycle**: The parts (Chapters) do not exist independently of the whole (Book).",
+      "styleAttributes": {},
+      "x": 1185,
+      "y": 2000,
+      "width": 520,
+      "height": 380
+    },
+    {
+      "id": "86be040244683e05",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240909034527.png",
+      "styleAttributes": {},
+      "x": 1185,
+      "y": 2473,
+      "width": 567,
+      "height": 407
+    },
+    {
+      "id": "8b288b7d7efd4757",
+      "type": "text",
+      "text": "# AGGREGRATION/COMPOSITION",
+      "styleAttributes": {},
+      "x": 1740,
+      "y": 780,
+      "width": 320,
+      "height": 90
+    },
+    {
+      "id": "693f7a6b17640264",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240909034918.png",
+      "styleAttributes": {},
+      "x": 1840,
+      "y": 2290,
+      "width": 831,
+      "height": 596
+    },
+    {
+      "id": "fc40a7def5a15f01",
+      "type": "text",
+      "text": "Represents whole-part relationship\nRepresented by a diamond symbol at the composite end\nCannot be reflexive (i.e. recursive)‏\nNot symmetric\nIt can be transitive\n",
+      "styleAttributes": {},
+      "x": 1720,
+      "y": 1080,
+      "width": 360,
+      "height": 180
+    },
+    {
+      "id": "d3715e2993250a64",
+      "type": "text",
+      "text": "# ADVANTAGE AND DISADVANTAGES OF OOD",
+      "styleAttributes": {},
+      "x": 5980,
+      "y": 973,
+      "width": 480,
+      "height": 120
+    },
+    {
+      "id": "555da392fb22b48c",
+      "type": "text",
+      "text": "### Advantages of Object-Oriented Design (OOD):\n- **Code and Design Reuse**: Reuse of code is made easier through class libraries and inheritance.\n- **Increased Productivity**: Better productivity comes from factors like code reuse and easier problem decomposition.\n- **Ease of Testing and Maintenance**: OOD makes it easier to test and maintain the code.\n- **Better Understandability**: OOD improves the clarity of code and design, which is especially helpful for large projects.\n\n**Key Point**: The main benefit of OOD is improved productivity. Though initial projects may be costlier, costs decrease as developers become familiar with OOD and reuse existing libraries.\n\n### Disadvantages of Object-Oriented Design (OOD):\n- **Run Time Overhead**: OOD can lead to slower program execution due to extra code from features like abstraction and inheritance.\n- **Weaker Data Locality**: In OOD, data might be scattered across objects, leading to slower memory access and higher cache miss rates.\n\n**Conclusion**: While OOD may increase run time slightly, the benefits, especially for larger projects, outweigh this drawback. However, for small embedded applications, procedural programming might still be preferable.",
+      "styleAttributes": {},
+      "x": 5980,
+      "y": 1160,
+      "width": 540,
+      "height": 500
+    },
+    {
+      "id": "b92ed5bfa0236c7c",
+      "type": "text",
+      "text": "### Unified Modeling Language (UML)\n\n**What is UML?**\n- UML (Unified Modeling Language) is a standardized language used for documenting and visualizing the design and analysis of software systems.\n- **Syntax**: UML uses specific symbols (e.g., rectangles, lines) and rules for combining these symbols to create diagrams.\n- **Semantics**: The meanings of these symbols and how they are used in the diagrams.\n\n**Key Points:**\n- **Not a Methodology**: UML itself is not a design or development methodology. It does not prescribe how to build systems but provides a language for documenting designs.\n- **Independence**: UML is designed to be independent of any specific design methodology, making it versatile and adaptable to different methodologies.\n\n![[Pasted image 20240910130954.png]]",
+      "styleAttributes": {},
+      "x": 6880,
+      "y": 1158,
+      "width": 580,
+      "height": 960
+    },
+    {
+      "id": "d2da7952bbdc37cd",
+      "type": "text",
+      "text": "# UNIFIED MODELLING LANGUAGE (UML)",
+      "styleAttributes": {},
+      "x": 6940,
+      "y": 958,
+      "width": 420,
+      "height": 140
+    },
+    {
+      "id": "a97cfe03fcc4ccb8",
+      "type": "text",
+      "text": "![[Pasted image 20240912122255.png]]",
+      "styleAttributes": {},
+      "x": 6800,
+      "y": 2251,
+      "width": 838,
+      "height": 575
+    },
+    {
+      "id": "e14eab732799cc5d",
+      "type": "text",
+      "text": "# ENCAPSULATION",
+      "styleAttributes": {},
+      "x": 4140,
+      "y": 970,
+      "width": 330,
+      "height": 80
+    },
+    {
+      "id": "489397d8ad7092e1",
+      "type": "text",
+      "text": "**3. Polymorphism**\n\n**Definition:** Polymorphism allows objects of different classes to be treated as objects of a common superclass. It enables a single method to operate in different ways based on the object it is acting upon.\n\n**Types of Polymorphism:**\n\n- **Static Polymorphism (Compile-time):** This is achieved through method overloading, where multiple methods with the same name but different parameters are defined in a class. For example, a `create` method in a `Circle` class might have different implementations based on whether it takes no parameters, one parameter, or multiple parameters.\n    \n- **Dynamic Polymorphism (Run-time):** This is achieved through method overriding, where a method in a derived class provides a specific implementation of a method already defined in its base class. The method that gets executed is determined at runtime based on the actual object type. For instance, calling the `draw` method on a `Shape` object could result in different behaviors depending on whether the actual object is a `Circle`, `Rectangle`, or `Ellipse`.\n    \n\n**Benefits:**\n\n- **Code Reusability:** New classes can be added with minimal changes to existing code.\n- **Flexibility:** Methods can be invoked on objects of different types, leading to more versatile and adaptable code.\n\n# Static Binding\n\nThe concept you're describing relates to **method overloading** and **static binding** in object-oriented programming. Let's break it down.\n\n### Method Overloading:\n- **Method Overloading** occurs when multiple methods in a class share the same name but have different parameter lists (different number of parameters or parameter types).\n- In the `Circle` class you provided, the `create` method is overloaded, meaning there are three versions of it:\n  1. **`create()`**: No parameters.\n  2. **`create(float x, float y, float radius)`**: Takes three `float` parameters for the center coordinates (`x, y`) and the `radius`.\n  3. **`create(float x, float y, float radius, int fillType)`**: Takes three `float` parameters for the center coordinates (`x, y`), `radius`, and an additional `int` parameter `fillType`.\n\n### Static Binding:\n- **Static Binding** (also known as **early binding**) refers to the compile-time decision of which method to invoke based on the method signature.\n- In the case of method overloading, the method that gets called is determined at compile-time based on the parameters passed to the method. This is called static binding because the method to be executed is determined during compilation, not at runtime.\n\n### Explanation with the `Circle` Class Example:\n- **Suppose you have the following calls in your code:**\n  ```java\n  Circle c1 = new Circle();\n  c1.create();  // Calls the first `create()` method\n\n  Circle c2 = new Circle();\n  c2.create(10.0f, 20.0f, 5.0f);  // Calls the second `create(float, float, float)` method\n\n  Circle c3 = new Circle();\n  c3.create(10.0f, 20.0f, 5.0f, 1);  // Calls the third `create(float, float, float, int)` method\n  ```\n\n- **Static Binding in Action**:\n  - When the compiler encounters the `c1.create()` call, it checks the method signature (`create()` with no parameters) and binds this call to the first `create()` method.\n  - When it encounters `c2.create(10.0f, 20.0f, 5.0f)`, it recognizes this signature matches the second overloaded method (`create(float, float, float)`), so it binds this call to that method.\n  - Similarly, `c3.create(10.0f, 20.0f, 5.0f, 1)` is bound to the third overloaded method (`create(float, float, float, int)`).\n\n### Summary:\n- **Static Binding** means the method that will be invoked is determined at compile-time based on the method signature.\n- In your `Circle` class example, the `create` method is overloaded with different parameter lists, and the compiler determines which method to call based on the parameters provided in the method call.\n\n# Dynamic Binding\n\nDynamic binding, also known as **late binding** or **runtime polymorphism**, is a fundamental concept in object-oriented programming that allows the exact method to be invoked to be determined at runtime rather than at compile time. This concept is closely related to **method overriding** and is critical in achieving polymorphism in OOP.\n\n### Traditional (Procedural) Approach:\nConsider the following traditional procedural code:\n\n```cpp\nShape s[1000];\nfor (int i = 0; i < 1000; i++) {\n    if (s[i] == Circle) {\n        draw_circle();\n    } else if (s[i] == Rectangle) {\n        draw_rectangle();\n    }\n    // more if-else conditions for other shapes...\n}\n```\n\n**Explanation**:\n- In this approach, you explicitly check the type of each object (e.g., `Circle`, `Rectangle`) and then manually call the corresponding function to handle the drawing (e.g., `draw_circle()`, `draw_rectangle()`).\n- This method relies on **static binding**, where the exact method to be called is determined at compile time based on the type check.\n- This is not flexible, as adding new shapes requires modifying the existing code to add more type checks and corresponding function calls.\n\n### Object-Oriented (OOP) Approach with Dynamic Binding:\nNow, consider the object-oriented approach:\n\n```cpp\nShape* s[1000];\nfor (int i = 0; i < 1000; i++) {\n    s[i]->draw();  // Calls the appropriate draw method based on the actual object type\n}\n```\n\n**Explanation**:\n- In this approach, the `Shape` class is the base class, and it has a virtual method `draw()`, which is **overridden** in each derived class (e.g., `Circle`, `Rectangle`).\n- Each object in the array `s[]` could be a `Circle`, `Rectangle`, or any other subclass of `Shape`.\n- **Dynamic binding** (enabled by declaring the method `draw()` as `virtual` in the base class) ensures that the correct version of the `draw()` method is called based on the actual object type, not the reference type.\n- The exact method to be executed is determined at **runtime** based on the object's type, which allows for more flexible and maintainable code.\n\n### Advantages of Dynamic Binding:\n1. **Polymorphism**: You can treat all shapes uniformly through a base class reference, yet the correct method (e.g., `draw()`) specific to the actual object's type (e.g., `Circle`, `Rectangle`) is invoked.\n2. **Extensibility**: New shapes can be added without modifying the existing code. As long as the new shape class overrides the `draw()` method, it will automatically work with the existing loop.\n3. **Liskov Substitution Principle**: This principle states that objects of a derived class should be able to replace objects of the base class without affecting the correctness of the program. Dynamic binding makes this possible because the actual object's method is invoked.\n\n### Summary:\n- **Static Binding** (as seen in the traditional approach) ties method calls to specific implementations at compile time, making the code rigid and harder to extend.\n- **Dynamic Binding** (as used in the OOP approach) defers the decision of which method to invoke until runtime, based on the actual object's type. This makes the code more flexible, easier to extend, and leverages polymorphism effectively.",
+      "styleAttributes": {},
+      "x": 4740,
+      "y": 1180,
+      "width": 560,
+      "height": 1060
+    },
+    {
+      "id": "4759742d27badf86",
+      "type": "text",
+      "text": "** Encapsulation**\n\n**Definition:** Encapsulation is the practice of bundling an object's data with the methods that operate on that data. It restricts direct access to some of the object's components, which helps in protecting the internal state from unintended or harmful modifications.\n\n**Advantages:**\n\n- **Protection from Unauthorized Access:** Encapsulation prevents external objects from altering an object's internal state directly, reducing the risk of unintended data corruption.\n    \n- **Data Hiding:** Internal implementation details are hidden, ensuring that any changes in the internal data structure do not affect other parts of the program as long as the interface remains consistent.\n    \n- **Reduced Coupling:** Since objects interact only through well-defined methods, changes to one object have minimal impact on others, leading to better modularity and easier maintenance.\n\n![[Pasted image 20240910123616.png]]",
+      "styleAttributes": {},
+      "x": 4140,
+      "y": 1180,
+      "width": 540,
+      "height": 1060
+    },
+    {
+      "id": "dea71516e1c918ec",
+      "type": "text",
+      "text": "# POLYMORPHISM",
+      "styleAttributes": {},
+      "x": 4780,
+      "y": 985,
+      "width": 340,
+      "height": 65
+    },
+    {
+      "id": "e64a0a965021d599",
+      "type": "text",
+      "text": "Genericity is the ability to parameterise class definitions. For example, while defining a class named stack, we may notice that we need stacks of different types of elements such as integer stack, character stack, floating-point stack, etc.; genericity permits us to effortlessly define a generic The principal advantage of dynamic binding is that it leads to elegant programming and facilitates code reuse and maintenance. Even when the method of an object of the base class is invoked, an appropriate overridden method of a derived class would be invoked depending on the exact object on which the method invocation occurs. 314 Fundamentals of Software Engineering class of type stack and later instantiate it either as an integer stack, a character stack, or a floating-point stack as may be required. This can be achieved by assigning a suitable value to a parameter used in the generic class definition.",
+      "styleAttributes": {},
+      "x": 5340,
+      "y": 1180,
+      "width": 540,
+      "height": 480
+    },
+    {
+      "id": "58035155fdad9848",
+      "type": "text",
+      "text": "# GENERICITY",
+      "styleAttributes": {},
+      "x": 5400,
+      "y": 973,
+      "width": 320,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "f37add7374aceda9",
+      "styleAttributes": {},
+      "fromNode": "4f792906d1a1d74e",
+      "fromSide": "bottom",
+      "toNode": "c27069dca970eb8f",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "5c39b57139a02134",
+      "styleAttributes": {},
+      "fromNode": "4f792906d1a1d74e",
+      "fromSide": "bottom",
+      "toNode": "35f3b73987bc56e7",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "8e0410358ecdba35",
+      "styleAttributes": {},
+      "fromNode": "4f792906d1a1d74e",
+      "fromSide": "bottom",
+      "toNode": "7af111cd586d5d6b",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "70fc35a2495ef974",
+      "styleAttributes": {},
+      "fromNode": "f736dd0f9f0b6c27",
+      "fromSide": "bottom",
+      "toNode": "4f792906d1a1d74e",
+      "toSide": "top"
+    },
+    {
+      "id": "fbcbe39f7d7b697c",
+      "styleAttributes": {},
+      "fromNode": "c27069dca970eb8f",
+      "fromSide": "bottom",
+      "toNode": "d993d01faf555679",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "50cd19852338e2e9",
+      "styleAttributes": {},
+      "fromNode": "35f3b73987bc56e7",
+      "fromSide": "bottom",
+      "toNode": "3518f37873d6443c",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "296847459b1dd3b6",
+      "styleAttributes": {},
+      "fromNode": "7af111cd586d5d6b",
+      "fromSide": "bottom",
+      "toNode": "f191477e538d040b",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "01f97c4aa769a98f",
+      "styleAttributes": {},
+      "fromNode": "f736dd0f9f0b6c27",
+      "fromSide": "bottom",
+      "toNode": "4f63726f82fa2982",
+      "toSide": "top"
+    },
+    {
+      "id": "4714b636ea26831f",
+      "styleAttributes": {},
+      "fromNode": "4f63726f82fa2982",
+      "fromSide": "bottom",
+      "toNode": "335cea5eb71d7ff4",
+      "toSide": "top"
+    },
+    {
+      "id": "902b6bddaae1790e",
+      "styleAttributes": {},
+      "fromNode": "4f63726f82fa2982",
+      "fromSide": "bottom",
+      "toNode": "30bdc77f2f296912",
+      "toSide": "top"
+    },
+    {
+      "id": "95eb948b65e8e6fa",
+      "styleAttributes": {},
+      "fromNode": "4f63726f82fa2982",
+      "fromSide": "bottom",
+      "toNode": "8b288b7d7efd4757",
+      "toSide": "top"
+    },
+    {
+      "id": "e2a20b566d1be8fe",
+      "styleAttributes": {},
+      "fromNode": "4f63726f82fa2982",
+      "fromSide": "bottom",
+      "toNode": "2be545e5d9b56226",
+      "toSide": "top"
+    },
+    {
+      "id": "4924ae9e422d1225",
+      "styleAttributes": {},
+      "fromNode": "335cea5eb71d7ff4",
+      "fromSide": "bottom",
+      "toNode": "6101ee22652cd623",
+      "toSide": "top"
+    },
+    {
+      "id": "e5789aa778d493b0",
+      "styleAttributes": {},
+      "fromNode": "f16361783088c85b",
+      "fromSide": "left",
+      "toNode": "44cd3252db57223f",
+      "toSide": "right"
+    },
+    {
+      "id": "dd83b5dc4ac45359",
+      "styleAttributes": {},
+      "fromNode": "69a80b8989fcb3ff",
+      "fromSide": "bottom",
+      "toNode": "12f6245dd8a024ef",
+      "toSide": "top"
+    },
+    {
+      "id": "86d73dec7fad5747",
+      "styleAttributes": {},
+      "fromNode": "30bdc77f2f296912",
+      "fromSide": "bottom",
+      "toNode": "4036890006caf495",
+      "toSide": "top"
+    },
+    {
+      "id": "ba7e4fecc20120c6",
+      "styleAttributes": {},
+      "fromNode": "8b288b7d7efd4757",
+      "fromSide": "bottom",
+      "toNode": "675aeb83b8012f04",
+      "toSide": "top"
+    },
+    {
+      "id": "0df1f719a325f73a",
+      "styleAttributes": {},
+      "fromNode": "2be545e5d9b56226",
+      "fromSide": "bottom",
+      "toNode": "8fd2cc57d3c06418",
+      "toSide": "top"
+    },
+    {
+      "id": "686acf7a5b50d587",
+      "styleAttributes": {},
+      "fromNode": "969dd545388ad43b",
+      "fromSide": "bottom",
+      "toNode": "431385c4b1b2e73c",
+      "toSide": "top"
+    },
+    {
+      "id": "1d9733cdb1758ceb",
+      "styleAttributes": {},
+      "fromNode": "4f63726f82fa2982",
+      "fromSide": "bottom",
+      "toNode": "969dd545388ad43b",
+      "toSide": "top"
+    },
+    {
+      "id": "f4433a6740aceebe",
+      "styleAttributes": {},
+      "fromNode": "e14eab732799cc5d",
+      "fromSide": "bottom",
+      "toNode": "4759742d27badf86",
+      "toSide": "top"
+    },
+    {
+      "id": "254b8076b047108d",
+      "styleAttributes": {},
+      "fromNode": "dea71516e1c918ec",
+      "fromSide": "bottom",
+      "toNode": "489397d8ad7092e1",
+      "toSide": "top"
+    },
+    {
+      "id": "b9dc0a786133213d",
+      "styleAttributes": {},
+      "fromNode": "58035155fdad9848",
+      "fromSide": "bottom",
+      "toNode": "e64a0a965021d599",
+      "toSide": "top"
+    },
+    {
+      "id": "835df30dcd235885",
+      "styleAttributes": {},
+      "fromNode": "d3715e2993250a64",
+      "fromSide": "bottom",
+      "toNode": "555da392fb22b48c",
+      "toSide": "top"
+    },
+    {
+      "id": "510c5fd91b203564",
+      "styleAttributes": {},
+      "fromNode": "4f63726f82fa2982",
+      "fromSide": "bottom",
+      "toNode": "e14eab732799cc5d",
+      "toSide": "top"
+    },
+    {
+      "id": "ced951fef9690131",
+      "styleAttributes": {},
+      "fromNode": "4f63726f82fa2982",
+      "fromSide": "bottom",
+      "toNode": "dea71516e1c918ec",
+      "toSide": "top"
+    },
+    {
+      "id": "6a5b36dc84e856a6",
+      "styleAttributes": {},
+      "fromNode": "4f63726f82fa2982",
+      "fromSide": "bottom",
+      "toNode": "58035155fdad9848",
+      "toSide": "top"
+    },
+    {
+      "id": "f3b58f848c9037ad",
+      "styleAttributes": {},
+      "fromNode": "4f63726f82fa2982",
+      "fromSide": "bottom",
+      "toNode": "d3715e2993250a64",
+      "toSide": "top"
+    }
+  ],
+  "metadata": {}
+}

@@ -1,0 +1,1206 @@
+{
+  "nodes": [
+    {
+      "id": "467bc24955d014a0",
+      "type": "group",
+      "styleAttributes": {},
+      "x": -2160,
+      "y": 8880,
+      "width": 2820,
+      "height": 6000,
+      "color": "5",
+      "label": " Connection-Establishment"
+    },
+    {
+      "id": "a472dd4a6f9b6d71",
+      "type": "group",
+      "styleAttributes": {},
+      "x": -2180,
+      "y": 15000,
+      "width": 2280,
+      "height": 1604,
+      "color": "5",
+      "label": "WINDOWS IN TCP"
+    },
+    {
+      "id": "e8191bc828184fb0",
+      "type": "group",
+      "styleAttributes": {},
+      "x": 1600,
+      "y": 5280,
+      "width": 1971,
+      "height": 1358,
+      "color": "5",
+      "label": " CONGESTION-CONTROL"
+    },
+    {
+      "id": "655e69ed93261383",
+      "type": "group",
+      "styleAttributes": {},
+      "x": 2060,
+      "y": 2120,
+      "width": 1880,
+      "height": 1280,
+      "color": "5",
+      "label": "Flow-Control"
+    },
+    {
+      "id": "e8cbb6e1a8c52e05",
+      "type": "group",
+      "styleAttributes": {},
+      "x": 2000,
+      "y": 1100,
+      "width": 1340,
+      "height": 940,
+      "color": "5",
+      "label": "Multiplexing-Demultiplexing"
+    },
+    {
+      "id": "0fa62f73838ea334",
+      "type": "group",
+      "styleAttributes": {},
+      "x": 1600,
+      "y": 3480,
+      "width": 1515,
+      "height": 680,
+      "color": "5",
+      "label": " Error-Control"
+    },
+    {
+      "id": "eb9d9df2efe919c8",
+      "type": "group",
+      "styleAttributes": {},
+      "x": -1103,
+      "y": 2504,
+      "width": 300,
+      "height": 300,
+      "label": "Untitled group"
+    },
+    {
+      "id": "67b64ea697c3ee6e",
+      "type": "group",
+      "styleAttributes": {},
+      "x": 1980,
+      "y": 240,
+      "width": 1340,
+      "height": 760,
+      "color": "5",
+      "label": "Encapsulation-Decapsulation"
+    },
+    {
+      "id": "1f78269fb7fbd314",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911172804.png",
+      "styleAttributes": {},
+      "x": -2458,
+      "y": -56,
+      "width": 800,
+      "height": 319
+    },
+    {
+      "id": "e8feed2502eb5f68",
+      "type": "text",
+      "text": "# TRANSPORT-LAYER PROTOCOLS",
+      "styleAttributes": {},
+      "x": -480,
+      "y": -480,
+      "width": 400,
+      "height": 140,
+      "color": "6"
+    },
+    {
+      "id": "beb8a0edca1ee70c",
+      "type": "text",
+      "text": "# Simple Protocol\n\nThe simple protocol is a basic, connectionless protocol with no flow control or error control. It assumes that the receiver can handle any incoming packet immediately without being overwhelmed. \n\nIn this protocol, the transport layer at the sender receives a message from its application layer, turns it into a packet, and sends it to the receiver. The transport layer at the receiver takes the packet, extracts the message, and delivers it to its application layer. This process is straightforward and provides basic transmission services between the application layers of the sender and receiver.\n\n#### Finite State Machines (FSMs)\n\nFor this protocol, both the sender and receiver use a simple Finite State Machine (FSM) with only one state: the \"ready\" state. \n\n- **Sender FSM**: The sender stays in the ready state until it receives a message from the application layer. Once a message arrives, it is packaged into a packet and sent to the receiver.\n  \n- **Receiver FSM**: The receiver also stays in the ready state until it receives a packet from the sender. Upon receiving the packet, the message is extracted and delivered to the application layer.\n\nThis simple process ensures that data is sent and received without any additional checks or controls. \n\n#### Example\n\nIn practice, this protocol involves the sender continuously sending packets without waiting for any feedback from the receiver. It's a straightforward approach that works well when the receiver can handle all incoming packets without delays. \n\nThis simple protocol is similar to the basic idea behind the User Datagram Protocol (UDP), which also sends packets without establishing a connection or performing error checks.\n\n\n![[Pasted image 20240911171830.png]]",
+      "styleAttributes": {},
+      "x": -1620,
+      "y": -878,
+      "width": 1000,
+      "height": 698,
+      "color": "1"
+    },
+    {
+      "id": "1435618eeed4b8d6",
+      "type": "text",
+      "text": "# Introduction :\n\nThe transport layer acts as a crucial intermediary between the application and network layers, facilitating communication between applications on different devices. It creates a logical connection that allows applications to send and receive data as if they were directly connected, even though the data may travel through various routers and switches across the network. This layer is responsible for ensuring accurate and reliable data transfer, handling tasks such as error checking and flow control. Only the devices at the endpoints, like computers, interact with the transport layer, while intermediate network devices focus on lower-level tasks. This end-to-end communication ensures that applications can exchange information seamlessly, regardless of the complexity of the network in between.",
+      "styleAttributes": {},
+      "x": -1280,
+      "y": -1315,
+      "width": 695,
+      "height": 360,
+      "color": "1"
+    },
+    {
+      "id": "da4db940c53b9a8e",
+      "type": "text",
+      "text": "# Transport-Layer Services",
+      "styleAttributes": {},
+      "x": -480,
+      "y": -825,
+      "width": 320,
+      "height": 80,
+      "color": "6"
+    },
+    {
+      "id": "cd2e47ecaf671f17",
+      "type": "text",
+      "text": "### Process to Process Communication\n\nThe first duty of a transport-layer protocol is to provide process-to-process communication. A process is an application-layer entity (running program) that uses the services of the transport layer. Before we discuss how process-to-process communication can be accomplished, we need to understand the difference between host-to-host communication and process-to-process communication.",
+      "styleAttributes": {},
+      "x": 1833,
+      "y": -1357,
+      "width": 560,
+      "height": 238,
+      "color": "2"
+    },
+    {
+      "id": "4206ee9fc15bb064",
+      "type": "text",
+      "text": "### Addressing with Port Numbers:\n\nIn multiuser and multiprogramming environments, multiple processes can run simultaneously on the same machine. Therefore, the transport layer must use port numbers to differentiate between these processes. Port numbers are used as identifiers for the processes that need to communicate.\n\n- **Client-Server Paradigm:** Communication often follows this model, where a client process on the local host interacts with a server process on a remote host. Both processes use port numbers to identify themselves.\n    - **Ephemeral Port Numbers:** These are temporary port numbers assigned to client processes, typically greater than 1023. They are short-lived because client processes generally have a shorter lifespan compared to server processes.\n    - **Well-Known Port Numbers:** Server processes use these standardized port numbers so that clients know where to send their requests. For example, port 13 is the well-known port number for the daytime service.",
+      "styleAttributes": {},
+      "x": 1840,
+      "y": -976,
+      "width": 560,
+      "height": 560,
+      "color": "2"
+    },
+    {
+      "id": "be5640654aeb131f",
+      "type": "text",
+      "text": "## ICANN\n\nICANN (Internet Corporation for Assigned Names and Numbers) is responsible for managing the allocation of port numbers in the TCP/IP protocol suite. These port numbers are divided into three distinct ranges, each serving different purposes:\n\n### 1. Well-Known Ports (0 to 1,023):\n\n- **Controlled by ICANN:** These ports are assigned and controlled by ICANN, ensuring that specific services always use the same port numbers.\n- **Common Usage:** These ports are typically used by standard services such as HTTP (port 80), FTP (port 21), and SSH (port 22). For example, the daytime service uses port 13.\n\n### 2. Registered Ports (1,024 to 49,151):\n\n- **Not Controlled by ICANN:** Although these ports are not directly controlled by ICANN, they can be registered with ICANN to prevent duplication.\n- **Usage:** These ports are generally used by proprietary or non-standard services, allowing applications to avoid conflicts with well-known services.\n\n### 3. Dynamic or Private Ports (49,152 to 65,535):\n\n- **Neither Controlled nor Registered:** These ports are free to be used by applications as needed. They are often used for ephemeral connections, such as those created by clients during a session.\n- **Usage:** Dynamic ports are typically assigned temporarily for the duration of a communication session, such as when a client connects to a server and a random port is assigned to manage that session.\n\n### Example in UNIX:\n\nIn UNIX systems, well-known ports are stored in the `/etc/services` file. This file lists the port numbers associated with various services. For example, the TFTP service uses port 69 for both TCP and UDP, and the SNMP service uses ports 161 and 162 for different purposes.",
+      "styleAttributes": {},
+      "x": 1840,
+      "y": -376,
+      "width": 560,
+      "height": 536,
+      "color": "2"
+    },
+    {
+      "id": "cd9267174b76f3cc",
+      "type": "text",
+      "text": "### Difference Between Host-to-Host and Process-to-Process Communication:\n\n- **Host-to-Host Communication:** This occurs at the network layer, where the main goal is to deliver data to the correct device (or host) on the network. The destination host is identified using an IP address.\n- **Process-to-Process Communication:** This happens at the transport layer, where the focus is on delivering the data to the correct application (or process) running on the destination host. This requires the use of port numbers.",
+      "styleAttributes": {},
+      "x": 2473,
+      "y": -1453,
+      "width": 611,
+      "height": 318,
+      "color": "#ad25a8"
+    },
+    {
+      "id": "eab9eec3a6077532",
+      "type": "text",
+      "text": "### Role of IP Addresses and Port Numbers:\n\nIP addresses and port numbers work together to ensure data is delivered to the correct destination. The IP address identifies the host, and the port number specifies the process within that host. This dual addressing system is essential for effective communication in networked environments, ensuring that the right application receives the data intended for it.\n\nIn summary, the transport layer is vital in refining the broad delivery of messages by the network layer down to the specific application that needs the information, using port numbers to distinguish between different processes on the same host.",
+      "styleAttributes": {},
+      "x": 2480,
+      "y": -976,
+      "width": 640,
+      "height": 360,
+      "color": "#bd2dc8"
+    },
+    {
+      "id": "45d57eef03283f1d",
+      "type": "text",
+      "text": "### Socket Addresses:\n\nIn the transport layer, a socket address is a combination of an IP address and a port number. It uniquely identifies a process on a host. For communication to occur, both the client and server socket addresses are required. These socket addresses are used in both the network-layer and transport-layer headers to ensure that the data is delivered to the correct process on the correct host.\n\nThe three ICANN port ranges—well-known, registered, and dynamic—help organize and manage the allocation of port numbers, ensuring smooth and conflict-free communication between different processes and services on the internet.",
+      "styleAttributes": {},
+      "x": 2520,
+      "y": -416,
+      "width": 600,
+      "height": 420,
+      "color": "#8b15a2"
+    },
+    {
+      "id": "f52572967ec325ac",
+      "type": "file",
+      "file": "source-images/Pasted image 20240901155845.png",
+      "styleAttributes": {},
+      "x": 3240,
+      "y": -1057,
+      "width": 944,
+      "height": 583
+    },
+    {
+      "id": "65c8a2ee3eb5dcfc",
+      "type": "file",
+      "file": "source-images/Pasted image 20240913011238.png",
+      "styleAttributes": {},
+      "x": -1520,
+      "y": 17400,
+      "width": 1247,
+      "height": 1200
+    },
+    {
+      "id": "0e7a8ca4b184d898",
+      "type": "text",
+      "text": "### Shrinking of Windows\n\nIn TCP, the **receive window** cannot shrink, but the **send window** can shrink under certain circumstances. This happens if the receiver advertises a new receive window (`rwnd`) that is smaller than the previous one. However, some TCP implementations do not allow shrinking the send window, ensuring that the **right wall** of the send window cannot move to the left. This ensures that the sender does not retract bytes that it has already sent.\n\nTo prevent shrinking, the receiver must maintain the relationship:\n\n\\[ \\text{new ackNo} + \\text{new rwnd} \\geq \\text{last ackNo} + \\text{last rwnd} \\]\n\nThis inequality ensures that the **right side** of the send window does not shrink backward, preventing the situation where already sent bytes would be outside of the window.\n\n#### Example 3.18: Problem of Shrinking\n- **Part a**: The last advertised window has `ackNo = 206` and `rwnd = 12`, meaning the sender can transmit bytes up to byte 217 (206 + 12).\n- **Part b**: The new advertisement sets `ackNo = 210` and `rwnd = 4`. If the sender shrinks the window, bytes already sent (such as byte 214) could fall outside the new window, which would cause a problem since the receiver doesn't know which bytes have already been sent.\n\nTo avoid this issue, the receiver should delay sending a feedback (ACK) until it has enough buffer space to maintain the relationship defined by the inequality.\n\n### Window Shutdown\n\nWhile shrinking the window is discouraged, the receiver can temporarily **shut down** the window by advertising a **receive window size of 0**. This means that the receiver cannot accept any more data for a while. The sender stops transmitting, except for occasionally sending a **1-byte probe segment** to check if the window has opened again. This mechanism prevents a deadlock in communication.\n\n### Silly Window Syndrome (SWS)\n\nSilly Window Syndrome is a performance issue that arises when small data segments are transmitted inefficiently. This can occur either on the **sender side** or the **receiver side**, causing the transmission of small segments, which increases overhead and reduces network efficiency.\n\n#### SWS Created by the Sender\n- If the **sending application** generates data slowly (e.g., 1 byte at a time), the sender may end up sending many small segments (e.g., 1 byte of data with 41 bytes of headers), resulting in inefficient use of the network.\n- **Solution**: **Nagle’s algorithm** helps prevent this by delaying transmissions. The sender sends the first segment immediately but then waits either for an acknowledgment from the receiver or until enough data accumulates to fill a maximum-size segment.\n\n**Steps in Nagle’s Algorithm**:\n1. Send the first segment immediately.\n2. Wait until an acknowledgment is received or enough data has accumulated for a maximum-size segment.\n3. Repeat this process for all subsequent transmissions.\n\n#### SWS Created by the Receiver\n- If the **receiving application** consumes data slowly (e.g., 1 byte at a time), it may create a situation where the receiver constantly advertises very small windows (e.g., 1 byte), leading the sender to transmit very small segments, which is inefficient.\n  \n**Solutions**:\n1. **Clark's Solution**: The receiver sends an acknowledgment immediately but advertises a window size of zero until the buffer has enough space to accommodate a larger segment (e.g., half the buffer or a maximum-size segment).\n2. **Delayed Acknowledgment**: The receiver delays sending an acknowledgment until there is sufficient buffer space, preventing the sender from sending small segments. However, acknowledgments are not delayed for more than 500 ms to avoid unnecessary retransmissions.\n\n### Summary:\n- **Shrinking of windows** can cause issues if the send window is reduced to exclude bytes that have already been sent. This is prevented by carefully managing the relationship between the acknowledgment number and the window size.\n- **SWS** can arise from inefficient data handling by either the sender or the receiver, leading to many small segments being sent. Solutions like **Nagle’s algorithm** and **Clark’s solution** help improve efficiency by aggregating data and managing window size announcements carefully.",
+      "styleAttributes": {},
+      "x": -2180,
+      "y": 17800,
+      "width": 580,
+      "height": 880
+    },
+    {
+      "id": "ca57c99189fb8824",
+      "type": "text",
+      "text": "Here's a mnemonic to help you remember the TCP error control scenarios:\n\n**\"No Lazy Dogs Find Duplicates Like Really Devoted Dogs.\"**\n\nThis breaks down as:\n\n1. **N** - **Normal Operation**: Segments are sent and acknowledged according to the rules.\n2. **L** - **Lost Segment**: When a segment is lost, the sender retransmits after a timeout.\n3. **D** - **Delayed Segment**: If a segment arrives late, the receiver discards it if already retransmitted.\n4. **F** - **Fast Retransmission**: The sender retransmits after three duplicate ACKs.\n5. **D** - **Duplicate Segment**: Duplicates are discarded, and an acknowledgment is sent.\n6. **L** - **Lost ACK**: A lost acknowledgment is corrected by the next cumulative ACK.\n7. **R** - **Resend Segment for Lost ACK**: If no ACK arrives, the sender resends the segment.\n8. **D** - **Deadlock**: A lost ACK updating the window size can cause deadlock, avoided by the persistence timer.\n\nThis mnemonic captures the main points in the TCP error control process!",
+      "styleAttributes": {},
+      "x": -2140,
+      "y": 18680,
+      "width": 880,
+      "height": 220
+    },
+    {
+      "id": "d8874b0a420f2fe7",
+      "type": "text",
+      "text": "Here’s a summary of TCP error control scenarios:\n\n1. **Normal Operation**:  \n   In bidirectional data transfer, acknowledgments (ACKs) are generated based on the status of the received segments. If data arrives in order, the receiver sends ACKs according to the rules to ensure efficient communication. If no further data is expected, the receiver uses a delayed ACK timer before acknowledging.\n\n2. **Lost Segment**:  \n   If a segment is lost, the receiver stores out-of-order segments in its buffer and sends ACKs indicating the next expected byte (rule 4). The sender, upon receiving no ACK for the lost segment, retransmits it after the retransmission time-out (RTO).\n\n3. **Fast Retransmission**:  \n   If three duplicate ACKs are received (indicating a missing segment), the sender immediately retransmits the missing segment without waiting for the RTO to expire, ensuring quicker recovery.\n\n4. **Delayed Segment**:  \n   Delayed segments, if they arrive after being retransmitted, are considered duplicates. TCP discards duplicate segments but sends an ACK indicating the next expected segment.\n\n5. **Duplicate Segment**:  \n   Duplicate segments are created when a segment is retransmitted due to an earlier delay. TCP discards duplicates and sends an acknowledgment for the next expected sequence number, ensuring no data duplication.\n\n6. **Lost ACK**:  \n   If an acknowledgment is lost, TCP’s cumulative acknowledgment system corrects this with the next ACK. A lost ACK is automatically corrected if subsequent ACKs cover the unacknowledged data.\n\n7. **Lost ACK Corrected by Segment Resend**:  \n   If the lost ACK is not followed by another, the sender will eventually retransmit the segment. The receiver discards the duplicate segment and sends the missing acknowledgment to the sender.\n\n8. **Deadlock due to Lost ACK**:  \n   If an ACK containing a window size update (e.g., to unblock the sender) is lost, a deadlock can occur, with both sender and receiver waiting for each other. To avoid this, a **persistence timer** is used, allowing the sender to periodically query the receiver for updates. \n\nTCP uses a combination of timers, acknowledgments, and retransmissions to handle errors and ensure reliable data transfer.\n\nIn TCP, **retransmission** is the core mechanism for error control. Here’s how it works:\n\n1. **Retransmission after RTO (Retransmission Time-Out)**:  \n   Each TCP connection has a dynamic retransmission time-out (RTO) based on the round-trip time (RTT). When the **timer expires** without receiving an acknowledgment, the TCP sender retransmits the segment with the smallest sequence number (the first in the queue) and restarts the timer.\n\n2. **Retransmission after Three Duplicate ACKs**:  \n   Instead of waiting for the RTO, most modern TCP implementations use **fast retransmission**. When the sender receives **three duplicate acknowledgments** for the same segment, it immediately retransmits the missing segment without waiting for the RTO to expire.\n\n3. **Handling Out-of-Order Segments**:  \n   TCP does not discard **out-of-order segments**. Instead, it stores them temporarily until the missing segments arrive. These segments are delivered to the application **only in the correct order**, ensuring reliable and in-order transmission.\n\nIn summary, TCP handles retransmission using both a timer (RTO) and the three duplicate ACK rule to ensure efficient and reliable data delivery.",
+      "styleAttributes": {},
+      "x": -2120,
+      "y": 18940,
+      "width": 940,
+      "height": 1160
+    },
+    {
+      "id": "712bf7c634816e3e",
+      "type": "text",
+      "text": "### 3.4.8 Error Control\n\nTCP is a reliable protocol that ensures data is delivered in order, without errors, losses, or duplication. Its **error control** mechanism relies on three main tools: **checksum**, **acknowledgment**, and **timeout**.\n\n#### 1. Checksum\nEach TCP segment includes a **16-bit checksum** to detect corrupted segments. If a segment’s checksum is invalid, the destination TCP discards it, treating it as lost.\n\n#### 2. Acknowledgment\nTCP uses **acknowledgments (ACK)** to confirm the receipt of data. Control segments without data but that use sequence numbers are also acknowledged. **ACK segments** are never acknowledged themselves.\n\nThere are two types of acknowledgments:\n- **Cumulative ACK**: The receiver acknowledges the next expected byte and ignores out-of-order segments. It is a positive acknowledgment for successfully received segments.\n- **Selective Acknowledgment (SACK)**: Reports blocks of out-of-order or duplicated bytes. SACK is implemented as an option at the end of the TCP header.\n\n#### 3. Generating Acknowledgments\nTCP follows several rules for when acknowledgments are generated:\n\n1. **Piggybacking**: When the receiver sends data, it includes an acknowledgment for the last received segment to reduce the number of separate segments.\n2. **Delayed ACK**: If the receiver has no data to send and receives an in-order segment, it delays sending an ACK for up to **500 ms** unless another segment arrives.\n3. **Immediate ACK**: If a new in-order segment arrives before acknowledging the previous one, an ACK is sent immediately to prevent unnecessary retransmissions.\n4. **Out-of-order segments**: If a segment arrives out of order, the receiver immediately sends an ACK for the next expected segment, prompting fast retransmission.\n5. **Missing segments**: When a missing segment arrives, an ACK is sent to acknowledge it.\n6. **Duplicate segments**: Duplicate segments are discarded, but an ACK is sent to confirm the next expected segment to avoid retransmission issues.\n\n#### 4. Retransmission\nTCP retransmits segments when necessary. There are two scenarios for retransmission:\n\n- **Retransmission after RTO (Retransmission Time-Out)**: Each connection has a retransmission timer (RTO). If the timer expires before the segment is acknowledged, the segment at the front of the queue is retransmitted, and the timer is restarted.\n- **Retransmission after three duplicate ACKs**: If the sender receives **three duplicate ACKs** for the same segment, it performs a **fast retransmission** of the missing segment without waiting for the RTO to expire.\n\n#### 5. Out-of-Order Segments\nTCP stores out-of-order segments temporarily until the missing segments arrive. However, TCP ensures that data is only delivered to the application in order.\n\nIn summary, TCP's error control guarantees reliability by detecting lost or corrupted data, resending it when necessary, and ensuring data is delivered to the application in the correct order.",
+      "styleAttributes": {},
+      "x": -2960,
+      "y": 19080,
+      "width": 760,
+      "height": 1020
+    },
+    {
+      "id": "0c383f8f2690266f",
+      "type": "text",
+      "text": "### Multiplexing in the Transport Layer\n\n**Multiplexing at the Source:** Multiplexing occurs when multiple processes on a single host send data through the same transport layer. At the source, the transport layer collects messages from different processes and packages them into separate transport-layer packets. These packets are then sent out over the network, with each one containing information that allows it to be directed to the correct destination process. For example, if three processes (P1, P2, and P3) on a client machine need to communicate with different servers, the transport layer will create three distinct packets, one for each process. This multiplexing process ensures that each message is properly handled and routed.",
+      "styleAttributes": {},
+      "x": 2620,
+      "y": 1120,
+      "width": 620,
+      "height": 360,
+      "color": "3"
+    },
+    {
+      "id": "a461cc513e192a42",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911174352.png",
+      "styleAttributes": {},
+      "x": -2458,
+      "y": 1040,
+      "width": 858,
+      "height": 551
+    },
+    {
+      "id": "577c8a8a28e11072",
+      "type": "text",
+      "text": "### Multiplexing and Demultiplexing",
+      "styleAttributes": {},
+      "x": 2000,
+      "y": 1240,
+      "width": 420,
+      "height": 120,
+      "color": "2"
+    },
+    {
+      "id": "acfd61d767d1ea02",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911172829.png",
+      "styleAttributes": {},
+      "x": -2458,
+      "y": 280,
+      "width": 800,
+      "height": 661
+    },
+    {
+      "id": "e78abc23fbc9e21c",
+      "type": "text",
+      "text": "### Stop-and-Wait Protocol\n\nThe Stop-and-Wait protocol is a connection-oriented protocol that includes flow and error control. Here’s how it works:\n\n1. **Packet Sending and Acknowledgment:**\n   - The sender sends one packet at a time and waits for an acknowledgment (ACK) before sending the next packet.\n   - Each packet has a checksum to detect errors.\n   - If a packet is corrupted or lost, the sender does not receive an ACK and will resend the packet after a timer expires.\n\n2. **Sequence Numbers:**\n   - Sequence numbers (0 and 1) are used to ensure that packets are received in order and to avoid duplicates.\n   - The acknowledgment number sent by the receiver indicates the next expected packet.\n\n3. **Finite State Machines (FSMs):**\n   - **Sender:** Moves between \"ready\" and \"blocking\" states. It waits for a message, sends it, and then waits for an ACK. If an ACK is received or a timeout occurs, the sender either sends the next packet or resends the current one.\n   - **Receiver:** Always in a \"ready\" state, it either delivers the message if the packet is correct or discards it if the packet is corrupted or a duplicate.\n\n4. **Efficiency Concerns:**\n   - The protocol is inefficient for channels with high bandwidth and long delays because it only sends one packet at a time. \n   - Example: If the channel has a high data rate and the round-trip time is long, the sender wastes most of the channel's capacity while waiting for an acknowledgment.\n\n5. **Pipelining:**\n   - Unlike Stop-and-Wait, some protocols allow sending multiple packets before waiting for an acknowledgment. This is known as pipelining, which improves efficiency by better utilizing the channel's capacity. \n\nIn summary, while the Stop-and-Wait protocol is simple and reliable, its efficiency is low for high-speed or long-delay networks, making pipelining a more efficient approach in such cases.",
+      "styleAttributes": {},
+      "x": -1620,
+      "y": -80,
+      "width": 1000,
+      "height": 760
+    },
+    {
+      "id": "4cddfdb5a438a401",
+      "type": "text",
+      "text": "### Encapsulation in the Transport Layer",
+      "styleAttributes": {},
+      "x": 2000,
+      "y": 570,
+      "width": 520,
+      "height": 107,
+      "color": "2"
+    },
+    {
+      "id": "7621323c0e7347e9",
+      "type": "text",
+      "text": "### Encapsulation in the Transport Layer\n\n**Encapsulation at the Sender:** When a process needs to send data to another process, the transport layer at the sender's side encapsulates the message. This encapsulation involves taking the data provided by the process and adding a transport-layer header to it. The header includes essential information, such as source and destination port numbers, which help direct the message to the correct process at the receiving end. The resulting transport-layer packet, known as a user datagram, segment, or simply a packet, is then passed down to the network layer for further delivery. This process ensures that the data is properly formatted for transmission across the network.",
+      "styleAttributes": {},
+      "x": 2660,
+      "y": 260,
+      "width": 620,
+      "height": 342,
+      "color": "3"
+    },
+    {
+      "id": "1a74796959327dd1",
+      "type": "text",
+      "text": "### Decapsulation in the Transport Layer\n\n**Decapsulation at the Receiver:** Upon arrival at the destination, the transport layer at the receiver's side performs decapsulation. This involves stripping away the transport-layer header added by the sender, revealing the original message. The transport layer then delivers this message to the correct process running at the application layer. Along with the message, the sender’s socket address is also provided, which may be necessary if the receiving process needs to respond. Decapsulation is crucial for ensuring that the data reaches the intended process in its original form, without the overhead information required for transmission.",
+      "styleAttributes": {},
+      "x": 2660,
+      "y": 624,
+      "width": 620,
+      "height": 356,
+      "color": "3"
+    },
+    {
+      "id": "df1699b70116fff2",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911192940.png",
+      "styleAttributes": {},
+      "x": -1726,
+      "y": 8120,
+      "width": 1045,
+      "height": 666
+    },
+    {
+      "id": "6ea461216c43ee55",
+      "type": "text",
+      "text": "### TCP Numbering and Segment Format\n\n**Byte Numbering:**  \n- TCP numbers each byte of data transmitted in a connection.  \n- Numbering starts with an arbitrary initial number and continues sequentially.  \n- Byte numbering is independent in each direction.\n\n**Sequence Number:**  \n- The sequence number in a TCP segment indicates the number assigned to the first byte of data in that segment.\n- The first segment’s sequence number is the Initial Sequence Number (ISN), chosen randomly.  \n- For subsequent segments, the sequence number is the previous segment’s sequence number plus the number of bytes in the previous segment.\n\n**Acknowledgment Number:**  \n- The acknowledgment number indicates the next byte that the receiver expects to receive.  \n- It is cumulative, meaning if the acknowledgment number is 5,643, the receiver has successfully received bytes up to 5,642.\n\n**Segment Format:**  \n- **Source Port Address (16 bits):** Port number of the sending application.  \n- **Destination Port Address (16 bits):** Port number of the receiving application.  \n- **Sequence Number (32 bits):** Indicates the number assigned to the first byte of data in the segment.  \n- **Acknowledgment Number (32 bits):** Indicates the next byte expected from the sender.  \n- **Header Length (4 bits):** Number of 4-byte words in the TCP header (ranges from 5 to 15).  \n- **Control Bits (6 bits):** Includes flags like URG, ACK, PSH, RST, SYN, and FIN, used for control and connection management.  \n- **Window Size (16 bits):** Size of the sender’s buffer (up to 65,535 bytes).  \n- **Checksum (16 bits):** Used for error-checking of the header and data.  \n- **Urgent Pointer (16 bits):** Points to urgent data if the URG flag is set.  \n- **Options (up to 40 bytes):** Optional fields that may include additional parameters.\n\n**Encapsulation:**  \n- TCP segments are encapsulated in IP datagrams, which are further encapsulated in data-link layer frames.",
+      "styleAttributes": {},
+      "x": -460,
+      "y": 8080,
+      "width": 780,
+      "height": 706
+    },
+    {
+      "id": "d853980b8b038753",
+      "type": "text",
+      "text": "# what is the difference between sending window of selective repeat protocol and sending window of TCP ?\n\n\nTo answer this question, let's compare the sending windows of the Selective Repeat protocol and TCP:\n\nSelective Repeat Protocol:\n1. Fixed size window\n2. Typically uses a window size of 2^(n-1), where n is the number of bits in the sequence number field\n3. Allows for individual retransmission of lost or corrupted packets\n4. Sender can send multiple frames before receiving acknowledgments\n\nTCP (Transmission Control Protocol):\n1. Dynamic, adjustable window size\n2. Uses flow control and congestion control mechanisms to adapt the window size\n3. Window size can change during transmission based on network conditions\n4. Measured in bytes rather than packets or frames\n5. Incorporates additional features like slow start and congestion avoidance\n\nThe key differences are:\n\n1. Fixed vs. Dynamic: Selective Repeat uses a fixed window size, while TCP's window size is dynamic and adjusts based on network conditions.\n\n2. Measurement: Selective Repeat's window is typically measured in frames or packets, while TCP's window is measured in bytes.\n\n3. Adaptation: TCP's window size adapts to network congestion and receiver's buffer capacity, whereas Selective Repeat's window remains constant.\n\n4. Complexity: TCP incorporates more complex mechanisms for flow and congestion control, making it more sophisticated but also more adaptable to varying network conditions.\n\nWould you like me to elaborate on any specific aspect of these differences?",
+      "styleAttributes": {},
+      "x": 740,
+      "y": 8920,
+      "width": 900,
+      "height": 840
+    },
+    {
+      "id": "a6c6d79c01199431",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911195035.png",
+      "styleAttributes": {},
+      "x": -1760,
+      "y": 8920,
+      "width": 1125,
+      "height": 664
+    },
+    {
+      "id": "628e9975a5030c6a",
+      "type": "text",
+      "text": "1. **TCP Connection Establishment**: TCP (Transmission Control Protocol) establishes connections in a **full-duplex mode**, meaning both parties can send and receive data simultaneously. Before data transfer can begin, both parties (the client and server) must establish communication through a process known as **three-way handshaking**.\n\n2. **Three-Way Handshaking**: This process is how TCP establishes a reliable connection between a client and server.\n   - **Step 1 (SYN)**: The client sends a **SYN** (synchronization) segment to initiate the connection. This segment contains a randomly chosen sequence number, called the **initial sequence number (ISN)**.\n   - **Step 2 (SYN + ACK)**: The server responds with a **SYN + ACK** segment. The **SYN** flag is set to acknowledge the client's request, and the **ACK** flag acknowledges the client's SYN segment.\n   - **Step 3 (ACK)**: The client sends an **ACK** segment, acknowledging the server's SYN + ACK. After this, the connection is established, and data transfer can begin.\n\n3. **SYN Flooding Attack**: A malicious **SYN flooding attack** occurs when attackers send a large number of SYN requests to the server using fake IP addresses. The server allocates resources to each fake connection, leading to resource exhaustion. This prevents valid clients from connecting. This type of attack is a **denial of service (DoS)** attack. Some defenses against this include limiting connection requests or using a **cookie** to verify legitimate clients before allocating resources.",
+      "styleAttributes": {},
+      "x": -460,
+      "y": 8920,
+      "width": 980,
+      "height": 480
+    },
+    {
+      "id": "a1a854f8d2fd727a",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911195103.png",
+      "styleAttributes": {},
+      "x": -1760,
+      "y": 9680,
+      "width": 1126,
+      "height": 981
+    },
+    {
+      "id": "ef77bd9c62db93b0",
+      "type": "text",
+      "text": "1. **Connection Termination (Three-Way Handshaking)**: TCP uses a three-way handshake to close a connection. Here’s how it works:\n   - **Step 1 (FIN)**: The client initiates the termination by sending a **FIN** (finish) segment to the server, signaling that it has finished sending data. The FIN segment may or may not contain data.\n   - **Step 2 (FIN + ACK)**: The server acknowledges the FIN segment by sending a **FIN + ACK** segment. This segment acknowledges the receipt of the client’s FIN and also signals the server's intent to close the connection.\n   - **Step 3 (ACK)**: The client sends an **ACK** segment, confirming the server's FIN segment. At this point, the connection is completely terminated.\n\n2. **Half-Close**: TCP allows one side of the connection to stop sending data while still receiving data from the other side. This is called a **half-close**. For example, a client might stop sending data to the server (e.g., after uploading data for sorting) while the server continues to send sorted data back to the client. The client sends a **FIN** segment, and the server acknowledges it, keeping its side of the connection open until it completes sending its data.\n\n3. **Connection Reset (RST Flag)**: A connection can be abruptly closed using the **RST (reset)** flag, which is used to deny a connection request, abort an active connection, or terminate an idle one. This may happen if there’s an error or unwanted activity, allowing TCP to quickly reset the connection.",
+      "styleAttributes": {},
+      "x": -1840,
+      "y": 13420,
+      "width": 631,
+      "height": 500
+    },
+    {
+      "id": "815850b606e95efe",
+      "type": "file",
+      "file": "source-images/Pasted image 20240913005904.png",
+      "styleAttributes": {},
+      "x": -1152,
+      "y": 13420,
+      "width": 806,
+      "height": 500
+    },
+    {
+      "id": "a796794926c93829",
+      "type": "file",
+      "file": "source-images/Pasted image 20240913005923.png",
+      "styleAttributes": {},
+      "x": -1149,
+      "y": 13980,
+      "width": 803,
+      "height": 661
+    },
+    {
+      "id": "73dcece0378be916",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911195123.png",
+      "styleAttributes": {},
+      "x": -1809,
+      "y": 10800,
+      "width": 1224,
+      "height": 440
+    },
+    {
+      "id": "a07b186cd512ec36",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911195144.png",
+      "styleAttributes": {},
+      "x": -1809,
+      "y": 11360,
+      "width": 1224,
+      "height": 873
+    },
+    {
+      "id": "3e13760e8c9ae0b9",
+      "type": "text",
+      "text": "1. **Data Transfer**: After establishing a TCP connection, **bidirectional data transfer** begins. Both client and server can send data and acknowledgments (ACKs). If data and ACK are traveling in the same direction, they are sent together in the same segment, a process known as **piggybacking**.\n\n2. **Pushing Data (PSH Flag)**: TCP allows flexibility in transmitting data by using buffers. However, in certain cases, immediate data delivery is needed (e.g., interactive communication). The **PSH (push) flag** is used in such cases. When the application requests a push operation, TCP sends the segment immediately and sets the PSH flag, signaling the receiving TCP to deliver the data to the application without delay.\n\n3. **Urgent Data (URG Flag)**: In special situations, the application may need to send **urgent data**. The sender uses the **URG flag** to mark the segment as urgent. The urgent pointer in the segment header indicates where the urgent data ends. Unlike some priority services, TCP still delivers data in sequence but informs the receiving application about the urgent data, letting the application decide how to handle it.",
+      "styleAttributes": {},
+      "x": -1809,
+      "y": 12480,
+      "width": 600,
+      "height": 520
+    },
+    {
+      "id": "9da23462b77c9ffe",
+      "type": "file",
+      "file": "source-images/Pasted image 20240913005052.png",
+      "styleAttributes": {},
+      "x": -1100,
+      "y": 12480,
+      "width": 695,
+      "height": 660
+    },
+    {
+      "id": "a069a8abcace058e",
+      "type": "text",
+      "text": "\n# WINDOWS IN TCP\n\nIn TCP, two types of windows are used for data transfer: the **send window** and the **receive window**. These windows are crucial for controlling the flow of data between the sender and receiver. Let's break them down:\n\n### 1. **Send Window**:\n- The **send window** controls the number of bytes the sender can transmit without receiving an acknowledgment.\n- It is expressed in bytes (unlike the **Selective-Repeat (SR)** protocol, where the window size is measured in packets).\n- The window size is determined by the receiver’s advertised window size (which is affected by both **flow control** and **congestion control**).\n- Key Points:\n  - **Opening, closing, and shrinking**: The window opens when new data can be sent, closes as data is sent, and may shrink based on network conditions or receiver capabilities.\n  - TCP uses a **single timer** for retransmission of all sent but unacknowledged segments, unlike SR, which may use multiple timers for different packets.\n  \n   **Figure 3.54 (Send Window)**:\n   - It shows how the send window slides as data is acknowledged. The left edge of the window moves when bytes are acknowledged, and the right edge can expand when more data can be sent.\n\n### 2. **Receive Window**:\n- The **receive window** is managed by the receiver and controls how much data the receiver can accept from the sender before its buffer fills up.\n- It is also expressed in bytes and ensures that the sender doesn't overwhelm the receiver with too much data (flow control).\n- Key Points:\n  - The receive window size can be calculated as:  \n    **Receive window size (rwnd) = Buffer size − Bytes waiting to be consumed by the process**.\n  - The receiver can **pull data** at its own pace, so the receive window size is dynamic and may adjust based on how fast the receiving process consumes the data.\n  - TCP primarily uses **cumulative acknowledgment** to indicate the next expected byte, meaning that it acknowledges all data up to a certain point. However, newer versions of TCP can also use **selective acknowledgment (SACK)** to acknowledge specific blocks of data.\n\n   **Figure 3.55 (Receive Window)**:\n   - It illustrates how the receive window opens and closes as data is received and consumed. The left wall moves forward as the process consumes the data, and the right wall moves as new data is received.\n\nTogether, these windows manage how data flows between the sender and receiver, ensuring efficient and reliable communication while preventing overflow (flow control) and congestion in the network (congestion control).",
+      "styleAttributes": {},
+      "x": -2160,
+      "y": 15020,
+      "width": 1000,
+      "height": 1100
+    },
+    {
+      "id": "aaac356e48c79d0d",
+      "type": "file",
+      "file": "source-images/Pasted image 20240913010319.png",
+      "styleAttributes": {},
+      "x": -1080,
+      "y": 15020,
+      "width": 1160,
+      "height": 727
+    },
+    {
+      "id": "fac0ec466c5de56e",
+      "type": "file",
+      "file": "source-images/Pasted image 20240913010333.png",
+      "styleAttributes": {},
+      "x": -1080,
+      "y": 15840,
+      "width": 1160,
+      "height": 744
+    },
+    {
+      "id": "e1d63553baa27f52",
+      "type": "text",
+      "text": "### TCP Flow Control Overview\n\nTCP's **flow control** ensures that a sender does not overwhelm a receiver with more data than it can handle. Flow control regulates the rate at which the sender transmits data, matching it to the receiver's ability to process it. In TCP, this is managed by dynamically adjusting the **window sizes** on both sides of the connection.\n\n### Flow of Data and Feedback (Unidirectional)\nAs shown in Figure 3.56, the data flow follows these steps:\n1. **Data from Sender to Receiver**: The sending process passes data to the sending TCP (step 1), which then sends it to the receiving TCP (step 2). The receiving TCP passes it to the receiving process (step 3).\n2. **Flow Control Feedback**: The receiver sends feedback to the sender via the receiving TCP (step 4), informing the sender how much more data it can accept by advertising the size of the **receive window (rwnd)**. Based on this, the sender adjusts its **send window** (step 5).\n\n### Adjusting Window Sizes\n- The **send window** opens and closes dynamically based on acknowledgments received from the receiver. It controls how much data the sender can send before waiting for an acknowledgment.\n- The **receive window (rwnd)** also adjusts dynamically as the receiver processes incoming data, informing the sender about how much buffer space is available.\n- Windows can **open** (when more space is available), **close** (when space is reduced), or **shrink** (when conditions force a reduction).\n\n### Example of Flow Control (Unidirectional Data Transfer)\nIn Figure 3.57, eight segments illustrate the dynamic adjustment of window sizes during data transfer between a client (sender) and server (receiver):\n\n1. **Connection Setup (Segment 1)**:\n   - The client sends a SYN segment to initiate a connection, with `seqNo = 100`.\n   - The server allocates a buffer of 800 bytes and sets its receive window (`rwnd = 800`).\n\n2. **SYN + ACK (Segment 2)**:\n   - The server acknowledges with `ackNo = 101` and informs the client that it can send up to 800 bytes of data (`rwnd = 800`).\n\n3. **ACK (Segment 3)**:\n   - The client acknowledges the server's response and sets its window size based on the server’s announcement. The client defines its window size as 2000, but this isn’t shown as communication is unidirectional.\n\n4. **Data Transfer (Segment 4)**:\n   - The client sends 200 bytes of data (`seqNo = 101 to 300`). The server adjusts its receive window size, reducing it from 800 to 600 after receiving the data.\n\n5. **ACK with Reduced Window (Segment 5)**:\n   - The server acknowledges receipt of the data up to `seqNo = 300` and reduces its receive window to 600 bytes (`rwnd = 600`). The client also adjusts its send window based on this feedback.\n\n6. **Second Data Transfer (Segment 6)**:\n   - The client sends another 300 bytes (`seqNo = 301 to 600`). The server processes 100 bytes of data and reduces its receive window to 400 bytes (`rwnd = 400`), after accounting for the 100 bytes that were consumed.\n\n7. **Server ACK (Segment 7)**:\n   - The server acknowledges the receipt of the 300 bytes, updating the receive window to 400 bytes (`rwnd = 400`). The client adjusts its send window accordingly.\n\n8. **Final ACK with Window Increase (Segment 8)**:\n   - After the server processes another 200 bytes, its receive window opens to 600 bytes (`rwnd = 600`), informing the client that more data can be sent.\n\n### Key Points:\n- **Send window size** is dictated by the receiver's advertised receive window (`rwnd`).\n- **Receive window size** is affected by how much data is stored in the receiver’s buffer and how fast the receiving process consumes the data.\n- **Flow control** ensures efficient data transfer by adjusting window sizes based on network and receiver conditions.\n\nIn this way, TCP ensures that the sender sends data at a rate that the receiver can handle, preventing buffer overflow and maintaining efficient communication.",
+      "styleAttributes": {},
+      "x": -2180,
+      "y": 16760,
+      "width": 580,
+      "height": 940
+    },
+    {
+      "id": "6e93a5830d3e7bf1",
+      "type": "file",
+      "file": "source-images/Pasted image 20240913011214.png",
+      "styleAttributes": {},
+      "x": -1520,
+      "y": 16760,
+      "width": 1263,
+      "height": 580
+    },
+    {
+      "id": "7c5daff545f9a7b0",
+      "type": "file",
+      "file": "source-images/Pasted image 20240913011435.png",
+      "styleAttributes": {},
+      "x": -3240,
+      "y": 16779,
+      "width": 982,
+      "height": 621
+    },
+    {
+      "id": "ff4760f0eff4088f",
+      "type": "text",
+      "text": "### Understanding Congestion Control\n\nCongestion control is essential in managing traffic within a packet-switched network, such as the Internet. It becomes necessary when the load on the network—the number of packets being transmitted—exceeds the network’s capacity to process them efficiently. When this imbalance occurs, the network becomes congested, leading to delays, packet loss, and reduced overall performance.\n\n### Causes of Congestion\n\nCongestion in a network is similar to a traffic jam on a freeway. It occurs in any system where there is waiting involved. For instance, a traffic jam might happen due to an accident during rush hour, causing a blockage. In a network, congestion happens because routers and switches have queues, or buffers, that temporarily store packets before and after processing. If a router receives packets faster than it can handle, these queues start to fill up. When the queues become overloaded, new packets must wait, resulting in congestion.\n\n### Congestion at the Transport Layer\n\nCongestion at the transport layer is often a result of congestion at the network layer. When the network layer experiences congestion, it affects the transport layer, where protocols like TCP (Transmission Control Protocol) operate. TCP, recognizing that there may be no congestion control at the network layer, implements its own mechanisms to manage congestion. These mechanisms help regulate the flow of packets, ensuring that the load on the network stays within its capacity, thereby preventing or reducing congestion.",
+      "styleAttributes": {},
+      "x": 1620,
+      "y": 5300,
+      "width": 780,
+      "height": 740,
+      "color": "2"
+    },
+    {
+      "id": "4a37b06c0a9a4621",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911170050.png",
+      "styleAttributes": {},
+      "x": 2540,
+      "y": 5300,
+      "width": 1011,
+      "height": 740
+    },
+    {
+      "id": "6903577a0f72d242",
+      "type": "text",
+      "text": "### Sequence Numbers\n\nError control relies on sequence numbers to keep track of packets. Each packet is assigned a sequence number, which allows the sending transport layer to know which packet needs to be resent and the receiving transport layer to recognize duplicates or out-of-order packets.\n\n- **Sequential Numbering:** Packets are numbered sequentially, but due to limited space in the packet header, the sequence numbers are usually constrained within a specific range. For example, if 4 bits are allocated for the sequence number, the range would be from 0 to 15. After reaching the maximum, the sequence numbers wrap around (e.g., 0, 1, 2,..., 15, 0, 1,...).",
+      "styleAttributes": {},
+      "x": 2517,
+      "y": 3500,
+      "width": 578,
+      "height": 240,
+      "color": "3"
+    },
+    {
+      "id": "536eb96b53897f35",
+      "type": "text",
+      "text": "# UDP PROCOCOL\n",
+      "styleAttributes": {},
+      "x": -200,
+      "y": 5200,
+      "width": 440,
+      "height": 120
+    },
+    {
+      "id": "d04d5d7f909b693e",
+      "type": "text",
+      "text": "### Acknowledgment\n\nTo confirm successful packet delivery, the receiver can send an acknowledgment (ACK) for the packets that have arrived correctly. If a packet is lost or corrupted, the sender can detect the issue using a timer.\n\n- **Timer Mechanism:** When a packet is sent, the sender starts a timer. If an acknowledgment (ACK) is not received before the timer expires, the sender resends the packet.\n- **Duplicate and Out-of-Order Packets:** The receiver can silently discard duplicate packets. Out-of-order packets can either be discarded and treated as lost, or stored until the missing packets arrive.",
+      "styleAttributes": {},
+      "x": 2517,
+      "y": 3860,
+      "width": 578,
+      "height": 280,
+      "color": "3"
+    },
+    {
+      "id": "5adbf52a1bbe8f03",
+      "type": "text",
+      "text": "### Error Control\n\n**Overview:** Error control is vital for ensuring reliable data transmission over networks, particularly when the underlying network layer, such as IP (Internet Protocol), is unreliable. If an application demands reliability, error control mechanisms must be implemented at the transport layer. These mechanisms ensure that corrupted, lost, or duplicate packets are appropriately managed.\n\n**Responsibilities of Error Control:** At the transport layer, error control involves the following tasks:\n\n1. **Detecting and Discarding Corrupted Packets:** The transport layer must identify any packets that have been corrupted during transmission and discard them.\n2. **Tracking Lost and Discarded Packets:** If packets are lost or discarded due to errors, the transport layer must keep track of these packets and ensure they are resent.\n3. **Recognizing and Discarding Duplicate Packets:** In case duplicate packets are received, the transport layer must detect and discard them to prevent processing the same data multiple times.\n4. **Buffering Out-of-Order Packets:** When packets arrive out of order, the transport layer buffers them until the missing packets arrive",
+      "styleAttributes": {},
+      "x": 1620,
+      "y": 3620,
+      "width": 735,
+      "height": 424,
+      "color": "2"
+    },
+    {
+      "id": "6d6d29869ba9c4b9",
+      "type": "text",
+      "text": "### Combination of Flow and Error Control \n\n\nIn network communication, flow control and error control are essential mechanisms that can be effectively combined using the sliding window technique. Flow control ensures that the sender does not overwhelm the receiver with too much data at once, while error control guarantees that the data is transmitted accurately, with mechanisms in place to detect and correct any errors. Both of these processes can be integrated using numbered buffers at the sender and receiver.\n\nAt the sender’s side, when a packet is ready to be transmitted, it is assigned a sequence number corresponding to the next available spot in the buffer. This sequence number is crucial for tracking the packet as it moves through the network. Once the packet is sent, a copy is kept in the buffer until an acknowledgment is received from the receiver. This acknowledgment confirms that the packet has been received correctly. Upon receiving the acknowledgment, the sender can purge the packet from the buffer, freeing up space for new packets. This process ensures that data flow is regulated, preventing the sender from sending more data than the receiver can handle.\n\nOn the receiver’s side, when a packet arrives, it is stored in the buffer according to its sequence number. The receiver then sends an acknowledgment back to the sender, signaling that the packet has been received successfully. This acknowledgment allows the sender to free up space in its buffer, making room for new data. This process also helps in error control, as the sequence numbers ensure that packets are received in the correct order, and any missing or erroneous packets can be identified and retransmitted if necessary.\n\nThe sliding window technique brings these concepts together by managing the sequence numbers within a dynamic range, or \"window,\" at both the sender and receiver. The sliding window represents a subset of the total sequence numbers available, and it moves, or \"slides,\" as packets are sent and acknowledged. At the sender’s side, if the window is full (meaning all available sequence numbers are in use), no new packets can be sent until an acknowledgment is received, which frees up space in the buffer. This sliding mechanism ensures that the sender can continuously send data as long as the receiver is able to process it.\n\nThe sliding window can be visualized using either a circular or linear representation. In a circular representation, sequence numbers are arranged in a circle (using modulo arithmetic), with the sliding window moving around this circle as packets are sent and acknowledged. This circular view helps in understanding how sequence numbers wrap around after reaching a certain value. Alternatively, a linear representation is often used for simplicity, showing the sliding window as a range on a straight line. Both visualizations convey the same concept of a moving window that controls the flow and order of data transmission.\n\nIn summary, the combination of flow control and error control through the sliding window technique allows for efficient and reliable data transmission. By carefully managing sequence numbers and acknowledgments, this method ensures that data is sent at a pace the receiver can handle and that any errors in transmission are detected and corrected.",
+      "styleAttributes": {},
+      "x": 1620,
+      "y": 4240,
+      "width": 760,
+      "height": 940,
+      "color": "2"
+    },
+    {
+      "id": "fc248299add62aac",
+      "type": "text",
+      "text": "### 3.4 Transmission Control Protocol (TCP)\n\n**Transmission Control Protocol (TCP)** is a connection-oriented and reliable transport protocol. It ensures data is transmitted accurately and in the correct order by using various mechanisms, including checksums, retransmissions, acknowledgments, and timers.\n\n#### TCP Services\n\n**Process-to-Process Communication:**  \nTCP provides process-to-process communication using port numbers, similar to UDP.\n\n**Stream Delivery Service:**  \nUnlike UDP, which deals with discrete messages, TCP provides a continuous stream of bytes. It allows the sending process to send data as a stream, and the receiving process to read data as a stream, creating a continuous flow between processes.\n\n**Sending and Receiving Buffers:**  \nTCP uses buffers to manage the data flow between processes. The sending buffer stores data that has been sent but not yet acknowledged, while the receiving buffer holds data that has been received but not yet read. This buffering helps manage differences in data production and consumption rates.\n\n**Segments:**  \nTCP divides the byte stream into segments for transmission. Each segment has a header and is encapsulated in an IP datagram. Segments may arrive out of order or get lost, but TCP handles these issues and ensures data is delivered correctly.\n\n**Full-Duplex Communication:**  \nTCP supports full-duplex communication, allowing data to flow in both directions simultaneously. Each end of the connection has its own sending and receiving buffer.\n\n**Multiplexing and Demultiplexing:**  \nTCP performs multiplexing to handle multiple connections and demultiplexing to direct incoming segments to the correct application process. A connection must be established between each pair of processes.\n\n**Connection-Oriented Service:**  \nTCP establishes a logical connection before data transfer begins. The process involves three phases:\n1. Establishing the connection.\n2. Exchanging data.\n3. Terminating the connection.\n\n**Reliable Service:**  \nTCP ensures reliable data transmission through acknowledgments. It retransmits lost or corrupted segments, ensuring that data arrives accurately and in the correct order.",
+      "styleAttributes": {},
+      "x": -1453,
+      "y": 7440,
+      "width": 773,
+      "height": 580
+    },
+    {
+      "id": "4bd58cf108221d79",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911191754.png",
+      "styleAttributes": {},
+      "x": -2520,
+      "y": 6760,
+      "width": 1090,
+      "height": 460
+    },
+    {
+      "id": "f9bea829de692eb4",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911185022.png",
+      "styleAttributes": {},
+      "x": -2520,
+      "y": 6160,
+      "width": 1104,
+      "height": 520
+    },
+    {
+      "id": "24c528d96373e714",
+      "type": "text",
+      "text": "### 3.3.2 UDP Services\n\n#### Process-to-Process Communication\nUDP provides process-to-process communication by using socket addresses, which combine IP addresses and port numbers.\n\n#### Connectionless Services\nUDP is connectionless, meaning each datagram is sent independently, without establishing a connection or managing multiple datagrams as a sequence. This lack of connection means datagrams might take different routes and are not guaranteed to arrive in order. Each datagram must fit within its size limit, typically up to 65,507 bytes. This can be efficient for short messages but problematic for longer data that must be split into multiple datagrams.\n\n#### Flow Control\nUDP lacks flow control, so it doesn't manage the rate at which data is sent. The receiver might get overwhelmed if the sender sends data too quickly. Applications using UDP need to handle their own flow control if necessary.\n\n#### Error Control\nUDP includes only a basic error-checking mechanism through an optional checksum. If a datagram is corrupted, it is discarded without notifying the sender. UDP does not offer automatic retransmission or recovery for lost or corrupted datagrams.\n\n#### Checksum\nThe UDP checksum helps detect errors in datagrams. It includes a pseudoheader (part of the IP header), the UDP header, and the data. The checksum can be optional; if not used, it's set to 0. If the checksum calculation results in all 0 s, it is set to all 1 s to avoid confusion.\n\n#### Congestion Control\nUDP does not handle congestion control. It assumes packets are small and infrequent enough not to cause congestion. This might not hold true for real-time applications like video streaming, where UDP's simplicity is beneficial despite the risk of congestion.\n\n#### Encapsulation and Decapsulation\nUDP encapsulates application data into datagrams for transmission and decapsulates received datagrams to deliver data to the application layer.\n\n#### Queuing\nUDP uses queues for incoming and outgoing data associated with port numbers. Different implementations may use separate queues for incoming and outgoing data.\n\n#### Multiplexing and Demultiplexing\nUDP handles multiple applications by multiplexing data to and demultiplexing data from the correct application based on port numbers.\n\n#### Comparison with Generic Simple Protocol\nUDP is similar to a simple connectionless protocol with the addition of an optional checksum for error detection. It provides minimal overhead but lacks the advanced features of more complex protocols like TCP.\n\n### 3.3.3 UDP Applications\n\n#### Features and Applications\nDespite its limitations, UDP is suitable for various applications due to its simplicity and efficiency:\n\n- **Connectionless Service:** Ideal for applications where quick request-response communication is needed, and where delays and overhead of establishing connections are undesirable. For example, DNS uses UDP because it only needs to send and receive small messages quickly.\n  \n- **Lack of Error Control:** Beneficial for real-time applications like Skype, where quick delivery is more important than reliability. For instance, in video streaming, losing a few frames is acceptable compared to the delays caused by retransmissions.\n\n- **Lack of Congestion Control:** Useful in scenarios where minimizing additional traffic is crucial, such as in some multicast applications or when dealing with real-time data that must be transmitted quickly without added congestion from retransmissions.\n\nTypical applications for UDP include:\n- Simple request-response services (e.g., DNS).\n- Applications with their own flow and error control mechanisms (e.g., TFTP).\n- Multicasting applications.\n- Network management protocols (e.g., SNMP).\n- Route updating protocols (e.g., RIP).\n- Real-time interactive applications (e.g., live video and audio).",
+      "styleAttributes": {},
+      "x": -1340,
+      "y": 6160,
+      "width": 1000,
+      "height": 800
+    },
+    {
+      "id": "56ff048b36026edb",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911182927.png",
+      "styleAttributes": {},
+      "x": -2520,
+      "y": 3920,
+      "width": 1120,
+      "height": 1080
+    },
+    {
+      "id": "9b15852fee274185",
+      "type": "text",
+      "text": "### 3.2.5 Bidirectional Protocols: Piggybacking\nIn bidirectional communication, data packets flow in both directions between the client and server. Piggybacking is a technique used to enhance efficiency in such protocols. Instead of sending separate acknowledgment packets, a data packet from A to B can carry both the data and an acknowledgment for packets received from B. Similarly, when B sends data to A, it can include an acknowledgment for A’s packets. This reduces the number of packets sent, improving the protocol's efficiency.\n\n### 3.2.6 Internet Transport-Layer Protocols\nThe Internet primarily uses two transport-layer protocols: UDP and TCP.\n\n- **UDP (User Datagram Protocol):** \n  - **Connectionless:** Does not establish a connection before sending data.\n  - **Unreliable:** No guarantee that data will arrive or be in order.\n  - **Efficiency:** Suitable for applications where speed is crucial and reliability is managed at the application level.\n\n- **TCP (Transmission Control Protocol):** \n  - **Connection-Oriented:** Establishes a connection before data is sent.\n  - **Reliable:** Ensures data is delivered accurately and in sequence.\n  - **Versatile:** Used in applications where reliable communication is necessary.\n\nThese protocols facilitate communication between application programs and the network layer, allowing different processes on the network to interact using port numbers for identification.",
+      "styleAttributes": {},
+      "x": -1300,
+      "y": 3920,
+      "width": 740,
+      "height": 660
+    },
+    {
+      "id": "be0dbecc63bbe453",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911170413.png",
+      "styleAttributes": {},
+      "x": 1620,
+      "y": 6120,
+      "width": 1360,
+      "height": 498
+    },
+    {
+      "id": "cb6253aee245f117",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911183906.png",
+      "styleAttributes": {},
+      "x": -2160,
+      "y": 5320,
+      "width": 778,
+      "height": 340
+    },
+    {
+      "id": "0624879ba44d1e2e",
+      "type": "text",
+      "text": "### 3.3 User Datagram Protocol (UDP)\n\n#### Overview\nThe User Datagram Protocol (UDP) is a connectionless and unreliable transport protocol. Unlike TCP, it does not establish a connection before sending data and does not guarantee that packets will arrive in the correct order or even at all. Despite these drawbacks, UDP is advantageous in situations where low latency and minimal protocol overhead are more critical than reliability. It is particularly useful for applications that can handle some data loss or where real-time performance is essential.\n\n#### User Datagram Format\nUDP packets, known as user datagrams, have a fixed-size header of 8 bytes, consisting of four 2-byte fields:\n\n1. **Source Port Number:** Identifies the port on the sender's side.\n2. **Destination Port Number:** Identifies the port on the receiver's side.\n3. **Total Length:** Specifies the length of the datagram, including the header and data. This field can represent lengths from 0 to 65,535 bytes, though practical limits are constrained by the maximum IP datagram size.\n4. **Checksum (Optional):** Used for error-checking to verify data integrity.\n\n#### Example Analysis\nTo illustrate UDP packet contents, consider the following example with a UDP header in hexadecimal format:\n\n- **Source Port Number:** The first four hexadecimal digits (CB84) translate to 52100 in decimal.\n- **Destination Port Number:** The next four hexadecimal digits (000D) translate to 13 in decimal.\n- **Total Length:** The following four hexadecimal digits (001C) denote a total length of 28 bytes.\n- **Data Length:** Subtracting the header length (8 bytes) from the total length, the data length is 20 bytes.\n- **Direction:** Since the destination port number is 13, a well-known port, the packet is directed from the client to the server.\n- **Client Process:** The process using port 13 is typically the Daytime service.\n\nThis example demonstrates how UDP headers are interpreted and how the protocol facilitates minimal communication overhead while providing essential transport functions.",
+      "styleAttributes": {},
+      "x": -1340,
+      "y": 5320,
+      "width": 780,
+      "height": 720
+    },
+    {
+      "id": "806fe591255aad96",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911175318.png",
+      "styleAttributes": {},
+      "x": -2458,
+      "y": 3200,
+      "width": 1248,
+      "height": 560
+    },
+    {
+      "id": "ee61806a9f01f9be",
+      "type": "text",
+      "text": "# TCP",
+      "styleAttributes": {},
+      "x": -280,
+      "y": 7520,
+      "width": 260,
+      "height": 60
+    },
+    {
+      "id": "ce6711cb3fe4c83d",
+      "type": "text",
+      "text": "Here's a mnemonic to help remember those terms:\n\nPlease Stop For My Crazy Relative\n\nP - Process\nS - Streamline\nF - Full-duplex\nM - Mux-demux\nC - Connection-oriented\nR - Reliability\n\nTo use this mnemonic, you can imagine a scenario where you're asking someone to pause their activities to assist a quirky family member. This vivid mental image can help reinforce the memory of the technical terms.\n\nWould you like me to explain how each term relates to networking or communication systems?",
+      "styleAttributes": {},
+      "x": -380,
+      "y": 6990,
+      "width": 620,
+      "height": 460
+    },
+    {
+      "id": "c0b7b71f9375ad6f",
+      "type": "text",
+      "text": "### Connectionless and Connection-Oriented Services\n\nTransport-layer protocols can provide two types of services: connectionless and connection-oriented. While these services are similar to those at the network layer, their functions differ. At the network layer, connectionless service may involve different paths for datagrams of the same message, but at the transport layer, it focuses on whether packets are dependent on each other or not.\n\n#### Connectionless Service\n\nIn a connectionless service, the application (or source process) splits its message into smaller data chunks. Each chunk is treated independently by the transport layer, meaning there’s no relationship between them. For example, if a client sends three chunks of data to a server, the transport layer sends each chunk as a separate packet. These packets might arrive at the destination out of order, as there is no coordination between them. The server might receive the packets in a different order than they were sent, and if a packet is lost, the transport layer won’t notice because there’s no tracking of packets.\n\nThe main issues with connectionless service are that packets might arrive out of order or be lost entirely, with no way for the receiving end to detect or correct these problems. This lack of coordination means that flow control, error control, and congestion control cannot be effectively implemented in a connectionless service.\n\n#### Connection-Oriented Service\n\nIn contrast, a connection-oriented service requires the client and server to establish a logical connection before any data is exchanged. Once the connection is established, data can be transferred in an orderly manner. After the data transfer is complete, the connection is terminated.\n\nIn a connection-oriented service at the transport layer, only the two end hosts (client and server) are involved in maintaining the connection. This service can be built on top of either a connectionless or connection-oriented protocol at the network layer. The key advantage of a connection-oriented service is that it allows for the implementation of flow control, error control, and congestion control, ensuring reliable data transfer between the client and server.\n\n### Finite State Machine (FSM)\n\nThe behavior of transport-layer protocols, whether connectionless or connection-oriented, can be represented using a Finite State Machine (FSM). An FSM is a model that shows how the protocol transitions between different states in response to events.\n\nFor a connectionless transport layer, the FSM is simple: it stays in a single state, always ready to send and receive packets.\n\nFor a connection-oriented transport layer, the FSM is more complex, involving multiple states to manage connection establishment, data transfer, and connection termination. Initially, the FSM is in a closed state, waiting for a connection request. Once a request is received, the FSM transitions through several states until the connection is fully established. After data transfer, the FSM moves through another set of states to properly close the connection.\n\nIn summary, connectionless service is simple but lacks reliability, while connection-oriented service involves more steps but ensures that data is transferred in a controlled and reliable manner. The FSM helps visualize and manage these processes within the transport layer.",
+      "styleAttributes": {},
+      "x": 1620,
+      "y": 6840,
+      "width": 1520,
+      "height": 1060,
+      "color": "2"
+    },
+    {
+      "id": "86c82924575c8df7",
+      "type": "text",
+      "text": "### Flow Control at the Transport Layer\n\n**Transport Layer Roles:** At the transport layer, four entities are involved in communication: the sender process, sender transport layer, receiver transport layer, and receiver process. The sending process at the application layer produces data and pushes it to the transport layer, which acts as both a consumer (of the application's data) and a producer (sending data to the receiving transport layer). Similarly, the receiving transport layer consumes data from the sender and produces data for the application layer. The final delivery to the application layer is typically a pull delivery, where the transport layer waits for the application to request the data.\n\n**Flow Control Mechanisms:** Flow control is needed in two key areas: from the sending transport layer to the sending application layer, and from the receiving transport layer to the sending transport layer. This ensures that data is not lost or discarded due to mismatched production and consumption rates.",
+      "styleAttributes": {},
+      "x": 2950,
+      "y": 2540,
+      "width": 740,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "8dda0da2105effe0",
+      "type": "text",
+      "text": "# Flow Control\n\n**Concept of Flow Control:** Flow control is essential in maintaining a balance between the production and consumption of data within a communication system. When one entity produces items (data) faster than the other entity can consume them, the consumer may become overwhelmed, leading to data loss or the need to discard some items. On the other hand, if items are produced too slowly, the consumer may have to wait, reducing the system's overall efficiency. Flow control focuses on preventing data loss at the consumer site by regulating the rate at which data is sent and received.",
+      "styleAttributes": {},
+      "x": 2144,
+      "y": 2480,
+      "width": 658,
+      "height": 280,
+      "color": "2"
+    },
+    {
+      "id": "b5ca279e7e7a1e7b",
+      "type": "text",
+      "text": "### Pushing or Pulling\n\n**Push Delivery:** In a push delivery system, the producer sends data items to the consumer as soon as they are created, without waiting for a request. This method can overwhelm the consumer if it cannot handle the incoming data at the same rate, leading to the need for flow control mechanisms to regulate the data flow.\n\n**Pull Delivery:** In a pull delivery system, the consumer requests data items from the producer when it is ready to process them. Since the consumer controls when it receives the data, there is no need for flow control in this scenario.",
+      "styleAttributes": {},
+      "x": 2950,
+      "y": 2200,
+      "width": 740,
+      "height": 280,
+      "color": "3"
+    },
+    {
+      "id": "87a326006c18e102",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911175259.png",
+      "styleAttributes": {},
+      "x": -2458,
+      "y": 2240,
+      "width": 918,
+      "height": 845
+    },
+    {
+      "id": "d5949f4869b61756",
+      "type": "text",
+      "text": "The Selective-Repeat (SR) protocol is an improvement over the Go-Back-N (GBN) protocol in the transport layer, especially in handling packet loss. Unlike GBN, where all packets after a lost one are retransmitted, SR resends only the lost or corrupted packets.\n\n### Key Features:\n1. **Windows**:\n   - **Send Window**: The sender has a window of size `2^(m-1)`, where `m` is the number of bits in the sequence number. This window defines the range of packets that can be sent but are not yet acknowledged.\n   - **Receive Window**: The receiver's window is also of size `2^(m-1)`. It can receive packets out of order but only delivers them to the application layer in order.\n\n2. **Acknowledgments**:\n   - SR uses individual acknowledgments for each packet, unlike the cumulative acknowledgments in GBN. Each acknowledgment (`ackNo`) corresponds to a specific packet that has been received without errors.\n\n3. **Timers**:\n   - SR theoretically uses one timer per packet, but in practice, often a single timer is used for simplicity. If the timer for a packet expires, only that packet is resent.\n\n### Example:\n- **Scenario**: A sender transmits packets 0, 1, 2, and 3. Packet 1 is lost.\n  - **Sender**: When the timer for packet 1 expires, only packet 1 is resent.\n  - **Receiver**: The receiver may have already received packets 2 and 3, which it stores but does not deliver until packet 1 arrives. Once packet 1 is received, packets 1, 2, and 3 are delivered to the application in order.\n\n### Window Size Constraint:\n- The maximum size of the sender and receiver windows is `2^(m-1)`. This ensures that packets are correctly identified and handled across different transmission cycles, preventing errors like treating a retransmitted packet as a new one in the next cycle.\n\nIn summary, the SR protocol increases efficiency by minimizing unnecessary retransmissions and ensuring that only the lost packets are resent, which helps reduce network congestion.",
+      "styleAttributes": {},
+      "x": -1480,
+      "y": 2240,
+      "width": 1100,
+      "height": 860
+    },
+    {
+      "id": "60a214afd2b8521b",
+      "type": "text",
+      "text": "### Buffers in Flow Control\n\n**Role of Buffers:** One common method of implementing flow control is through the use of buffers at both the sending and receiving transport layers. Buffers are memory locations that temporarily hold data packets, allowing the system to manage the flow of data.\n\n**Buffer Communication:** When the buffer at the sending transport layer is full, it signals the application layer to stop sending data. Similarly, when the buffer at the receiving transport layer is full, it informs the sending transport layer to stop transmitting packets. Once space becomes available in the buffer, the system can resume data transmission.\n\n**Example of Buffer Use:** Consider a scenario where each transport layer has only one memory slot for storing a packet. When this slot is empty, the sending transport layer requests more data from the application layer, and the receiving transport layer sends an acknowledgment to the sender, indicating it is ready for the next packet. However, using a single-slot buffer is generally inefficient and can lead to delays in communication.",
+      "styleAttributes": {},
+      "x": 3020,
+      "y": 3040,
+      "width": 740,
+      "height": 300,
+      "color": "3"
+    },
+    {
+      "id": "1352c28789bd162b",
+      "type": "file",
+      "file": "source-images/Pasted image 20240901173310.png",
+      "styleAttributes": {},
+      "x": 2144,
+      "y": 3040,
+      "width": 673,
+      "height": 296
+    },
+    {
+      "id": "8834d364a46ed0ee",
+      "type": "text",
+      "text": "### Demultiplexing in the Transport Layer\n\n**Demultiplexing at the Destination:** When packets arrive at the destination, the transport layer performs demultiplexing, which involves directing each packet to the appropriate process. The transport layer examines the destination port number in each packet to determine which process should receive the data. For instance, if packets 1 and 3 are intended for different processes on the same server, the transport layer will distribute them accordingly. Even if only one packet is received, demultiplexing ensures that it reaches the correct process. This mechanism allows multiple processes to receive data simultaneously, maintaining the integrity of communication across the network.",
+      "styleAttributes": {},
+      "x": 2660,
+      "y": 1600,
+      "width": 600,
+      "height": 360,
+      "color": "3"
+    },
+    {
+      "id": "8975d461b44e6d4a",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240911174419.png",
+      "styleAttributes": {},
+      "x": -2458,
+      "y": 1625,
+      "width": 857,
+      "height": 504
+    },
+    {
+      "id": "daa03c17152184f0",
+      "type": "file",
+      "file": "source-images/Pasted image 20240901170702.png",
+      "styleAttributes": {},
+      "x": 2000,
+      "y": 1541,
+      "width": 504,
+      "height": 419
+    },
+    {
+      "id": "da2cd2edc031cd2e",
+      "type": "text",
+      "text": "### Simplified Explanation of Go-Back-N Protocol (GBN)\n\n#### Overview\nGo-Back-N (GBN) is a transport layer protocol used to send multiple packets before waiting for acknowledgments (ACKs). Unlike simple protocols where only one packet is sent at a time, GBN allows several packets to be sent while waiting for ACKs, which increases transmission efficiency. \n\n#### Key Components\n\n1. **Sequence Numbers:**\n   - Packets have sequence numbers assigned using modulo 2^m, where m is the number of bits in the sequence number.\n\n2. **Acknowledgment Numbers:**\n   - ACKs are cumulative, meaning an ACK with a specific number (e.g., 7) means that all packets up to sequence number 6 have been received successfully.\n\n3. **Send Window:**\n   - The send window is an imaginary box representing the sequence numbers of packets that can be sent or are in transit.\n   - It has a fixed size (2^m - 1) and slides forward as ACKs are received.\n   - The window divides into four regions: packets already acknowledged, packets sent but not yet acknowledged (outstanding), packets ready to be sent, and packets that cannot be sent yet.\n\n4. **Receive Window:**\n   - The receive window always has a size of 1, meaning the receiver expects packets in order and will discard any out-of-order packets.\n\n5. **Timers:**\n   - A single timer is used to track the oldest outstanding packet. If the timer expires, all outstanding packets are resent.\n\n6. **Resending Packets:**\n   - If an ACK is lost or delayed and the timer expires, the sender resends all outstanding packets, starting from the oldest unacknowledged packet.\n\n#### Example Scenarios\n- **Normal Operation:** If all ACKs are received in order, the sender continues sending new packets without resending any.\n- **Packet Loss:** If a packet is lost, the receiver discards any subsequent packets until the missing packet is received. The sender resends the lost packet and any following packets once the timer expires.\n\n#### Comparison with Stop-and-Wait Protocol\n- Go-Back-N can be seen as an extension of the Stop-and-Wait protocol, where the send window size is greater than 1, allowing multiple packets to be in transit simultaneously.\n\n#### Important Notes:\n- The size of the send window must be less than 2^m to avoid errors in packet delivery, ensuring that the receiver can correctly identify and discard duplicate packets.\n\nThis explanation should provide a clear and concise understanding of how the Go-Back-N protocol operates.",
+      "styleAttributes": {},
+      "x": -1540,
+      "y": 1040,
+      "width": 840,
+      "height": 820
+    }
+  ],
+  "edges": [
+    {
+      "id": "2c9de1dbce4ad41b",
+      "styleAttributes": {},
+      "fromNode": "cd2e47ecaf671f17",
+      "fromSide": "right",
+      "toNode": "cd9267174b76f3cc",
+      "toSide": "left",
+      "color": "2"
+    },
+    {
+      "id": "295b0b02444f228d",
+      "styleAttributes": {},
+      "fromNode": "da4db940c53b9a8e",
+      "fromSide": "right",
+      "toNode": "cd2e47ecaf671f17",
+      "toSide": "left",
+      "color": "6"
+    },
+    {
+      "id": "1c4ed03dc8d7c718",
+      "styleAttributes": {},
+      "fromNode": "da4db940c53b9a8e",
+      "fromSide": "right",
+      "toNode": "4206ee9fc15bb064",
+      "toSide": "left",
+      "color": "6"
+    },
+    {
+      "id": "f16cbd31368f8799",
+      "styleAttributes": {},
+      "fromNode": "4206ee9fc15bb064",
+      "fromSide": "right",
+      "toNode": "eab9eec3a6077532",
+      "toSide": "left",
+      "color": "2"
+    },
+    {
+      "id": "90b448a876701dd1",
+      "styleAttributes": {},
+      "fromNode": "4206ee9fc15bb064",
+      "fromSide": "right",
+      "toNode": "45d57eef03283f1d",
+      "toSide": "left",
+      "color": "2"
+    },
+    {
+      "id": "050b70f53cb29ba9",
+      "styleAttributes": {},
+      "fromNode": "be5640654aeb131f",
+      "fromSide": "right",
+      "toNode": "45d57eef03283f1d",
+      "toSide": "left",
+      "color": "2"
+    },
+    {
+      "id": "92ec212aa2421f26",
+      "styleAttributes": {},
+      "fromNode": "eab9eec3a6077532",
+      "fromSide": "right",
+      "toNode": "f52572967ec325ac",
+      "toSide": "left",
+      "color": "#bd2dc8"
+    },
+    {
+      "id": "e79750f60d6976ed",
+      "styleAttributes": {},
+      "fromNode": "45d57eef03283f1d",
+      "fromSide": "right",
+      "toNode": "f52572967ec325ac",
+      "toSide": "left",
+      "color": "#8b15a2"
+    },
+    {
+      "id": "f9a56cfa83ddd43d",
+      "styleAttributes": {},
+      "fromNode": "1435618eeed4b8d6",
+      "fromSide": "right",
+      "toNode": "da4db940c53b9a8e",
+      "toSide": "left",
+      "color": "1"
+    },
+    {
+      "id": "e639373b5037f0f2",
+      "styleAttributes": {},
+      "fromNode": "da4db940c53b9a8e",
+      "fromSide": "right",
+      "toNode": "be5640654aeb131f",
+      "toSide": "left",
+      "color": "6"
+    },
+    {
+      "id": "eee6869bef163f6d",
+      "styleAttributes": {},
+      "fromNode": "577c8a8a28e11072",
+      "fromSide": "right",
+      "toNode": "0c383f8f2690266f",
+      "toSide": "left",
+      "color": "2"
+    },
+    {
+      "id": "91d5df28e258c6bc",
+      "styleAttributes": {},
+      "fromNode": "577c8a8a28e11072",
+      "fromSide": "right",
+      "toNode": "8834d364a46ed0ee",
+      "toSide": "left",
+      "color": "2"
+    },
+    {
+      "id": "9b9e23d2d70eb059",
+      "styleAttributes": {},
+      "fromNode": "da4db940c53b9a8e",
+      "fromSide": "right",
+      "toNode": "e8cbb6e1a8c52e05",
+      "toSide": "left",
+      "color": "6"
+    },
+    {
+      "id": "0d80b4f12d2f441a",
+      "styleAttributes": {},
+      "fromNode": "4cddfdb5a438a401",
+      "fromSide": "right",
+      "toNode": "7621323c0e7347e9",
+      "toSide": "left",
+      "color": "2"
+    },
+    {
+      "id": "809993917b55ff4a",
+      "styleAttributes": {},
+      "fromNode": "4cddfdb5a438a401",
+      "fromSide": "right",
+      "toNode": "1a74796959327dd1",
+      "toSide": "left",
+      "color": "2"
+    },
+    {
+      "id": "c29394eed487b2cf",
+      "styleAttributes": {},
+      "fromNode": "da4db940c53b9a8e",
+      "fromSide": "right",
+      "toNode": "67b64ea697c3ee6e",
+      "toSide": "left",
+      "color": "6"
+    },
+    {
+      "id": "442ce47dba6dc333",
+      "styleAttributes": {},
+      "fromNode": "577c8a8a28e11072",
+      "fromSide": "bottom",
+      "toNode": "daa03c17152184f0",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "b2f5166cdede6370",
+      "styleAttributes": {},
+      "fromNode": "8dda0da2105effe0",
+      "fromSide": "right",
+      "toNode": "b5ca279e7e7a1e7b",
+      "toSide": "left",
+      "color": "2"
+    },
+    {
+      "id": "503e33741ea40b5f",
+      "styleAttributes": {},
+      "fromNode": "8dda0da2105effe0",
+      "fromSide": "right",
+      "toNode": "86c82924575c8df7",
+      "toSide": "left",
+      "color": "2"
+    },
+    {
+      "id": "c7f51dca1ccdaf6a",
+      "styleAttributes": {},
+      "fromNode": "8dda0da2105effe0",
+      "fromSide": "right",
+      "toNode": "60a214afd2b8521b",
+      "toSide": "left",
+      "color": "2"
+    },
+    {
+      "id": "929835ac81816381",
+      "styleAttributes": {},
+      "fromNode": "da4db940c53b9a8e",
+      "fromSide": "right",
+      "toNode": "655e69ed93261383",
+      "toSide": "left",
+      "color": "6"
+    },
+    {
+      "id": "b6799aa38b1c6595",
+      "styleAttributes": {},
+      "fromNode": "8dda0da2105effe0",
+      "fromSide": "bottom",
+      "toNode": "1352c28789bd162b",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "165f2844018c9b73",
+      "styleAttributes": {},
+      "fromNode": "5adbf52a1bbe8f03",
+      "fromSide": "right",
+      "toNode": "6903577a0f72d242",
+      "toSide": "left",
+      "color": "2"
+    },
+    {
+      "id": "46df981ece439dee",
+      "styleAttributes": {},
+      "fromNode": "5adbf52a1bbe8f03",
+      "fromSide": "right",
+      "toNode": "d04d5d7f909b693e",
+      "toSide": "left",
+      "color": "2"
+    },
+    {
+      "id": "7b20e0de0ecbeb15",
+      "styleAttributes": {},
+      "fromNode": "da4db940c53b9a8e",
+      "fromSide": "right",
+      "toNode": "0fa62f73838ea334",
+      "toSide": "left",
+      "color": "6"
+    },
+    {
+      "id": "9fbc2d25a2923beb",
+      "styleAttributes": {},
+      "fromNode": "da4db940c53b9a8e",
+      "fromSide": "right",
+      "toNode": "6d6d29869ba9c4b9",
+      "toSide": "left",
+      "color": "6"
+    },
+    {
+      "id": "4e25e936bd094e74",
+      "styleAttributes": {},
+      "fromNode": "da4db940c53b9a8e",
+      "fromSide": "right",
+      "toNode": "e8191bc828184fb0",
+      "toSide": "left",
+      "color": "6"
+    },
+    {
+      "id": "df2356fddff61a9c",
+      "styleAttributes": {},
+      "fromNode": "da4db940c53b9a8e",
+      "fromSide": "right",
+      "toNode": "c0b7b71f9375ad6f",
+      "toSide": "left",
+      "color": "6"
+    },
+    {
+      "id": "89515b96f2a5d6cb",
+      "styleAttributes": {},
+      "fromNode": "e8feed2502eb5f68",
+      "fromSide": "left",
+      "toNode": "beb8a0edca1ee70c",
+      "toSide": "right",
+      "color": "6"
+    },
+    {
+      "id": "14d95554ff3de25c",
+      "styleAttributes": {},
+      "fromNode": "e8feed2502eb5f68",
+      "fromSide": "left",
+      "toNode": "e78abc23fbc9e21c",
+      "toSide": "right",
+      "color": "6"
+    },
+    {
+      "id": "2207115a4092e0e0",
+      "styleAttributes": {},
+      "fromNode": "e8feed2502eb5f68",
+      "fromSide": "left",
+      "toNode": "da2cd2edc031cd2e",
+      "toSide": "right",
+      "color": "6"
+    },
+    {
+      "id": "9364bb25cb1fa220",
+      "styleAttributes": {},
+      "fromNode": "e8feed2502eb5f68",
+      "fromSide": "left",
+      "toNode": "d5949f4869b61756",
+      "toSide": "right",
+      "color": "6"
+    },
+    {
+      "id": "9596c7ca0c8aa879",
+      "styleAttributes": {},
+      "fromNode": "536eb96b53897f35",
+      "fromSide": "left",
+      "toNode": "0624879ba44d1e2e",
+      "toSide": "right"
+    },
+    {
+      "id": "0243b7ef4e99e2bf",
+      "styleAttributes": {},
+      "fromNode": "536eb96b53897f35",
+      "fromSide": "left",
+      "toNode": "24c528d96373e714",
+      "toSide": "right"
+    },
+    {
+      "id": "8a1c578a78bb69bf",
+      "styleAttributes": {},
+      "fromNode": "ee61806a9f01f9be",
+      "fromSide": "left",
+      "toNode": "fc248299add62aac",
+      "toSide": "right"
+    },
+    {
+      "id": "5fc3d2725e397ee6",
+      "styleAttributes": {},
+      "fromNode": "fc248299add62aac",
+      "fromSide": "bottom",
+      "toNode": "df1699b70116fff2",
+      "toSide": "top"
+    },
+    {
+      "id": "0dfd753f02e60add",
+      "styleAttributes": {},
+      "fromNode": "712bf7c634816e3e",
+      "fromSide": "right",
+      "toNode": "d8874b0a420f2fe7",
+      "toSide": "left"
+    },
+    {
+      "id": "f93ed5f4bf203c38",
+      "styleAttributes": {},
+      "fromNode": "ca57c99189fb8824",
+      "fromSide": "bottom",
+      "toNode": "d8874b0a420f2fe7",
+      "toSide": "top"
+    }
+  ],
+  "metadata": {}
+}

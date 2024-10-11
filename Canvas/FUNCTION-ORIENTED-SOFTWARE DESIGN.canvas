@@ -1,0 +1,334 @@
+{
+  "nodes": [
+    {
+      "id": "dd8fe3b440c1c181",
+      "type": "group",
+      "styleAttributes": {},
+      "x": 3293,
+      "y": 20,
+      "width": 1387,
+      "height": 2580,
+      "color": "5",
+      "label": "level-1"
+    },
+    {
+      "id": "7d6de5ae2daef9a5",
+      "type": "group",
+      "styleAttributes": {},
+      "x": 2020,
+      "y": 20,
+      "width": 1080,
+      "height": 1445,
+      "color": "5",
+      "label": "context-diagram"
+    },
+    {
+      "id": "f7349e70f03dd3e6",
+      "type": "group",
+      "styleAttributes": {},
+      "x": 1180,
+      "y": -40,
+      "width": 720,
+      "height": 900,
+      "color": "5",
+      "label": "data-flow-diagrams"
+    },
+    {
+      "id": "b729287c56e0401b",
+      "type": "group",
+      "styleAttributes": {},
+      "x": -427,
+      "y": -200,
+      "width": 834,
+      "height": 720,
+      "color": "5",
+      "label": "methodology"
+    },
+    {
+      "id": "0dc0f0b796b7df10",
+      "type": "text",
+      "text": "# STRUCTURED ANALYSIS",
+      "styleAttributes": {},
+      "x": 520,
+      "y": -420,
+      "width": 520,
+      "height": 120,
+      "color": "1"
+    },
+    {
+      "id": "5ffab0164bb93564",
+      "type": "text",
+      "text": "### 6.2 STRUCTURED ANALYSIS\n\nDuring structured analysis, the system's major processing tasks (high-level functions) are analyzed, and the data flow between these tasks is represented graphically. Significant contributions to structured analysis techniques were made by Gane and Sarson (1979) and DeMarco and Yourdon (1978). The technique is based on a top-down decomposition approach and applies the divide and conquer principle, where each high-level function is independently broken down into more detailed functions. The results of the analysis are graphically represented using Data Flow Diagrams (DFDs). \n\nA DFD is a simple yet powerful tool that effectively handles the complexity of industry-standard problems. However, it only represents the data flow aspects and does not depict the sequence of function execution or the conditions under which a function is executed. Control flow and specific algorithms are also ignored. In DFD terminology, each function is referred to as a process or bubble, acting as a processing station that consumes input data and produces output data.\n",
+      "styleAttributes": {},
+      "x": 440,
+      "y": -60,
+      "width": 680,
+      "height": 440,
+      "color": "4"
+    },
+    {
+      "id": "44832f5d245198e5",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240910091424.png",
+      "styleAttributes": {},
+      "x": -407,
+      "y": 240,
+      "width": 794,
+      "height": 260
+    },
+    {
+      "id": "a0aa19424f91cbc0",
+      "type": "text",
+      "text": "The SA/SD (Structured Analysis/Structured Design) methodology involves two key activities: analyzing and designing systems. These activities are often carried out using a top-down decomposition approach, which means breaking down high-level functions into more detailed functions.\n\n### Learning Objectives:\n1. Understand basic concepts in structured analysis (SA) and structured design (SD).\n2. Develop a Data Flow Diagram (DFD) model of a system.\n3. Transform the DFD model into a structure chart model.\n\n### Structured Analysis (SA):\n- SA transforms the Software Requirements Specification (SRS) document into a graphic model known as a Data Flow Diagram (DFD).\n- It involves functional decomposition, where the system's functions are analyzed and broken down hierarchically into more detailed functions.\n\n### Structured Design (SD):\n- SD takes the functions identified in the DFD model and maps them to a module structure, also known as high-level design or software architecture.\n- The module structure is represented using a structure chart.\n- This high-level design is followed by a detailed design stage, where algorithms and data structures for individual modules are designed and implemented using conventional programming languages.\n\n### Benefits:\n- The results of structured analysis are user-friendly, as functions and data are named using the user's terminology.\n- Users can review and verify that the analysis captures all their requirements.\n\nNext, we'll explore how to carry out structured analysis to construct the DFD model and discuss its role in simplifying the design process.",
+      "styleAttributes": {},
+      "x": -280,
+      "y": -180,
+      "width": 540,
+      "height": 340
+    },
+    {
+      "id": "45629704aa166d29",
+      "type": "text",
+      "text": "# OVERVIEW OF SA/SD METHODOLOGY",
+      "styleAttributes": {},
+      "x": -280,
+      "y": -420,
+      "width": 540,
+      "height": 120,
+      "color": "4"
+    },
+    {
+      "id": "ce2b993d8fbfb69e",
+      "type": "text",
+      "text": "### 6.2.1 Data Flow Diagrams (DFDs)\n\nA Data Flow Diagram (DFD), also known as a bubble chart, is a simple graphical tool used to represent a system by showing the input data, the processing performed on that data, and the output generated by the system. DFDs are popular due to their simplicity, making them easy to understand and use. They use a limited set of primitive symbols to represent the functions performed by a system and the data flow between those functions.\n\nThe DFD model is built hierarchically, starting with high-level functions and breaking them down into subfunctions through different levels of diagrams. This hierarchical approach helps manage complexity by gradually introducing system details. DFDs are based on simple, intuitive concepts and rules.\n\nThere are five main types of symbols used in constructing DFDs:\n\n1. **Function Symbol (Process/Bubble)**: Represented by a circle, this symbol shows a function that consumes input data and produces output data.\n2. **External Entity Symbol**: Represented by a rectangle, this symbol shows entities outside the system that interact with it by providing input or consuming output.\n3. **Data Flow Symbol**: Represented by a directed arrow, this symbol shows the flow of data between processes or between a process and an external entity.\n4. **Data Store Symbol**: Represented by two parallel lines, this symbol shows a logical file where data is stored, either as a data structure or a physical file on disk.\n5. **Output Symbol**: This symbol shows when a hard copy is produced.\n\nDFDs can represent both synchronous and asynchronous operations. In synchronous operations, two processes connected directly by a data flow arrow operate at the same speed. In asynchronous operations, two processes are connected through a data store, allowing them to operate independently.\n\nA **Data Dictionary** must accompany every DFD model. It lists all the data items that appear in the DFD model, including data flows and data stores. The data dictionary provides a standard terminology for all relevant data, helps define data structures, and supports impact analysis by determining the effect of data on various processes.\n\n**Data Definition Operators** are used to define composite data items in terms of primitive data items:\n\n- **+**: Composition of two data items (e.g., a+b).\n- **[,,]**: Selection, where any one of the listed data items can occur (e.g., [a, b]).\n- **()**: Optional data that may or may not appear (e.g., a+(b)).\n- **{}**: Iterative definition, representing a specific number or any number of instances of data (e.g., {name}5, {name}*).\n- **=**: Equivalence, showing a composite data item consisting of other items (e.g., a=b+c).\n- **/***: Comments within /* and */.\n\nFor large systems, the data dictionary can become complex and difficult to maintain manually. Computer-Aided Software Engineering (CASE) tools can automatically generate the data dictionary as the DFD is drawn, making the process easier. These tools also support query languages for querying the definition and usage of data items, facilitating impact analysis.",
+      "styleAttributes": {},
+      "x": 1200,
+      "y": -20,
+      "width": 660,
+      "height": 390
+    },
+    {
+      "id": "63fd899fa74fc542",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240910093129.png",
+      "styleAttributes": {},
+      "x": 1200,
+      "y": 400,
+      "width": 680,
+      "height": 440
+    },
+    {
+      "id": "7033289f8b287afd",
+      "type": "text",
+      "text": "# Data Flow Diagrams (DFDs)\n",
+      "styleAttributes": {},
+      "x": 1280,
+      "y": -180,
+      "width": 380,
+      "height": 80
+    },
+    {
+      "id": "976ab7d1a5887074",
+      "type": "text",
+      "text": "The context diagram is the highest-level representation of a system in a Data Flow Diagram (DFD), encapsulating the entire system within a single bubble. This bubble is typically labeled with the system's name (usually a noun) and is the only bubble in the DFD hierarchy where a noun is used. The purpose of this diagram is to define the context in which the system operates, detailing the external entities that interact with the system, the data they provide, and the data they receive.\n\nFor instance, in the context diagram of a supermarket's bookkeeping software, the bubble might be labeled \"Supermarket Software.\" The diagram shows the external entities (e.g., customers, suppliers) interacting with the system and the corresponding data flows between them. Arrows represent the data inputs and outputs, which are annotated with data names.\n\nTo create a context diagram, you analyze the Software Requirements Specification (SRS) document to identify the users of the system, the data they will input, and the data they will receive. This diagram helps establish the system's operational environment, clarifying who interacts with the system and what data flows in and out.",
+      "styleAttributes": {},
+      "x": 2040,
+      "y": 40,
+      "width": 620,
+      "height": 580
+    },
+    {
+      "id": "a581eed9e1bce6cd",
+      "type": "text",
+      "text": "# Context Diagram\n",
+      "styleAttributes": {},
+      "x": 2110,
+      "y": -180,
+      "width": 480,
+      "height": 80
+    },
+    {
+      "id": "2ba6a552053ade2f",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240910093645.png",
+      "styleAttributes": {},
+      "x": 2040,
+      "y": 660,
+      "width": 780,
+      "height": 785
+    },
+    {
+      "id": "b1166fe9074ff8f1",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240910093612.png",
+      "styleAttributes": {},
+      "x": 2680,
+      "y": 40,
+      "width": 400,
+      "height": 281
+    },
+    {
+      "id": "c1518813d4df69d9",
+      "type": "text",
+      "text": "# Level 1 decomposition\n",
+      "styleAttributes": {},
+      "x": 3320,
+      "y": -160,
+      "width": 400,
+      "height": 120
+    },
+    {
+      "id": "6380145bdb58e407",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240910094127.png",
+      "styleAttributes": {},
+      "x": 3320,
+      "y": 855,
+      "width": 893,
+      "height": 1180
+    },
+    {
+      "id": "68b032978ff2d16d",
+      "type": "text",
+      "text": "The Level 1 Data Flow Diagram (DFD) is the next level of detail after the context diagram, and it typically contains three to seven bubbles representing the main functions of the system. These bubbles correspond to high-level functional requirements, which can be identified by analyzing the Software Requirements Specification (SRS) document.\n\n### Steps to Create a Level 1 DFD:\n1. **Identify High-Level Functions:** Start by examining the high-level functional requirements from the SRS. If there are three to seven such functions, represent each as a bubble in the Level 1 DFD. If there are more than seven, combine related functions into single bubbles, which can be further decomposed in subsequent levels. If there are fewer than three, split some high-level functions into subfunctions to maintain a manageable number of bubbles.\n\n2. **Define Data Flow:** For each identified function, determine the data inputs and outputs as described in the SRS. These data flows should be represented as arrows connecting the bubbles to external entities or other bubbles within the system.\n\n3. **Balancing and Decomposition:** Ensure that the DFD is balanced by maintaining consistency in data flows between levels. When decomposing a bubble, the inputs and outputs in the lower-level DFDs must match those in the higher-level diagrams.\n\n### Decomposition and Numbering:\n- **Decomposition:** Each bubble in the DFD represents a function, and decomposition involves breaking down that function into subfunctions. Typically, each function should be decomposed into three to seven subfunctions. If a bubble is decomposed into just one or two subfunctions, the decomposition may be trivial. Too many subfunctions (more than seven) can make the diagram complex and hard to understand.\n- **Numbering:** The bubbles in the DFD should be numbered to indicate their hierarchical relationships. The context diagram is labeled as 0, while Level 1 bubbles are numbered 0.1, 0.2, etc. Lower-level bubbles follow a similar numbering scheme, e.g., 0.1.1, 0.1.2, and so on.\n\n### Example of Balancing:\nBalancing ensures that data flows are consistent across different levels of the DFD. For instance, if a Level 1 bubble has inputs d 1, d 2, and outputs d 3, d 4, the decomposed Level 2 diagram for that bubble must have the same data flows, ensuring that inputs and outputs are maintained throughout.\n\n### When to Stop Decomposition:\nDecomposition should stop when a function can be easily described using a simple algorithm. For simple systems, decomposition up to Level 1 may suffice, while more complex systems may require decomposition up to Level 3 or 4. Decomposition beyond Level 4 is rarely necessary.\n\n### Common Mistakes in DFD Construction:\n- **Multiple Bubbles in Context Diagram:** The context diagram should have only one bubble representing the entire system.\n- **External Entities at Lower Levels:** External entities should only appear in the context diagram, not in lower levels.\n- **Too Few or Too Many Bubbles:** Each level should have between three and seven bubbles.\n- **Unbalanced DFDs:** Ensure that data flows are consistent across all levels.\n- **Control Information in DFDs:** DFDs should represent data flow, not control flow or logic.\n\nBy following these guidelines, you can systematically create a Level 1 DFD that is balanced, clear, and representative of the system's main functions.",
+      "styleAttributes": {},
+      "x": 3313,
+      "y": 40,
+      "width": 1007,
+      "height": 720
+    },
+    {
+      "id": "883e44a57e40b9cc",
+      "type": "text",
+      "text": "Structured design aims to transform the results of structured analysis (typically represented by Data Flow Diagrams or DFDs) into a structure chart that outlines the software architecture. The structure chart helps to visualize the modules of a system, their dependencies, and how data flows between them. Here’s a summary of key concepts related to structure charts:\n\n### **Key Components of Structure Charts**\n\n1. **Rectangular Boxes:**\n   - Represent individual modules or functions within the system.\n   - Each box is annotated with the name of the module it represents.\n\n2. **Module Invocation Arrows:**\n   - Arrows connecting two modules indicate that control is passed from one module to another during execution.\n   - The arrows do not specify whether the module is called once or multiple times, nor do they indicate the exact order of module invocation.\n\n3. **Data Flow Arrows:**\n   - Small arrows next to module invocation arrows show the direction of data flow between modules.\n   - They are annotated with the names of the data being transferred.\n\n4. **Library Modules:**\n   - Represented by rectangles with double edges.\n   - These modules are frequently called by other modules and are often part of a standard library.\n\n5. **Selection (Diamond Symbol):**\n   - Represents a decision point where one of several modules is invoked based on a condition.\n   - The outcome of the condition determines which module is executed.\n\n6. **Repetition (Loop):**\n   - Indicated by a loop around control flow arrows.\n   - Shows that the modules within the loop are invoked repeatedly.\n\n### **Structure Chart Guidelines**\n\n- **Single Top Module (Root):**\n  - There should be only one top-level module, called the root, from which other modules are invoked.\n\n- **No Circular Dependencies:**\n  - A module should not invoke another module that, directly or indirectly, invokes the original module. This restriction prevents circular dependencies and maintains a clear hierarchical structure.\n\n- **Layered Design:**\n  - Modules should be organized into layers or levels, with lower-level modules being used by higher-level ones, but not vice versa.\n\n### **Structure Chart vs. Flow Chart**\n\n1. **Modularity:**\n   - **Structure Chart:** Clearly identifies modules and their interactions.\n   - **Flow Chart:** Focuses on the sequence of operations and decision-making within a single process.\n\n2. **Data Interchange:**\n   - **Structure Chart:** Shows how data flows between modules.\n   - **Flow Chart:** Does not explicitly represent data interchange between modules.\n\n3. **Sequential Ordering:**\n   - **Structure Chart:** Does not inherently show the sequential order of operations.\n   - **Flow Chart:** Clearly depicts the order of operations and control flow.\n\nIn summary, structure charts provide a high-level view of a system’s architecture, focusing on modules and their interactions, while flow charts are more concerned with the sequential flow of control within individual processes.",
+      "styleAttributes": {},
+      "x": 4840,
+      "y": 40,
+      "width": 800,
+      "height": 620
+    },
+    {
+      "id": "e44025e07a4ea4dc",
+      "type": "text",
+      "text": "# STRUCTURED DESIGN",
+      "styleAttributes": {},
+      "x": 4960,
+      "y": -220,
+      "width": 440,
+      "height": 120
+    },
+    {
+      "id": "1a166ef404257001",
+      "type": "file",
+      "file": "Source Materials/Pasted image 20240910100232.png",
+      "styleAttributes": {},
+      "x": 4840,
+      "y": 1320,
+      "width": 960,
+      "height": 1258
+    },
+    {
+      "id": "1391f3c59095558e",
+      "type": "text",
+      "text": "![[Pasted image 20240910095724.png]]",
+      "styleAttributes": {},
+      "x": 3320,
+      "y": 2035,
+      "width": 700,
+      "height": 520
+    },
+    {
+      "id": "2a11ac26d0e259e7",
+      "type": "text",
+      "text": "### Detailed Design\n\nIn the detailed design phase, we create specific instructions for each module identified in the structure chart. This includes:\n\n1. **Pseudo Code**: This is a simplified version of the actual code that describes how each module should work. For modules that call other modules (non-leaf), the pseudo code outlines how tasks are handed off. For modules that do basic tasks (leaf-level), the pseudo code describes the exact steps they will perform.\n\n2. **Data Structures**: We design the formats and methods for storing and accessing data in each module. This ensures data is managed efficiently.\n\nBoth pseudo code and data structures are based on the earlier DFD and SRS documents to ensure the design meets all requirements.\n\n### Design Review\n\nAfter completing the design, it is reviewed to ensure quality. The review team, including members from design, implementation, testing, and maintenance, checks:\n\n1. **Traceability**: Ensures each design element maps back to the original requirements and DFD.\n2. **Correctness**: Verifies that the algorithms and data structures are accurate.\n3. **Maintainability**: Assesses whether the design can be easily updated in the future.\n4. **Implementation**: Checks if the design can be implemented effectively.\n\nOnce any issues are addressed, the design is finalized and ready for implementation.",
+      "styleAttributes": {},
+      "x": 5880,
+      "y": 40,
+      "width": 840,
+      "height": 760
+    },
+    {
+      "id": "f8930bb42255fe5b",
+      "type": "text",
+      "text": "# Detailed Design\n",
+      "styleAttributes": {},
+      "x": 5940,
+      "y": -220,
+      "width": 380,
+      "height": 120
+    },
+    {
+      "id": "129cc14dc6ca4bb2",
+      "type": "text",
+      "text": "To decide whether to apply **transform analysis** or **transaction analysis** for a given Data Flow Diagram (DFD), you need to evaluate the way data flows and is processed within the system. Here’s a simplified approach to making this decision:\n\n### **Deciding Between Transform Analysis and Transaction Analysis**\n\n1. **Examine Data Flow:**\n   - Look at how data flows into the system. In a DFD, input data is represented by arrows coming into the diagram.\n\n2. **Identify Processing Patterns:**\n   - **Transform Analysis:** If all incoming data flows are processed in similar ways (i.e., all input data flows converge on the same process or bubble), then transform analysis is suitable. Transform analysis is typically used when the processing is straightforward and uniform, often applicable at lower levels of a DFD where each function is simple and can be implemented with minimal code.\n   - **Transaction Analysis:** If different incoming data flows are processed in different ways (i.e., each input data flow might go through different processes), then transaction analysis is appropriate. This approach is used when there are distinct ways of handling different types of transactions or functionalities.\n\n### **Transform Analysis**\n\n**Objective:** To identify and structure the primary functional components and their data flows.\n\n**Steps:**\n\n1. **Divide the DFD into Three Parts:**\n   - **Input:** The parts of the DFD that transform input data from its physical form (e.g., characters from a terminal) to a logical form (e.g., internal tables).\n   - **Processing:** Central processing areas where the main transformations occur.\n   - **Output:** The parts of the DFD that convert logical data back into its physical form (e.g., generating reports).\n\n2. **Create the Initial Structure Chart:**\n   - Draw a root module and then add modules for the central transform, input branches (afferent branches), and output branches (efferent branches).\n\n3. **Refine the Structure Chart:**\n   - Add sub-functions required for each high-level component, such as read and write operations, error handling, initialization, and termination processes.\n   - Continue refining until all DFD components are represented in the structure chart.\n\n**Note:** Transform analysis is generally applied to simple processing scenarios and is suitable for lower levels of DFDs.\n\n### **Transaction Analysis**\n\n**Objective:** To handle scenarios where multiple types of transactions or processes are involved, each requiring different handling.\n\n**Key Considerations:**\n   - Identify different transactions based on how data is processed.\n   - Each transaction might correspond to a separate functional module or component.\n   - This approach is useful for complex systems where different transactions or processes need to be managed separately.\n\n**Usage:** Transaction analysis is applied to higher-level or more complex systems where processing varies significantly between different inputs or transactions.\n\n### **Summary**\n\n- **Transform Analysis** is best when all data is processed uniformly, and the system's processing is straightforward.\n- **Transaction Analysis** is suitable when different types of data require different processing methods.\n\nBy evaluating the nature of data processing in your DFD, you can choose the appropriate analysis method to effectively design and structure your system.",
+      "styleAttributes": {},
+      "x": 4840,
+      "y": 760,
+      "width": 880,
+      "height": 460
+    }
+  ],
+  "edges": [
+    {
+      "id": "191fa29adf597636",
+      "styleAttributes": {},
+      "fromNode": "45629704aa166d29",
+      "fromSide": "bottom",
+      "toNode": "a0aa19424f91cbc0",
+      "toSide": "top",
+      "color": "4"
+    },
+    {
+      "id": "55be47d421a41b91",
+      "styleAttributes": {},
+      "fromNode": "0dc0f0b796b7df10",
+      "fromSide": "bottom",
+      "toNode": "7033289f8b287afd",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "69fa08fc5e5f0f3b",
+      "styleAttributes": {},
+      "fromNode": "0dc0f0b796b7df10",
+      "fromSide": "bottom",
+      "toNode": "5ffab0164bb93564",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "431c32e0333cb27b",
+      "styleAttributes": {},
+      "fromNode": "a581eed9e1bce6cd",
+      "fromSide": "bottom",
+      "toNode": "976ab7d1a5887074",
+      "toSide": "top"
+    },
+    {
+      "id": "5840abd9037cdfaa",
+      "styleAttributes": {},
+      "fromNode": "0dc0f0b796b7df10",
+      "fromSide": "bottom",
+      "toNode": "a581eed9e1bce6cd",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "703013eea38ab17a",
+      "styleAttributes": {},
+      "fromNode": "e44025e07a4ea4dc",
+      "fromSide": "bottom",
+      "toNode": "883e44a57e40b9cc",
+      "toSide": "top"
+    },
+    {
+      "id": "c43f0e6b1eb03115",
+      "styleAttributes": {},
+      "fromNode": "f8930bb42255fe5b",
+      "fromSide": "bottom",
+      "toNode": "2a11ac26d0e259e7",
+      "toSide": "top"
+    }
+  ],
+  "metadata": {}
+}

@@ -1,0 +1,238 @@
+{
+  "main": {
+    "id": "4cb36c31638c9126",
+    "type": "split",
+    "children": [
+      {
+        "id": "415e3490e28c5b91",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a4aea06b2d400dbc",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "Skills/Web-Development.canvas",
+                "viewState": {
+                  "x": 0,
+                  "y": 0,
+                  "zoom": 0
+                }
+              }
+            }
+          },
+          {
+            "id": "1b99b69534271b04",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2f2aa4c6786a3b45",
+    "type": "split",
+    "children": [
+      {
+        "id": "3689af328f6e518c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "623a15f7e2106a4b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "ff369f77fced7f2b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "364526f4e29f1ba2",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          },
+          {
+            "id": "c58e6e3dbc55b1d4",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "ec62eb0ff26e57e6",
+    "type": "split",
+    "children": [
+      {
+        "id": "2db2bb067d7b89df",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b58671765293eaed",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Skills/Web-Development.canvas",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "d71e653b1318c4f5",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Skills/Web-Development.canvas",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "e327d174929d5484",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "847522a8cdf25d5b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Skills/Web-Development.canvas"
+              }
+            }
+          },
+          {
+            "id": "8a62025ec9a13a2a",
+            "type": "leaf",
+            "state": {
+              "type": "mermaid-toolbar-view",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "mermaid-tools:Open Mermaid Toolbar": false
+    }
+  },
+  "active": "a4aea06b2d400dbc",
+  "lastOpenFiles": [
+    "Canvas/Ideathon.canvas",
+    "Skills/Web-Development.canvas",
+    "Skills",
+    "blockchain/Untitled.canvas",
+    "4 - main_notes/QUESTIONS AND ANSWERS - REQUIREMENTS ANALYSIS AND SPECIFICATION.md",
+    "4 - main_notes/QUESTION AND ANSWERS.md",
+    "Canvas/Distributed OS Chapter 1.canvas",
+    "Canvas/Distributed OS Chapter 3.canvas",
+    "source-images/Pasted image 20240917123229.png",
+    "1 - rough_notes/CN-Chapters.md",
+    "4 - main_notes/QUESTIONS AND ANSWERS - OBJECT ORIENTED MODELLING USING UML.md",
+    "4 - main_notes/Distributed Operating Systems.md",
+    "Canvas/COMPUTATIONAL-INTELLIGENCE.canvas",
+    "blockchain",
+    "Canvas/Distributed OS Chapter 2.canvas",
+    "Canvas/EcO.canvas",
+    "Canvas/SOFTWARE LIFE CYCLE MODELS.canvas",
+    "source-images/Pasted image 20240923010437.png",
+    "source-images/Pasted image 20240923010413.png",
+    "source-images/Pasted image 20240923003728.png",
+    "source-images/Pasted image 20240923003605.png",
+    "source-images/Pasted image 20240923003600.png",
+    "source-images/Pasted image 20240922215540.png",
+    "source-images/Pasted image 20240922215424.png",
+    "source-images/Pasted image 20240922202911.png",
+    "source-images/Pasted image 20240922202846.png",
+    "Canvas/REQUIREMENTS ANALYSIS AND SPECIFICATION.canvas",
+    "Canvas/SOFTWARE-PROJECT-MANAGEMENT.canvas",
+    "Canvas/MEMORIZATION.md",
+    "Excalidraw/Drawing 2024-09-13 11.23.13.excalidraw.md",
+    "4 - main_notes/Computer Networks.md",
+    "4 - main_notes/Software Engineering Memorization.md",
+    "Excalidraw/Drawing 2024-09-13 09.32.53.excalidraw.md",
+    "4 - main_notes/2024-09-05.md",
+    "4 - main_notes/2024-09-03.md",
+    "Excalidraw/Drawing 2024-09-01 13.45.18.excalidraw.md",
+    "Excalidraw/Drawing 2024-09-01 02.47.54.excalidraw.md",
+    "Canvas/Transport Layer Mind Map.md",
+    "Source Materials/1-Chapter.md",
+    "Excalidraw",
+    "source-images",
+    "4 - main_notes/main land tale.md",
+    "Source Materials/Drawing 2024-08-31 12.30.23.excalidraw.md",
+    "Tags/person.md",
+    "Canvas",
+    "4 - main_notes/2024-08-31.md",
+    "Excalidraw/Drawing 2024-08-31 12.25.38.excalidraw.md",
+    "DigiLocker/Issued/cisce.org-HPCER-227055844.pdf",
+    "Anubhav/Untitled.md",
+    "Anubhav/Time table.md",
+    "Excalidraw/Drawing 2024-08-30 23.15.06.excalidraw.md",
+    "1 - rough_notes/Github.md",
+    "4 - main_notes",
+    "Source Materials/Tags",
+    "Source Materials",
+    "1 - rough_notes"
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "main": {
+    "id": "dd8d9e0ea964d835",
+    "type": "split",
+    "children": [
+      {
+        "id": "9f883d0b4f01a978",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3316d7a56f305f03",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "Canvas/Computer Network - Application Layer  Mind Map.canvas",
+                "viewState": {
+                  "x": 2714.348183570497,
+                  "y": 15209.482400074157,
+                  "zoom": -2.695712688600615
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d4ce9fc790b4f60d",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "82cd1e1513321235",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "15e7922f0a7a65da",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "306f0483639f1799",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true
+          }
+        }
+      },
+      {
+        "id": "98401b4e6c42f804",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {}
+        }
+      },
+      {
+        "id": "031cada301069eb5",
+        "type": "leaf",
+        "state": {
+          "type": "recent-files",
+          "state": {}
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "25673a80198cd727",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "796029da06c94d38",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "Canvas/Computer Network - Application Layer  Mind Map.canvas",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "9b9af757ec8b4ac8",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "file": "Canvas/Computer Network - Application Layer  Mind Map.canvas",
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "b433831f70e09624",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "Canvas/Computer Network - Application Layer  Mind Map.canvas"
+          }
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
+    }
+  },
+  "active": "3316d7a56f305f03",
+  "lastOpenFiles": [
+    "4 - main_notes/main land tale.md",
+    "source-images/Pasted image 20240901041659.png",
+    "source-images/Pasted image 20240901031214.png",
+    "source-images/Pasted image 20240831200309.png",
+    "4 - main_notes/Computer Networks.md",
+    "4 - main_notes/Distributed Operating Systems.md",
+    "source-images/Pasted image 20240901033228.png",
+    "source-images/Pasted image 20240831223602.png",
+    "source-images/Pasted image 20240901033647.png",
+    "Source Materials/1-Chapter.md",
+    "source-images/Pasted image 20240901030841.png",
+    "Canvas/Computer Network - Application Layer  Mind Map.canvas",
+    "source-images/Pasted image 20240901031254.png",
+    "source-images/Pasted image 20240831184603.png",
+    "Excalidraw/Drawing 2024-09-01 02.47.54.excalidraw.md",
+    "source-images/Pasted image 20240901030312.png",
+    "source-images",
+    "Tags",
+    "Source Materials",
+    "Canvas",
+    "4 - main_notes/Untitled.md"
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "nodes": [
+    {
+      "id": "4a50fac43e57b3e0",
+      "type": "text",
+      "text": "### Overview of the Internet\n\nThe Internet is not a single network but a collection of interconnected networks, known as an internetwork. This section introduces networks, how they connect to form internetworks, and the structure of the Internet.\n\n#### Networks\nA **network** connects communication devices like computers, phones, or routers. Devices are linked using wired or wireless connections. For example, two home computers connected via a router create a small network.\n\nA **Local Area Network (LAN)** is a private network that connects devices like computers, printers, and audio/video equipment within a small area, such as an office, building, or campus.\n\n### Key Points:\n1. **Addressing**: Each device (host) in a LAN has a unique address for communication.\n2. **Packet Transmission**: When one device sends data (a packet), it includes both the sender's and receiver's addresses.\n3. **Switches**: Modern LANs use **switches** that send data only to the intended recipient, unlike older systems where all devices received the packet, but only the recipient kept it. Switches reduce traffic and allow multiple devices to communicate simultaneously.\n\n### Purpose:\nLANs were originally used to share resources (like printers) between devices, but now they are often connected to larger networks, like **Wide Area Networks (WANs)**, for broader communication.\n\n\n\nA **Wide Area Network (WAN)** is a network that connects devices over large geographical areas, such as across cities, states, countries, or even globally. It differs from a Local Area Network (LAN) in the following ways:\n\n### Key Differences from LAN:\n1. **Geographical Span**: While a LAN covers a small area like an office or campus, a WAN spans much larger areas (e.g., across cities or countries).\n2. **Devices**: A LAN connects hosts (devices like computers), while a WAN connects networking devices like **routers**, **switches**, or **modems**.\n3. **Ownership**: A LAN is usually owned and managed by a private organization. In contrast, a WAN is typically managed by **communication companies** and leased by organizations.\n\n### Types of WAN:\n1. **Point-to-Point WAN**: Directly connects two devices using a transmission medium like a cable or wireless link.\n   - Example: A dedicated line connecting two offices in different cities.\n\n2. **Switched WAN**: Involves multiple connection points (switches), making it possible to connect many devices. It is used as a backbone for global communication.\n   - Example: The Internet backbone is a switched WAN that connects networks worldwide.\n\nIn summary, a WAN is designed to cover large distances and connect multiple networks, often through telecommunication companies.\n\nAn **internetwork** (or internet) is the connection of two or more distinct networks, such as Local Area Networks (LANs) or Wide Area Networks (WANs), allowing devices on different networks to communicate. This setup enables communication across broader areas, such as between different buildings, offices, or even countries.\n\n### Key Points Explained:\n\n1. **Example Scenario**: \n   - Suppose a company has offices on both the east and west coasts of the country. Each office has its own LAN, where employees within the office can communicate.\n   - To enable communication between these two offices, the company leases a **point-to-point WAN** from a service provider (like a telephone company). This WAN connects the two LANs, creating an **internetwork**. Now, employees from either coast can send messages or share files as if they were on the same network.\n\n2. **Routers and Switches**:\n   - **Switches** operate within a LAN, directing data to the appropriate devices within the local network.\n   - **Routers** connect different networks (such as LANs or WANs) and direct traffic between them. In the above scenario, when an employee on the east coast sends data to the west coast, a **router** directs the data across the WAN connection to the other LAN.\n\n3. **Private Internet vs. Global Internet**:\n   - A **private internet** refers to an internetwork specific to an organization, such as the connection between two office LANs using a private WAN.\n   - The **global Internet** (with a capital \"I\") connects millions of networks globally, making it possible for users across the world to communicate and access information.\n\nIn summary, an internetwork bridges different networks, allowing seamless communication across geographically distant locations, whether within a private organization or across the global Internet.\n\n### Switching in Networks\n\nSwitching is the process of directing data from one part of a network to another. In an internetwork, this involves using switches to manage data flow between various links. There are two main types of switching networks: **circuit-switched** and **packet-switched** networks.\n\n#### Circuit-Switched Network\n\n- **Concept**: \n  - A dedicated communication path, or **circuit**, is established between two end systems for the duration of their communication. This path is always available for their use, though it can be activated or deactivated by the switch.\n  \n- **Example**: \n  - In traditional telephone networks, circuit switching was commonly used. For instance, if you make a call between two telephones, a dedicated circuit is set up for the call.\n\n- **Efficiency**:\n  - The network is efficient when fully utilized, but it may be inefficient if the capacity is not fully used. For instance, if four telephone lines are available but only one call is made, the remaining capacity is wasted.\n\n- **Visual Representation**:\n  - In a circuit-switched network, you might see a diagram with switches connecting telephone sets, and a high-capacity line linking the switches. The line can handle multiple communications at once but is dedicated to the calls for its duration.\n\n#### Packet-Switched Network\n\n- **Concept**:\n  - Data is divided into blocks called **packets**. Each packet travels independently through the network and can be stored and forwarded as needed. This approach allows for more efficient use of the network’s resources.\n\n- **Example**:\n  - Computer networks, such as the Internet, use packet switching. When you send an email, it's broken into packets that travel through the network and are reassembled at the destination.\n\n- **Efficiency**:\n  - Packet-switched networks are generally more efficient because they utilize network resources dynamically. If one part of the network is busy, packets can be stored temporarily and forwarded later. However, this can introduce delays.\n\n- **Visual Representation**:\n  - In a packet-switched network, routers handle the packets and may have storage capabilities to manage packet queues. The network is shown as interconnected routers and links, with packets moving between routers based on availability.\n\n### Summary\n\n- **Circuit-Switched Networks**: Offer a dedicated, continuous connection between endpoints but can be inefficient if not fully utilized.\n- **Packet-Switched Networks**: Use data packets that are routed dynamically through the network, allowing for more efficient use of resources but potentially introducing delays.\n\nIn this book, packet-switched networks are discussed in more detail, particularly focusing on their performance and application in modern communication systems.\n\n",
+      "styleAttributes": {},
+      "x": -240,
+      "y": -280,
+      "width": 1120,
+      "height": 920
+    },
+    {
+      "id": "dc4a2e1291e8d9a1",
+      "type": "text",
+      "text": "### Accessing the Internet\n\nTo connect to the Internet, users need to be physically linked to an Internet Service Provider (ISP). This connection is often made via a point-to-point WAN. Here’s a summary of common methods for connecting to the Internet:\n\n#### 1. **Using Telephone Networks**\n\n- **Dial-Up Service**:\n  - **How It Works**: A modem converts data to voice signals over a standard telephone line. The computer dials the ISP to establish a connection.\n  - **Limitations**: This method is slow and uses the phone line exclusively for internet or voice communication, not both simultaneously. It is suitable only for occasional use in small residences or businesses.\n  - **Details**: Covered in more depth in Chapter 5.\n\n- **DSL (Digital Subscriber Line) Service**:\n  - **How It Works**: Upgrades the telephone line to provide high-speed Internet while allowing simultaneous voice and data communication.\n  - **Advantages**: Faster than dial-up and does not interfere with voice calls.\n  - **Details**: Discussed further in Chapter 5.\n\n#### 2. **Using Cable Networks**\n\n- **How It Works**: Uses cable TV lines to provide Internet access. This method offers higher speeds compared to dial-up or DSL.\n- **Advantages**: Faster connection speeds, though performance can vary based on local usage (e.g., how many neighbors are sharing the same cable).\n- **Details**: Explained in Chapter 5.\n\n#### 3. **Using Wireless Networks**\n\n- **How It Works**: Provides Internet access via wireless WAN (Wide Area Network). Can be used alongside wired connections for a combined approach.\n- **Advantages**: Convenient and increasingly popular, with growing availability.\n- **Details**: Covered in Chapter 6.\n\n#### 4. **Direct Connection to the Internet**\n\n- **How It Works**: Large organizations or corporations can become local ISPs themselves by leasing high-speed WAN connections from a carrier provider and linking to a regional ISP.\n- **Example**: A large university with multiple campuses can create an internetwork and connect it directly to the Internet.\n- **Details**: More detailed information in later chapters.\n\n### Summary\n\nTo connect to the Internet, options include traditional telephone lines with dial-up or DSL, cable networks, wireless connections, or direct connections for larger organizations. Each method has its advantages and limitations depending on speed, usage, and cost.",
+      "styleAttributes": {},
+      "x": -1200,
+      "y": 690,
+      "width": 700,
+      "height": 460
+    },
+    {
+      "id": "72ce85bb27e0be0d",
+      "type": "file",
+      "file": "source-images/Pasted image 20240913153640.png",
+      "styleAttributes": {},
+      "x": 929,
+      "y": -260,
+      "width": 1610,
+      "height": 560
+    },
+    {
+      "id": "3e3012d433e719fa",
+      "type": "file",
+      "file": "source-images/Pasted image 20240913153724.png",
+      "styleAttributes": {},
+      "x": 929,
+      "y": 400,
+      "width": 1691,
+      "height": 741
+    },
+    {
+      "id": "82d89aaa211e6a40",
+      "type": "file",
+      "file": "source-images/Pasted image 20240913153744.png",
+      "styleAttributes": {},
+      "x": 929,
+      "y": 1280,
+      "width": 2252,
+      "height": 660
+    },
+    {
+      "id": "6311e79e3c0710ab",
+      "type": "text",
+      "text": "*Simplified Version:**\n\nThe OSI model was created by the International Organization for Standardization (ISO) in the late 1970 s as a framework to help different systems communicate, no matter what hardware or software they use. It consists of **seven layers**, each defining a different part of the process of moving information across a network. Unlike TCP/IP, the OSI model is not a protocol, but a guide for designing network systems.\n\nWhen comparing **OSI** to **TCP/IP**, two layers of the OSI model—the **session** and **presentation** layers—are missing in TCP/IP. The application layer in TCP/IP combines functions of the OSI's application, presentation, and session layers. Some of these missing functionalities are handled within individual applications or by transport-layer protocols in TCP/IP.\n\n**Reasons OSI Didn't Succeed:**\n1. **TCP/IP was already established** and changing it would be expensive.\n2. **Some OSI layers weren’t fully defined** (session and presentation), and their protocols were incomplete.\n3. **OSI implementations underperformed**, which didn’t convince the Internet community to replace TCP/IP with the OSI model.",
+      "styleAttributes": {},
+      "x": -580,
+      "y": 2160,
+      "width": 860,
+      "height": 480
+    },
+    {
+      "id": "549699a594d3a1f0",
+      "type": "text",
+      "text": "**Simplified Comparison of OSI Model vs TCP/IP Model:**\n\n| **Parameter**           | **OSI Model**                                              | **TCP/IP Model**                                           |\n|-------------------------|------------------------------------------------------------|------------------------------------------------------------|\n| **Full Form**            | Open Systems Interconnection                               | Transmission Control Protocol/Internet Protocol             |\n| **Layers**               | 7 layers (Application, Presentation, Session, Transport, Network, Data Link, Physical) | 4 layers (Application, Transport, Internet, Network Access) |\n| **Usage**                | Low usage in modern networks                               | Most commonly used protocol model                           |\n| **Approach**             | Vertically structured (layer-by-layer)                     | Horizontally structured (focuses on interactions between layers) |\n| **Delivery**             | Guarantees delivery of data                                | Does not always guarantee data delivery                     |\n| **Replacement**          | Easier to replace or modify layers/tools                   | Harder to replace or modify tools within the model          |\n| **Reliability**          | Less reliable than TCP/IP                                  | More reliable than OSI                                      |\n| **Protocol Examples**    | Not tied to specific protocols, e.g., HTTP (Application), SSL/TLS (Presentation), TCP (Transport), IP (Network), Ethernet (Data Link) | Tied to specific protocols, e.g., HTTP, FTP, TCP, UDP, IP, Ethernet |\n| **Error Handling**       | Managed in Data Link and Transport layers                  | Managed within protocols like TCP                           |\n| **Connection Orientation**| Covers both connection-oriented (TCP) and connectionless (UDP) protocols at the Transport layer | TCP is connection-oriented, UDP is connectionless           |\n\nThis table highlights the key distinctions between the OSI and TCP/IP models in terms of structure, reliability, and usage.",
+      "styleAttributes": {},
+      "x": -1620,
+      "y": 2180,
+      "width": 980,
+      "height": 740
+    },
+    {
+      "id": "08afcb316df1e6b2",
+      "type": "text",
+      "text": "1. TCP/IP Protocol Suite:\n\nThe **TCP/IP protocol suite** is a collection of protocols used for communication over the internet. It is structured into layers where each layer serves specific functions. These layers work together to allow data to travel from one device to another across the internet. \n\nThe **TCP/IP protocol suite** is hierarchical, meaning higher-level protocols are supported by lower-level protocols. This architecture originally consisted of four layers, but is now viewed as a **five-layer model**.\n\n### Layers in TCP/IP:\n1. **Application Layer**:\n   - This layer is responsible for communication between two software programs (processes) on different devices. \n   - Examples of protocols: **HTTP, FTP, SMTP**.\n\n2. **Transport Layer**:\n   - Manages end-to-end communication between applications on different devices. It ensures that messages are delivered without errors.\n   - Main protocols: **TCP (Transmission Control Protocol)** and **UDP (User Datagram Protocol)**.\n\n3. **Network Layer**:\n   - This layer routes data from the source host to the destination host across multiple networks.\n   - Main protocol: **IP (Internet Protocol)**, responsible for host-to-host communication.\n\n4. **Data Link Layer**:\n   - Responsible for transferring data between two devices over a single link (such as a LAN).\n   - Deals with framing and error detection.\n   \n5. **Physical Layer**:\n   - Concerned with transmitting the actual bits of data over a physical medium, such as cables or wireless signals.\n\n### Communication in TCP/IP Protocol Suite:\nWhen a message is sent from one computer to another, it passes through all five layers at the source host. The message is **encapsulated** with additional information (such as headers) at each layer to ensure correct delivery. At the destination host, the process is reversed, and the message is **decapsulated** as it passes up through the layers.\n\n1. **Application Layer**:\n   - The source application sends the message to the transport layer.\n   \n2. **Transport Layer**:\n   - Adds a header with source and destination information, creating a **segment** (TCP) or **datagram** (UDP).\n   \n3. **Network Layer**:\n   - Encapsulates the segment in a **datagram**, adding source and destination IP addresses.\n   \n4. **Data Link Layer**:\n   - Wraps the datagram in a **frame**, adding link-layer addresses and sends it to the physical layer.\n   \n5. **Physical Layer**:\n   - Transmits the frame as bits across the network medium to the next device (router, switch, or destination host).\n\nThis encapsulation allows each layer to add its own information necessary for routing, error checking, and ensuring successful data transmission. When the data arrives at its destination, each layer strips off its header (decapsulation) until the original message is delivered to the application layer of the receiving device.\n\n---\n\nLet me know if you want a further breakdown of each section!",
+      "styleAttributes": {},
+      "x": -2440,
+      "y": 2180,
+      "width": 700,
+      "height": 760
+    },
+    {
+      "id": "81db4812007d8618",
+      "type": "text",
+      "text": "### 1.1.3 The Internet: Simplified Overview\n\n**What is an internet (lowercase i)?**\nAn **internet** is formed when two or more networks communicate with each other. The most notable example is the **Internet** (uppercase I), which consists of thousands of interconnected networks across the world.\n\n### Internet Structure\n- The Internet has different layers: **backbones**, **provider networks**, and **customer networks**.\n  - **Backbones**: Large networks owned by companies like Sprint, Verizon, and AT&T. They connect through peering points.\n  - **Provider networks**: Smaller networks that connect to backbones and provide services to end-users.\n  - **Customer networks**: Located at the edge of the Internet, these are the networks used by people and businesses, which pay for access to provider networks.\n\nBoth backbones and provider networks are also called **Internet Service Providers (ISPs)**. Backbones are **international ISPs**, while provider networks are **national or regional ISPs**.\n\n### 1.1.4 Accessing the Internet: How We Get Connected\n\nTo use the Internet, users need to connect to an ISP. Here's how that can happen:\n\n1. **Using Telephone Networks**\n   - **Dial-up Service**: Converts data into voice, using a modem. It’s slow and doesn’t allow voice and Internet use at the same time. Suitable for small households or businesses.\n   - **DSL Service**: Provides faster Internet through upgraded phone lines, allowing simultaneous use of voice and Internet.\n\n2. **Using Cable Networks**\n   - Cable TV networks can also provide Internet. It’s faster but can slow down if too many people in the neighborhood use it at the same time.\n\n3. **Using Wireless Networks**\n   - Wireless connections are becoming more common. A household or business can use both wireless and wired connections for Internet access.\n\n4. **Direct Connection to the Internet**\n   - Large organizations can lease a high-speed WAN and connect directly to a regional ISP, like universities with multiple campuses.\n\n### 1.1.5 Hardware and Software: Making the Internet Work\n\nThe Internet is made up of many networks linked with connecting devices. For communication to happen, both **hardware** (like routers and computers) and **software** (such as protocols) are needed. Without both, the networks can’t communicate effectively.\n\nIn the next section, the focus shifts to how hardware and software work together through **protocol layering** to make communication on the Internet possible.\n\n---\n\nThis breakdown should help you easily recall the basics of the Internet for your exam tomorrow!",
+      "styleAttributes": {},
+      "x": -2440,
+      "y": 1280,
+      "width": 1120,
+      "height": 620
+    },
+    {
+      "id": "bcdd8ffea77bfc40",
+      "type": "text",
+      "text": "### 1.2 Protocol Layering: Simple Explanation\n\n**What is a protocol?**\nA protocol is a set of rules that govern how communication happens between two parties. Think of it as the instructions both the sender and receiver must follow to communicate effectively.\n\n**Why Protocol Layering?**\nIn simple communication, like a face-to-face conversation, a single protocol may be enough. However, in more complex communication scenarios, it helps to divide the communication task into layers. Each layer has its own protocol, which simplifies the overall process.\n\n### 1.2.1 Scenarios for Understanding Protocol Layering\n\n**First Scenario: One-Layer Communication**\nImagine Maria and Ann are neighbors. When they communicate face-to-face, they only need a simple set of rules: listen while the other speaks, respond appropriately, and take turns talking. This is a one-layer protocol where both know the rules of engagement. However, this scenario doesn’t require much complexity.\n\n**Second Scenario: Multi-Layer Communication**\nNow, imagine Ann moves to another city. Maria and Ann still want to communicate through letters. They add encryption to keep their ideas private. This introduces layers:\n- **Layer 3:** They write and read the message (plaintext).\n- **Layer 2:** They encrypt the message (ciphertext).\n- **Layer 1:** They send the encrypted letter via mail.\n\nAt Maria’s end, the process starts from writing the message (Layer 3), encrypting it (Layer 2), and sending it (Layer 1). At Ann’s end, the reverse happens—receive the mail (Layer 1), decrypt it (Layer 2), and read the message (Layer 3).\n\nThis scenario demonstrates how a complex communication task can be divided into manageable parts or layers.\n\n### Benefits of Protocol Layering\n\n- **Modularity:** Each layer functions independently. If Ann and Maria want to change their encryption method, they can replace the encryption layer (Layer 2) without affecting the other layers. This modular approach makes systems easier to manage.\n- **Separation of Service and Implementation:** Each layer provides services to the layer above it and receives services from the layer below it. You don't need to know how the service is implemented as long as it works. For instance, Maria can do Layer 1 (sending mail) manually, and it would still work.\n- **Handling Intermediate Systems:** In larger communication systems (like the Internet), protocol layering allows intermediate systems (like routers) to handle only the necessary layers, reducing complexity and costs.\n\n### Disadvantage of Protocol Layering\n\nSome argue that a single-layer approach might be simpler, but that would mean if any part of the communication system breaks (like encryption), the entire system would need replacing. Layering provides flexibility, as you can change individual parts without affecting the whole.\n\n### Principles of Protocol Layering\n\n1. **Bidirectional Communication:** Each layer must handle communication in both directions. For example, Layer 3 should handle both listening and talking.\n2. **Identical Objects in Each Layer:** The object in each layer on both sides must be the same. For example, the plaintext message in Layer 3 should be the same for both Ann and Maria.\n\n### Logical Connections Between Layers\n\nEach layer on one side communicates with its counterpart on the other side. Maria and Ann can imagine there’s a logical connection between their Layer 3 (plaintext), Layer 2 (ciphertext), and Layer 1 (mail), allowing them to communicate seamlessly.\n\nBy following these principles, protocol layering simplifies complex communication, making it efficient and adaptable.\n\n---\n\nThis summary should help you understand the core ideas of protocol layering for your exam tomorrow! Let me know if you need any further clarification.",
+      "styleAttributes": {},
+      "x": -2480,
+      "y": 720,
+      "width": 1160,
+      "height": 480
+    },
+    {
+      "id": "bb864ff4ba66321d",
+      "type": "text",
+      "text": "### 7.2.1 Digital-to-Digital Conversion\n\n**Digital data** can be represented using **digital signals** through various techniques: line coding, block coding, and scrambling. Here's an overview of **line coding**:\n\n#### Line Coding\nLine coding is converting a sequence of digital bits into a digital signal. This is essential for transmission and involves encoding at the sender and decoding at the receiver. Key parameters include:\n- **N**: Bit rate (bits per second).\n- **r**: Number of bits per signal change.\n- **S**: Baud rate (signal changes per second).\n- **Save**: Average number of signal changes.\n\n**Formula**: \n\\[ \\text{Save} = c \\times \\frac{N}{r} \\]\nWhere \\( c \\) is a factor typically 0 or 1/2 depending on the bit sequence.\n\n#### Polar Schemes\n- **NRZ-L (Non-Return-to-Zero-Level)**: Voltage level directly represents bit value.\n- **NRZ-I (Non-Return-to-Zero-Inverted)**: Voltage change represents bit value. Long sequences of identical bits cause synchronization issues.\n- **RZ (Return-to-Zero)**: Uses three voltage levels: positive, negative, and zero. Each bit has two signal changes, leading to higher bandwidth usage.\n- **Manchester Encoding**: Combines RZ and NRZ-L by transitioning in the middle of each bit, ensuring synchronization.\n- **Differential Manchester Encoding**: Transition at the middle of the bit; bit values determined by the initial state.\n\n#### Bipolar Schemes\n- **AMI (Alternate Mark Inversion)**: Uses three voltage levels. Binary 0 s are zero volts, and 1 s alternate between positive and negative voltages.\n- **Pseudoternary**: Binary 1 s are zero volts, and 0 s alternate between positive and negative voltages.\n\n#### Multilevel Schemes\n- **mBnL Encoding**: Encodes a pattern of \\( m \\) data elements into \\( n \\) signal elements with \\( L \\) levels. Examples:\n  - **2 B 1 Q (2 Binary 1 Quaternary)**: 2-bit patterns are encoded into 4 signal levels.\n  - **8 B 6 T (8 Binary 6 Ternary)**: 8-bit patterns are encoded into 6 ternary signal levels, providing synchronization and error detection.\n\nThese techniques help balance data rate, bandwidth, and error detection for effective digital communication.",
+      "styleAttributes": {},
+      "x": -2460,
+      "y": 3380,
+      "width": 740,
+      "height": 700
+    },
+    {
+      "id": "93a5dcb70dd88665",
+      "type": "text",
+      "text": "### Block Coding and Scrambling\n\n**Block coding** introduces redundancy to ensure synchronization and error detection by converting a block of `m` bits into a block of `n` bits, where `n` > `m`. This technique involves three steps:\n1. **Division**: Split the bit sequence into `m`-bit groups.\n2. **Substitution**: Replace each `m`-bit group with an `n`-bit group.\n3. **Combination**: Combine the `n`-bit groups into a new sequence.\n\n#### 4B/5B Coding\n- **Purpose**: Prevents long sequences of 0s which can cause synchronization issues, especially when used with NRZ-I line coding.\n- **Encoding**: 4-bit input is replaced by a 5-bit output, ensuring no more than three consecutive 0s in the resulting bit stream.\n\n#### 8B/10B Coding\n- **Purpose**: Provides better error detection than 4B/5B.\n- **Encoding**: 8-bit data is replaced by a 10-bit code. It combines 5B/6B and 3B/4B encoding schemes and uses a disparity controller to balance the number of 0s and 1s, improving synchronization and error detection.\n\n### Scrambling\nScrambling avoids long sequences of 0s by modifying the encoding process to ensure synchronization without increasing the bit rate. It is used with encoding schemes like AMI to maintain a DC balance and avoid synchronization problems.\n\n#### B8ZS (Bipolar with 8-Zero Substitution)\n- **Usage**: Common in North America.\n- **Technique**: Replaces eight consecutive 0s with `000VB0VB`, where `V` indicates a violation (nonzero voltage breaking AMI rules) and `B` indicates bipolar compliance (opposite polarity to the previous nonzero pulse).\n\n#### HDB3 (High-Density Bipolar 3-Zero)\n- **Usage**: Common outside North America.\n- **Technique**: Replaces four consecutive 0s with `000V` or `B00V` to ensure an even number of nonzero pulses. The choice between patterns depends on the parity of nonzero pulses before substitution.\n\nThese techniques help maintain signal integrity and synchronization over various communication channels.",
+      "styleAttributes": {},
+      "x": -1520,
+      "y": 3294,
+      "width": 955,
+      "height": 786
+    }
+  ],
+  "edges": [
+    {
+      "id": "6adce619352d139b",
+      "styleAttributes": {},
+      "fromNode": "4a50fac43e57b3e0",
+      "fromSide": "bottom",
+      "toNode": "bcdd8ffea77bfc40",
+      "toSide": "right"
+    },
+    {
+      "id": "cb7d71a1f3eac20f",
+      "styleAttributes": {},
+      "fromNode": "6311e79e3c0710ab",
+      "fromSide": "left",
+      "toNode": "549699a594d3a1f0",
+      "toSide": "right"
+    },
+    {
+      "id": "434aa25a71da6457",
+      "styleAttributes": {},
+      "fromNode": "08afcb316df1e6b2",
+      "fromSide": "right",
+      "toNode": "549699a594d3a1f0",
+      "toSide": "left"
+    },
+    {
+      "id": "e04f84985b741529",
+      "styleAttributes": {},
+      "fromNode": "bcdd8ffea77bfc40",
+      "fromSide": "bottom",
+      "toNode": "81db4812007d8618",
+      "toSide": "top"
+    },
+    {
+      "id": "3e07eb80ea66cf38",
+      "styleAttributes": {},
+      "fromNode": "81db4812007d8618",
+      "fromSide": "bottom",
+      "toNode": "08afcb316df1e6b2",
+      "toSide": "top"
+    }
+  ],
+  "metadata": {}
+}
