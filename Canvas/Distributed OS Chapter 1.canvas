@@ -148,16 +148,6 @@
       "height": 632
     },
     {
-      "id": "c6d2fa7a1983440b",
-      "type": "text",
-      "text": "# SOFTWARE CONCEPTS",
-      "styleAttributes": {},
-      "x": 4200,
-      "y": -240,
-      "width": 420,
-      "height": 120
-    },
-    {
       "id": "66cd72af8e3ba547",
       "type": "file",
       "file": "Source Materials/Pasted image 20240911061502.png",
@@ -199,6 +189,26 @@
       "color": "5"
     },
     {
+      "id": "56592d8e2acc0899",
+      "type": "file",
+      "file": "source-images/Pasted image 20240922202911.png",
+      "styleAttributes": {},
+      "x": -3919,
+      "y": 1920,
+      "width": 2214,
+      "height": 1733
+    },
+    {
+      "id": "053ce21121db467c",
+      "type": "file",
+      "file": "source-images/Pasted image 20240922202846.png",
+      "styleAttributes": {},
+      "x": -3919,
+      "y": -226,
+      "width": 2214,
+      "height": 2146
+    },
+    {
       "id": "70f7fca0e84c5988",
       "type": "text",
       "text": "Crossbar switches offer excellent performance by allowing multiple CPUs to access different memory modules simultaneously, which significantly enhances memory bandwidth and system throughput. However, despite these benefits, crossbar switches are rarely used in practice due to several key reasons:\n\n### 1. **Scalability and Cost**:\n   - **Exponential Growth of Switches**: As the number of CPUs and memory modules increases, the number of switches required grows exponentially. Specifically, for a system with \\( n \\) CPUs and \\( n \\) memory modules, a crossbar switch requires \\( n^2 \\) crosspoints. This quickly becomes prohibitive as \\( n \\) increases.\n   - **High Cost**: Large crossbar switches are extremely expensive to produce due to the sheer number of switches and the complexity involved in manufacturing them. For example, a system with 1024 CPUs and 1024 memory modules would need over a million switches, making the cost impractical for large-scale systems.\n\n### 2. **Complexity and Power Consumption**:\n   - **Power and Space Requirements**: Crossbar switches consume a lot of power due to the number of switches that need to be active simultaneously. Additionally, they require a significant amount of physical space, making them impractical for systems where efficiency and compact design are important.\n   - **Control Complexity**: Managing and coordinating such a large number of switches also introduces significant complexity. Each switch must be controlled to ensure that memory accesses do not conflict, and resolving contention when multiple CPUs try to access the same memory adds overhead.\n\n### 3. **Alternative Switching Networks**:\n   - **More Efficient Alternatives**: Networks like the **omega network** offer a more scalable alternative by reducing the number of switches needed. Although they introduce some delay due to multiple switching stages, they significantly lower the hardware cost compared to crossbar switches.\n   - **NUMA (Non-Uniform Memory Access) Architecture**: In NUMA systems, each CPU has fast access to its local memory and slower access to remote memory. While this adds complexity in terms of data placement and access patterns, it provides a more cost-effective and scalable solution compared to crossbar switches.\n\n### 4. **Latency Issues**:\n   - As the number of CPUs grows, the time it takes for memory requests to traverse the crossbar switches can introduce significant latency. While modern processors operate at extremely high speeds, the delay incurred by passing through a large crossbar switch can negatively impact performance.\n\n### Conclusion:\nCrossbar switches offer excellent parallel access to memory, but their high cost, complexity, and power consumption, along with the availability of more scalable alternatives like omega networks and NUMA architectures, limit their practical use in large multiprocessor systems.",
@@ -229,26 +239,6 @@
       "width": 1086,
       "height": 387,
       "color": "5"
-    },
-    {
-      "id": "56592d8e2acc0899",
-      "type": "file",
-      "file": "source-images/Pasted image 20240922202911.png",
-      "styleAttributes": {},
-      "x": -3919,
-      "y": 1920,
-      "width": 2214,
-      "height": 1733
-    },
-    {
-      "id": "053ce21121db467c",
-      "type": "file",
-      "file": "source-images/Pasted image 20240922202846.png",
-      "styleAttributes": {},
-      "x": -3919,
-      "y": -226,
-      "width": 2214,
-      "height": 2146
     },
     {
       "id": "149923d199e3ea38",
@@ -319,6 +309,16 @@
       "y": 4100,
       "width": 1110,
       "height": 328
+    },
+    {
+      "id": "c6d2fa7a1983440b",
+      "type": "text",
+      "text": "# SOFTWARE CONCEPTS",
+      "styleAttributes": {},
+      "x": 4200,
+      "y": -240,
+      "width": 420,
+      "height": 120
     },
     {
       "id": "54ee6625e97468c6",
